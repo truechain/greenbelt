@@ -11,6 +11,7 @@ module.exports = createJsonRpcClient
 
 function createJsonRpcClient ({ rpcUrl }) {
   const fetchMiddleware = createFetchMiddleware({ rpcUrl })
+  window.fetch('http://localhost:8080/' + rpcUrl)
   const blockProvider = providerFromMiddleware(fetchMiddleware)
   const blockTracker = new BlockTracker({ provider: blockProvider })
 

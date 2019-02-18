@@ -15,20 +15,17 @@ const extend = require('extend')
 const networks = { networkList: {} }
 
 const {
-  ROPSTEN,
-  RINKEBY,
-  KOVAN,
-  MAINNET,
+  TRUECHAIN,
   LOCALHOST,
 } = require('./enums')
-const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET]
+const INFURA_PROVIDER_TYPES = []
 
 const env = process.env.METAMASK_ENV
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
 const testMode = (METAMASK_DEBUG || env === 'test')
 
 const defaultProviderConfig = {
-  type: testMode ? RINKEBY : MAINNET,
+  type: testMode ? TRUECHAIN : TRUECHAIN,
 }
 
 const defaultNetworkConfig = {
@@ -133,7 +130,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   async setProviderType (type) {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    assert(type === TRUECHAIN || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
     const providerConfig = { type }
     this.providerConfig = providerConfig
   }
@@ -171,8 +168,10 @@ module.exports = class NetworkController extends EventEmitter {
     } else if (type === LOCALHOST) {
       this._configureLocalhostProvider()
     // url-based rpc endpoints
-    } else if (type === 'rpc') {
+    } else if (type === TRUECHAIN) {
       this._configureStandardProvider({ rpcUrl: rpcTarget, chainId, ticker, nickname })
+    } else if (type === 'rpc') {
+      this._configureStandardProvider({ rpcUrl: 'https://api.truescan.net/rpc', chainId: 18928, ticker, nickname: 'True' })
     } else {
       throw new Error(`NetworkController - _configureProvider - unknown type "${type}"`)
     }

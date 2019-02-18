@@ -228,10 +228,7 @@
     "conversionDate": 1538859376,
     "shapeShiftTxList": [],
     "infuraNetworkStatus": {
-      "kovan": "ok",
-      "mainnet": "ok",
-      "rinkeby": "ok",
-      "ropsten": "ok"
+      "truechain": "ok"
     },
     "lostAccounts": []
   },

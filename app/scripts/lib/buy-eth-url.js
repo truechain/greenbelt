@@ -29,6 +29,10 @@ function getBuyEthUrl ({ network, amount, address }) {
     case '42':
       url = 'https://github.com/kovan-testnet/faucet'
       break
+
+    case '18928':
+      url = 'https://api.truescan.net/rpc/'
+      break
   }
   return url
 }

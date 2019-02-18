@@ -45,10 +45,10 @@ function hexValueIsEmpty (value) {
 function getRegistrarForChainId (chainId) {
   switch (chainId) {
     // mainnet
-    case 1:
+    // case 1:
+    //   return '0x314159265dd8dbb310642f98f50c066173c1259b'
+    // truechain
+    case 18928:
       return '0x314159265dd8dbb310642f98f50c066173c1259b'
-    // ropsten
-    case 3:
-      return '0x112234455c3a32fd11230c42e7bccd4a84e02010'
   }
 }
