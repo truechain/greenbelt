@@ -3,10 +3,7 @@ const extend = require('xtend')
 const EthQuery = require('eth-query')
 const log = require('loglevel')
 const pify = require('pify')
-const {
-  TRUECHAIN,
-} = require('./network/enums')
-const INFURA_PROVIDER_TYPES = [TRUECHAIN]
+const INFURA_PROVIDER_TYPES = []
 
 
 class RecentBlocksController {

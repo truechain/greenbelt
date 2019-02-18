@@ -169,9 +169,9 @@ module.exports = class NetworkController extends EventEmitter {
       this._configureLocalhostProvider()
     // url-based rpc endpoints
     } else if (type === TRUECHAIN) {
-      this._configureStandardProvider({ rpcUrl: rpcTarget, chainId, ticker, nickname })
-    } else if (type === 'rpc') {
       this._configureStandardProvider({ rpcUrl: 'https://api.truescan.net/rpc', chainId: 18928, ticker, nickname: 'True' })
+    } else if (type === 'rpc') {
+      this._configureStandardProvider({ rpcUrl: rpcTarget, chainId, ticker, nickname })
     } else {
       throw new Error(`NetworkController - _configureProvider - unknown type "${type}"`)
     }
