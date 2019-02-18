@@ -133,7 +133,7 @@ NetworkDropdown.prototype.render = function () {
           style: {
             color: providerType === 'truechain' ? '#ffffff' : '#9b9b9b',
           },
-        }, this.context.t('mainnet')),
+        }, this.context.t('truechain')),
       ]
     ),
 
@@ -194,7 +194,7 @@ NetworkDropdown.prototype.getNetworkName = function () {
   let name
 
   if (providerName === 'truechain') {
-    name = this.context.t('mainnet')
+    name = this.context.t('truechain')
   } else {
     name = provider.nickname || this.context.t('unknownNetwork')
   }

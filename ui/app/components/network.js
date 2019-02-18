@@ -36,7 +36,7 @@ Network.prototype.render = function () {
   let hoverText
 
   if (providerName === 'truechain') {
-    hoverText = context.t('mainnet')
+    hoverText = context.t('truechain')
     iconName = 'truechain-network'
   } else {
     hoverText = providerId
@@ -65,7 +65,7 @@ Network.prototype.render = function () {
                 nonSelectBackgroundColor: '#15afb2',
                 loading: networkNumber === 'loading',
               }),
-              h('.network-name', context.t('mainnet')),
+              h('.network-name', context.t('truechain')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
             ])
           default:

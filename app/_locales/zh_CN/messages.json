@@ -241,7 +241,7 @@
     "message": "精确小数点"
   },
   "defaultNetwork": {
-    "message": "默认以太坊交易网络为主网。"
+    "message": "默认初链交易网络为主网。"
   },
   "denExplainer": {
     "message": "你的 DEN 是存储在 MetaMask 中的已加密密码。"
@@ -444,6 +444,12 @@
     "message": "已导入",
     "description": "status showing that an account has been fully loaded into the keyring"
   },
+  "importUsingSeed": {
+    "message": "使用助记词导入账户"
+  },
+  "importWithSeedPhrase": {
+    "message": "Import with seed phrase"
+  },
   "infoHelp": {
     "message": "信息 & 帮助"
   },
@@ -529,6 +535,9 @@
   },
   "mainnet": {
     "message": "以太坊主网络"
+  },
+  "truechain": {
+    "message": "初链主网络"
   },
   "message": {
     "message": "消息"
@@ -683,7 +692,7 @@
     "message": "重设账户"
   },
   "restoreFromSeed": {
-    "message": "从助记词还原"
+    "message": "恢复账户？"
   },
   "restoreVault": {
     "message": "还原保险柜"
@@ -950,6 +959,24 @@
   "unknownNetworkId": {
     "message": "未知网络ID"
   },
+  "unknownQrCode": {
+    "message": "错误：无法识别这个二维码"
+  },
+  "unknownCameraErrorTitle": {
+    "message": "哦！出错了..."
+  },
+  "unknownCameraError": {
+    "message": "获取相机权限时出错，请重试..."
+  },
+  "unlock": {
+    "message": "解锁"
+  },
+  "unlockMessage": {
+    "message": "输入密码解锁"
+  },
+  "updatedWithDate": {
+    "message": "已解锁 $1"
+  },
   "uriErrorMsg": {
     "message": "URIs require the appropriate HTTP/HTTPS prefix."
   },
@@ -977,6 +1004,9 @@
   },
   "warning": {
     "message": "警告"
+  },
+  "welcomeBack": {
+    "message": "欢迎回来"
   },
   "welcome": {
     "message": "欢迎使用 MetaMask 测试版"

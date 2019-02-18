@@ -767,6 +767,9 @@
   "mainnet": {
     "message": "Main Ethereum Network"
   },
+  "truechain": {
+    "message": "TrueChain"
+  },
   "memorizePhrase": {
     "message": "Memorize this phrase."
   },

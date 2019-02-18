@@ -247,7 +247,7 @@ class App extends Component {
     let name
 
     if (providerName === 'truechain') {
-      name = this.context.t('mainnet')
+      name = this.context.t('truechain')
     } else {
       name = this.context.t('unknownNetwork')
     }
