@@ -87,7 +87,7 @@
     "message": "Add Suggested Tokens"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using MetaMask"
+    "message": "Add the tokens you've acquired using GreenBelt"
   },
   "advanced": {
     "message": "Advanced"
@@ -106,7 +106,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "GreenBelt",
     "description": "The name of the application"
   },
   "approve": {
@@ -168,7 +168,7 @@
     "message": "Your Browser is not supported..."
   },
   "builtInCalifornia": {
-    "message": "MetaMask is designed and built in California."
+    "message": "GreenBelt is designed and built in California."
   },
   "buy": {
     "message": "Buy"
@@ -216,7 +216,7 @@
     "message": "Close"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "You need to use MetaMask on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use GreenBelt on Google Chrome in order to connect to your Hardware Wallet."
   },
   "confirm": {
     "message": "Confirm"
@@ -373,7 +373,7 @@
     "message": "The default network for Ether transactions is Main Net."
   },
   "denExplainer": {
-    "message": "Your DEN is your password-encrypted storage within MetaMask."
+    "message": "Your DEN is your password-encrypted storage within GreenBelt."
   },
   "deposit": {
     "message": "Deposit"
@@ -401,7 +401,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your MetaMask wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your GreenBelt wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -595,7 +595,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with MetaMask"
+    "message": "Select a hardware wallet you'd like to use with GreenBelt"
   },
   "havingTroubleConnecting": {
     "message": "Having trouble connecting?"
@@ -636,7 +636,7 @@
     "message": "Import Account"
   },
   "importAccountMsg": {
-    "message": " Imported accounts will not be associated with your originally created MetaMask account seedphrase. Learn more about imported accounts "
+    "message": " Imported accounts will not be associated with your originally created GreenBelt account seedphrase. Learn more about imported accounts "
   },
   "importAccountSeedPhrase": {
     "message": "Import an Account with Seed Phrase"
@@ -710,7 +710,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account."
+    "message": "Keep track of the tokens you’ve bought with your GreenBelt account."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -779,14 +779,14 @@
   "message": {
     "message": "Message"
   },
-  "metamaskDescription": {
-    "message": "MetaMask is a secure identity vault for Ethereum."
+  "GreenBeltDescription": {
+    "message": "GreenBelt is a secure identity vault for Ethereum."
   },
-  "metamaskSeedWords": {
-    "message": "MetaMask Seed Words"
+  "GreenBeltSeedWords": {
+    "message": "GreenBelt Seed Words"
   },
-  "metamaskVersion": {
-    "message": "MetaMask Version"
+  "GreenBeltVersion": {
+    "message": "GreenBelt Version"
   },
   "min": {
     "message": "Minimum"
@@ -804,7 +804,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using MetaMask, you’ll need Ether in your wallet."
+    "message": "To interact with decentralized applications using GreenBelt, you’ll need Ether in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -1208,7 +1208,7 @@
     "message": "Select an Account"
   },
   "selectAnAccountHelp": {
-    "message": "Select the account to view in MetaMask"
+    "message": "Select the account to view in GreenBelt"
   },
   "selectAHigherGasFee": {
     "message": "Select a higher gas fee to accelerate the processing of your transaction.*"
@@ -1374,7 +1374,7 @@
     "message": "Token Symbol"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your GreenBelt account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "Total"
@@ -1456,19 +1456,19 @@
     "message": "Try again"
   },
   "twelveWords": {
-    "message": "These 12 words are the only way to restore your MetaMask accounts.\nSave them somewhere safe and secret."
+    "message": "These 12 words are the only way to restore your GreenBelt accounts.\nSave them somewhere safe and secret."
   },
   "typePassword": {
-    "message": "Type your MetaMask password"
+    "message": "Type your GreenBelt password"
   },
   "uiMigrationAnnouncement": {
-    "message": "Welcome to the new MetaMask UI. If you have feedback about the UI or feature requests, please reach out to our support team or on GitHub."
+    "message": "Welcome to the new GreenBelt UI. If you have feedback about the UI or feature requests, please reach out to our support team or on GitHub."
   },
   "uiWelcome": {
     "message": "Welcome to the New UI (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "You are now using the new MetaMask UI."
+    "message": "You are now using the new GreenBelt UI."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -1544,7 +1544,7 @@
     "message": "Welcome Back!"
   },
   "welcome": {
-    "message": "Welcome to MetaMask"
+    "message": "Welcome to GreenBelt"
   },
   "whatsThis": {
     "message": "What's this?"

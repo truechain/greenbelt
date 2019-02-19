@@ -173,7 +173,7 @@ detectAccountRequest('sendAsync')
 // setup web3
 //
 
-if (typeof window.web3 !== 'undefined') {
+if (typeof window.web3t !== 'undefined') {
   throw new Error(`MetaMask detected another web3.
      MetaMask will not work reliably with another web3 extension.
      This usually happens if you have two MetaMasks installed,
@@ -181,13 +181,13 @@ if (typeof window.web3 !== 'undefined') {
      and try again.`)
 }
 
-const web3 = new Web3(proxiedInpageProvider)
-web3.setProvider = function () {
+const web3t = new Web3(proxiedInpageProvider)
+web3t.setProvider = function () {
   log.debug('MetaMask - overrode web3.setProvider')
 }
 log.debug('MetaMask - injected web3')
 
-setupDappAutoReload(web3, inpageProvider.publicConfigStore)
+setupDappAutoReload(web3t, inpageProvider.publicConfigStore)
 
 // export global web3, with usage-detection and deprecation warning
 
@@ -212,7 +212,7 @@ global.web3 = new Proxy(web3, {
 
 // set web3 defaultAccount
 inpageProvider.publicConfigStore.subscribe(function (state) {
-  web3.eth.defaultAccount = state.selectedAddress
+  web3t.eth.defaultAccount = state.selectedAddress
 })
 
 // need to make sure we aren't affected by overlapping namespaces

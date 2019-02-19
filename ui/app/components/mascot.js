@@ -1,7 +1,7 @@
 const inherits = require('util').inherits
 const Component = require('react').Component
 const h = require('react-hyperscript')
-const metamaskLogo = require('metamask-logo')
+const metamaskLogo = require('greenbelt-logo')
 const debounce = require('debounce')
 
 module.exports = Mascot

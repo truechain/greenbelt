@@ -90,7 +90,7 @@
     "message": "Dodaj priporočene žetone"
   },
   "addAcquiredTokens": {
-    "message": "Dodaj žetone pridobljene z MetaMask"
+    "message": "Dodaj žetone pridobljene z GreenBelt"
   },
   "advanced": {
     "message": "Napredno"
@@ -109,7 +109,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "GreenBelt",
     "description": "The name of the application"
   },
   "approve": {
@@ -201,7 +201,7 @@
     "message": "Vaš brskalnik ni podptrt ..."
   },
   "builtInCalifornia": {
-    "message": "MetaMask je zasnovan in ustvarjen v Kaliforniji."
+    "message": "GreenBelt je zasnovan in ustvarjen v Kaliforniji."
   },
   "buy": {
     "message": "Kupi"
@@ -391,7 +391,7 @@
     "message": "Privzeto omrežje za transkacije je glavno omrežje."
   },
   "denExplainer": {
-    "message": "Vaš DEN je z geslom šifrirana shramba v MetaMask."
+    "message": "Vaš DEN je z geslom šifrirana shramba v GreenBelt."
   },
   "deposit": {
     "message": "Vplačaj"
@@ -419,7 +419,7 @@
     "message": "Vplačilo z ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Če imate druge kriptovalute, lahko Ether vplačate neposredno v MetaMask. Brez računov."
+    "message": "Če imate druge kriptovalute, lahko Ether vplačate neposredno v GreenBelt. Brez računov."
   },
   "details": {
     "message": "Podrobnosti"
@@ -431,7 +431,7 @@
     "message": "Neposredno vplačilo ehera"
   },
   "directDepositEtherExplainer": {
-    "message": "Če že imate Ether, ga lahko najhitreje dobite v MetaMask z neposrednim vplačilom."
+    "message": "Če že imate Ether, ga lahko najhitreje dobite v GreenBelt z neposrednim vplačilom."
   },
   "done": {
     "message": "Končano"
@@ -707,7 +707,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Sledite žetonom, ki ste jih pridobili z MetaMask."
+    "message": "Sledite žetonom, ki ste jih pridobili z GreenBelt."
   },
   "kovan": {
     "message": "Testno omrežje Kovan"
@@ -770,13 +770,13 @@
   "message": {
     "message": "Sporočilo"
   },
-  "metamaskDescription": {
-    "message": "MetaMask je varen identitetni sklad za Ethereum."
+  "GreenBeltDescription": {
+    "message": "GreenBelt je varen identitetni sklad za Ethereum."
   },
-  "metamaskSeedWords": {
+  "GreenBeltSeedWords": {
     "message": "Seed Words"
   },
-  "metamaskVersion": {
+  "GreenBeltVersion": {
     "message": "Različica"
   },
   "min": {
@@ -1187,7 +1187,7 @@
     "message": "Izberi račun"
   },
   "selectAnAccountHelp": {
-    "message": "Izberi račun za prikaz v MetaMask"
+    "message": "Izberi račun za prikaz v GreenBelt"
   },
   "selectAHigherGasFee": {
     "message": "Izberite višji gas fee, da pospešite obdelavo vaše transakcije.*"
@@ -1344,7 +1344,7 @@
     "message": "Simbol žetona"
   },
   "tokenWarning1": {
-    "message": "Sledite žetonom, ki ste jih kupili z MetaMask metamask računom. Če ste jih kupili drugje, ne bodo prikazani tukaj."
+    "message": "Sledite žetonom, ki ste jih kupili z GreenBelt GreenBelt računom. Če ste jih kupili drugje, ne bodo prikazani tukaj."
   },
   "total": {
     "message": "Skupno"
@@ -1426,10 +1426,10 @@
     "message": "Poskusi znova"
   },
   "twelveWords": {
-    "message": "Edini način za obnovitev MetaMask računa, je teh 12 besed.\nShranite jih na varno in skrivno mesto."
+    "message": "Edini način za obnovitev GreenBelt računa, je teh 12 besed.\nShranite jih na varno in skrivno mesto."
   },
   "typePassword": {
-    "message": "Vnesite vaše MetaMask geslo"
+    "message": "Vnesite vaše GreenBelt geslo"
   },
   "uiWelcome": {
     "message": "Dobrodošli v nov UI (Beta)"
@@ -1523,7 +1523,7 @@
     "message": "Dobrodošli nazaj!"
   },
   "welcome": {
-    "message": "Dobrodošli v MetaMask"
+    "message": "Dobrodošli v GreenBelt"
   },
   "whatsThis": {
     "message": "Kaj je to?"

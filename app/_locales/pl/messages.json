@@ -33,7 +33,7 @@
     "message": "Dodaj sugerowane tokeny."
   },
   "addAcquiredTokens": {
-    "message": "Dodaj tokeny pozyskane przy pomocy MetaMask"
+    "message": "Dodaj tokeny pozyskane przy pomocy GreenBelt"
   },
   "amount": {
     "message": "Ilość"
@@ -46,7 +46,7 @@
     "description": "Opis aplikacji"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "GreenBelt",
     "description": "Nazwa aplikacji"
   },
   "approve": {
@@ -93,7 +93,7 @@
     "message": "Twoja przeglądarka nie jest obsługiwana..."
   },
   "builtInCalifornia": {
-    "message": "MetaMask został zaprojektowany i stworzony w Kaliforni."
+    "message": "GreenBelt został zaprojektowany i stworzony w Kaliforni."
   },
   "buy": {
     "message": "Kup"
@@ -126,7 +126,7 @@
     "message": "Zamknij"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Żeby połączyć się z portfelem sprzętowym, należy uruchomić MetaMask z przeglądarką Google Chrome."
+    "message": "Żeby połączyć się z portfelem sprzętowym, należy uruchomić GreenBelt z przeglądarką Google Chrome."
   },
   "confirm": {
     "message": "Potwierdź"
@@ -241,7 +241,7 @@
     "message": "Domyślna sieć dla Eteru to Main Net."
   },
   "denExplainer": {
-    "message": "Twój DEN to chroniony hasłem schowek w MetaMasku."
+    "message": "Twój DEN to chroniony hasłem schowek w GreenBeltu."
   },
   "deposit": {
     "message": "Zdeponuj"
@@ -269,7 +269,7 @@
     "message": "Zdeponuj przez ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Jeśli posiadasz inne kryptowaluty, możesz nimi handlować i deponować Eter bezpośrednio do swojego portfela MetaMask. Nie trzeba żadnego konta."
+    "message": "Jeśli posiadasz inne kryptowaluty, możesz nimi handlować i deponować Eter bezpośrednio do swojego portfela GreenBelt. Nie trzeba żadnego konta."
   },
   "details": {
     "message": "Szczegóły"
@@ -436,7 +436,7 @@
     "message": "Podłącz sprzętowy portfel"
   },
   "hardwareWalletsMsg": {
-    "message": "Wybierz portfel sprzętowy, którego chcesz użyć z MetaMaskiem"
+    "message": "Wybierz portfel sprzętowy, którego chcesz użyć z GreenBeltiem"
   },
   "havingTroubleConnecting": {
     "message": "Problem z połączeniem?"
@@ -477,7 +477,7 @@
     "message": "Importuj konto"
   },
   "importAccountMsg": {
-    "message": " Importowane konta nie będą powiązane z Twoją pierwotną frazą seed MetaMask. Dowiedz się więcej o importowaniu kont "
+    "message": " Importowane konta nie będą powiązane z Twoją pierwotną frazą seed GreenBelt. Dowiedz się więcej o importowaniu kont "
   },
   "importAnAccount": {
     "message": "Importuj konto"
@@ -533,7 +533,7 @@
     "description": "formatuj do importowania konta"
   },
   "keepTrackTokens": {
-    "message": "Monitoruj stan tokenów kupionych przy pomocy konta MetaMask."
+    "message": "Monitoruj stan tokenów kupionych przy pomocy konta GreenBelt."
   },
   "kovan": {
     "message": "Sieć testowa Kovan"
@@ -593,11 +593,11 @@
   "message": {
     "message": "Wiadomość"
   },
-  "metamaskDescription": {
-    "message": "MetaMask to bezpieczny portfel dla Ethereum."
+  "GreenBeltDescription": {
+    "message": "GreenBelt to bezpieczny portfel dla Ethereum."
   },
-  "metamaskSeedWords": {
-    "message": "Słowa Seed MetaMask"
+  "GreenBeltSeedWords": {
+    "message": "Słowa Seed GreenBelt"
   },
   "min": {
     "message": "Minimum"
@@ -612,7 +612,7 @@
     "message": "Należy wybrać co najmniej 1 token."
   },
   "needEtherInWallet": {
-    "message": "Żeby skorzystać ze zdecentraliowanych aplikacji (dApps) przy pomocy MetaMask, potrzebujesz Eteru w swoim portfelu."
+    "message": "Żeby skorzystać ze zdecentraliowanych aplikacji (dApps) przy pomocy GreenBelt, potrzebujesz Eteru w swoim portfelu."
   },
   "needImportFile": {
     "message": "Musisz wybrać plik do zaimportowania.",
@@ -956,7 +956,7 @@
     "message": "Wybierz konto"
   },
   "selectAnAccountHelp": {
-    "message": "Wybierz konto do przeglądania w MetaMask"
+    "message": "Wybierz konto do przeglądania w GreenBelt"
   },
   "selectHdPath": {
     "message": "Wybierz ścieżkę HD"
@@ -1089,7 +1089,7 @@
     "message": "Symbol tokena"
   },
   "tokenWarning1": {
-    "message": "Monitoruj stan tokenów kupionych przy pomocy konta MetaMask. Jeśli masz tokeny kupione przy pomocy innych kont, nie pojawią się tutaj."
+    "message": "Monitoruj stan tokenów kupionych przy pomocy konta GreenBelt. Jeśli masz tokeny kupione przy pomocy innych kont, nie pojawią się tutaj."
   },
   "total": {
     "message": "Suma"
@@ -1123,7 +1123,7 @@
     "message": "Spróbuj ponownie"
   },
   "twelveWords": {
-    "message": "Tych 12 słów to jedyny sposób, żeby odzyskać konta w MetaMasku. Zapisz je w bezpiecznym miejscu."
+    "message": "Tych 12 słów to jedyny sposób, żeby odzyskać konta w GreenBeltu. Zapisz je w bezpiecznym miejscu."
   },
   "typePassword": {
     "message": "Wpisz hasło"
@@ -1132,7 +1132,7 @@
     "message": "Witamy w nowym interfejsie (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "Używasz teraz nowego interfejsu MetaMask."
+    "message": "Używasz teraz nowego interfejsu GreenBelt."
   },
   "unapproved": {
     "message": "Niezatwierdzone"
@@ -1202,7 +1202,7 @@
     "message": "Witaj z powrotem!"
   },
   "welcome": {
-    "message": "Witaj w MetaMask"
+    "message": "Witaj w GreenBelt"
   },
   "whatsThis": {
     "message": "Co to jest?"
