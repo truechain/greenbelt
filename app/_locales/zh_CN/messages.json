@@ -78,11 +78,11 @@
     "message": "数量 + Gas"
   },
   "appDescription": {
-    "message": "TrueChain-初链浏览器插件",
+    "message": "TrueChain初链浏览器插件",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "MetaMask - TRUE",
     "description": "The name of the application"
   },
   "approved": {
