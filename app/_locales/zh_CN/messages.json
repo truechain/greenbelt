@@ -146,6 +146,12 @@
   "clickCopy": {
     "message": "点击复制"
   },
+  "clickToAdd": {
+    "message": "点击 $1 将它们添加至你的账户"
+  },
+  "clickToRevealSeed": {
+    "message": "点击显示助记词"
+  },
   "close": {
     "message": "关闭"
   },
@@ -550,6 +556,12 @@
   },
   "min": {
     "message": "最小"
+  },
+  "missingYourTokens": {
+    "message": "没有看见你的代币？"
+  },
+  "minutesShorthand": {
+    "message": "Min"
   },
   "myAccounts": {
     "message": "My Accounts"

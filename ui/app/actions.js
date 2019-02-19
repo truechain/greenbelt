@@ -1977,7 +1977,7 @@ function setPreviousProvider (type) {
   }
 }
 
-function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname) {
+function updateAndSetCustomRpc (newRpc, chainId, ticker = 'TRUE', nickname) {
   return (dispatch) => {
     log.debug(`background.updateAndSetCustomRpc: ${newRpc} ${chainId} ${ticker} ${nickname}`)
     background.updateAndSetCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err, result) => {
@@ -1993,7 +1993,7 @@ function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname) {
   }
 }
 
-function setRpcTarget (newRpc, chainId, ticker = 'ETH', nickname) {
+function setRpcTarget (newRpc, chainId, ticker = 'TRUE', nickname) {
   return (dispatch) => {
     log.debug(`background.setRpcTarget: ${newRpc} ${chainId} ${ticker} ${nickname}`)
     background.setCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err, result) => {

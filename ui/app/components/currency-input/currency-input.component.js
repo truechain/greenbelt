@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import UnitInput from '../unit-input'
 import CurrencyDisplay from '../currency-display'
 import { getValueFromWeiHex, getWeiHexFromDecimalValue } from '../../helpers/conversions.util'
-import { ETH } from '../../constants/common'
+import { ETH, TRUE } from '../../constants/common'
 
 /**
  * Component that allows user to enter currency values as a number, and props receive a converted
@@ -99,7 +99,7 @@ export default class CurrencyInput extends PureComponent {
 
     if (this.shouldUseFiat()) {
       // Display ETH
-      currency = nativeCurrency || ETH
+      currency = nativeCurrency || TRUE
       numberOfDecimals = 6
     } else {
       // Display Fiat

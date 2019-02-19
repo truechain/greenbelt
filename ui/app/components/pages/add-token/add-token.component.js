@@ -11,7 +11,7 @@ import PageContainer from '../../page-container'
 import { Tabs, Tab } from '../../tabs'
 
 const emptyAddr = '0x0000000000000000000000000000000000000000'
-const SEARCH_TAB = 'SEARCH'
+// const SEARCH_TAB = 'SEARCH'
 const CUSTOM_TOKEN_TAB = 'CUSTOM_TOKEN'
 
 class AddToken extends Component {
@@ -42,7 +42,7 @@ class AddToken extends Component {
       customSymbolError: null,
       customDecimalsError: null,
       autoFilled: false,
-      displayedTab: SEARCH_TAB,
+      displayedTab: CUSTOM_TOKEN_TAB,
       forceEditSymbol: false,
     }
   }
@@ -73,7 +73,8 @@ class AddToken extends Component {
         decimals: customDecimals = 0,
       } = customToken
 
-      const displayedTab = Object.keys(selectedTokens).length > 0 ? SEARCH_TAB : CUSTOM_TOKEN_TAB
+      // const displayedTab = Object.keys(selectedTokens).length > 0 ? SEARCH_TAB : CUSTOM_TOKEN_TAB
+      const displayedTab = CUSTOM_TOKEN_TAB
       this.setState({ selectedTokens, customAddress, customSymbol, customDecimals, displayedTab })
     }
   }
@@ -304,12 +305,12 @@ class AddToken extends Component {
   renderTabs () {
     return (
       <Tabs>
-        <Tab name={this.context.t('search')}>
-          { this.renderSearchToken() }
-        </Tab>
         <Tab name={this.context.t('customToken')}>
           { this.renderCustomTokenForm() }
         </Tab>
+        {/* <Tab name={this.context.t('search')}>
+          { this.renderSearchToken() }
+        </Tab> */}
       </Tabs>
     )
   }
