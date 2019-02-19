@@ -779,13 +779,13 @@
   "message": {
     "message": "Message"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt is a secure identity vault for Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "GreenBelt Seed Words"
   },
-  "GreenBeltVersion": {
+  "metamaskVersion": {
     "message": "GreenBelt Version"
   },
   "min": {

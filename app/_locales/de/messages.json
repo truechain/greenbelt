@@ -509,7 +509,7 @@
   "message": {
     "message": "Nachricht"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt ist ein sicherer Identitätssafe für Ethereum."
   },
   "min": {

@@ -656,13 +656,13 @@
   "message": {
     "message": "Message"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt est un coffre sécurisé pour votre identité sur Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "Mots Seed pour GreenBelt"
   },
-  "GreenBeltVersion": {
+  "metamaskVersion": {
     "message": "Version de GreenBelt"
   },
   "min": {

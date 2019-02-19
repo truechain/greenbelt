@@ -671,13 +671,13 @@
   "message": {
     "message": "Mesaje"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt sekirize idantite pou Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "GreenBelt Seed Mo"
   },
-  "GreenBeltVersion": {
+  "metamaskVersion": {
     "message": "GreenBelt Vèsyon"
   },
   "min": {

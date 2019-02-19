@@ -770,13 +770,13 @@
   "message": {
     "message": "Sporočilo"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt je varen identitetni sklad za Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "Seed Words"
   },
-  "GreenBeltVersion": {
+  "metamaskVersion": {
     "message": "Različica"
   },
   "min": {

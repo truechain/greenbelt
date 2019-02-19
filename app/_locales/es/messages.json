@@ -524,7 +524,7 @@
   "message": {
     "message": "Mensaje"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt es una identidad segura en Ethereum"
   },
   "min": {
@@ -1146,10 +1146,10 @@
   "menu": {
     "message": "Menú"
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "Palabras semilla de GreenBelt"
   },
-  "GreenBeltVersion": {
+  "metamaskVersion": {
     "message": "Versión de GreenBelt"
   },
   "missingYourTokens": {

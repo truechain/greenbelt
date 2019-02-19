@@ -518,7 +518,7 @@
   "message": {
     "message": "Mesaj"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt Ethereum için güvenli bir kimlik kasasıdır."
   },
   "min": {

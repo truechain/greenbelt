@@ -518,7 +518,7 @@
   "message": {
     "message": "Zpráva"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt je bezpečný osobní trezor pro Ethereum."
   },
   "min": {

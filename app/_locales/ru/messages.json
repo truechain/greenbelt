@@ -512,7 +512,7 @@
   "message": {
     "message": "Сообщение"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt – безопасный кошелек для Ethereum."
   },
   "min": {

@@ -548,10 +548,10 @@
   "message": {
     "message": "消息"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt is a secure identity vault for Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "GreenBelt 助记词"
   },
   "min": {

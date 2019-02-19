@@ -593,10 +593,10 @@
   "message": {
     "message": "Wiadomość"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt to bezpieczny portfel dla Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "Słowa Seed GreenBelt"
   },
   "min": {

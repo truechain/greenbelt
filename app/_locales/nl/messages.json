@@ -485,7 +485,7 @@
   "message": {
     "message": "Bericht"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt is een veilige identiteitskluis voor Ethereum."
   },
   "min": {

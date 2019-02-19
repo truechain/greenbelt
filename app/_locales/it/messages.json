@@ -767,13 +767,13 @@
   "message": {
     "message": "Messaggio"
   },
-  "GreenBeltDescription": {
+  "metamaskDescription": {
     "message": "GreenBelt è una cassaforte sicura per identità su Ethereum."
   },
-  "GreenBeltSeedWords": {
+  "metamaskSeedWords": {
     "message": "Parole Seed di GreenBelt"
   },
-  "GreenBeltVersion": {
+  "metamaskVersion": {
     "message": "versione di GreenBelt"
   },
   "min": {
