@@ -814,6 +814,12 @@
   "revert": {
     "message": "还原"
   },
+  "remove": {
+    "message": "移除"
+  },
+  "removeAccount": {
+    "message": "移除账户"
+  },
   "rinkeby": {
     "message": "Rinkeby 测试网络"
   },

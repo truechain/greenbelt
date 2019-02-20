@@ -135,7 +135,7 @@ class CurrencyController {
       nativeCurrency = this.getNativeCurrency()
       // select api
       let apiUrl
-      if (nativeCurrency === 'TRUE') {
+      if (false) {
         // ETH
         apiUrl = `https://api.infura.io/v1/ticker/eth${currentCurrency.toLowerCase()}`
       } else {
@@ -161,7 +161,7 @@ class CurrencyController {
         return
       }
       // set conversion rate
-      if (nativeCurrency === 'TRUE') {
+      if (false) {
         // ETH
         this.setConversionRate(Number(parsedResponse.bid))
         this.setConversionDate(Number(parsedResponse.timestamp))
