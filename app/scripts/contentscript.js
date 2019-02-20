@@ -19,7 +19,7 @@ let isEnabled = false
 //
 // But for now that is only Firefox
 // If we create a FireFox-only code path using that API,
-// MetaMask will be much faster loading and performant on Firefox.
+// GreenBelt will be much faster loading and performant on Firefox.
 
 if (shouldInjectWeb3()) {
   injectScript(inpageBundle)
@@ -42,7 +42,7 @@ function injectScript (content) {
     container.insertBefore(scriptTag, container.children[0])
     container.removeChild(scriptTag)
   } catch (e) {
-    console.error('MetaMask script injection failed', e)
+    console.error('GreenBelt script injection failed', e)
   }
 }
 
@@ -76,7 +76,7 @@ function setupStreams () {
     pluginStream,
     approvalTransform,
     pageStream,
-    (err) => logStreamDisconnectWarning('MetaMask Contentscript Forwarding', err)
+    (err) => logStreamDisconnectWarning('GreenBelt Contentscript Forwarding', err)
   )
 
   // setup local multistream channels
@@ -87,13 +87,13 @@ function setupStreams () {
     mux,
     pageStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask Inpage', err)
+    (err) => logStreamDisconnectWarning('GreenBelt Inpage', err)
   )
   pump(
     mux,
     pluginStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask Background', err)
+    (err) => logStreamDisconnectWarning('GreenBelt Background', err)
   )
 
   // connect ping stream
@@ -102,16 +102,19 @@ function setupStreams () {
     mux,
     pongStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask PingPongStream', err)
+    (err) => logStreamDisconnectWarning('GreenBelt PingPongStream', err)
   )
 
   // connect phishing warning stream
-  const phishingStream = mux.createStream('phishing')
+  const phishingStream = mux.createStream('tphishing')
   phishingStream.once('data', redirectToPhishingWarning)
 
   // ignore unused channels (handled by background, inpage)
-  mux.ignoreStream('provider')
+  mux.ignoreStream('tprovider')
+  mux.ignoreStream('tpublicConfig')
   mux.ignoreStream('publicConfig')
+  mux.ignoreStream('provider')
+  mux.ignoreStream('phishing')
 }
 
 /**
@@ -175,7 +178,7 @@ function listenForProviderRequest () {
 }
 
 /**
- * Checks if MetaMask is currently operating in "privacy mode", meaning
+ * Checks if GreenBelt is currently operating in "privacy mode", meaning
  * dapps must call ethereum.enable in order to access user accounts
  */
 function checkPrivacyMode () {
@@ -287,7 +290,7 @@ function blacklistedDomainCheck () {
  * Redirects the current page to a phishing information page
  */
 function redirectToPhishingWarning () {
-  console.log('MetaMask - routing to Phishing Warning component')
+  console.log('GreenBelt - routing to Phishing Warning component')
   const extensionURL = extension.runtime.getURL('phishing.html')
   window.location.href = `${extensionURL}#${querystring.stringify({
     hostname: window.location.hostname,

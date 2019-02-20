@@ -16,7 +16,7 @@ restoreContextAfterImports()
 
 log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
 
-console.warn('ATTENTION: In an effort to improve user privacy, MetaMask ' +
+console.warn('ATTENTION: In an effort to improve user privacy, GreenBelt ' +
 'stopped exposing user accounts to dapps if "privacy mode" is enabled on ' +
 'November 2nd, 2018. Dapps should now call provider.enable() in order to view and use ' +
 'accounts. Please see https://bit.ly/2QQHXvF for complete information and up-to-date ' +
@@ -53,7 +53,7 @@ const inpageProvider = new MetamaskInpageProvider(metamaskStream)
 // set a high max listener count to avoid unnecesary warnings
 inpageProvider.setMaxListeners(100)
 
-// set up a listener for when MetaMask is locked
+// set up a listener for when GreenBelt is locked
 onMessage('metamasksetlocked', () => { isEnabled = false })
 
 // set up a listener for privacy mode responses
@@ -123,9 +123,9 @@ inpageProvider._metamask = new Proxy({
   },
 
   /**
-   * Determines if MetaMask is unlocked by the user
+   * Determines if GreenBelt is unlocked by the user
    *
-   * @returns {Promise<boolean>} - Promise resolving to true if MetaMask is currently unlocked
+   * @returns {Promise<boolean>} - Promise resolving to true if GreenBelt is currently unlocked
    */
   isUnlocked: function () {
     return new Promise((resolve) => {
@@ -140,7 +140,7 @@ inpageProvider._metamask = new Proxy({
   get: function (obj, prop) {
     !warned && console.warn('Heads up! ethereum._metamask exposes methods that have ' +
     'not been standardized yet. This means that these methods may not be implemented ' +
-    'in other dapp browsers and may be removed from MetaMask in the future.')
+    'in other dapp browsers and may be removed from GreenBelt in the future.')
     warned = true
     return obj[prop]
   },
@@ -174,18 +174,18 @@ detectAccountRequest('sendAsync')
 //
 
 if (typeof window.web3t !== 'undefined') {
-  throw new Error(`MetaMask detected another web3.
-     MetaMask will not work reliably with another web3 extension.
+  throw new Error(`GreenBelt detected another web3.
+     GreenBelt will not work reliably with another web3 extension.
      This usually happens if you have two MetaMasks installed,
-     or MetaMask and another web3 extension. Please remove one
+     or GreenBelt and another web3 extension. Please remove one
      and try again.`)
 }
 
 const web3t = new Web3(proxiedInpageProvider)
 web3t.setProvider = function () {
-  log.debug('MetaMask - overrode web3.setProvider')
+  log.debug('GreenBelt - overrode web3.setProvider')
 }
-log.debug('MetaMask - injected web3')
+log.debug('GreenBelt - injected web3')
 
 setupDappAutoReload(web3t, inpageProvider.publicConfigStore)
 
@@ -197,7 +197,7 @@ global.web3 = new Proxy(web3, {
   get: (_web3, key) => {
     // show warning once on web3 access
     if (!hasBeenWarned && key !== 'currentProvider') {
-      console.warn('MetaMask: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/MetaMask/faq/blob/master/detecting_metamask.md#web3-deprecation')
+      console.warn('GreenBelt: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/GreenBelt/faq/blob/master/detecting_metamask.md#web3-deprecation')
       hasBeenWarned = true
     }
     // return value normally
@@ -230,7 +230,7 @@ function cleanContextForImports () {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('MetaMask - global.define could not be deleted.')
+    console.warn('GreenBelt - global.define could not be deleted.')
   }
 }
 
@@ -241,6 +241,6 @@ function restoreContextAfterImports () {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('MetaMask - global.define could not be overwritten.')
+    console.warn('GreenBelt - global.define could not be overwritten.')
   }
 }

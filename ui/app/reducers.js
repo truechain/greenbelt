@@ -25,7 +25,7 @@ function rootReducer (state, action) {
   }
 
   //
-  // MetaMask
+  // GreenBelt
   //
 
   state.metamask = reduceMetamask(state, action)

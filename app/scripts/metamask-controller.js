@@ -1,6 +1,6 @@
 /**
  * @file      The central metamask controller. Aggregates other controllers and exports an api.
- * @copyright Copyright (c) 2018 MetaMask
+ * @copyright Copyright (c) 2018 GreenBelt
  * @license   MIT
  */
 
@@ -282,7 +282,7 @@ module.exports = class MetamaskController extends EventEmitter {
     const providerOpts = {
       static: {
         eth_syncing: false,
-        web3_clientVersion: `MetaMask/v${version}`,
+        web3_clientVersion: `GreenBelt/v${version}`,
       },
       version,
       // account mgmt
@@ -290,7 +290,7 @@ module.exports = class MetamaskController extends EventEmitter {
         // Expose no accounts if this origin has not been approved, preventing
         // account-requring RPC methods from completing successfully
         const exposeAccounts = this.providerApprovalController.shouldExposeAccounts(origin)
-        if (origin !== 'MetaMask' && !exposeAccounts) { return [] }
+        if (origin !== 'GreenBelt' && !exposeAccounts) { return [] }
         const isUnlocked = this.keyringController.memStore.getState().isUnlocked
         const selectedAddress = this.preferencesController.getSelectedAddress()
         // only show address if account is unlocked
@@ -1080,7 +1080,7 @@ module.exports = class MetamaskController extends EventEmitter {
   }
 
   // ---------------------------------------------------------------------------
-  // MetaMask Version 3 Migration Account Restauration Methods
+  // GreenBelt Version 3 Migration Account Restauration Methods
 
   /**
    * A legacy method (probably dead code) that was used when we swapped out our
@@ -1160,7 +1160,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * transaction.
    * @param {number} originalTxId - the id of the txMeta that you want to attempt to cancel
    * @param {string=} customGasPrice - the hex value to use for the cancel transaction
-   * @returns {object} MetaMask state
+   * @returns {object} GreenBelt state
    */
   async createCancelTransaction (originalTxId, customGasPrice, cb) {
     try {
@@ -1228,7 +1228,7 @@ module.exports = class MetamaskController extends EventEmitter {
   setupUntrustedCommunication (connectionStream, originDomain) {
     // Check if new connection is blacklisted
     if (this.blacklistController.checkForPhishing(originDomain)) {
-      log.debug('MetaMask - sending phishing warning for', originDomain)
+      log.debug('GreenBelt - sending phishing warning for', originDomain)
       this.sendPhishingWarning(connectionStream, originDomain)
       return
     }
@@ -1236,8 +1236,8 @@ module.exports = class MetamaskController extends EventEmitter {
     // setup multiplexing
     const mux = setupMultiplex(connectionStream)
     // connect features
-    this.setupProviderConnection(mux.createStream('provider'), originDomain)
-    this.setupPublicConfig(mux.createStream('publicConfig'))
+    this.setupProviderConnection(mux.createStream('tprovider'), originDomain)
+    this.setupPublicConfig(mux.createStream('tpublicConfig'))
   }
 
   /**
@@ -1254,8 +1254,8 @@ module.exports = class MetamaskController extends EventEmitter {
     // setup multiplexing
     const mux = setupMultiplex(connectionStream)
     // connect features
-    this.setupControllerConnection(mux.createStream('controller'))
-    this.setupProviderConnection(mux.createStream('provider'), originDomain)
+    this.setupControllerConnection(mux.createStream('tcontroller'))
+    this.setupProviderConnection(mux.createStream('tprovider'), originDomain)
   }
 
   /**
@@ -1269,7 +1269,7 @@ module.exports = class MetamaskController extends EventEmitter {
    */
   sendPhishingWarning (connectionStream, hostname) {
     const mux = setupMultiplex(connectionStream)
-    const phishingStream = mux.createStream('phishing')
+    const phishingStream = mux.createStream('tphishing')
     phishingStream.write({ hostname })
   }
 
@@ -1399,7 +1399,7 @@ module.exports = class MetamaskController extends EventEmitter {
   }
 
   /**
-   * A method for emitting the full MetaMask state to all registered listeners.
+   * A method for emitting the full GreenBelt state to all registered listeners.
    * @private
    */
   privateSendUpdate () {
@@ -1595,7 +1595,7 @@ module.exports = class MetamaskController extends EventEmitter {
 
   // TODO: Replace isClientOpen methods with `controllerConnectionChanged` events.
   /**
-   * A method for recording whether the MetaMask user interface is open or not.
+   * A method for recording whether the GreenBelt user interface is open or not.
    * @private
    * @param {boolean} open
    */
@@ -1633,7 +1633,7 @@ module.exports = class MetamaskController extends EventEmitter {
   }
 
   /**
-   * Locks MetaMask
+   * Locks GreenBelt
    */
   setLocked () {
     this.providerApprovalController.setLocked()

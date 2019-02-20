@@ -38,10 +38,10 @@ const dbController = new DbController({
 start().catch(log.error)
 
 async function start () {
-  log.debug('MetaMask initializing...')
+  log.debug('GreenBelt initializing...')
   const initState = await loadStateFromPersistence()
   await setupController(initState)
-  log.debug('MetaMask initialization complete.')
+  log.debug('GreenBelt initialization complete.')
 }
 
 //
@@ -61,7 +61,7 @@ async function loadStateFromPersistence () {
 async function setupController (initState, client) {
 
   //
-  // MetaMask Controller
+  // GreenBelt Controller
   //
 
   const platform = new SwPlatform()
@@ -106,7 +106,7 @@ async function setupController (initState, client) {
     var isMetaMaskInternalProcess = (context === 'popup')
     if (isMetaMaskInternalProcess) {
       // communication with popup
-      controller.setupTrustedCommunication(connectionStream, 'MetaMask')
+      controller.setupTrustedCommunication(connectionStream, 'GreenBelt')
       global.metamaskPopupIsOpen = true
     } else {
       // communication with page
@@ -118,8 +118,8 @@ async function setupController (initState, client) {
     // setup multiplexing
     var mx = setupMultiplex(connectionStream)
     // connect features
-    controller.setupProviderConnection(mx.createStream('provider'), originDomain)
-    controller.setupPublicConfig(mx.createStream('publicConfig'))
+    controller.setupProviderConnection(mx.createStream('tprovider'), originDomain)
+    controller.setupPublicConfig(mx.createStream('tpublicConfig'))
   }
 }
 // // this will be useful later but commented out for linting for now (liiiinting)

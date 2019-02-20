@@ -40,7 +40,7 @@ class TokenRatesController {
           contractExchangeRates[normalizeAddress(address)] = typeof price === 'number' ? price : 0
         })
       } catch (error) {
-        log.warn(`MetaMask - TokenRatesController exchange rate fetch failed.`, error)
+        log.warn(`GreenBelt - TokenRatesController exchange rate fetch failed.`, error)
       }
     }
     this.store.putState({ contractExchangeRates })

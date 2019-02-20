@@ -10,7 +10,7 @@ const {setupMultiplex} = require('./lib/stream-utils.js')
 module.exports = initializePopup
 
 /**
- * Asynchronously initializes the MetaMask popup UI
+ * Asynchronously initializes the GreenBelt popup UI
  *
  * @param {{ container: Element, connectionStream: * }} config Popup configuration object
  * @param {Function} cb Called when initialization is complete
@@ -34,8 +34,8 @@ function connectToAccountManager (connectionStream, cb) {
   // setup multiplexing
   const mx = setupMultiplex(connectionStream)
   // connect features
-  setupControllerConnection(mx.createStream('controller'), cb)
-  setupWeb3Connection(mx.createStream('provider'))
+  setupControllerConnection(mx.createStream('tcontroller'), cb)
+  setupWeb3Connection(mx.createStream('tprovider'))
 }
 
 /**
