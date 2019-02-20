@@ -43,8 +43,8 @@ function onMessage (messageType, handler, remove) {
 
 // setup background connection
 const metamaskStream = new LocalMessageDuplexStream({
-  name: 'inpage',
-  target: 'contentscript',
+  name: 'tinpage',
+  target: 'tcontentscript',
 })
 
 // compose the inpage provider

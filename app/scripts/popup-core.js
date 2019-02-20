@@ -35,7 +35,7 @@ function connectToAccountManager (connectionStream, cb) {
   const mx = setupMultiplex(connectionStream)
   // connect features
   setupControllerConnection(mx.createStream('tcontroller'), cb)
-  setupWeb3Connection(mx.createStream('tprovider'))
+  setupWeb3Connection(mx.createStream('provider'))
 }
 
 /**

@@ -118,8 +118,8 @@ async function setupController (initState, client) {
     // setup multiplexing
     var mx = setupMultiplex(connectionStream)
     // connect features
-    controller.setupProviderConnection(mx.createStream('tprovider'), originDomain)
-    controller.setupPublicConfig(mx.createStream('tpublicConfig'))
+    controller.setupProviderConnection(mx.createStream('provider'), originDomain)
+    controller.setupPublicConfig(mx.createStream('publicConfig'))
   }
 }
 // // this will be useful later but commented out for linting for now (liiiinting)

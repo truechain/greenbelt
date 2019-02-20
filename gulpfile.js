@@ -288,7 +288,7 @@ gulp.task('fmt-scss', function () {
 
 const buildJsFiles = [
   'inpage',
-  'contentscript',
+  'tcontentscript',
   'background',
   'ui',
   'phishing-detect',

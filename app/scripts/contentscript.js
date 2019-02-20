@@ -53,10 +53,10 @@ function injectScript (content) {
 function setupStreams () {
   // setup communication to page and plugin
   const pageStream = new LocalMessageDuplexStream({
-    name: 'contentscript',
-    target: 'inpage',
+    name: 'tcontentscript',
+    target: 'tinpage',
   })
-  const pluginPort = extension.runtime.connect({ name: 'contentscript' })
+  const pluginPort = extension.runtime.connect({ name: 'tcontentscript' })
   const pluginStream = new PortStream(pluginPort)
 
   // Filter out selectedAddress until this origin is enabled
@@ -106,15 +106,12 @@ function setupStreams () {
   )
 
   // connect phishing warning stream
-  const phishingStream = mux.createStream('tphishing')
+  const phishingStream = mux.createStream('phishing')
   phishingStream.once('data', redirectToPhishingWarning)
 
   // ignore unused channels (handled by background, inpage)
-  mux.ignoreStream('tprovider')
-  mux.ignoreStream('tpublicConfig')
-  mux.ignoreStream('publicConfig')
   mux.ignoreStream('provider')
-  mux.ignoreStream('phishing')
+  mux.ignoreStream('publicConfig')
 }
 
 /**
