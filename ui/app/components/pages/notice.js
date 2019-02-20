@@ -111,7 +111,7 @@ class Notice extends Component {
           }
 
           .markdown a {
-            color: #df6b0e;
+            color: #0c8d61;
           }
 
         `),

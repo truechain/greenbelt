@@ -425,10 +425,10 @@
     "message": "隐藏代币？"
   },
   "howToDeposit": {
-    "message": "你想怎样转入 Ether？"
+    "message": "你想怎样转入TRUE？"
   },
   "holdEther": {
-    "message": "它允许你保存ether和代币，并作为你使用Dapp的桥梁."
+    "message": "它允许你保存TRUE和代币，并作为你使用Dapp的桥梁."
   },
   "import": {
     "message": "导入",
@@ -549,10 +549,10 @@
     "message": "消息"
   },
   "metamaskDescription": {
-    "message": "GreenBelt is a secure identity vault for Ethereum."
+    "message": "GreenBelt是初链的安全身份保险库"
   },
   "metamaskSeedWords": {
-    "message": "GreenBelt 助记词"
+    "message": "GreenBelt助记词"
   },
   "min": {
     "message": "最小"
