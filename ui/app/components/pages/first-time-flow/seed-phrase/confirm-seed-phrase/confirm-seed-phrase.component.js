@@ -89,7 +89,7 @@ export default class ConfirmSeedPhrase extends PureComponent {
             }}
             href="#"
           >
-            {`< Back`}
+            {`< ${t('back')}`}
           </a>
         </div>
         <Identicon

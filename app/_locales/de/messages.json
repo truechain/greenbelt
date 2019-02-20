@@ -39,10 +39,10 @@
     "message": "Web3-API-Anfrage"
   },
   "reviewProviderRequest": {
-    "message": "Bitte lesen Sie diese Ethereum-API-Anfrage."
+    "message": "Bitte lesen Sie diese TrueChain-API-Anfrage."
   },
   "providerRequestInfo": {
-    "message": "Die unten aufgeführte Domäne versucht, Zugriff auf die Ethereum-API anzufordern, damit sie mit der Ethereum-Blockchain interagieren kann. Überprüfen Sie immer, dass Sie sich auf der richtigen Website befinden, bevor Sie den Web3-Zugriff genehmigen."
+    "message": "Die unten aufgeführte Domäne versucht, Zugriff auf die TrueChain-API anzufordern, damit sie mit der TrueChain-Blockchain interagieren kann. Überprüfen Sie immer, dass Sie sich auf der richtigen Website befinden, bevor Sie den Web3-Zugriff genehmigen."
   },
   "accept": {
     "message": "Annehmen"
@@ -75,7 +75,7 @@
     "message": "Betrag + Gas"
   },
   "appDescription": {
-    "message": "Ethereum Browsererweiterung",
+    "message": "TrueChain Browsererweiterung",
     "description": "Die Beschreibung der Erweiterung"
   },
   "appName": {
@@ -129,7 +129,7 @@
     "message": "Auf Coinbase kaufen"
   },
   "buyCoinbaseExplainer": {
-    "message": "Coinbase ist die weltweit bekannteste Art und Weise um Bitcoin, Ethereum und Litecoin zu kaufen und verkaufen."
+    "message": "Coinbase ist die weltweit bekannteste Art und Weise um Bitcoin, TrueChain und Litecoin zu kaufen und verkaufen."
   },
   "ok": {
     "message": "Ok"
@@ -229,7 +229,7 @@
     "message": "Dezimalangabe der Präzision"
   },
   "defaultNetwork": {
-    "message": "Das Standardnetzwerk für Ether Transaktionen ist das Main Net."
+    "message": "Das Standardnetzwerk für TRUE Transaktionen ist das Main Net."
   },
   "denExplainer": {
     "message": "Dein DEN ist dein passwortverschlüsselter Speicher innerhalb von GreenBelt."
@@ -245,10 +245,10 @@
     "description": "Teilt dem Benutzer mit welchen Token er beim Einzahlen mit Shapeshift ausgewählt hat"
   },
   "depositEth": {
-    "message": "Eth kaufen"
+    "message": "TRUE kaufen"
   },
   "depositEther": {
-    "message": "Ether einzahlen"
+    "message": "TRUE einzahlen"
   },
   "depositFiat": {
     "message": "Fiat einzahlen"
@@ -269,10 +269,10 @@
     "message": "Sofortige Einzahlung"
   },
   "directDepositEther": {
-    "message": "Sofort Ether einzahlen"
+    "message": "Sofort TRUE einzahlen"
   },
   "directDepositEtherExplainer": {
-    "message": "Wenn du bereits Ether besitzt, ist die sofortige Einzahlung die schnellste Methode Ether in deine neue Wallet zu bekommen."
+    "message": "Wenn du bereits TRUE besitzt, ist die sofortige Einzahlung die schnellste Methode TRUE in deine neue Wallet zu bekommen."
   },
   "done": {
     "message": "Fertig"
@@ -374,11 +374,11 @@
     "message": "Gaspreis benötigt"
   },
   "getEther": {
-    "message": "Ether holen"
+    "message": "TRUE holen"
   },
   "getEtherFromFaucet": {
-    "message": "Ether für $1 vom Faucet holen",
-    "description": "Zeigt den Netzwerknamen für den Ether Faucet an"
+    "message": "TRUE für $1 vom Faucet holen",
+    "description": "Zeigt den Netzwerknamen für den TRUE Faucet an"
   },
   "greaterThanMin": {
     "message": "Muss größer oder gleich $1 sein.",
@@ -401,10 +401,10 @@
     "message": "Token ausblenden?"
   },
   "howToDeposit": {
-    "message": "Wie möchtest du Ether einzahlen?"
+    "message": "Wie möchtest du TRUE einzahlen?"
   },
   "holdEther": {
-    "message": "Es erlaubt dir ether & Token zu halten und dient dir als Verbindung zu dezentralisierten Applikationen."
+    "message": "Es erlaubt dir TRUE & Token zu halten und dient dir als Verbindung zu dezentralisierten Applikationen."
   },
   "import": {
     "message": "Importieren",
@@ -504,13 +504,13 @@
     "message": "Die Wörter der Seed-Wörterfolgen sind alle kleingeschrieben"
   },
   "mainnet": {
-    "message": "Ethereum Main Net"
+    "message": "TrueChain Main Net"
   },
   "message": {
     "message": "Nachricht"
   },
   "metamaskDescription": {
-    "message": "GreenBelt ist ein sicherer Identitätssafe für Ethereum."
+    "message": "GreenBelt ist ein sicherer Identitätssafe für TrueChain."
   },
   "min": {
     "message": "Minimum"
@@ -522,7 +522,7 @@
     "message": "Du musst mindestens 1 Token auswählen."
   },
   "needEtherInWallet": {
-    "message": "Um dezentralisierte Applikationen mit GreenBelt verwenden zu können, benötigst du Ether in deiner Wallet."
+    "message": "Um dezentralisierte Applikationen mit GreenBelt verwenden zu können, benötigst du TRUE in deiner Wallet."
   },
   "needImportFile": {
     "message": "Für den Import musst du eine Datei auswählen.",
@@ -533,7 +533,7 @@
     "description": "Passwort und Datei sind notwendig um einen Account zu importieren"
   },
   "negativeETH": {
-    "message": "Negative ETH Beträge können nicht versendet werden."
+    "message": "Negative TRUE Beträge können nicht versendet werden."
   },
   "networks": {
     "message": "Netzwerke"
@@ -683,7 +683,7 @@
     "message": "Aktueller RPC"
   },
   "connectingToMainnet": {
-    "message": "Verbinde zum Ethereum Main Net"
+    "message": "Verbinde zum TrueChain Main Net"
   },
   "connectingToRopsten": {
     "message": " Verbinde zum Ropsten Testnetzwerk"
@@ -739,13 +739,13 @@
     "message": "Senden"
   },
   "sendETH": {
-    "message": "ETH senden"
+    "message": "TRUE senden"
   },
   "sendTokens": {
     "message": "Token senden"
   },
   "onlySendToEtherAddress": {
-    "message": "ETH unbedingt nur zu einer Ethereum Adresse senden."
+    "message": "TRUE unbedingt nur zu einer TrueChain Adresse senden."
   },
   "sendTokensAnywhere": {
     "message": "Token zu einer beliebigen Person mit einem Ethereumaccount senden"
@@ -823,7 +823,7 @@
     "message": "An"
   },
   "toETHviaShapeShift": {
-    "message": "$1 an ETH via ShapeShift",
+    "message": "$1 an TRUE via ShapeShift",
     "description": "Das System wird den Einzahlungstyp im Beginn der Nachricht eintragen"
   },
   "tokenAddress": {

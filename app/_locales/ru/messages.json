@@ -39,10 +39,10 @@
     "message": "Запрос API Web3"
   },
   "reviewProviderRequest": {
-    "message": "Просмотрите этот запрос API Ethereum."
+    "message": "Просмотрите этот запрос API TrueChain."
   },
   "providerRequestInfo": {
-    "message": "Домен, указанный ниже, пытается запросить доступ к API-интерфейсу Ethereum, чтобы он мог взаимодействовать с блокчейном Ethereum. Всегда проверяйте, что вы находитесь на правильном сайте, прежде чем одобрять доступ к веб-сайту."
+    "message": "Домен, указанный ниже, пытается запросить доступ к API-интерфейсу TrueChain, чтобы он мог взаимодействовать с блокчейном TrueChain. Всегда проверяйте, что вы находитесь на правильном сайте, прежде чем одобрять доступ к веб-сайту."
   },
   "accept": {
     "message": "Принять"
@@ -75,7 +75,7 @@
     "message": "Сумма + газ"
   },
   "appDescription": {
-    "message": "Расширение браузера для Ethereum",
+    "message": "Расширение браузера для TrueChain",
     "description": "The description of the application"
   },
   "appName": {
@@ -129,7 +129,7 @@
     "message": "Купить на Coinbase"
   },
   "buyCoinbaseExplainer": {
-    "message": "Биржа Coinbase – это наиболее популярный способ купить или продать Bitcoin, Ethereum и Litecoin."
+    "message": "Биржа Coinbase – это наиболее популярный способ купить или продать Bitcoin, TrueChain и Litecoin."
   },
   "ok": {
     "message": "ОК"
@@ -232,7 +232,7 @@
     "message": "Количество десятичных разрядов"
   },
   "defaultNetwork": {
-    "message": "Основная сеть Ethereum – это сеть по умолчанию для Ether транзакций."
+    "message": "Основная сеть TrueChain – это сеть по умолчанию для TRUE транзакций."
   },
   "denExplainer": {
     "message": "DEN – это зашифрованное паролем хранилище внутри GreenBelt."
@@ -248,10 +248,10 @@
     "description": "Tells the user what coin they have selected to deposit with shapeshift"
   },
   "depositEth": {
-    "message": "Пополнить Eth"
+    "message": "Пополнить TRUE"
   },
   "depositEther": {
-    "message": "Пополнить Ether"
+    "message": "Пополнить TRUE"
   },
   "depositFiat": {
     "message": "Пополнить деньгами"
@@ -263,7 +263,7 @@
     "message": "Пополнить через ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Если у вас есть другие криптовалюты, вы можете торговать и пополнять Ether напрямую в ваш GreenBelt кошелек. Нет необходимости в счете."
+    "message": "Если у вас есть другие криптовалюты, вы можете торговать и пополнять TRUE напрямую в ваш GreenBelt кошелек. Нет необходимости в счете."
   },
   "details": {
     "message": "Детали"
@@ -272,10 +272,10 @@
     "message": "Прямое пополнение"
   },
   "directDepositEther": {
-    "message": "Прямое пополнение Ether"
+    "message": "Прямое пополнение TRUE"
   },
   "directDepositEtherExplainer": {
-    "message": "Если у вас уже есть Ether, то самый быстрый способ получить Ether в ваш новый кошелек – это прямое пополнение."
+    "message": "Если у вас уже есть TRUE, то самый быстрый способ получить TRUE в ваш новый кошелек – это прямое пополнение."
   },
   "done": {
     "message": "Готово"
@@ -371,11 +371,11 @@
     "message": "Установите стоимость газа"
   },
   "getEther": {
-    "message": "Получить Ether"
+    "message": "Получить TRUE"
   },
   "getEtherFromFaucet": {
-    "message": "Получить Ether из крана для $1",
-    "description": "Displays network name for Ether faucet"
+    "message": "Получить TRUE из крана для $1",
+    "description": "Displays network name for TRUE faucet"
   },
   "greaterThanMin": {
     "message": "должно быть больше или равно $1.",
@@ -398,10 +398,10 @@
     "message": "Скрыть токен?"
   },
   "howToDeposit": {
-    "message": "Как бы вы хотели пополнить Ether?"
+    "message": "Как бы вы хотели пополнить TRUE?"
   },
   "holdEther": {
-    "message": "Позволяет вам хранить ether и токены и служит в качестве моста в децентрализированные приложения."
+    "message": "Позволяет вам хранить TRUE и токены и служит в качестве моста в децентрализированные приложения."
   },
   "import": {
     "message": "Импортировать",
@@ -507,13 +507,13 @@
     "message": "ключевая фраза может содержать только символы нижнего регистра"
   },
   "mainnet": {
-    "message": "Основная сеть Ethereum"
+    "message": "Основная сеть TrueChain"
   },
   "message": {
     "message": "Сообщение"
   },
   "metamaskDescription": {
-    "message": "GreenBelt – безопасный кошелек для Ethereum."
+    "message": "GreenBelt – безопасный кошелек для TrueChain."
   },
   "min": {
     "message": "Минимум"
@@ -525,7 +525,7 @@
     "message": "Необходимо выбрать как минимум 1 токен."
   },
   "needEtherInWallet": {
-    "message": "Для взаимодействия с децентрализованными приложениями с помощью GreenBelt нужен Ether в вашем кошельке."
+    "message": "Для взаимодействия с децентрализованными приложениями с помощью GreenBelt нужен TRUE в вашем кошельке."
   },
   "needImportFile": {
     "message": "Вы должны выбрать файл для импорта.",
@@ -536,7 +536,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Невозможно отправить отрицательную сумму ETH."
+    "message": "Невозможно отправить отрицательную сумму TRUE."
   },
   "networks": {
     "message": "Сети"
@@ -689,7 +689,7 @@
     "message": "Current RPC"
   },
   "connectingToMainnet": {
-    "message": "Соединение с основной сетью Ethereum"
+    "message": "Соединение с основной сетью TrueChain"
   },
   "connectingToRopsten": {
     "message": "Соединение с тестовой сетью Ropsten"
@@ -745,19 +745,19 @@
     "message": "Отправить"
   },
   "sendETH": {
-    "message": "Отправить ETH"
+    "message": "Отправить TRUE"
   },
   "sendTokens": {
     "message": "Отправить токены"
   },
   "onlySendToEtherAddress": {
-    "message": "Отправляйте ETH только на Ethereum адреса."
+    "message": "Отправляйте TRUE только на TrueChain адреса."
   },
   "searchTokens": {
     "message": "Поиск токенов"
   },
   "sendTokensAnywhere": {
-    "message": "Отправить токены любому, у кого есть счет Ethereum"
+    "message": "Отправить токены любому, у кого есть счет TrueChain"
   },
   "settings": {
     "message": "Настройки"
@@ -832,7 +832,7 @@
     "message": "Получатель"
   },
   "toETHviaShapeShift": {
-    "message": "$1 в ETH через ShapeShift",
+    "message": "$1 в TRUE через ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "tokenAddress": {

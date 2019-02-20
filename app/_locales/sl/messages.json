@@ -36,10 +36,10 @@
     "message": "Počisti podatke o odobritvi"
   },
   "providerAPIRequest": {
-    "message": "Zahteva za Ethereum API"
+    "message": "Zahteva za TrueChain API"
   },
   "reviewProviderRequest": {
-    "message": "Preglejte zahtevo za Ethereum API."
+    "message": "Preglejte zahtevo za TrueChain API."
   },
   "providerRequestInfo": {
     "message": "Domena zahteva dostop do verige blokov in ogled vašega računa. Pred potrditvjo vedno preverite ali ste na želeni spletni strani."
@@ -105,7 +105,7 @@
     "message": "Znesek + TX Fee"
   },
   "appDescription": {
-    "message": "Denarnica za Ethereum v brskalniku",
+    "message": "Denarnica za TrueChain v brskalniku",
     "description": "The description of the application"
   },
   "appName": {
@@ -155,7 +155,7 @@
     "message": "Vaša skrivna rezervna fraza omogoča preprosto varnostno kopiranje in obnovitev računa."
   },
   "backupPhraseWarning": {
-    "message": "OPOZORILO: Nikoli ne razkrijte varnostne fraze. Vsakdo s to frazo lahko vzame vaš Ether za vedno."
+    "message": "OPOZORILO: Nikoli ne razkrijte varnostne fraze. Vsakdo s to frazo lahko vzame vaš TRUE za vedno."
   },
   "backupPhraseTip1": {
     "message": "Shranite to frazo v upravitelja gesel, na primer 1Password."
@@ -404,7 +404,7 @@
     "description": "Tells the user what coin they have selected to deposit with shapeshift"
   },
   "depositEth": {
-    "message": "Vplačilo ETH"
+    "message": "Vplačilo TRUE"
   },
   "depositEther": {
     "message": "Vplačilo ethra"
@@ -419,7 +419,7 @@
     "message": "Vplačilo z ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Če imate druge kriptovalute, lahko Ether vplačate neposredno v GreenBelt. Brez računov."
+    "message": "Če imate druge kriptovalute, lahko TRUE vplačate neposredno v GreenBelt. Brez računov."
   },
   "details": {
     "message": "Podrobnosti"
@@ -431,7 +431,7 @@
     "message": "Neposredno vplačilo ehera"
   },
   "directDepositEtherExplainer": {
-    "message": "Če že imate Ether, ga lahko najhitreje dobite v GreenBelt z neposrednim vplačilom."
+    "message": "Če že imate TRUE, ga lahko najhitreje dobite v GreenBelt z neposrednim vplačilom."
   },
   "done": {
     "message": "Končano"
@@ -475,8 +475,8 @@
   "enterPasswordContinue": {
     "message": "Za nadaljevanje vnesite geslo"
   },
-  "eth": {
-    "message": "ETH"
+  "TRUE": {
+    "message": "TRUE"
   },
   "etherscanView": {
     "message": "Poglej račun na Etherscan"
@@ -581,11 +581,11 @@
     "message": "Ustvarjanje transakcije"
   },
   "getEther": {
-    "message": "Pridobi Ether"
+    "message": "Pridobi TRUE"
   },
   "getEtherFromFaucet": {
-    "message": "Pridobite Ether iz fauceta za $1",
-    "description": "Displays network name for Ether faucet"
+    "message": "Pridobite TRUE iz fauceta za $1",
+    "description": "Displays network name for TRUE faucet"
   },
   "getHelp": {
     "message": "Get Help."
@@ -632,7 +632,7 @@
     "message": "Zgodovina"
   },
   "howToDeposit": {
-    "message": "Kako želite vplačati Ether?"
+    "message": "Kako želite vplačati TRUE?"
   },
   "holdEther": {
     "message": "Omogoča vam shranjevanje ethra in žetonov ter povezovanje decentraliziranih aplikacij."
@@ -771,7 +771,7 @@
     "message": "Sporočilo"
   },
   "metamaskDescription": {
-    "message": "GreenBelt je varen identitetni sklad za Ethereum."
+    "message": "GreenBelt je varen identitetni sklad za TrueChain."
   },
   "metamaskSeedWords": {
     "message": "Seed Words"
@@ -806,7 +806,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Negativnih zneskov ETH ni mogoče poslati."
+    "message": "Negativnih zneskov TRUE ni mogoče poslati."
   },
   "networks": {
     "message": "Omrežja"
@@ -897,10 +897,10 @@
     "message": "Vrnili ste se v star uporabniški vmesnik. V novega se lahko vrnete z možnostjo v spustnem meniju v zgornjem desnem kotu."
   },
   "onlySendToEtherAddress": {
-    "message": "Na Ethereum naslov pošljute samo ETH."
+    "message": "Na TrueChain naslov pošljute samo TRUE."
   },
   "onlySendTokensToAccountAddress": {
-    "message": "Na Ethereum naslov pošljute samo $1.",
+    "message": "Na TrueChain naslov pošljute samo $1.",
     "description": "displays token symbol"
   },
   "openInTab": {
@@ -974,7 +974,7 @@
     "message": "Glavna valuta"
   },
   "primaryCurrencySettingDescription": {
-    "message": "Izberite Native za prikaz vrednosti v privzeti valuti verige (npr. ETH). Izberite Klasične za prikaz vrednosti v izbrani klasični valuti."
+    "message": "Izberite Native za prikaz vrednosti v privzeti valuti verige (npr. TRUE). Izberite Klasične za prikaz vrednosti v izbrani klasični valuti."
   },
   "privacyMsg": {
     "message": "Zasebnost"
@@ -1163,13 +1163,13 @@
     "message": "Pošlji znesek"
   },
   "sendETH": {
-    "message": "Pošlji ETH"
+    "message": "Pošlji TRUE"
   },
   "sendTokens": {
     "message": "Pošlji žetone"
   },
   "sentEther": {
-    "message": "poslani ether"
+    "message": "poslani TRUE"
   },
   "sentTokens": {
     "message": "poslani žetoni"
@@ -1199,7 +1199,7 @@
     "message": "Če obstoječih Ledger ne vidite, poskusite izbrati \"Legacy (MEW / MyCrypto)\""
   },
   "sendTokensAnywhere": {
-    "message": "Pošljite žetone komurkoli z Ethereum naslovom"
+    "message": "Pošljite žetone komurkoli z TrueChain naslovom"
   },
   "settings": {
     "message": "Nastavitve"
@@ -1292,7 +1292,7 @@
     "message": "3. Začnite uporabljati dApps in več!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Uporabite strojno denarnico kot katerikoli drug Ethereum račun. Prijavite se v dApps, pošljite Ether in ERC20 žetone in žetone kot CryptoKitties."
+    "message": "Uporabite strojno denarnico kot katerikoli drug TrueChain račun. Prijavite se v dApps, pošljite TRUE in ERC20 žetone in žetone kot CryptoKitties."
   },
   "submit": {
     "message": "Potrdi"
@@ -1322,7 +1322,7 @@
     "message": "Za"
   },
   "toETHviaShapeShift": {
-    "message": "$1 v ETH prek ShapeShift",
+    "message": "$1 v TRUE prek ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "token": {

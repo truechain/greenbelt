@@ -148,7 +148,7 @@ export default class ImportWithSeedPhrase extends PureComponent {
             }}
             href="#"
           >
-            {`< Back`}
+            {`< ${t('back')}`}
           </a>
         </div>
         <div className="first-time-flow__header">

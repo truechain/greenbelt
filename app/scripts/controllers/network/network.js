@@ -117,7 +117,7 @@ module.exports = class NetworkController extends EventEmitter {
     })
   }
 
-  setRpcTarget (rpcTarget, chainId, ticker = 'ETH', nickname = '') {
+  setRpcTarget (rpcTarget, chainId, ticker = 'TRUE', nickname = '') {
     const providerConfig = {
       type: 'rpc',
       rpcTarget,
@@ -183,7 +183,7 @@ module.exports = class NetworkController extends EventEmitter {
     this._setNetworkClient(networkClient)
     // setup networkConfig
     var settings = {
-      ticker: 'ETH',
+      ticker: 'TRUE',
     }
     this.networkConfig.putState(settings)
   }
@@ -201,7 +201,7 @@ module.exports = class NetworkController extends EventEmitter {
     networks.networkList['rpc'] = {
       chainId: chainId,
       rpcUrl,
-      ticker: ticker || 'ETH',
+      ticker: ticker || 'TRUE',
       nickname,
     }
     // setup networkConfig

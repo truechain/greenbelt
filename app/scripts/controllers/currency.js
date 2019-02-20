@@ -26,7 +26,7 @@ class CurrencyController {
    */
   constructor (opts = {}) {
     const initState = extend({
-      currentCurrency: 'usd',
+      currentCurrency: 'CNY',
       conversionRate: 0,
       conversionDate: 'N/A',
       nativeCurrency: 'TRUE',
@@ -135,7 +135,7 @@ class CurrencyController {
       nativeCurrency = this.getNativeCurrency()
       // select api
       let apiUrl
-      if (nativeCurrency === 'ETH') {
+      if (nativeCurrency === 'TRUE') {
         // ETH
         apiUrl = `https://api.infura.io/v1/ticker/eth${currentCurrency.toLowerCase()}`
       } else {
@@ -161,7 +161,7 @@ class CurrencyController {
         return
       }
       // set conversion rate
-      if (nativeCurrency === 'ETH') {
+      if (nativeCurrency === 'TRUE') {
         // ETH
         this.setConversionRate(Number(parsedResponse.bid))
         this.setConversionDate(Number(parsedResponse.timestamp))

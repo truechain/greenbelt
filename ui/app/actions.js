@@ -2279,7 +2279,7 @@ function pairUpdate (coin) {
   return (dispatch) => {
     dispatch(actions.showSubLoadingIndication())
     dispatch(actions.hideWarning())
-    shapeShiftRequest('marketinfo', {pair: `${coin.toLowerCase()}_eth`}, (mktResponse) => {
+    shapeShiftRequest('marketinfo', {pair: `${coin.toLowerCase()}_true`}, (mktResponse) => {
       dispatch(actions.hideSubLoadingIndication())
       if (mktResponse.error) return dispatch(actions.displayWarning(mktResponse.error))
       dispatch({

@@ -42,7 +42,7 @@
     "message": "Ilość + gaz"
   },
   "appDescription": {
-    "message": "Wtyczka przeglądarki do Ethereum",
+    "message": "Wtyczka przeglądarki do TrueChain",
     "description": "Opis aplikacji"
   },
   "appName": {
@@ -102,7 +102,7 @@
     "message": "Kup na Coinbase"
   },
   "buyCoinbaseExplainer": {
-    "message": "Coinbase to najpopularniejszy sposób na kupno i sprzedaż Bitcoin, Ethereum i Litecoin."
+    "message": "Coinbase to najpopularniejszy sposób na kupno i sprzedaż Bitcoin, TrueChain i Litecoin."
   },
   "bytes": {
     "message": "Bajty"
@@ -254,7 +254,7 @@
     "description": "Pokazuje użytkownikowi jakie waluty wybrał do zdeponowania w ShapeShift"
   },
   "depositEth": {
-    "message": "Zdeponuj Eth"
+    "message": "Zdeponuj TRUE"
   },
   "depositEther": {
     "message": "Zdeponuj Eter"
@@ -585,7 +585,7 @@
     "message": "słowa seed mogą być pisane wyłącznie małymi literami"
   },
   "mainnet": {
-    "message": "Główna sieć Ethereum"
+    "message": "Główna sieć TrueChain"
   },
   "menu": {
     "message": "Menu"
@@ -594,7 +594,7 @@
     "message": "Wiadomość"
   },
   "metamaskDescription": {
-    "message": "GreenBelt to bezpieczny portfel dla Ethereum."
+    "message": "GreenBelt to bezpieczny portfel dla TrueChain."
   },
   "metamaskSeedWords": {
     "message": "Słowa Seed GreenBelt"
@@ -623,7 +623,7 @@
     "description": "Hasło i plik niezbędne do zaimportowania konta"
   },
   "negativeETH": {
-    "message": "Nie można wysłać ujemnych ilości ETH."
+    "message": "Nie można wysłać ujemnych ilości TRUE."
   },
   "networks": {
     "message": "Sieci"
@@ -845,7 +845,7 @@
     "message": "Obecne RPC"
   },
   "connectingToMainnet": {
-    "message": "Łączenie z główną siecią Ethereum"
+    "message": "Łączenie z główną siecią TrueChain"
   },
   "connectingToRopsten": {
     "message": "Łączenie z siecią testową Ropsten"
@@ -919,7 +919,7 @@
     "message": "Wyślij"
   },
   "sendETH": {
-    "message": "Wyślij ETH"
+    "message": "Wyślij TRUE"
   },
   "sendTokens": {
     "message": "Wyślij tokeny"
@@ -934,10 +934,10 @@
     "message": "Oddziel słowa pojedynczą spacją"
   },
   "onlySendToEtherAddress": {
-    "message": "Na adres Ethereum wysyłaj tylko ETH."
+    "message": "Na adres TrueChain wysyłaj tylko TRUE."
   },
   "onlySendTokensToAccountAddress": {
-    "message": "Wyślij tylko $1 na adres konta Ethereum.",
+    "message": "Wyślij tylko $1 na adres konta TrueChain.",
     "description": "wyświetla symbol tokena"
   },
   "orderOneHere": {
@@ -965,7 +965,7 @@
     "message": "Jeśli nie widzisz poniżej swoich kont Ledger, spróbuj przełączyć się na \"Legacy (MEW / MyCrypto)\""
   },
   "sendTokensAnywhere": {
-    "message": "Wyślij tokeny do kogoś z adresem Ethereum"
+    "message": "Wyślij tokeny do kogoś z adresem TrueChain"
   },
   "settings": {
     "message": "Ustawienia"
@@ -986,7 +986,7 @@
     "message": "3. Zacznij używać dystrybuowanych aplikacji (dApps) i wiele więcej!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Używaj swojego konta sprzętowego tak, jak używasz jakiegokolwiek konta z Ethereum. Loguj się do dystrybuowanych aplikacji (dApps), wysyłaj Eth, kupuj i przechowaj tokeny ERC20 i niewymienne tokeny, jak np. CryptoKitties."
+    "message": "Używaj swojego konta sprzętowego tak, jak używasz jakiegokolwiek konta z TrueChain. Loguj się do dystrybuowanych aplikacji (dApps), wysyłaj TRUE, kupuj i przechowaj tokeny ERC20 i niewymienne tokeny, jak np. CryptoKitties."
   },
   "info": {
     "message": "Info"
@@ -1061,13 +1061,13 @@
     "message": "Regulamin"
   },
   "testFaucet": {
-    "message": "Źródło testowego ETH"
+    "message": "Źródło testowego TRUE"
   },
   "to": {
     "message": "Do"
   },
   "toETHviaShapeShift": {
-    "message": "$1 na ETH przez ShapeShift",
+    "message": "$1 na TRUE przez ShapeShift",
     "description": "system uzupełni typ depozytu na początku wiadomości"
   },
   "token": {

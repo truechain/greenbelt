@@ -39,7 +39,7 @@
     "message": "$1 vorrebbe connettersi al tuo account"
   },
   "providerRequestInfo": {
-    "message": "Il dominio elencato di seguito sta tentando di richiedere l'accesso all'API Ethereum in modo che possa interagire con la blockchain di Ethereum. Controlla sempre di essere sul sito corretto prima di approvare l'accesso a Ethereum."
+    "message": "Il dominio elencato di seguito sta tentando di richiedere l'accesso all'API TrueChain in modo che possa interagire con la blockchain di TrueChain. Controlla sempre di essere sul sito corretto prima di approvare l'accesso a TrueChain."
   },
   "accept": {
     "message": "Accetta"
@@ -102,7 +102,7 @@
     "message": "Importo + Costo TX"
   },
   "appDescription": {
-    "message": "Ethereum Browser Extension",
+    "message": "TrueChain Browser Extension",
     "description": "La descrizione dell'applicazione"
   },
   "appName": {
@@ -177,7 +177,7 @@
     "message": "Compra su Coinbase"
   },
   "buyCoinbaseExplainer": {
-    "message": "Coinbase è il servizio più popolare al mondo per comprare e vendere Bitcoin, Ethereum e Litecoin."
+    "message": "Coinbase è il servizio più popolare al mondo per comprare e vendere Bitcoin, TrueChain e Litecoin."
   },
   "bytes": {
     "message": "Bytes"
@@ -258,7 +258,7 @@
     "message": "Connessione alla Rete di test Kovan"
   },
   "connectingToMainnet": {
-    "message": "Connessione alla Rete Ethereum Principale"
+    "message": "Connessione alla Rete TrueChain Principale"
   },
   "connectingToRopsten": {
     "message": "Connessione alla Rete di test Ropsten"
@@ -364,7 +364,7 @@
     "message": "Precisione Decimali"
   },
   "defaultNetwork": {
-    "message": "La rete predefinita per transazioni in Ether è la Rete Ethereum Principale."
+    "message": "La rete predefinita per transazioni in TRUE è la Rete TrueChain Principale."
   },
   "denExplainer": {
     "message": "Il DEN è il tuo archivio crittato con password dentro GreenBelt."
@@ -380,10 +380,10 @@
     "description": "Dice all'utente quale moneta ha selezionato per depositare con Shapeshift"
   },
   "depositEth": {
-    "message": "Deposita Eth"
+    "message": "Deposita TRUE"
   },
   "depositEther": {
-    "message": "Deposita Ether"
+    "message": "Deposita TRUE"
   },
   "depositFiat": {
     "message": "Deposita con moneta Fiat"
@@ -395,7 +395,7 @@
     "message": "Deposita con ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Se possiedi altre criptomonete, puoi scambiare e depositare Ether direttamente nel tuo portafoglio GreenBelt. Nessun account richiesto."
+    "message": "Se possiedi altre criptomonete, puoi scambiare e depositare TRUE direttamente nel tuo portafoglio GreenBelt. Nessun account richiesto."
   },
   "details": {
     "message": "Dettagli"
@@ -404,10 +404,10 @@
     "message": "Deposito Diretto"
   },
   "directDepositEther": {
-    "message": "Deposita Direttamente Ether"
+    "message": "Deposita Direttamente TRUE"
   },
   "directDepositEtherExplainer": {
-    "message": "Se possiedi già degli Ether, questa è la via più veloce per aggiungere Ether al tuo portafoglio con un deposito diretto."
+    "message": "Se possiedi già degli TRUE, questa è la via più veloce per aggiungere TRUE al tuo portafoglio con un deposito diretto."
   },
   "done": {
     "message": "Finito"
@@ -454,8 +454,8 @@
   "enterPasswordContinue": {
     "message": "Inserisci la tua password per continuare"
   },
-  "eth": {
-    "message": "ETH"
+  "TRUE": {
+    "message": "TRUE"
   },
   "etherscanView": {
     "message": "Vedi account su Etherscan"
@@ -551,7 +551,7 @@
     "message": "Prezzo del gas estremamente basso"
   },
   "gasPriceInfoModalContent": {
-    "message": "Il prezzo del gas specifica il totale di Ether che sei disposto a pagare per ogni unità di gas."
+    "message": "Il prezzo del gas specifica il totale di TRUE che sei disposto a pagare per ogni unità di gas."
   },
   "gasPriceNoDenom": {
     "message": "Prezzo del Gas"
@@ -566,11 +566,11 @@
     "message": "Generando la transazione"
   },
   "getEther": {
-    "message": "Ottieni Ether"
+    "message": "Ottieni TRUE"
   },
   "getEtherFromFaucet": {
-    "message": "Ottieni Get Ether da un faucet per $1",
-    "description": "Visualizza il nome della rete per il faucet Ether"
+    "message": "Ottieni Get TRUE da un faucet per $1",
+    "description": "Visualizza il nome della rete per il faucet TRUE"
   },
   "getHelp": {
     "message": "Aiuto."
@@ -617,10 +617,10 @@
     "message": "Storico"
   },
   "howToDeposit": {
-    "message": "Come vuoi depositare Ether?"
+    "message": "Come vuoi depositare TRUE?"
   },
   "holdEther": {
-    "message": "Ti permette di custodire ether & token, e serve da ponte per le applicazioni decentralizzate."
+    "message": "Ti permette di custodire TRUE & token, e serve da ponte per le applicazioni decentralizzate."
   },
   "import": {
     "message": "Importa",
@@ -756,7 +756,7 @@
     "message": "le frasi seed hanno solo lettere minuscole"
   },
   "mainnet": {
-    "message": "Rete Ethereum Principale"
+    "message": "Rete TrueChain Principale"
   },
   "memorizePhrase": {
     "message": "Memorizza questa frase."
@@ -768,7 +768,7 @@
     "message": "Messaggio"
   },
   "metamaskDescription": {
-    "message": "GreenBelt è una cassaforte sicura per identità su Ethereum."
+    "message": "GreenBelt è una cassaforte sicura per identità su TrueChain."
   },
   "metamaskSeedWords": {
     "message": "Parole Seed di GreenBelt"
@@ -792,7 +792,7 @@
     "message": "Devi selezionare almeno un token."
   },
   "needEtherInWallet": {
-    "message": "Per interagire con applicazioni decentralizzate con GreenBelt, devi possedere Ether nel tuo portafoglio."
+    "message": "Per interagire con applicazioni decentralizzate con GreenBelt, devi possedere TRUE nel tuo portafoglio."
   },
   "needImportFile": {
     "message": "Devi selezionare un file da importare.",
@@ -803,7 +803,7 @@
     "description": "Password e file necessari per importare un account"
   },
   "negativeETH": {
-    "message": "Non puoi inviare una quantità di ETH negativa."
+    "message": "Non puoi inviare una quantità di TRUE negativa."
   },
   "networks": {
     "message": "Reti"
@@ -897,10 +897,10 @@
     "message": "Sei ritornato alla vecchia interfaccia. Puoi ritornare alla nuova interfaccia tramite l'opzione nel menu a discesa in alto a destra."
   },
   "onlySendToEtherAddress": {
-    "message": "Invia ETH solamente ad un account Ethereum."
+    "message": "Invia TRUE solamente ad un account TrueChain."
   },
   "onlySendTokensToAccountAddress": {
-    "message": "Invia solamente $1 ad un account Ethereum.",
+    "message": "Invia solamente $1 ad un account TrueChain.",
     "description": "mostra il simbolo del token"
   },
   "openInTab": {
@@ -971,7 +971,7 @@
     "message": "Moneta Primaria"
   },
   "primaryCurrencySettingDescription": {
-    "message": "Seleziona ETH per privilegiare la visualizzazione dei valori nella moneta nativa della blockhain. Seleziona Fiat per privilegiare la visualizzazione dei valori nella moneta selezionata."
+    "message": "Seleziona TRUE per privilegiare la visualizzazione dei valori nella moneta nativa della blockhain. Seleziona Fiat per privilegiare la visualizzazione dei valori nella moneta selezionata."
   },
   "privacyMsg": {
     "message": "Politica sulla Privacy"
@@ -1133,7 +1133,7 @@
     "message": "La tua frase di backup segreta rende facile fare il backup e ripristinare il tuo account."
   },
   "secretBackupPhraseWarning": {
-    "message": "ATTENZIONE: Non dire mai a nessuno questa frase di backup. Chiunque con questa frase può rubare i tuoi Ether per sempre."
+    "message": "ATTENZIONE: Non dire mai a nessuno questa frase di backup. Chiunque con questa frase può rubare i tuoi TRUE per sempre."
   },
   "secretPhrase": {
     "message": "Inserisci la tua frase segreta di dodici parole per ripristinare la cassaforte."
@@ -1172,13 +1172,13 @@
     "message": "Invia Importo"
   },
   "sendETH": {
-    "message": "Invia ETH"
+    "message": "Invia TRUE"
   },
   "sendTokens": {
     "message": "Invia Tokens"
   },
   "sentEther": {
-    "message": "ether inviati"
+    "message": "TRUE inviati"
   },
   "sentTokens": {
     "message": "tokens inviati"
@@ -1208,7 +1208,7 @@
     "message": "Se non vedi il tuo account Ledger esistente di seguito, prova a cambiare il percorso in \"Legacy (MEW / MyCrypto)\""
   },
   "sendTokensAnywhere": {
-    "message": "Invia Tokens a chiunque abbia un account Ethereum"
+    "message": "Invia Tokens a chiunque abbia un account TrueChain"
   },
   "settings": {
     "message": "Impostazioni"
@@ -1307,7 +1307,7 @@
     "message": "3. Inizia a usare dApps e molto altro ancora!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Usa il tuo account hardware come utilizzeresti qualsiasi account Ethereum. Accedi alle dApps, invia Eth, compra e conserva token ERC20 e token non fungibili come CryptoKitties"
+    "message": "Usa il tuo account hardware come utilizzeresti qualsiasi account TrueChain. Accedi alle dApps, invia TRUE, compra e conserva token ERC20 e token non fungibili come CryptoKitties"
   },
   "storePhrase": {
     "message": "Conserva questa frase in un gestore di password come 1Password."
@@ -1340,7 +1340,7 @@
     "message": "A"
   },
   "toETHviaShapeShift": {
-    "message": "$1 a ETH via ShapeShift",
+    "message": "$1 a TRUE via ShapeShift",
     "description": "il sistema riempirà il tipo di deposito all'inizio del messaggio"
   },
   "token": {

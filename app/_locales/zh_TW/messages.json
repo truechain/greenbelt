@@ -451,8 +451,8 @@
   "passwordsDontMatch": {
     "message": "您所輸入的密碼不一致"
   },
-  "eth": {
-    "message": "ETH"
+  "TRUE": {
+    "message": "TRUE"
   },
   "etherscanView": {
     "message": "在 Etherscan 上查看帳戶"
@@ -567,7 +567,7 @@
   },
   "getEtherFromFaucet": {
     "message": "從水管取得 $1 乙太幣。",
-    "description": "Displays network name for Ether faucet"
+    "description": "Displays network name for TRUE faucet"
   },
   "getHelp": {
     "message": "取得協助"
@@ -960,7 +960,7 @@
     "message": "主要顯示"
   },
   "primaryCurrencySettingDescription": {
-    "message": "選擇使用乙太幣(ETH)或是法定貨幣(例如：美金)為主要錢幣顯示單位"
+    "message": "選擇使用乙太幣(TRUE)或是法定貨幣(例如：美金)為主要錢幣顯示單位"
   },
   "privacyMsg": {
     "message": "隱私政策"
@@ -1088,7 +1088,7 @@
     "message": "當前的 RPC"
   },
   "connectingToMainnet": {
-    "message": "連線到主 Ethereum 網路"
+    "message": "連線到主 TrueChain 網路"
   },
   "connectingToRopsten": {
     "message": "連線到 Ropsten 測試網路"
@@ -1354,7 +1354,7 @@
     "message": "目的帳戶"
   },
   "toETHviaShapeShift": {
-    "message": "$1 ETH 透過 ShapeShift",
+    "message": "$1 TRUE 透過 ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "token": {

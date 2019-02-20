@@ -30,7 +30,7 @@ export default class InfoTab extends PureComponent {
         <div className="info-tab__link-header">
           { t('links') }
         </div>
-        <div className="info-tab__link-item">
+        {/* <div className="info-tab__link-item">
           <a
             href="https://metamask.io/privacy.html"
             target="_blank"
@@ -62,9 +62,9 @@ export default class InfoTab extends PureComponent {
               { t('attributions') }
             </span>
           </a>
-        </div>
-        <hr className="info-tab__separator" />
-        <div className="info-tab__link-item">
+        </div> */}
+        {/* <hr className="info-tab__separator" /> */}
+        {/* <div className="info-tab__link-item">
           <a
             href="https://support.metamask.io"
             target="_blank"
@@ -74,7 +74,7 @@ export default class InfoTab extends PureComponent {
               { t('supportCenter') }
             </span>
           </a>
-        </div>
+        </div> */}
         <div className="info-tab__link-item">
           <a
             href="https://metamask.io/"
@@ -86,7 +86,7 @@ export default class InfoTab extends PureComponent {
             </span>
           </a>
         </div>
-        <div className="info-tab__link-item">
+        {/* <div className="info-tab__link-item">
           <a
             href="mailto:help@metamask.io?subject=Feedback"
             target="_blank"
@@ -96,7 +96,7 @@ export default class InfoTab extends PureComponent {
               { t('emailUs') }
             </span>
           </a>
-        </div>
+        </div> */}
       </div>
     )
   }

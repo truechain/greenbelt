@@ -31,7 +31,7 @@ function getBuyEthUrl ({ network, amount, address }) {
       break
 
     case '18928':
-      url = 'https://api.truescan.net/rpc/'
+      url = 'https://www.okex.com'
       break
   }
   return url

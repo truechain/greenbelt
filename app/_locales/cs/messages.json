@@ -36,13 +36,13 @@
     "message": "Odmítnout"
   },
   "providerAPIRequest": {
-    "message": "Požadavek API Ethereum"
+    "message": "Požadavek API TrueChain"
   },
   "reviewProviderRequest": {
-    "message": "Přečtěte si prosím tuto žádost API Ethereum."
+    "message": "Přečtěte si prosím tuto žádost API TrueChain."
   },
   "providerRequestInfo": {
-    "message": "Níže uvedená doména se pokouší požádat o přístup k API Ethereum, aby mohla komunikovat s blokádou Ethereum. Před schválením přístupu Ethereum vždy zkontrolujte, zda jste na správném místě."
+    "message": "Níže uvedená doména se pokouší požádat o přístup k API TrueChain, aby mohla komunikovat s blokádou TrueChain. Před schválením přístupu TrueChain vždy zkontrolujte, zda jste na správném místě."
   },
   "accept": {
     "message": "Přijmout"
@@ -75,7 +75,7 @@
     "message": "Částka + palivo"
   },
   "appDescription": {
-    "message": "Ethereum rozšíření prohlížeče",
+    "message": "TrueChain rozšíření prohlížeče",
     "description": "The description of the application"
   },
   "appName": {
@@ -248,10 +248,10 @@
     "description": "Tells the user what coin they have selected to deposit with shapeshift"
   },
   "depositEth": {
-    "message": "Vložit Eth"
+    "message": "Vložit TRUE"
   },
   "depositEther": {
-    "message": "Vložit Ether"
+    "message": "Vložit TRUE"
   },
   "depositFiat": {
     "message": "Vklad s fiat měnou"
@@ -263,7 +263,7 @@
     "message": "Vklad přes ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Pokud vlastníte jiné kryptoměny, můžete je směnit Ether a vložit ho přímo do peněženky GreenBelt. Bez založení účtu."
+    "message": "Pokud vlastníte jiné kryptoměny, můžete je směnit TRUE a vložit ho přímo do peněženky GreenBelt. Bez založení účtu."
   },
   "details": {
     "message": "Podrobnosti"
@@ -272,10 +272,10 @@
     "message": "Přímý vklad"
   },
   "directDepositEther": {
-    "message": "Vložit Ether přímo"
+    "message": "Vložit TRUE přímo"
   },
   "directDepositEtherExplainer": {
-    "message": "Pokud už vlastníte nějaký Ether, nejrychleji ho dostanete do peněženky přímým vkladem."
+    "message": "Pokud už vlastníte nějaký TRUE, nejrychleji ho dostanete do peněženky přímým vkladem."
   },
   "done": {
     "message": "Hotovo"
@@ -377,11 +377,11 @@
     "message": "Cena paliva je povinná"
   },
   "getEther": {
-    "message": "Získejte Ether"
+    "message": "Získejte TRUE"
   },
   "getEtherFromFaucet": {
-    "message": "Získejte Ether z faucetu za $1.",
-    "description": "Displays network name for Ether faucet"
+    "message": "Získejte TRUE z faucetu za $1.",
+    "description": "Displays network name for TRUE faucet"
   },
   "greaterThanMin": {
     "message": "musí být větší nebo roven $1.",
@@ -404,10 +404,10 @@
     "message": "Skrýt token?"
   },
   "howToDeposit": {
-    "message": "Jakým způsobem chcete vložit Ether?"
+    "message": "Jakým způsobem chcete vložit TRUE?"
   },
   "holdEther": {
-    "message": "Dovoluje vám držet ether a tokeny a slouží jako most k decentralizovaným aplikacím."
+    "message": "Dovoluje vám držet TRUE a tokeny a slouží jako most k decentralizovaným aplikacím."
   },
   "import": {
     "message": "Import",
@@ -513,13 +513,13 @@
     "message": "slova klíčové fráze mají pouze malá písmena"
   },
   "mainnet": {
-    "message": "Main Ethereum Network"
+    "message": "Main TrueChain Network"
   },
   "message": {
     "message": "Zpráva"
   },
   "metamaskDescription": {
-    "message": "GreenBelt je bezpečný osobní trezor pro Ethereum."
+    "message": "GreenBelt je bezpečný osobní trezor pro TrueChain."
   },
   "min": {
     "message": "Minimum"
@@ -531,7 +531,7 @@
     "message": "Musíte zvolit aspoň 1 token."
   },
   "needEtherInWallet": {
-    "message": "Potřebujete Ether v peněžence, abyste mohli pomocí GreenBeltu interagovat s decentralizovanými aplikacemi."
+    "message": "Potřebujete TRUE v peněžence, abyste mohli pomocí GreenBeltu interagovat s decentralizovanými aplikacemi."
   },
   "needImportFile": {
     "message": "Musíte zvolit soubor k importu.",
@@ -542,7 +542,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Nelze odeslat zápornou částku ETH."
+    "message": "Nelze odeslat zápornou částku TRUE."
   },
   "networks": {
     "message": "Sítě"
@@ -695,7 +695,7 @@
     "message": "Současné RPC"
   },
   "connectingToMainnet": {
-    "message": "Připojuji se k Main Ethereum Network"
+    "message": "Připojuji se k Main TrueChain Network"
   },
   "connectingToRopsten": {
     "message": "Připojuji se k Ropsten Test Network"
@@ -757,19 +757,19 @@
     "message": "Odeslat"
   },
   "sendETH": {
-    "message": "Odeslat ETH"
+    "message": "Odeslat TRUE"
   },
   "sendTokens": {
     "message": "Odeslat tokeny"
   },
   "onlySendToEtherAddress": {
-    "message": "Posílejte jen ETH na Ethereum adresu."
+    "message": "Posílejte jen TRUE na TrueChain adresu."
   },
   "searchTokens": {
     "message": "Hledat tokeny"
   },
   "sendTokensAnywhere": {
-    "message": "Posílejte tokeny komukoli s Ethereum účtem"
+    "message": "Posílejte tokeny komukoli s TrueChain účtem"
   },
   "settings": {
     "message": "Nastavení"
@@ -844,7 +844,7 @@
     "message": "Komu"
   },
   "toETHviaShapeShift": {
-    "message": "$1 na ETH přes ShapeShift",
+    "message": "$1 na TRUE přes ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "tokenAddress": {

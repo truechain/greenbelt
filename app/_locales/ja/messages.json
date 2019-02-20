@@ -330,7 +330,7 @@
   },
   "getEtherFromFaucet": {
     "message": "フォーセットで $1のEtherを得ることができます。",
-    "description": "Displays network name for Ether faucet"
+    "description": "Displays network name for TRUE faucet"
   },
   "greaterThanMin": {
     "message": " $1以上にして下さい。",
@@ -649,7 +649,7 @@
     "message": "トークンを送信"
   },
   "onlySendToEtherAddress": {
-    "message": "ETH はイーサリウムアカウントのみに送信できます。"
+    "message": "TRUE はイーサリウムアカウントのみに送信できます。"
   },
   "onlySendTokensToAccountAddress": {
     "message": "$1 はイーサリアムアカウントのみに送信できます。",

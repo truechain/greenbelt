@@ -311,7 +311,7 @@ ConfigScreen.prototype.render = function () {
   )
 }
 
-function rpcValidation (newRpc, chainid, ticker = 'ETH', nickname = '', state) {
+function rpcValidation (newRpc, chainid, ticker = 'TRUE', nickname = '', state) {
   if (validUrl.isWebUri(newRpc)) {
     state.dispatch(actions.setRpcTarget(newRpc, chainid, ticker, nickname))
   } else {

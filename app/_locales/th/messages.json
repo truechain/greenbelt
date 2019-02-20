@@ -39,10 +39,10 @@
     "message": "คำขอ Web3 API"
   },
   "reviewProviderRequest": {
-    "message": "โปรดอ่านคำขอ Ethereum API นี้"
+    "message": "โปรดอ่านคำขอ TrueChain API นี้"
   },
   "providerRequestInfo": {
-    "message": "โดเมนที่แสดงด้านล่างกำลังพยายามขอเข้าถึง API ของ Ethereum เพื่อให้สามารถโต้ตอบกับบล็อค Ethereum ได้ ตรวจสอบว่าคุณอยู่ในไซต์ที่ถูกต้องก่อนที่จะอนุมัติการเข้าถึง Ethereum เสมอ"
+    "message": "โดเมนที่แสดงด้านล่างกำลังพยายามขอเข้าถึง API ของ TrueChain เพื่อให้สามารถโต้ตอบกับบล็อค TrueChain ได้ ตรวจสอบว่าคุณอยู่ในไซต์ที่ถูกต้องก่อนที่จะอนุมัติการเข้าถึง TrueChain เสมอ"
   },
   "accept": {
     "message": "ยอมรับ"
@@ -360,7 +360,7 @@
   },
   "getEtherFromFaucet": {
     "message": "รับอีเธอร์ที่ปล่อยจาก $1",
-    "description": "Displays network name for Ether faucet"
+    "description": "Displays network name for TRUE faucet"
   },
   "greaterThanMin": {
     "message": "ต้องมากกว่าหรือเท่ากับ $1.",

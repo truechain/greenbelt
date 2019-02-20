@@ -1,582 +1,21 @@
 {
   "objects": [
     {
-      "symbol": "ethaud",
+      "symbol": "truecny",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
-        "code": "aud",
-        "name": "Australian Dollar"
+        "code": "cny",
+        "name": "China Yuan"
       }
     },
     {
-      "symbol": "ethhkd",
+      "symbol": "trueusd",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "hkd",
-        "name": "Hong Kong Dollar"
-      }
-    },
-    {
-      "symbol": "ethsgd",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "sgd",
-        "name": "Singapore Dollar"
-      }
-    },
-    {
-      "symbol": "ethidr",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "idr",
-        "name": "Indonesian Rupiah"
-      }
-    },
-    {
-      "symbol": "ethphp",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "php",
-        "name": "Philippine Peso"
-      }
-    },
-    {
-      "symbol": "eth1st",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "1st",
-        "name": "FirstBlood"
-      }
-    },
-    {
-      "symbol": "ethadt",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "adt",
-        "name": "adToken"
-      }
-    },
-    {
-      "symbol": "ethadx",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "adx",
-        "name": "AdEx"
-      }
-    },
-    {
-      "symbol": "ethant",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "ant",
-        "name": "Aragon"
-      }
-    },
-    {
-      "symbol": "ethbat",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "bat",
-        "name": "Basic Attention Token"
-      }
-    },
-    {
-      "symbol": "ethbnt",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "bnt",
-        "name": "Bancor"
-      }
-    },
-    {
-      "symbol": "ethbtc",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "btc",
-        "name": "Bitcoin"
-      }
-    },
-    {
-      "symbol": "ethcad",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "cad",
-        "name": "Canadian Dollar"
-      }
-    },
-    {
-      "symbol": "ethcfi",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "cfi",
-        "name": "Cofound.it"
-      }
-    },
-    {
-      "symbol": "ethcrb",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "crb",
-        "name": "CreditBit"
-      }
-    },
-    {
-      "symbol": "ethcvc",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "cvc",
-        "name": "Civic"
-      }
-    },
-    {
-      "symbol": "ethdash",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "dash",
-        "name": "Dash"
-      }
-    },
-    {
-      "symbol": "ethdgd",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "dgd",
-        "name": "DigixDAO"
-      }
-    },
-    {
-      "symbol": "ethetc",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "etc",
-        "name": "Ethereum Classic"
-      }
-    },
-    {
-      "symbol": "etheur",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "eur",
-        "name": "Euro"
-      }
-    },
-    {
-      "symbol": "ethfun",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "fun",
-        "name": "FunFair"
-      }
-    },
-    {
-      "symbol": "ethgbp",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "gbp",
-        "name": "Pound Sterling"
-      }
-    },
-    {
-      "symbol": "ethgno",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "gno",
-        "name": "Gnosis"
-      }
-    },
-    {
-      "symbol": "ethgnt",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "gnt",
-        "name": "Golem"
-      }
-    },
-    {
-      "symbol": "ethgup",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "gup",
-        "name": "Matchpool"
-      }
-    },
-    {
-      "symbol": "ethhmq",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "hmq",
-        "name": "Humaniq"
-      }
-    },
-    {
-      "symbol": "ethjpy",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "jpy",
-        "name": "Japanese Yen"
-      }
-    },
-    {
-      "symbol": "ethlgd",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "lgd",
-        "name": "Legends Room"
-      }
-    },
-    {
-      "symbol": "ethlsk",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "lsk",
-        "name": "Lisk"
-      }
-    },
-    {
-      "symbol": "ethltc",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "ltc",
-        "name": "Litecoin"
-      }
-    },
-    {
-      "symbol": "ethlun",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "lun",
-        "name": "Lunyr"
-      }
-    },
-    {
-      "symbol": "ethmco",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "mco",
-        "name": "Monaco"
-      }
-    },
-    {
-      "symbol": "ethmtl",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "mtl",
-        "name": "Metal"
-      }
-    },
-    {
-      "symbol": "ethmyst",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "myst",
-        "name": "Mysterium"
-      }
-    },
-    {
-      "symbol": "ethnmr",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "nmr",
-        "name": "Numeraire"
-      }
-    },
-    {
-      "symbol": "ethomg",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "omg",
-        "name": "OmiseGO"
-      }
-    },
-    {
-      "symbol": "ethpay",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "pay",
-        "name": "TenX"
-      }
-    },
-    {
-      "symbol": "ethptoy",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "ptoy",
-        "name": "Patientory"
-      }
-    },
-    {
-      "symbol": "ethqrl",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "qrl",
-        "name": "Quantum-Resistant Ledger"
-      }
-    },
-    {
-      "symbol": "ethqtum",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "qtum",
-        "name": "Qtum"
-      }
-    },
-    {
-      "symbol": "ethrep",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "rep",
-        "name": "Augur"
-      }
-    },
-    {
-      "symbol": "ethrlc",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "rlc",
-        "name": "iEx.ec"
-      }
-    },
-    {
-      "symbol": "ethrub",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "rub",
-        "name": "Russian Ruble"
-      }
-    },
-    {
-      "symbol": "ethsc",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "sc",
-        "name": "Siacoin"
-      }
-    },
-    {
-      "symbol": "ethsngls",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "sngls",
-        "name": "SingularDTV"
-      }
-    },
-    {
-      "symbol": "ethsnt",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "snt",
-        "name": "Status"
-      }
-    },
-    {
-      "symbol": "ethsteem",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "steem",
-        "name": "Steem"
-      }
-    },
-    {
-      "symbol": "ethstorj",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "storj",
-        "name": "Storj"
-      }
-    },
-    {
-      "symbol": "ethtime",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "time",
-        "name": "ChronoBank"
-      }
-    },
-    {
-      "symbol": "ethtkn",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "tkn",
-        "name": "TokenCard"
-      }
-    },
-    {
-      "symbol": "ethtrst",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "trst",
-        "name": "WeTrust"
-      }
-    },
-    {
-      "symbol": "ethuah",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
-      },
-      "quote": {
-        "code": "uah",
-        "name": "Ukrainian Hryvnia"
-      }
-    },
-    {
-      "symbol": "ethusd",
-      "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "usd",
@@ -584,10 +23,582 @@
       }
     },
     {
-      "symbol": "ethwings",
+      "symbol": "trueaud",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "aud",
+        "name": "Australian Dollar"
+      }
+    },
+    {
+      "symbol": "truehkd",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "hkd",
+        "name": "Hong Kong Dollar"
+      }
+    },
+    {
+      "symbol": "truesgd",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "sgd",
+        "name": "Singapore Dollar"
+      }
+    },
+    {
+      "symbol": "trueidr",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "idr",
+        "name": "Indonesian Rupiah"
+      }
+    },
+    {
+      "symbol": "truephp",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "php",
+        "name": "Philippine Peso"
+      }
+    },
+    {
+      "symbol": "true1st",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "1st",
+        "name": "FirstBlood"
+      }
+    },
+    {
+      "symbol": "trueadt",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "adt",
+        "name": "adToken"
+      }
+    },
+    {
+      "symbol": "trueadx",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "adx",
+        "name": "AdEx"
+      }
+    },
+    {
+      "symbol": "trueant",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "ant",
+        "name": "Aragon"
+      }
+    },
+    {
+      "symbol": "truebat",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "bat",
+        "name": "Basic Attention Token"
+      }
+    },
+    {
+      "symbol": "truebnt",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "bnt",
+        "name": "Bancor"
+      }
+    },
+    {
+      "symbol": "truebtc",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "btc",
+        "name": "Bitcoin"
+      }
+    },
+    {
+      "symbol": "truecad",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "cad",
+        "name": "Canadian Dollar"
+      }
+    },
+    {
+      "symbol": "truecfi",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "cfi",
+        "name": "Cofound.it"
+      }
+    },
+    {
+      "symbol": "truecrb",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "crb",
+        "name": "CreditBit"
+      }
+    },
+    {
+      "symbol": "truecvc",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "cvc",
+        "name": "Civic"
+      }
+    },
+    {
+      "symbol": "truedash",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "dash",
+        "name": "Dash"
+      }
+    },
+    {
+      "symbol": "truedgd",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "dgd",
+        "name": "DigixDAO"
+      }
+    },
+    {
+      "symbol": "trueetc",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "etc",
+        "name": "Ethereum Classic"
+      }
+    },
+    {
+      "symbol": "trueeur",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "eur",
+        "name": "Euro"
+      }
+    },
+    {
+      "symbol": "truefun",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "fun",
+        "name": "FunFair"
+      }
+    },
+    {
+      "symbol": "truegbp",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "gbp",
+        "name": "Pound Sterling"
+      }
+    },
+    {
+      "symbol": "truegno",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "gno",
+        "name": "Gnosis"
+      }
+    },
+    {
+      "symbol": "truegnt",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "gnt",
+        "name": "Golem"
+      }
+    },
+    {
+      "symbol": "truegup",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "gup",
+        "name": "Matchpool"
+      }
+    },
+    {
+      "symbol": "truehmq",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "hmq",
+        "name": "Humaniq"
+      }
+    },
+    {
+      "symbol": "truejpy",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "jpy",
+        "name": "Japanese Yen"
+      }
+    },
+    {
+      "symbol": "truelgd",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "lgd",
+        "name": "Legends Room"
+      }
+    },
+    {
+      "symbol": "truelsk",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "lsk",
+        "name": "Lisk"
+      }
+    },
+    {
+      "symbol": "trueltc",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "ltc",
+        "name": "Litecoin"
+      }
+    },
+    {
+      "symbol": "truelun",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "lun",
+        "name": "Lunyr"
+      }
+    },
+    {
+      "symbol": "truemco",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "mco",
+        "name": "Monaco"
+      }
+    },
+    {
+      "symbol": "truemtl",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "mtl",
+        "name": "Metal"
+      }
+    },
+    {
+      "symbol": "truemyst",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "myst",
+        "name": "Mysterium"
+      }
+    },
+    {
+      "symbol": "truenmr",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "nmr",
+        "name": "Numeraire"
+      }
+    },
+    {
+      "symbol": "trueomg",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "omg",
+        "name": "OmiseGO"
+      }
+    },
+    {
+      "symbol": "truepay",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "pay",
+        "name": "TenX"
+      }
+    },
+    {
+      "symbol": "trueptoy",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "ptoy",
+        "name": "Patientory"
+      }
+    },
+    {
+      "symbol": "trueqrl",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "qrl",
+        "name": "Quantum-Resistant Ledger"
+      }
+    },
+    {
+      "symbol": "trueqtum",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "qtum",
+        "name": "Qtum"
+      }
+    },
+    {
+      "symbol": "truerep",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "rep",
+        "name": "Augur"
+      }
+    },
+    {
+      "symbol": "truerlc",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "rlc",
+        "name": "iEx.ec"
+      }
+    },
+    {
+      "symbol": "truerub",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "rub",
+        "name": "Russian Ruble"
+      }
+    },
+    {
+      "symbol": "truesc",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "sc",
+        "name": "Siacoin"
+      }
+    },
+    {
+      "symbol": "truesngls",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "sngls",
+        "name": "SingularDTV"
+      }
+    },
+    {
+      "symbol": "truesnt",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "snt",
+        "name": "Status"
+      }
+    },
+    {
+      "symbol": "truesteem",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "steem",
+        "name": "Steem"
+      }
+    },
+    {
+      "symbol": "truestorj",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "storj",
+        "name": "Storj"
+      }
+    },
+    {
+      "symbol": "truetime",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "time",
+        "name": "ChronoBank"
+      }
+    },
+    {
+      "symbol": "truetkn",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "tkn",
+        "name": "TokenCard"
+      }
+    },
+    {
+      "symbol": "truetrst",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "trst",
+        "name": "WeTrust"
+      }
+    },
+    {
+      "symbol": "trueuah",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
+      },
+      "quote": {
+        "code": "uah",
+        "name": "Ukrainian Hryvnia"
+      }
+    },
+    {
+      "symbol": "truewings",
+      "base": {
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "wings",
@@ -595,10 +606,10 @@
       }
     },
     {
-      "symbol": "ethxem",
+      "symbol": "truexem",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "xem",
@@ -606,10 +617,10 @@
       }
     },
     {
-      "symbol": "ethxlm",
+      "symbol": "truexlm",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "xlm",
@@ -617,10 +628,10 @@
       }
     },
     {
-      "symbol": "ethxmr",
+      "symbol": "truexmr",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "xmr",
@@ -628,10 +639,10 @@
       }
     },
     {
-      "symbol": "ethxrp",
+      "symbol": "truexrp",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "xrp",
@@ -639,10 +650,10 @@
       }
     },
     {
-      "symbol": "ethzec",
+      "symbol": "truezec",
       "base": {
-        "code": "eth",
-        "name": "Ethereum"
+        "code": "true",
+        "name": "True Chain"
       },
       "quote": {
         "code": "zec",

@@ -59,6 +59,9 @@
   "address": {
     "message": "地址"
   },
+  "advancedOptions": {
+    "message": "高级选项"
+  },
   "addCustomToken": {
     "message": "添加自定义代币"
   },
@@ -78,7 +81,7 @@
     "message": "数量 + Gas"
   },
   "appDescription": {
-    "message": "TrueChain初链浏览器插件",
+    "message": "TrueChain 初链浏览器插件",
     "description": "The description of the application"
   },
   "appName": {
@@ -123,7 +126,7 @@
     "message": "Borrow With Dharma (Beta)"
   },
   "builtInCalifornia": {
-    "message": "GreenBelt在加利福尼亚设计和制造。"
+    "message": "GreenBelt 由 TrueChain 拓展开发"
   },
   "buy": {
     "message": "购买"
@@ -133,6 +136,12 @@
   },
   "buyCoinbaseExplainer": {
     "message": "Coinbase 是世界上最流行的买卖比特币，以太币和莱特币的交易所。"
+  },
+  "buyOkex": {
+    "message": "在 OKEx 上购买"
+  },
+  "buyOkexExplainer": {
+    "message": "OKEx 是世界上领先的数字资产交易平台。"
   },
   "ok": {
     "message": "确认"
@@ -167,6 +176,9 @@
   "confirmPassword": {
     "message": "确认密码"
   },
+  "confirmSecretBackupPhrase": {
+    "message": "确认你的助记词"
+  },
   "confirmTransaction": {
     "message": "确认交易"
   },
@@ -178,6 +190,9 @@
   },
   "continueToCoinbase": {
     "message": "继续访问 Coinbase"
+  },
+  "continueToOkex": {
+    "message": "继续访问 OKEx"
   },
   "contractDeployment": {
     "message": "合约部署"
@@ -218,12 +233,18 @@
   "createDen": {
     "message": "创建"
   },
+  "createPassword": {
+    "message": "创建密码"
+  },
   "crypto": {
     "message": "加密",
     "description": "Exchange type (cryptocurrencies)"
   },
-  "currentConversion": {
+  "currencyConversion": {
     "message": "当前汇率"
+  },
+  "currentLanguage": {
+    "message": "当前语言"
   },
   "currentNetwork": {
     "message": "当前网络"
@@ -263,10 +284,10 @@
     "description": "Tells the user what coin they have selected to deposit with shapeshift"
   },
   "depositEth": {
-    "message": "存入 Eth"
+    "message": "存入 TRUE"
   },
   "depositEther": {
-    "message": "存入 Ether"
+    "message": "存入 TRUE"
   },
   "depositFiat": {
     "message": "从 Fiat 存入"
@@ -278,7 +299,7 @@
     "message": "从 ShapeShift 存入"
   },
   "depositShapeShiftExplainer": {
-    "message": "如果你拥有其他加密货币，你可以直接交易并存入 Ether 到你的 GreenBelt 钱包。 不需要帐户。"
+    "message": "如果你拥有其他加密货币，你可以直接交易并存入 TRUE 到你的 GreenBelt 钱包。不需要帐户。"
   },
   "details": {
     "message": "详情"
@@ -287,13 +308,19 @@
     "message": "直接存入"
   },
   "directDepositEther": {
-    "message": "直接存入 Ether"
+    "message": "直接存入 TRUE"
   },
   "directDepositEtherExplainer": {
-    "message": "如果你已经有了一些 Ether，通过直接转入是你的新钱包获取 Ether 的最快捷方式。"
+    "message": "如果你已经有了一些 TRUE，通过直接转入是你的新钱包获取 TRUE 的最快捷方式。"
   },
   "done": {
     "message": "完成"
+  },
+  "downloadGoogleChrome": {
+    "message": "下载 Google Chrome"
+  },
+  "downloadSecretBackup": {
+    "message": "下载此助记词并将其安全存储在外部加密磁盘或存储介质上"
   },
   "downloadStateLogs": {
     "message": "下载日志"
@@ -333,6 +360,9 @@
   },
   "exchangeRate": {
     "message": "兑换比率"
+  },
+  "expandView": {
+    "message": "在页面中查看"
   },
   "exportPrivateKey": {
     "message": "导出私钥"
@@ -398,11 +428,11 @@
     "message": "生成 交易"
   },
   "getEther": {
-    "message": "获取 Ether"
+    "message": "获取 TRUE"
   },
   "getEtherFromFaucet": {
-    "message": "从水管获取$1网络的 Ether",
-    "description": "Displays network name for Ether faucet"
+    "message": "从水管获取$1网络的 TRUE",
+    "description": "Displays network name for TRUE faucet"
   },
   "greaterThanMin": {
     "message": "必须要大于等于 $1。",
@@ -424,6 +454,9 @@
   "hideTokenPrompt": {
     "message": "隐藏代币？"
   },
+  "history": {
+    "message": "历史记录"
+  },
   "howToDeposit": {
     "message": "你想怎样转入TRUE？"
   },
@@ -440,6 +473,9 @@
   "importAccountMsg": {
     "message": " Imported accounts will not be associated with your originally created GreenBelt account seedphrase. Learn more about imported accounts "
   },
+  "importAccountSeedPhrase": {
+    "message": "使用助记词导入账户"
+  },
   "importAnAccount": {
     "message": "导入一个账户"
   },
@@ -451,10 +487,10 @@
     "description": "status showing that an account has been fully loaded into the keyring"
   },
   "importUsingSeed": {
-    "message": "使用助记词导入账户"
+    "message": "使用账户助记导入"
   },
   "importWithSeedPhrase": {
-    "message": "Import with seed phrase"
+    "message": "使用助记词导入账户"
   },
   "infoHelp": {
     "message": "信息 & 帮助"
@@ -482,6 +518,9 @@
   },
   "invalidRPC": {
     "message": "无效 RPC URI"
+  },
+  "invalidSeedPhrase": {
+    "message": "无效的助记词"
   },
   "jsonFail": {
     "message": "Something went wrong. Please make sure your JSON file is properly formatted."
@@ -545,6 +584,12 @@
   "truechain": {
     "message": "初链主网络"
   },
+  "memorizePhrase": {
+    "message": "记住这个短语。"
+  },
+  "menu": {
+    "message": "菜单"
+  },
   "message": {
     "message": "消息"
   },
@@ -564,13 +609,13 @@
     "message": "Min"
   },
   "myAccounts": {
-    "message": "My Accounts"
+    "message": "我的账户"
   },
   "mustSelectOne": {
     "message": "至少选择一种代币."
   },
   "needEtherInWallet": {
-    "message": "使用 GreenBelt 与 DAPP 交互，需要你的钱包里有 Ether。"
+    "message": "使用 GreenBelt 与 DAPP 交互，需要你的钱包里有 TRUE"
   },
   "needImportFile": {
     "message": "必须选择导入一个文件。",
@@ -581,7 +626,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Can not send negative amounts of ETH."
+    "message": "Can not send negative amounts of TRUE."
   },
   "networks": {
     "message": "网络"
@@ -597,13 +642,31 @@
     "message": "新合约"
   },
   "newPassword": {
-    "message": "新密码（至少 8 个字符）"
+    "message": "新密码（至少8个字符）"
   },
   "newRecipient": {
     "message": "新收款人"
   },
-  "newRPC": {
-    "message": "新 RPC URL"
+  "newNetwork": {
+    "message": "新网络"
+  },
+  "rpcURL": {
+    "message": "新RPC URL"
+  },
+  "showAdvancedOptions": {
+    "message": "显示高级选项"
+  },
+  "hideAdvancedOptions": {
+    "message": "隐藏高级选项"
+  },
+  "optionalChainId": {
+    "message": "ChainID (可选)"
+  },
+  "optionalSymbol": {
+    "message": "符号 Symbol (可选)"
+  },
+  "optionalNickname": {
+    "message": "昵称 (可选)"
   },
   "next": {
     "message": "下一步"
@@ -663,6 +726,15 @@
   "popularTokens": {
     "message": "常用代币"
   },
+  "prev": {
+    "message": "Prev"
+  },
+  "primaryCurrencySetting": {
+    "message": "主要货币"
+  },
+  "primaryCurrencySettingDescription": {
+    "message": "选择优先显示链的原生货币（如TRUE），或者选择“FIAT”以优先显示所选法定货币中的值。"
+  },
   "privacyMsg": {
     "message": "隐私政策"
   },
@@ -708,6 +780,12 @@
   },
   "restoreVault": {
     "message": "还原保险柜"
+  },
+  "restoreAccountWithSeed": {
+    "message": "使用助记词恢复你的账户"
+  },
+  "requestsAwaitingAcknowledgement": {
+    "message": "requests waiting to be acknowledged"
   },
   "required": {
     "message": "必填"
@@ -789,8 +867,23 @@
   "searchResults": {
     "message": "搜索结果"
   },
+  "secretBackupPhrase": {
+    "message": "安全助记词"
+  },
+  "secretBackupPhraseDescription": {
+    "message": "私密的助记词可以使你的账户的备份和恢复变得容易。"
+  },
+  "secretBackupPhraseWarning": {
+    "message": "警告：不要透露你的助记词。任何有这条助记词的人都可以永远控制你的账户。"
+  },
   "secretPhrase": {
-    "message": "输入12位助记词以恢复金库."
+    "message": "输入12位助记词以恢复账户"
+  },
+  "secondsShorthand": {
+    "message": "Sec"
+  },
+  "seedPhrasePlaceholder": {
+    "message": "使用空格分割每个词语"
   },
   "newPassword8Chars": {
     "message": "新密码（至少8位)"
@@ -804,6 +897,9 @@
   "selectCurrency": {
     "message": "选择货币"
   },
+  "selectEachPhrase": {
+    "message": "请依次选择每个短语以使得助记词完整。"
+  },
   "selectService": {
     "message": "选择服务"
   },
@@ -814,13 +910,13 @@
     "message": "发送"
   },
   "sendETH": {
-    "message": "发送 ETH"
+    "message": "发送 TRUE"
   },
   "sendTokens": {
     "message": "发送 代币"
   },
   "onlySendToEtherAddress": {
-    "message": "只发送 ETH 给一个以太坊地址"
+    "message": "只发送 TRUE 给一个以太坊地址"
   },
   "searchTokens": {
     "message": "搜索代币"
@@ -837,11 +933,23 @@
   "shapeshiftBuy": {
     "message": "使用 Shapeshift 购买"
   },
+  "showAdvancedGasInline": {
+    "message": "高级Gas控制"
+  },
+  "showAdvancedGasInlineDescription": {
+    "message": "选择此项可直接在发送和确认界面上提供GasPrice和GasLimit的控制。"
+  },
   "showPrivateKeys": {
     "message": "显示私钥"
   },
   "showQRCode": {
     "message": "显示二维码"
+  },
+  "showHexData": {
+    "message": "显示十六进制数据"
+  },
+  "showHexDataDescription": {
+    "message": "选择此项在发送界面上显示十六进制数据字段"
   },
   "sign": {
     "message": "签名"
@@ -876,6 +984,9 @@
   "stateLogError": {
     "message": "检索状态日志时出错。"
   },
+  "storePhrase": {
+    "message": "将助记词存储在密码管理器中，如 1password。"
+  },
   "submit": {
     "message": "提交"
   },
@@ -897,11 +1008,14 @@
   "testFaucet": {
     "message": "测试水管"
   },
+  "tips": {
+    "message": "提示"
+  },
   "to": {
     "message": "至"
   },
   "toETHviaShapeShift": {
-    "message": "$1 ETH 通过 ShapeShift",
+    "message": "$1 TRUE 通过 ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "tokenAddress": {
@@ -930,6 +1044,12 @@
   },
   "transactionError": {
     "message": "交易出错. 合约代码执行异常."
+  },
+  "transactionErrorNoContract": {
+    "message": "尝试对非合约地址调用函数。"
+  },
+  "transactionFee": {
+    "message": "手续费"
   },
   "transactionMemo": {
     "message": "交易备注(可选)"
@@ -1011,8 +1131,11 @@
   "viewAccount": {
     "message": "查看账户"
   },
+  "viewOnEtherscan": {
+    "message": "在 TrueScan 上查看"
+  },
   "visitWebSite": {
-    "message": "访问我们的网站"
+    "message": "MateMask"
   },
   "warning": {
     "message": "警告"
@@ -1026,6 +1149,15 @@
   "whatsThis": {
     "message": "这是什么？"
   },
+  "writePhrase": {
+    "message": "把这句话写在一张纸上，存放在安全的地方。如果你想要更安全，把它写在多张纸上，并把每一张纸放在2-3个不同的地方。"
+  },
+  "yesLetsTry": {
+    "message": "Yes, let's try"
+  },
+  "youNeedToAllowCameraAccess": {
+    "message": "You need to allow camera access to use this feature."
+  },
   "yourSigRequested": {
     "message": "正在请求你的签名"
   },
@@ -1034,5 +1166,14 @@
   },
   "yourPrivateSeedPhrase": {
     "message": "你的私有助记词"
+  },
+  "yourUniqueAccountImage": {
+    "message": "您独特的账户形象"
+  },
+  "yourUniqueAccountImageDescription1": {
+    "message": "此图像是通过新帐号以编程方式为您生成的。"
+  },
+  "yourUniqueAccountImageDescription2": {
+    "message": "每次需要确认交易时，您都会看到此图像。"
   }
 }
