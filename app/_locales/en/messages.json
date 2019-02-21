@@ -1549,13 +1549,13 @@
   "visitStellar": {
     "message": "Stellar - Smart Contract tool"
   },
-  "visitMatemask-before": {
+  "visitMatemask_before": {
     "message": "Based on "
   },
   "visitMatemask": {
     "message": "MateMask"
   },
-  "visitMatemask-after": {
+  "visitMatemask_after": {
     "message": " development"
   },
   "walletSeed": {

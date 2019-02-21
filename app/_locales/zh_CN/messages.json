@@ -1152,13 +1152,13 @@
   "visitStellar": {
     "message": "Stellar - 智能合约工具"
   },
-  "visitMatemask-before": {
+  "visitMatemask_before": {
     "message": "基于 "
   },
   "visitMatemask": {
     "message": "MateMask"
   },
-  "visitMatemask-after": {
+  "visitMatemask_after": {
     "message": " 开发"
   },
   "warning": {

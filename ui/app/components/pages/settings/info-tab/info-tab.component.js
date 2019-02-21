@@ -109,7 +109,7 @@ export default class InfoTab extends PureComponent {
           </a>
         </div> */}
         <div className="info-tab__link-item">
-          <span>{ t('visitMatemask-before') }</span>
+          <span>{ t('visitMatemask_before') }</span>
           <a
             href="https://metamask.io/"
             target="_blank"
@@ -119,7 +119,7 @@ export default class InfoTab extends PureComponent {
               { t('visitMatemask') }
             </span>
           </a>
-          <span>{ t('visitMatemask-after') }</span>
+          <span>{ t('visitMatemask_after') }</span>
         </div>
         {/* <div className="info-tab__link-item">
           <a
