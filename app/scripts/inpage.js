@@ -57,7 +57,7 @@ inpageProvider.setMaxListeners(100)
 onMessage('metamasksetlocked', () => { isEnabled = false })
 
 // set up a listener for privacy mode responses
-onMessage('ethereumproviderlegacy', ({ data: { selectedAddress } }) => {
+onMessage('truechainproviderlegacy', ({ data: { selectedAddress } }) => {
   isEnabled = true
   setTimeout(() => {
     inpageProvider.publicConfigStore.updateState({ selectedAddress })
@@ -87,8 +87,8 @@ inpageProvider.enable = function ({ force } = {}) {
         })
       }
     }
-    onMessage('ethereumprovider', providerHandle, true)
-    window.postMessage({ type: 'ETHEREUM_ENABLE_PROVIDER', force }, '*')
+    onMessage('truechainprovider', providerHandle, true)
+    window.postMessage({ type: 'TRUECHAIN_ENABLE_PROVIDER', force }, '*')
   })
 }
 
@@ -118,7 +118,7 @@ inpageProvider._metamask = new Proxy({
         }
       }
       onMessage('ethereumisapproved', isApprovedHandle, true)
-      window.postMessage({ type: 'ETHEREUM_IS_APPROVED' }, '*')
+      window.postMessage({ type: 'TRUECHAIN_IS_APPROVED' }, '*')
     })
   },
 
@@ -138,7 +138,7 @@ inpageProvider._metamask = new Proxy({
   },
 }, {
   get: function (obj, prop) {
-    !warned && console.warn('Heads up! ethereum._metamask exposes methods that have ' +
+    !warned && console.warn('Heads up! truechain._metamask exposes methods that have ' +
     'not been standardized yet. This means that these methods may not be implemented ' +
     'in other dapp browsers and may be removed from GreenBelt in the future.')
     warned = true
@@ -154,14 +154,14 @@ const proxiedInpageProvider = new Proxy(inpageProvider, {
   deleteProperty: () => true,
 })
 
-window.ethereum = proxiedInpageProvider
+window.truechain = proxiedInpageProvider
 
 // detect eth_requestAccounts and pipe to enable for now
 function detectAccountRequest (method) {
   const originalMethod = inpageProvider[method]
   inpageProvider[method] = function ({ method }) {
     if (method === 'eth_requestAccounts') {
-      return window.ethereum.enable()
+      return window.truechain.enable()
     }
     return originalMethod.apply(this, arguments)
   }

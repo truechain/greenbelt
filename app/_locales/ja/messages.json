@@ -39,10 +39,10 @@
     "message": "Web3 APIリクエスト"
   },
   "reviewProviderRequest": {
-    "message": "このEthereum APIリクエストを確認してください。"
+    "message": "このTrueChain APIリクエストを確認してください。"
   },
   "providerRequestInfo": {
-    "message": "下記のドメインは、Ethereumブロックチェーンとやり取りできるようにEthereum APIへのアクセスをリクエストしようとしています。 Web3アクセスを承認する前に、正しいサイトにいることを常に確認してください。"
+    "message": "下記のドメインは、TrueChainブロックチェーンとやり取りできるようにTrueChain APIへのアクセスをリクエストしようとしています。 Web3アクセスを承認する前に、正しいサイトにいることを常に確認してください。"
   },
   "accept": {
     "message": "承認"
@@ -75,7 +75,7 @@
     "message": "金額 + ガス"
   },
   "appDescription": {
-    "message": "Ethereumのブラウザ・エクステンション",
+    "message": "TrueChainのブラウザ・エクステンション",
     "description": "The description of the application"
   },
   "appName": {
@@ -120,7 +120,7 @@
     "message": "Coinbaseのサイトで購入"
   },
   "buyCoinbaseExplainer": {
-    "message": "Etherを購入できます。Coinbaseは、世界的なBitcoin、Ethereum、そしてLitecoinの取引所です。"
+    "message": "Etherを購入できます。Coinbaseは、世界的なBitcoin、TrueChain、そしてLitecoinの取引所です。"
   },
   "cancel": {
     "message": "キャンセル"
@@ -438,7 +438,7 @@
     "message": "最大"
   },
   "mainnet": {
-    "message": "Ethereumメインネットワーク"
+    "message": "TrueChainメインネットワーク"
   },
   "menu": {
     "message": "メニュー"

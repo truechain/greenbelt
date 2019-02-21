@@ -3,7 +3,7 @@ const assert = require('assert')
 const Mutex = require('await-semaphore').Mutex
 /**
   @param opts {Object}
-    @param {Object} opts.provider a ethereum provider
+    @param {Object} opts.provider a truechain provider
     @param {Function} opts.getPendingTransactions a function that returns an array of txMeta
     whosee status is `submitted`
     @param {Function} opts.getConfirmedTransactions a function that returns an array of txMeta

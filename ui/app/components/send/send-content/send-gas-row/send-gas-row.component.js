@@ -60,7 +60,7 @@ export default class SendGasRow extends Component {
           showCheck={false}
           {...gasPriceButtonGroupProps}
         />
-        { this.renderAdvancedOptionsButton() }
+        {/* { this.renderAdvancedOptionsButton() } */}
       </div>
     const gasFeeDisplay = <GasFeeDisplay
       conversionRate={conversionRate}

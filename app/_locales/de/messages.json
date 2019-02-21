@@ -748,7 +748,7 @@
     "message": "TRUE unbedingt nur zu einer TrueChain Adresse senden."
   },
   "sendTokensAnywhere": {
-    "message": "Token zu einer beliebigen Person mit einem Ethereumaccount senden"
+    "message": "Token zu einer beliebigen Person mit einem TrueChainaccount senden"
   },
   "settings": {
     "message": "Einstellungen"

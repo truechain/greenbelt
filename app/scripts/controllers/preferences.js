@@ -312,9 +312,9 @@ class PreferencesController {
    * @typedef {Object} AddedToken
    * @property {string} address - The hex address for the token contract. Will be all lower cased and hex-prefixed.
    * @property {string} symbol - The symbol of the token, usually 3 or 4 capitalized letters
-   *  {@link https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#symbol}
+   *  {@link https://github.com/truechain/EIPs/blob/master/EIPS/eip-20.md#symbol}
    * @property {boolean} decimals - The number of decimals the token uses.
-   *  {@link https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#decimals}
+   *  {@link https://github.com/truechain/EIPs/blob/master/EIPS/eip-20.md#decimals}
    */
 
   /**

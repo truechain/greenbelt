@@ -22,7 +22,7 @@ class AccountQrScreen extends PureComponent {
 
   render () {
     const {dispatch, Qr, selectedAddress, warning} = this.props
-    const address = `${isHexPrefixed(Qr.data) ? 'ethereum:' : ''}${Qr.data}`
+    const address = `${isHexPrefixed(Qr.data) ? 'truechain:' : ''}${Qr.data}`
     const qrImage = qrCode(4, 'M')
 
     qrImage.addData(address)

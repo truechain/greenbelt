@@ -24,7 +24,7 @@
       "id": "webextension@metamask.io"
     }
   },
-  "default_locale": "en",
+  "default_locale": "zh_CN",
   "background": {
     "scripts": [
       "chromereload.js",

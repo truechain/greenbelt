@@ -82,6 +82,40 @@
     margin: 0;
     padding: 16px 20px;
     height: 30vh;
+    p {
+      margin: .4rem 0; 
+    }
+    li {
+      list-style: disc;
+      margin-left: 1rem;
+    }
+    a {
+      color: #0c8d61;
+      &:hover {
+        color: #2bd69d;
+      }
+    }
+    strong {
+      font-weight: bold;
+    }
+    em {
+      font-weight: bold;
+      font-style: italic;
+    }
+    h1 {
+      font-size: 1rem;
+      margin-bottom: .8rem;
+    }
+    h2 {
+      font-size: 1rem;
+      margin: .8rem 0;
+    }
+    table {
+      th, td {
+        border: solid 1px #000;
+        padding: .4rem;
+      }
+    }
   }
 
   &__text-block {

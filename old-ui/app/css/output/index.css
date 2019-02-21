@@ -1168,9 +1168,9 @@ h2.page-subtitle {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto; }
-  .network-component.pointer.ethereum-network {
+  .network-component.pointer.truechain-network {
     border-color: #038789; }
-    .network-component.pointer.ethereum-network .menu-icon-circle div {
+    .network-component.pointer.truechain-network .menu-icon-circle div {
       background-color: rgba(3, 135, 137, 0.7) !important; }
   .network-component.pointer.ropsten-test-network {
     border-color: #e91550; }

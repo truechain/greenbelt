@@ -39,10 +39,10 @@
     "message": "Web3 API请求"
   },
   "reviewProviderRequest": {
-    "message": "请查看此Ethereum API请求。"
+    "message": "请查看此TrueChain API请求。"
   },
   "providerRequestInfo": {
-    "message": "下面列出的域正在尝试请求访问Ethereum API，以便它可以与以太坊区块链进行交互。在批准Ethereum访问之前，请务必仔细检查您是否在正确的站点上。"
+    "message": "下面列出的域正在尝试请求访问TrueChain API，以便它可以与以太坊区块链进行交互。在批准TrueChain访问之前，请务必仔细检查您是否在正确的站点上。"
   },
   "accept": {
     "message": "接受"
@@ -120,7 +120,7 @@
     "description": "helper for inputting hex as decimal input"
   },
   "blockiesIdenticon": {
-    "message": "使用区块Identicon"
+    "message": "使用方块样式头像"
   },
   "borrowDharma": {
     "message": "Borrow With Dharma (Beta)"
@@ -187,6 +187,9 @@
   },
   "continue": {
     "message": "继续"
+  },
+  "connectRequest": {
+    "message": "接入申请"
   },
   "continueToCoinbase": {
     "message": "继续访问 Coinbase"
@@ -582,7 +585,7 @@
     "message": "以太坊主网络"
   },
   "truechain": {
-    "message": "初链主网络"
+    "message": "初链Beta网络"
   },
   "memorizePhrase": {
     "message": "记住这个短语。"

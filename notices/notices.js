@@ -36,7 +36,7 @@ module.exports = [
     id: 5,
     read: false,
     date: 'Wed Feb 20 2019',
-    title: '免责声明',
+    title: 'PRIVACY POLICY',
     body: fs.readFileSync(path.join(__dirname, '/archive', 'notice_5.md'), 'utf8'),
   },
 ]

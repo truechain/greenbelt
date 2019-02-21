@@ -124,7 +124,7 @@ function listenForProviderRequest () {
   window.addEventListener('message', ({ source, data }) => {
     if (source !== window || !data || !data.type) { return }
     switch (data.type) {
-      case 'ETHEREUM_ENABLE_PROVIDER':
+      case 'TRUECHAIN_ENABLE_PROVIDER':
         extension.runtime.sendMessage({
           action: 'init-provider-request',
           force: data.force,
@@ -133,7 +133,7 @@ function listenForProviderRequest () {
           siteTitle: getSiteName(source),
         })
         break
-      case 'ETHEREUM_IS_APPROVED':
+      case 'TRUECHAIN_IS_APPROVED':
         extension.runtime.sendMessage({
           action: 'init-is-approved',
           origin: source.location.hostname,
@@ -151,14 +151,14 @@ function listenForProviderRequest () {
     switch (action) {
       case 'approve-provider-request':
         isEnabled = true
-        window.postMessage({ type: 'ethereumprovider', selectedAddress }, '*')
+        window.postMessage({ type: 'truechainprovider', selectedAddress }, '*')
         break
       case 'approve-legacy-provider-request':
         isEnabled = true
-        window.postMessage({ type: 'ethereumproviderlegacy', selectedAddress }, '*')
+        window.postMessage({ type: 'truechainproviderlegacy', selectedAddress }, '*')
         break
       case 'reject-provider-request':
-        window.postMessage({ type: 'ethereumprovider', error: 'User rejected provider access' }, '*')
+        window.postMessage({ type: 'truechainprovider', error: 'User rejected provider access' }, '*')
         break
       case 'answer-is-approved':
         window.postMessage({ type: 'ethereumisapproved', isApproved, caching }, '*')
@@ -176,7 +176,7 @@ function listenForProviderRequest () {
 
 /**
  * Checks if GreenBelt is currently operating in "privacy mode", meaning
- * dapps must call ethereum.enable in order to access user accounts
+ * dapps must call truechain.enable in order to access user accounts
  */
 function checkPrivacyMode () {
   extension.runtime.sendMessage({ action: 'init-privacy-request' })

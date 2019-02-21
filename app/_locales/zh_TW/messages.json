@@ -48,7 +48,7 @@
     "message": "Web3 API 請求"
   },
   "reviewProviderRequest": {
-    "message": "請查看此Ethereum API請求。"
+    "message": "請查看此TrueChain API請求。"
   },
   "accept": {
     "message": "接受"
