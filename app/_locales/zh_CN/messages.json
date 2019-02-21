@@ -81,7 +81,7 @@
     "message": "数量 + Gas"
   },
   "appDescription": {
-    "message": "TrueChain 初链浏览器插件",
+    "message": "TrueChain 浏览器插件",
     "description": "The description of the application"
   },
   "appName": {
@@ -271,7 +271,7 @@
     "message": "精确小数点"
   },
   "defaultNetwork": {
-    "message": "默认初链交易网络为主网。"
+    "message": "默认TrueChain交易网络为主网。"
   },
   "denExplainer": {
     "message": "你的 DEN 是存储在 GreenBelt 中的已加密密码。"
@@ -464,7 +464,7 @@
     "message": "你想怎样转入TRUE？"
   },
   "holdEther": {
-    "message": "它允许你保存TRUE和代币，并作为你使用Dapp的桥梁."
+    "message": "它允许你保存TRUE和TrueChain网络上的代币，并作为你使用Dapp的桥梁."
   },
   "import": {
     "message": "导入",
@@ -585,7 +585,7 @@
     "message": "以太坊主网络"
   },
   "truechain": {
-    "message": "初链Beta网络"
+    "message": "TrueChain Beta网络"
   },
   "memorizePhrase": {
     "message": "记住这个短语。"
@@ -597,7 +597,7 @@
     "message": "消息"
   },
   "metamaskDescription": {
-    "message": "GreenBelt是初链的安全身份保险库"
+    "message": "GreenBelt是TrueChain的安全身份保险库"
   },
   "metamaskSeedWords": {
     "message": "GreenBelt助记词"
