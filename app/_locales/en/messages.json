@@ -1543,6 +1543,21 @@
   "visitWebSite": {
     "message": "Visit our web site"
   },
+  "visitTrueScan": {
+    "message": "TrueScan -  Block Explorer"
+  },
+  "visitStellar": {
+    "message": "Stellar - Smart Contract tool"
+  },
+  "visitMatemask-before": {
+    "message": "Based on "
+  },
+  "visitMatemask": {
+    "message": "MateMask"
+  },
+  "visitMatemask-after": {
+    "message": " development"
+  },
   "walletSeed": {
     "message": "Wallet Seed"
   },

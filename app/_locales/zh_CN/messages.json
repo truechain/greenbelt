@@ -1144,7 +1144,22 @@
     "message": "在 TrueScan 上查看"
   },
   "visitWebSite": {
+    "message": "访问我们的网站"
+  },
+  "visitTrueScan": {
+    "message": "TrueScan - 区块链浏览器"
+  },
+  "visitStellar": {
+    "message": "Stellar - 智能合约工具"
+  },
+  "visitMatemask-before": {
+    "message": "基于 "
+  },
+  "visitMatemask": {
     "message": "MateMask"
+  },
+  "visitMatemask-after": {
+    "message": " 开发"
   },
   "warning": {
     "message": "警告"

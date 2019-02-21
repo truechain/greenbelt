@@ -30,6 +30,39 @@ export default class InfoTab extends PureComponent {
         <div className="info-tab__link-header">
           { t('links') }
         </div>
+        <div className="info-tab__link-item">
+          <a
+            href="https://www.truechain.pro/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="info-tab__link-text">
+              { t('visitWebSite') }
+            </span>
+          </a>
+        </div>
+        <div className="info-tab__link-item">
+          <a
+            href="https://www.truescan.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="info-tab__link-text">
+              { t('visitTrueScan') }
+            </span>
+          </a>
+        </div>
+        <div className="info-tab__link-item">
+          <a
+            href="https://stellar.truechain.pro/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="info-tab__link-text">
+              { t('visitStellar') }
+            </span>
+          </a>
+        </div>
         {/* <div className="info-tab__link-item">
           <a
             href="https://metamask.io/privacy.html"
@@ -63,7 +96,7 @@ export default class InfoTab extends PureComponent {
             </span>
           </a>
         </div> */}
-        {/* <hr className="info-tab__separator" /> */}
+        <hr className="info-tab__separator" />
         {/* <div className="info-tab__link-item">
           <a
             href="https://support.metamask.io"
@@ -76,15 +109,17 @@ export default class InfoTab extends PureComponent {
           </a>
         </div> */}
         <div className="info-tab__link-item">
+          <span>{ t('visitMatemask-before') }</span>
           <a
             href="https://metamask.io/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span className="info-tab__link-text">
-              { t('visitWebSite') }
+              { t('visitMatemask') }
             </span>
           </a>
+          <span>{ t('visitMatemask-after') }</span>
         </div>
         {/* <div className="info-tab__link-item">
           <a
