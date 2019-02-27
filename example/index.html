@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Example</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="docs">
+    <h1>GreenBelt开发参考</h1>
+
+    <h2>安装GreenBelt</h2>
+    <p>我们以Chrome浏览器为例，在Chrome网上应用商店可以找到并安装GreenBelt至浏览器中。安装完成后你应该可以在浏览器的右上角看到对应的
+      <img src="./images/icon-64.png" alt="logo">
+      图标。虽然不是必须的，但是为了之后的调试开发，请先完成插件的初始化账号创建等工作。
+    </p>
+
+    <h2>GreenBelt做了什么？</h2>
+    <p>
+      GreenBelt将会管理用户的区块链网络账号（主要是它们的私钥）。当你需要提供一个Web端的DAPP应用的用户界面时，通过使用GreenBelt，你可以不必再让用户在Web端输入他们的私钥或者其他敏感的信息。GrennBelt会在浏览器全局注入<code>web3t</code>和<code>truechain</code>两个变量。其中<code>truechain</code>是一个与GreenBelt提供的替代<code>HttpProvider</code>的对象，而<code>web3t</code>则是通过其初始化的
+      <a href="https://www.npmjs.com/package/web3" target="_blank">Web3</a>
+      对象。由于<code>web3t</code>为0.20.3版本（目前已经有1.0.0版本）的Web3对象，所以在实际开发中建议引用自己选择的版本重新初始化。
+      <p>常见的一种初始化的方法：</p>
+<pre class="codes">
+let web3
+if (web3t) {
+  // 使用自己指定版本的Web3进行初始化
+  web3 = new Web3(web3t.currentProvider)
+  // 或者 web3 = new Web3(truechain) 这两个是同一个对象
+} else {
+  console.log('GreenBelt没有运行')
+  // 请使用备选不依靠GreenBelt的方式运行
+}
+</pre>
+    </p>
+
+    <h2>获取GreenBelt访问权限</h2>
+    <p>
+      虽然GreenBelt默认是不使用隐私模式（隐私模式指未申请访问权限的网站无法使用GreenBelt提供的服务）的，但是为了确保你的应用可以正常运行，同时也是对你的用户负责，在需要使用GreenBelt提供的接口前应当先申请访问权限，申请访问权限的方法为：
+    </p>
+    <p><code>truechain.enable()</code></p>
+    <p>
+      第一次调用此方法后，用户会看到GreenBelt插件弹出的授权申请页面。如果用户确认后，此后调用此方法不会再次频繁弹出而是直接返回成功信息。
+    </p>
+    <img class="screenshot" src="./assets/i1.png" alt="img1" width="300">
+    <p>
+      如果用户确认链接授权，则会返回用户当前可用的账户地址的数组，如果用户拒绝，则会抛出<code>"User rejected provider access"</code>的异常。完整的获取授权的参考代码如下：
+    </p>
+<pre class="codes">
+truechain.enable()
+  .then(addresses => {
+    addresses.forEach(console.log)
+    // 获取用户可用的地址
+  })
+  .catch(err => {
+    console.error(err)
+    // 请使用备选不依靠GreenBelt的方式运行
+  })
+</pre>
+    <p>
+      你可以点击下面的按钮预览效果：
+    </p>
+    <button onclick="step1()">授权</button>
+    <p>
+      同时作为用户，你可以在GreenBelt的设置菜单中通过「清除批准数据」来重置所有网站的授权记录。
+    </p>
+
+    <h2>发送交易...</h2>
+    <p>
+      到目前为止，开发工作中和传统模式下不同的准备工作已经结束，理论上来说你只需要和通常的基于Web3的开发模式一样：提供用户界面、构建交易、发送交易即可。关于如何使用Web3发送交易或者调用智能合约如果你还有疑问，应该更多参考
+      <a href="https://web3js.readthedocs.io/en/1.0/" target="_blank">Web3官方提供的文档</a>
+      。
+    </p>
+    <p>
+      和直接使用Web3调用不同的一些点是：你可以不必在指定交易发起的<code>from</code>地址，GreenBelt会默认使用用户当前选中的地址进行交易的签名。基于同样的理由，你也可以不指定<code>gasPrice</code>和<code>gas</code>（gasLimit）。不过如果你的应用场景需要确保这些字段都符合你的预期，那么建议你仍然不要将其置空，GreenBelt对于地址和Gas费用的推理都是简单的，很有可能造成预期外的交易，DAPP开发者应当自己控制这些因素。
+    </p>
+    <p>
+      一个转账的示例：
+    </p>
+<pre class="codes">
+// 由于web3t的版本问题，不能使用Promise形式的回调处理
+// 这也是为什么推荐使用自己指定的Web3版本进行初始化
+web3t.eth.sendTransaction({
+  to: '0x0000000000000000000000000000000000000000',
+  value: '1000000000000000000',
+  gasPrice: '10000000000'
+}, result => {
+  alert(result.message || result)
+})
+</pre>
+    <p>
+      你可以点击下面的按钮预览效果：
+    </p>
+    <button onclick="step2()">转账</button>
+    <p>
+      正常来说你应该会看到这样的弹出页面，GreenBelt展示了交易的细节，交给用户决定是否签名这笔交易。在本例中，由于账户余额不足因此无法确认交易，前端也会相应的收到交易签名被拒绝的异常。
+    </p>
+    <img class="screenshot" src="./assets/i2.png" alt="img2" width="300">
+
+    <h2>注意</h2>
+    <p>
+      虽然可以通过GreenBelt来管理用户的账户，从而进行交易的签名工作，但是对于开发者来说，并不能确保用户有使用该插件。在开发时要注意考虑没有插件时的替代解决方案，或者合理的引导来让用户首先安装插件。
+    </p>
+    <p>
+      由于加入了GreenBelt管理交易的签名，因此会增加若干由用户选择而导致的交易失败，从交互的角度考虑，开发者应当跟踪这些错误并且针对用户的选择进行反馈调节。
+    </p>
+  </div>
+</body>
+<script src="./main.js"></script>
+</html>

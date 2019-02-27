@@ -64,13 +64,13 @@ export default class ProviderPageContainerContent extends PureComponent {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t('learnMore')}.
+              {/* {t('learnMore')}. */}
             </a>
           </p>
         </section>
-        <section className="secure-badge">
+        {/* <section className="secure-badge">
           <img src="/images/mm-secure.svg" />
-        </section>
+        </section> */}
       </div>
     )
   }

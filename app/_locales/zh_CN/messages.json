@@ -41,6 +41,9 @@
   "reviewProviderRequest": {
     "message": "请查看此TrueChain API请求。"
   },
+  "providerRequest": {
+    "message": "$1 希望链接你的账户"
+  },
   "providerRequestInfo": {
     "message": "下面列出的域正在尝试请求访问TrueChain API，以便它可以与以太坊区块链进行交互。在批准TrueChain访问之前，请务必仔细检查您是否在正确的站点上。"
   },
@@ -831,6 +834,9 @@
   },
   "currentRpc": {
     "message": "当前 RPC"
+  },
+  "connect": {
+    "message": "链接"
   },
   "connectingToMainnet": {
     "message": "正在连接到以太坊主网"
