@@ -105,7 +105,7 @@ We employ industry standard security measures designed to protect the security o
 
 *Accessing, Updating, Correcting, and Deleting your Information*
 
-You may access information that you have voluntarily provided through your account on the Services, and to review, correct, or delete it by sending a request to partner@truechain.pro. You can request to change contact choices, opt-out of our sharing with others, and update your personal information and preferences.
+You may access information that you have voluntarily provided through your account on the Services, and to review, correct, or delete it by sending a request to dev@trueglobal.pro. You can request to change contact choices, opt-out of our sharing with others, and update your personal information and preferences.
 
 *Tracking Technologies Generally*
 
@@ -115,7 +115,7 @@ Regular cookies may generally be disabled or removed by tools available as part 
 
 You may exercise choices regarding the use of cookies from Google Analytics by going to https://tools.google.com/dlpage/gaoptout and downloading the Google Analytics Opt-out Browser Add-on.
 
-**CONTACT INFORMATION.** We welcome your comments or questions about this Policy, and you may contact us at: partner@truechain.pro.
+**CONTACT INFORMATION.** We welcome your comments or questions about this Policy, and you may contact us at: dev@trueglobal.pro.
 
 **CHANGES TO THIS PRIVACY POLICY.** We may change this privacy policy at any time. We encourage you to periodically review this page for the latest information on our privacy practices. If we make any changes, we will change the Last Updated date above.
 Any modifications to this Privacy Policy will be effective upon our posting of the new terms and/or upon implementation of the changes to the Site (or as otherwise indicated at the time of posting). In all cases, your continued use of the the Site or Services after the posting of any modified Privacy Policy indicates your acceptance of the terms of the modified Privacy Policy.
@@ -137,12 +137,12 @@ Some of the information you provide us may constitute sensitive data as defined 
 
 *Legal Bases for Processing*
  
-We only use your personal information as permitted by law. We are required to inform you of the legal bases of our processing of your personal information, which are described in the table below. If you have questions about the legal bases under which we process your personal information, contact us at partner@truechain.pro.
+We only use your personal information as permitted by law. We are required to inform you of the legal bases of our processing of your personal information, which are described in the table below. If you have questions about the legal bases under which we process your personal information, contact us at dev@trueglobal.pro.
 
 | <div style="width:250px;"> *Processing Purpose* </div> | *Legal Basis* |
 | --- | --- |
 | To communicate with you <br> To communicate with you <br> For compliance, fraud prevention, and safety <br> To provide our service | These processing activities constitute our legitimate interests. We make sure we consider and balance any potential impacts on you (both positive and negative) and your rights before we process your personal information for our legitimate interests. We do not use your personal information for activities where our interests are overridden by any adverse impact on you (unless we have your consent or are otherwise required or permitted to by law). |
-| With your consent | Where our use of your personal information is based upon your consent, you have the right to withdraw it anytime in the manner indicated in the Service or by contacting us at partner@truechain.pro |
+| With your consent | Where our use of your personal information is based upon your consent, you have the right to withdraw it anytime in the manner indicated in the Service or by contacting us at dev@trueglobal.pro |
 
 *Use for New Purposes*
 
@@ -166,7 +166,7 @@ Under the GDPR, you have certain rights regarding your personal information. You
 
 * *Object.* Object to our reliance on our legitimate interests as the basis of our processing of your personal information that impacts your rights.
 
-You can submit these requests by email to partner@truechain.pro. We may request specific information from you to help us confirm your identity and process your request. Applicable law may require or permit us to decline your request. If we decline your request, we will tell you why, subject to legal restrictions. If you would like to submit a complaint about our use of your personal information or response to your requests regarding your personal information, you may contact us at partner@truechain.pro or submit a complaint to the data protection regulator in your jurisdiction. 
+You can submit these requests by email to dev@trueglobal.pro. We may request specific information from you to help us confirm your identity and process your request. Applicable law may require or permit us to decline your request. If we decline your request, we will tell you why, subject to legal restrictions. If you would like to submit a complaint about our use of your personal information or response to your requests regarding your personal information, you may contact us at dev@trueglobal.pro or submit a complaint to the data protection regulator in your jurisdiction. 
 
 *Cross-Border Data Transfer*
 

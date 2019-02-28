@@ -1,6 +1,6 @@
 {
-  "name": "metamask-crx",
-  "version": "0.0.0",
+  "name": "greenbelt-crx",
+  "version": "1.0.0",
   "public": false,
   "private": true,
   "scripts": {
