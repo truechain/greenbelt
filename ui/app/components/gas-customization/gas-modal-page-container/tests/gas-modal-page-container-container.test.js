@@ -45,7 +45,7 @@ proxyquire('../gas-modal-page-container.container.js', {
   '../../../ducks/confirm-transaction.duck': confirmTransactionActionSpies,
   '../../../ducks/send.duck': sendActionSpies,
   '../../../selectors.js': {
-    getCurrentEthBalance: (state) => state.metamask.balance || '0x0',
+    getCurrentEthBalance: (state) => state.greenbelt.balance || '0x0',
   },
 })
 
@@ -63,7 +63,7 @@ describe('gas-modal-page-container container', () => {
             },
           },
         },
-        metamask: {
+        greenbelt: {
           send: {
             gasLimit: '16',
             gasPrice: '32',
@@ -140,7 +140,7 @@ describe('gas-modal-page-container container', () => {
         { mockState: baseMockState, expectedResult: baseExpectedResult, mockOwnProps: baseMockOwnProps },
         {
           mockState: Object.assign({}, baseMockState, {
-            metamask: { ...baseMockState.metamask, balance: '0xfffffffffffffffffffff' },
+            greenbelt: { ...baseMockState.greenbelt, balance: '0xfffffffffffffffffffff' },
           }),
           expectedResult: Object.assign({}, baseExpectedResult, { insufficientBalance: false }),
           mockOwnProps: baseMockOwnProps,

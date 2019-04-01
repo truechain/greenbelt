@@ -19,8 +19,8 @@ const migration12 = require(path.join('..', '..', '..', 'app', 'scripts', 'migra
 const migration13 = require(path.join('..', '..', '..', 'app', 'scripts', 'migrations', '013'))
 
 
-const oldTestRpc = 'https://rawtestrpc.metamask.io/'
-const newTestRpc = 'https://testrpc.metamask.io/'
+const oldTestRpc = 'https://rawtestrpc.greenbelt.io/'
+const newTestRpc = 'https://testrpc.greenbelt.io/'
 
 describe('wallet1 is migrated successfully', () => {
   it('should convert providers', () => {
@@ -30,7 +30,7 @@ describe('wallet1 is migrated successfully', () => {
     .then((secondResult) => {
       const secondData = secondResult.data
       assert.equal(secondData.config.provider.type, 'rpc', 'provider should be rpc')
-      assert.equal(secondData.config.provider.rpcTarget, 'https://rpc.metamask.io/', 'main provider should be our rpc')
+      assert.equal(secondData.config.provider.rpcTarget, 'https://rpc.greenbelt.io/', 'main provider should be our rpc')
       secondResult.data.config.provider.rpcTarget = oldTestRpc
       return migration3.migrate(secondResult)
     }).then((thirdResult) => {

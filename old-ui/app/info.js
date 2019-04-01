@@ -46,7 +46,7 @@ InfoScreen.prototype.render = function () {
           // current version number
 
           h('.info.info-gray', [
-            h('div', 'Metamask'),
+            h('div', 'Greenbelt'),
             h('div', {
               style: {
                 marginBottom: '10px',
@@ -61,7 +61,7 @@ InfoScreen.prototype.render = function () {
             [
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/privacy.html',
+                  href: 'https://greenbelt.io/privacy.html',
                   target: '_blank',
                   onClick: (event) => { this.navigateTo(event.target.href) },
                 }, [
@@ -70,7 +70,7 @@ InfoScreen.prototype.render = function () {
               ]),
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/terms.html',
+                  href: 'https://greenbelt.io/terms.html',
                   target: '_blank',
                   onClick: (event) => { this.navigateTo(event.target.href) },
                 }, [
@@ -79,7 +79,7 @@ InfoScreen.prototype.render = function () {
               ]),
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/attributions.html',
+                  href: 'https://greenbelt.io/attributions.html',
                   target: '_blank',
                   onClick: (event) => { this.navigateTo(event.target.href) },
                 }, [
@@ -103,14 +103,14 @@ InfoScreen.prototype.render = function () {
             [
               h('div.fa.fa-support', [
                 h('a.info', {
-                  href: 'https://support.metamask.io',
+                  href: 'https://support.greenbelt.io',
                   target: '_blank',
                 }, 'Visit our Support Center'),
               ]),
 
               h('div', [
                 h('a', {
-                  href: 'https://metamask.io/',
+                  href: 'https://greenbelt.io/',
                   target: '_blank',
                 }, [
                   h('img.icon-size', {
@@ -129,7 +129,7 @@ InfoScreen.prototype.render = function () {
               h('div', [
                 h('.fa.fa-twitter', [
                   h('a.info', {
-                    href: 'https://twitter.com/metamask_io',
+                    href: 'https://twitter.com/greenbelt_io',
                     target: '_blank',
                   }, 'Follow us on Twitter'),
                 ]),
@@ -138,7 +138,7 @@ InfoScreen.prototype.render = function () {
               h('div.fa.fa-envelope', [
                 h('a.info', {
                   target: '_blank',
-                  href: 'mailto:help@metamask.io?subject=Feedback',
+                  href: 'mailto:help@greenbelt.io?subject=Feedback',
                 }, 'Email us!'),
               ]),
             ]),

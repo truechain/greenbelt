@@ -6,7 +6,7 @@ const EthQuery = require('eth-query')
 const JsonRpcEngine = require('json-rpc-engine')
 const providerFromEngine = require('eth-json-rpc-middleware/providerFromEngine')
 const log = require('loglevel')
-const createMetamaskMiddleware = require('./createMetamaskMiddleware')
+const createGreenbeltMiddleware = require('./createGreenbeltMiddleware')
 const createInfuraClient = require('./createInfuraClient')
 const createJsonRpcClient = require('./createJsonRpcClient')
 const createLocalhostClient = require('./createLocalhostClient')
@@ -20,9 +20,9 @@ const {
 } = require('./enums')
 const INFURA_PROVIDER_TYPES = []
 
-const env = process.env.METAMASK_ENV
-const METAMASK_DEBUG = process.env.METAMASK_DEBUG
-const testMode = (METAMASK_DEBUG || env === 'test')
+const env = process.env.GREENBELT_ENV
+const GREENBELT_DEBUG = process.env.GREENBELT_DEBUG
+const testMode = (GREENBELT_DEBUG || env === 'test')
 
 const defaultProviderConfig = {
   type: testMode ? TRUECHAIN : TRUECHAIN,
@@ -214,9 +214,9 @@ module.exports = class NetworkController extends EventEmitter {
   }
 
   _setNetworkClient ({ networkMiddleware, blockTracker }) {
-    const metamaskMiddleware = createMetamaskMiddleware(this._baseProviderParams)
+    const greenbeltMiddleware = createGreenbeltMiddleware(this._baseProviderParams)
     const engine = new JsonRpcEngine()
-    engine.push(metamaskMiddleware)
+    engine.push(greenbeltMiddleware)
     engine.push(networkMiddleware)
     const provider = providerFromEngine(engine)
     this._setProviderAndBlockTracker({ provider, blockTracker })

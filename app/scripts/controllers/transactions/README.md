@@ -1,7 +1,7 @@
 # Transaction Controller
 
 Transaction Controller is an aggregate of sub-controllers and trackers
-exposed to the MetaMask controller.
+exposed to the GreenBelt controller.
 
 - txStateManager
     responsible for the state of a transaction and
@@ -30,7 +30,7 @@ txMeta = {
   "id": 2828415030114568, // unique id for this txMeta used for look ups
   "time": 1524094064821, // time of creation
   "status": "confirmed",
-  "metamaskNetworkId": "1524091532133", //the network id for the transaction
+  "greenbeltNetworkId": "1524091532133", //the network id for the transaction
   "loadingDefaults": false, // used to tell the ui when we are done calculatyig gass defaults
   "txParams": { // the txParams object
     "from": "0x8acce2391c0d510a6c5e5d8f819a678f79b7e675",
@@ -44,7 +44,7 @@ txMeta = {
             "id": 2828415030114568,
             "time": 1524094064821,
             "status": "unapproved",
-            "metamaskNetworkId": "1524091532133",
+            "greenbeltNetworkId": "1524091532133",
             "loadingDefaults": true,
             "txParams": {
               "from": "0x8acce2391c0d510a6c5e5d8f819a678f79b7e675",
@@ -62,7 +62,7 @@ txMeta = {
   "gasPriceSpecified": false, //whether or not the user/dapp has specified gasPrice
   "gasLimitSpecified": false, //whether or not the user/dapp has specified gas
   "estimatedGas": "5208",
-  "origin": "MetaMask", //debug
+  "origin": "GreenBelt", //debug
   "nonceDetails": {
     "params": {
       "highestLocallyConfirmed": 0,

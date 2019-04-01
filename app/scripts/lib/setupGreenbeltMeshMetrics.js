@@ -1,12 +1,12 @@
 
-module.exports = setupMetamaskMeshMetrics
+module.exports = setupGreenbeltMeshMetrics
 
 /**
  * Injects an iframe into the current document for testing
  */
-function setupMetamaskMeshMetrics () {
+function setupGreenbeltMeshMetrics () {
   const testingContainer = document.createElement('iframe')
-  testingContainer.src = 'https://metamask.github.io/mesh-testing/'
+  testingContainer.src = 'https://greenbelt.github.io/mesh-testing/'
   console.log('Injecting GreenBelt Mesh testing client')
   document.head.appendChild(testingContainer)
 }

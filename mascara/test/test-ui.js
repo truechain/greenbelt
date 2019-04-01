@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  window.METAMASK_SKIP_RELOAD = true
+  window.GREENBELT_SKIP_RELOAD = true
   // inject app container
   const body = document.body
   const container = document.createElement('div')

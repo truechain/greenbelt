@@ -24,7 +24,7 @@ const {
 } = require('./helpers')
 const fetchMockResponses = require('./fetch-mocks.js')
 
-describe('MetaMask', function () {
+describe('GreenBelt', function () {
   let extensionId
   let driver
   let tokenAddress
@@ -59,7 +59,7 @@ describe('MetaMask', function () {
       }
     }
     // Depending on the state of the application built into the above directory (extPath) and the value of
-    // METAMASK_DEBUG we will see different post-install behaviour and possibly some extra windows. Here we
+    // GREENBELT_DEBUG we will see different post-install behaviour and possibly some extra windows. Here we
     // are closing any extraneous windows to reset us to a single window before continuing.
     const [tab1] = await driver.getAllWindowHandles()
     await closeAllWindowHandlesExcept(driver, [tab1])
@@ -352,7 +352,7 @@ describe('MetaMask', function () {
     })
   })
 
-  describe('Send ETH from inside MetaMask using default gas', () => {
+  describe('Send ETH from inside GreenBelt using default gas', () => {
     it('starts a send transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()
@@ -390,7 +390,7 @@ describe('MetaMask', function () {
     })
   })
 
-  describe('Send ETH from inside MetaMask using fast gas option', () => {
+  describe('Send ETH from inside GreenBelt using fast gas option', () => {
     it('starts a send transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()
@@ -432,7 +432,7 @@ describe('MetaMask', function () {
     })
   })
 
-  describe('Send ETH from inside MetaMask using advanced gas modal', () => {
+  describe('Send ETH from inside GreenBelt using advanced gas modal', () => {
     it('starts a send transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()
@@ -504,8 +504,8 @@ describe('MetaMask', function () {
       extension = windowHandles[0]
       await closeAllWindowHandlesExcept(driver, [extension])
 
-      const metamaskHomeButton = await findElement(driver, By.css('.app-header__logo-container'))
-      await metamaskHomeButton.click()
+      const greenbeltHomeButton = await findElement(driver, By.css('.app-header__logo-container'))
+      await greenbeltHomeButton.click()
 
       await delay(largeDelayMs)
     })
@@ -518,7 +518,7 @@ describe('MetaMask', function () {
       windowHandles = await driver.getAllWindowHandles()
 
       extension = windowHandles[0]
-      popup = await switchToWindowWithTitle(driver, 'MetaMask Notification', windowHandles)
+      popup = await switchToWindowWithTitle(driver, 'GreenBelt Notification', windowHandles)
       dapp = windowHandles.find(handle => handle !== extension && handle !== popup)
 
       await delay(regularDelayMs)
@@ -535,7 +535,7 @@ describe('MetaMask', function () {
       await delay(5000)
 
       windowHandles = await driver.getAllWindowHandles()
-      await switchToWindowWithTitle(driver, 'MetaMask Notification', windowHandles)
+      await switchToWindowWithTitle(driver, 'GreenBelt Notification', windowHandles)
       await delay(regularDelayMs)
 
       await assertElementNotPresent(webdriver, driver, By.xpath(`//li[contains(text(), 'Data')]`))
@@ -963,7 +963,7 @@ describe('MetaMask', function () {
     })
   })
 
-  describe('Send token from inside MetaMask', () => {
+  describe('Send token from inside GreenBelt', () => {
     let gasModal
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))

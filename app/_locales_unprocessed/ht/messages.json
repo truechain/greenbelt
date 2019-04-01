@@ -671,13 +671,13 @@
   "message": {
     "message": "Mesaje"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt sekirize idantite pou TrueChain."
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "GreenBelt Seed Mo"
   },
-  "metamaskVersion": {
+  "greenbeltVersion": {
     "message": "GreenBelt Vèsyon"
   },
   "min": {

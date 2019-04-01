@@ -60,7 +60,7 @@ export default class ProviderPageContainerContent extends PureComponent {
             {t('providerRequestInfo')}
             <br/>
             <a
-              href="https://medium.com/metamask/introducing-privacy-mode-42549d4870fa"
+              href="https://medium.com/greenbelt/introducing-privacy-mode-42549d4870fa"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -48,7 +48,7 @@ export default class Welcome extends PureComponent {
             { t('welcome') }
           </div>
           <div className="welcome-page__description">
-            <div>{ t('metamaskDescription') }</div>
+            <div>{ t('greenbeltDescription') }</div>
             <div>{ t('holdEther') }</div>
           </div>
           <Button

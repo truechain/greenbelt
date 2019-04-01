@@ -7,8 +7,8 @@ const connect = require('react-redux').connect
 const actions = require('../../../../actions')
 const FileInput = require('react-simple-file-input').default
 const { DEFAULT_ROUTE } = require('../../../../routes')
-const { getMetaMaskAccounts } = require('../../../../selectors')
-const HELP_LINK = 'https://support.metamask.io/kb/article/7-importing-accounts'
+const { getGreenBeltAccounts } = require('../../../../selectors')
+const HELP_LINK = 'https://support.greenbelt.io/kb/article/7-importing-accounts'
 import Button from '../../../button'
 
 class JsonImportSubview extends Component {
@@ -137,7 +137,7 @@ JsonImportSubview.propTypes = {
 const mapStateToProps = state => {
   return {
     error: state.appState.warning,
-    firstAddress: Object.keys(getMetaMaskAccounts(state))[0],
+    firstAddress: Object.keys(getGreenBeltAccounts(state))[0],
   }
 }
 

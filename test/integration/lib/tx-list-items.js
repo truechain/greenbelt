@@ -25,9 +25,9 @@ async function runTxListItemsTest (assert, done) {
   selectState.val('tx list items')
   reactTriggerChange(selectState[0])
 
-  const metamaskLogo = await queryAsync($, '.app-header__logo-container')
-  assert.ok(metamaskLogo[0], 'metamask logo present')
-  metamaskLogo[0].click()
+  const greenbeltLogo = await queryAsync($, '.app-header__logo-container')
+  assert.ok(greenbeltLogo[0], 'greenbelt logo present')
+  greenbeltLogo[0].click()
 
   const txListItems = await queryAsync($, '.transaction-list-item')
   assert.equal(txListItems.length, 8, 'all tx list items are rendered')

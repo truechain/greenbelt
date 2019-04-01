@@ -20,7 +20,7 @@ const {
 const fetchMockResponses = require('./fetch-mocks.js')
 
 
-describe('Using MetaMask with an existing account', function () {
+describe('Using GreenBelt with an existing account', function () {
   let extensionId
   let driver
 
@@ -55,7 +55,7 @@ describe('Using MetaMask with an existing account', function () {
       }
     }
     // Depending on the state of the application built into the above directory (extPath) and the value of
-    // METAMASK_DEBUG we will see different post-install behaviour and possibly some extra windows. Here we
+    // GREENBELT_DEBUG we will see different post-install behaviour and possibly some extra windows. Here we
     // are closing any extraneous windows to reset us to a single window before continuing.
     const [tab1] = await driver.getAllWindowHandles()
     await closeAllWindowHandlesExcept(driver, [tab1])
@@ -243,7 +243,7 @@ describe('Using MetaMask with an existing account', function () {
     })
   })
 
-  describe('Send ETH from inside MetaMask', () => {
+  describe('Send ETH from inside GreenBelt', () => {
     it('starts a send transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()

@@ -4,8 +4,8 @@ import { compose } from 'recompose'
 import { closeWelcomeScreen } from '../../../../actions'
 import Welcome from './welcome.component'
 
-const mapStateToProps = ({ metamask }) => {
-  const { welcomeScreenSeen, isInitialized } = metamask
+const mapStateToProps = ({ greenbelt }) => {
+  const { welcomeScreenSeen, isInitialized } = greenbelt
 
   return {
     welcomeScreenSeen,

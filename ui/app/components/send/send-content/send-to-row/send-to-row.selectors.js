@@ -20,5 +20,5 @@ function sendToIsInWarning (state) {
 }
 
 function getTokens (state) {
-  return state.metamask.tokens
+  return state.greenbelt.tokens
 }

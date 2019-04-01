@@ -85,7 +85,7 @@ class ConnectScreen extends Component {
 
     getAffiliateLinks () {
       const links = {
-        trezor: `<a class='hw-connect__get-hw__link' href='https://shop.trezor.io/?a=metamask' target='_blank'>Trezor</a>`,
+        trezor: `<a class='hw-connect__get-hw__link' href='https://shop.trezor.io/?a=greenbelt' target='_blank'>Trezor</a>`,
         ledger: `<a class='hw-connect__get-hw__link' href='https://www.ledger.com/products/ledger-nano-s?r=17c4991a03fa&tracker=MY_TRACKER' target='_blank'>Ledger</a>`,
       }
 
@@ -155,7 +155,7 @@ class ConnectScreen extends Component {
                 h('p.hw-connect__footer__msg', {}, [
                     this.context.t(`havingTroubleConnecting`),
                     h('a.hw-connect__footer__link', {
-                        href: 'https://support.metamask.io/',
+                        href: 'https://support.greenbelt.io/',
                         target: '_blank',
                       }, this.context.t('getHelp')),
                 ]),

@@ -20,21 +20,21 @@ module.exports = connect(mapStateToProps)(ConfirmTxScreen)
 
 function mapStateToProps (state) {
   return {
-    identities: state.metamask.identities,
-    accounts: state.metamask.accounts,
-    selectedAddress: state.metamask.selectedAddress,
-    unapprovedTxs: state.metamask.unapprovedTxs,
-    unapprovedMsgs: state.metamask.unapprovedMsgs,
-    unapprovedPersonalMsgs: state.metamask.unapprovedPersonalMsgs,
-    unapprovedTypedMessages: state.metamask.unapprovedTypedMessages,
+    identities: state.greenbelt.identities,
+    accounts: state.greenbelt.accounts,
+    selectedAddress: state.greenbelt.selectedAddress,
+    unapprovedTxs: state.greenbelt.unapprovedTxs,
+    unapprovedMsgs: state.greenbelt.unapprovedMsgs,
+    unapprovedPersonalMsgs: state.greenbelt.unapprovedPersonalMsgs,
+    unapprovedTypedMessages: state.greenbelt.unapprovedTypedMessages,
     index: state.appState.currentView.context,
     warning: state.appState.warning,
-    network: state.metamask.network,
-    provider: state.metamask.provider,
-    conversionRate: state.metamask.conversionRate,
-    currentCurrency: state.metamask.currentCurrency,
-    blockGasLimit: state.metamask.currentBlockGasLimit,
-    computedBalances: state.metamask.computedBalances,
+    network: state.greenbelt.network,
+    provider: state.greenbelt.provider,
+    conversionRate: state.greenbelt.conversionRate,
+    currentCurrency: state.greenbelt.currentCurrency,
+    blockGasLimit: state.greenbelt.currentBlockGasLimit,
+    computedBalances: state.greenbelt.computedBalances,
   }
 }
 
@@ -184,7 +184,7 @@ ConfirmTxScreen.prototype.cancelAllTransactions = function (unconfTxList, event)
 ConfirmTxScreen.prototype.signMessage = function (msgData, event) {
   log.info('conf-tx.js: signing message')
   var params = msgData.msgParams
-  params.metamaskId = msgData.id
+  params.greenbeltId = msgData.id
   this.stopPropagation(event)
   this.props.dispatch(actions.signMsg(params))
 }
@@ -198,7 +198,7 @@ ConfirmTxScreen.prototype.stopPropagation = function (event) {
 ConfirmTxScreen.prototype.signPersonalMessage = function (msgData, event) {
   log.info('conf-tx.js: signing personal message')
   var params = msgData.msgParams
-  params.metamaskId = msgData.id
+  params.greenbeltId = msgData.id
   this.stopPropagation(event)
   this.props.dispatch(actions.signPersonalMsg(params))
 }
@@ -206,7 +206,7 @@ ConfirmTxScreen.prototype.signPersonalMessage = function (msgData, event) {
 ConfirmTxScreen.prototype.signTypedMessage = function (msgData, event) {
   log.info('conf-tx.js: signing typed message')
   var params = msgData.msgParams
-  params.metamaskId = msgData.id
+  params.greenbeltId = msgData.id
   this.stopPropagation(event)
   this.props.dispatch(actions.signTypedMsg(params))
 }

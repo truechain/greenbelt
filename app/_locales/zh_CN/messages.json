@@ -588,7 +588,7 @@
     "message": "以太坊主网络"
   },
   "truechain": {
-    "message": "TrueChain Beta网络"
+    "message": "TrueChain 网络"
   },
   "memorizePhrase": {
     "message": "记住这个短语。"
@@ -599,10 +599,10 @@
   "message": {
     "message": "消息"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt是TrueChain的安全身份保险库"
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "GreenBelt助记词"
   },
   "min": {
@@ -1158,13 +1158,13 @@
   "visitStellar": {
     "message": "Stellar - 智能合约工具"
   },
-  "visitMetamask_before": {
+  "visitGreenbelt_before": {
     "message": "基于 "
   },
-  "visitMetamask": {
+  "visitGreenbelt": {
     "message": "MateMask"
   },
-  "visitMetamask_after": {
+  "visitGreenbelt_after": {
     "message": " 开发"
   },
   "warning": {

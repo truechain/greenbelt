@@ -1,9 +1,9 @@
 {
-  "metamask": {
+  "greenbelt": {
     "isInitialized": true,
     "isUnlocked": true,
     "currentDomain": "example.com",
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "identities": {
       "0xfdea65c8e26263f6d9a1b5de9555d2931a33b825": {
         "name": "Wallet 1",
@@ -53,8 +53,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb000000000000000000000000000000000000000000000000000000000000000a",
           "origin": "localhost",
-          "metamaskId": 1471975421223082,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471975421223082,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471975421223,
         "status": "confirmed",
@@ -69,8 +69,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb000000000000000000000000000000000000000000000000000000000000000a",
           "origin": "localhost",
-          "metamaskId": 1471975427199819,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471975427199819,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471975427199,
         "status": "rejected",
@@ -85,8 +85,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb000000000000000000000000000000000000000000000000000000000000000a",
           "origin": "localhost",
-          "metamaskId": 1471975806981442,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471975806981442,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471975806981,
         "status": "confirmed",
@@ -101,8 +101,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb000000000000000000000000000000000000000000000000000000000000000a",
           "origin": "localhost",
-          "metamaskId": 1471975810133789,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471975810133789,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471975810133,
         "status": "confirmed",
@@ -117,8 +117,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb000000000000000000000000000000000000000000000000000000000000000a",
           "origin": "localhost",
-          "metamaskId": 1471976546865348,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471976546865348,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471976546865,
         "status": "confirmed",
@@ -133,8 +133,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000005",
           "origin": "localhost",
-          "metamaskId": 1471976930101889,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471976930101889,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471976930101,
         "status": "confirmed",
@@ -149,8 +149,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000002",
           "origin": "localhost",
-          "metamaskId": 1471977268048169,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977268048169,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977268048,
         "status": "confirmed",
@@ -165,8 +165,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000005",
           "origin": "localhost",
-          "metamaskId": 1471977310778630,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977310778630,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977310778,
         "status": "rejected",
@@ -180,8 +180,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000005",
           "origin": "localhost",
-          "metamaskId": 1471977316241561,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977316241561,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977316240,
         "status": "confirmed",
@@ -196,8 +196,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000004",
           "origin": "localhost",
-          "metamaskId": 1471977344018510,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977344018510,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977344018,
         "status": "confirmed",
@@ -212,8 +212,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000001",
           "origin": "localhost",
-          "metamaskId": 1471977403830380,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977403830380,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977403830,
         "status": "confirmed",
@@ -228,8 +228,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000001",
           "origin": "localhost",
-          "metamaskId": 1471977431563703,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977431563703,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977431563,
         "status": "rejected",
@@ -243,8 +243,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000001",
           "origin": "localhost",
-          "metamaskId": 1471977436074587,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471977436074587,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471977436074,
         "status": "confirmed",
@@ -259,8 +259,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000004",
           "origin": "localhost",
-          "metamaskId": 1471991826717707,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471991826717707,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471991826717,
         "status": "confirmed",
@@ -275,8 +275,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000004",
           "origin": "localhost",
-          "metamaskId": 1471991851917592,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471991851917592,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471991851917,
         "status": "confirmed",
@@ -291,8 +291,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000005",
           "origin": "localhost",
-          "metamaskId": 1471992032999543,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471992032999543,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471992032999,
         "status": "confirmed",
@@ -307,8 +307,8 @@
           "to": "0x48ff0cbac0acefedf152281ee80e9a0a01d5da63",
           "data": "0x90b98a11000000000000000000000000c5b8dbac4c1d3f152cdeb400e2313f309c410acb0000000000000000000000000000000000000000000000000000000000000005",
           "origin": "localhost",
-          "metamaskId": 1471992043490878,
-          "metamaskNetworkId": "1471904489432"
+          "greenbeltId": 1471992043490878,
+          "greenbeltNetworkId": "1471904489432"
         },
         "time": 1471992043490,
         "status": "rejected",
@@ -324,8 +324,8 @@
           "to": "0x18a672e11d637fffadccc99b152f4895da069601",
           "data": "0x5b7d47a900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
           "origin": "www.rouleth.com",
-          "metamaskId": 1472068030402279,
-          "metamaskNetworkId": "1"
+          "greenbeltId": 1472068030402279,
+          "greenbeltNetworkId": "1"
         },
         "time": 1472068030402,
         "status": "rejected",
@@ -341,8 +341,8 @@
           "to": "0x18a672e11d637fffadccc99b152f4895da069601",
           "data": "0x5b7d47a900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
           "origin": "www.rouleth.com",
-          "metamaskId": 1472068061833258,
-          "metamaskNetworkId": "1"
+          "greenbeltId": 1472068061833258,
+          "greenbeltNetworkId": "1"
         },
         "time": 1472068061833,
         "status": "confirmed",

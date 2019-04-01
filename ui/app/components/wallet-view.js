@@ -35,15 +35,15 @@ WalletView.defaultProps = {
 function mapStateToProps (state) {
 
   return {
-    network: state.metamask.network,
+    network: state.greenbelt.network,
     sidebarOpen: state.appState.sidebar.isOpen,
-    identities: state.metamask.identities,
-    accounts: selectors.getMetaMaskAccounts(state),
-    tokens: state.metamask.tokens,
-    keyrings: state.metamask.keyrings,
+    identities: state.greenbelt.identities,
+    accounts: selectors.getGreenBeltAccounts(state),
+    tokens: state.greenbelt.tokens,
+    keyrings: state.greenbelt.keyrings,
     selectedAddress: selectors.getSelectedAddress(state),
     selectedAccount: selectors.getSelectedAccount(state),
-    selectedTokenAddress: state.metamask.selectedTokenAddress,
+    selectedTokenAddress: state.greenbelt.selectedTokenAddress,
   }
 }
 

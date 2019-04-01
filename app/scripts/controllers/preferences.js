@@ -120,7 +120,7 @@ class PreferencesController {
    * @param {Function} - end
    */
   async requestWatchAsset (req, res, next, end) {
-    if (req.method === 'metamask_watchAsset' || req.method === 'wallet_watchAsset') {
+    if (req.method === 'greenbelt_watchAsset' || req.method === 'wallet_watchAsset') {
       const { type, options } = req.params
       switch (type) {
         case 'ERC20':

@@ -157,7 +157,7 @@ class ProviderApprovalController {
    * internal flags in the contentscript and inpage script.
    */
   setLocked () {
-    this.platform.sendMessage({ action: 'metamask-set-locked' })
+    this.platform.sendMessage({ action: 'greenbelt-set-locked' })
   }
 }
 

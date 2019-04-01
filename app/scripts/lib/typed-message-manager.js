@@ -14,7 +14,7 @@ const jsonschema = require('jsonschema')
  * @property {number} id An id to track and identify the message object
  * @property {Object} msgParams The parameters to pass to the eth_signTypedData method once the signature request is
  * approved.
- * @property {Object} msgParams.metamaskId Added to msgParams for tracking and identification within GreenBelt.
+ * @property {Object} msgParams.greenbeltId Added to msgParams for tracking and identification within GreenBelt.
  * @property {Object} msgParams.from The address that is making the signature request.
  * @property {string} msgParams.data A hex string conversion of the raw buffer data of the signature request
  * @property {number} time The epoch time at which the this message was created
@@ -187,12 +187,12 @@ module.exports = class TypedMessageManager extends EventEmitter {
    * with any the message params modified for proper signing.
    *
    * @param {Object} msgParams The msgParams to be used when eth_sign is called, plus data added by GreenBelt.
-   * @param {Object} msgParams.metamaskId Added to msgParams for tracking and identification within GreenBelt.
-   * @returns {Promise<object>} Promises the msgParams object with metamaskId removed.
+   * @param {Object} msgParams.greenbeltId Added to msgParams for tracking and identification within GreenBelt.
+   * @returns {Promise<object>} Promises the msgParams object with greenbeltId removed.
    *
    */
   approveMessage (msgParams) {
-    this.setMsgStatusApproved(msgParams.metamaskId)
+    this.setMsgStatusApproved(msgParams.greenbeltId)
     return this.prepMsgForSigning(msgParams)
   }
 
@@ -222,14 +222,14 @@ module.exports = class TypedMessageManager extends EventEmitter {
   }
 
   /**
-   * Removes the metamaskId property from passed msgParams and returns a promise which resolves the updated msgParams
+   * Removes the greenbeltId property from passed msgParams and returns a promise which resolves the updated msgParams
    *
    * @param {Object} msgParams The msgParams to modify
-   * @returns {Promise<object>} Promises the msgParams with the metamaskId property removed
+   * @returns {Promise<object>} Promises the msgParams with the greenbeltId property removed
    *
    */
   prepMsgForSigning (msgParams) {
-    delete msgParams.metamaskId
+    delete msgParams.greenbeltId
     delete msgParams.version
     return Promise.resolve(msgParams)
   }

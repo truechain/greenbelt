@@ -49,8 +49,8 @@ var actions = {
   transitionForward,
   transitionBackward,
   // remote state
-  UPDATE_METAMASK_STATE: 'UPDATE_METAMASK_STATE',
-  updateMetamaskState: updateMetamaskState,
+  UPDATE_GREENBELT_STATE: 'UPDATE_GREENBELT_STATE',
+  updateGreenbeltState: updateGreenbeltState,
   // notices
   MARK_NOTICE_READ: 'MARK_NOTICE_READ',
   markNoticeRead: markNoticeRead,
@@ -73,7 +73,7 @@ var actions = {
   SHOW_IMPORT_PAGE: 'SHOW_IMPORT_PAGE',
   SHOW_NEW_ACCOUNT_PAGE: 'SHOW_NEW_ACCOUNT_PAGE',
   SET_NEW_ACCOUNT_FORM: 'SET_NEW_ACCOUNT_FORM',
-  unlockMetamask: unlockMetamask,
+  unlockGreenbelt: unlockGreenbelt,
   unlockFailed: unlockFailed,
   unlockSucceeded,
   showCreateVault: showCreateVault,
@@ -111,10 +111,10 @@ var actions = {
   UNLOCK_IN_PROGRESS: 'UNLOCK_IN_PROGRESS',
   UNLOCK_FAILED: 'UNLOCK_FAILED',
   UNLOCK_SUCCEEDED: 'UNLOCK_SUCCEEDED',
-  UNLOCK_METAMASK: 'UNLOCK_METAMASK',
-  LOCK_METAMASK: 'LOCK_METAMASK',
-  tryUnlockMetamask: tryUnlockMetamask,
-  lockMetamask: lockMetamask,
+  UNLOCK_GREENBELT: 'UNLOCK_GREENBELT',
+  LOCK_GREENBELT: 'LOCK_GREENBELT',
+  tryUnlockGreenbelt: tryUnlockGreenbelt,
+  lockGreenbelt: lockGreenbelt,
   unlockInProgress: unlockInProgress,
   // error handling
   displayWarning: displayWarning,
@@ -289,7 +289,7 @@ var actions = {
   showNewKeychain: showNewKeychain,
 
   callBackgroundThenUpdate,
-  forceUpdateMetamaskState,
+  forceUpdateGreenbeltState,
 
   TOGGLE_ACCOUNT_MENU: 'TOGGLE_ACCOUNT_MENU',
   toggleAccountMenu,
@@ -363,7 +363,7 @@ function goHome () {
 
 // async actions
 
-function tryUnlockMetamask (password) {
+function tryUnlockGreenbelt (password) {
   return dispatch => {
     dispatch(actions.showLoadingIndication())
     dispatch(actions.unlockInProgress())
@@ -380,7 +380,7 @@ function tryUnlockMetamask (password) {
     })
       .then(() => {
         dispatch(actions.unlockSucceeded())
-        return forceUpdateMetamaskState(dispatch)
+        return forceUpdateGreenbeltState(dispatch)
       })
       .then(() => {
         return new Promise((resolve, reject) => {
@@ -495,7 +495,7 @@ function createNewVaultAndKeychain (password) {
         })
       })
     })
-      .then(() => forceUpdateMetamaskState(dispatch))
+      .then(() => forceUpdateGreenbeltState(dispatch))
       .then(() => dispatch(actions.hideLoadingIndication()))
       .catch(() => dispatch(actions.hideLoadingIndication()))
   }
@@ -525,7 +525,7 @@ function unlockAndGetSeedPhrase (password) {
     try {
       await submitPassword(password)
       const seedWords = await verifySeedPhrase()
-      await forceUpdateMetamaskState(dispatch)
+      await forceUpdateGreenbeltState(dispatch)
       dispatch(actions.hideLoadingIndication())
       return seedWords
     } catch (error) {
@@ -702,7 +702,7 @@ function importNewAccount (strategy, args) {
       throw err
     }
     dispatch(actions.hideLoadingIndication())
-    dispatch(actions.updateMetamaskState(newState))
+    dispatch(actions.updateGreenbeltState(newState))
     if (newState.selectedAddress) {
       dispatch({
         type: actions.SHOW_ACCOUNT_DETAIL,
@@ -722,7 +722,7 @@ function navigateToNewAccountScreen () {
 function addNewAccount () {
   log.debug(`background.addNewAccount`)
   return (dispatch, getState) => {
-    const oldIdentities = getState().metamask.identities
+    const oldIdentities = getState().greenbelt.identities
     dispatch(actions.showLoadingIndication())
     return new Promise((resolve, reject) => {
       background.addNewAccount((err, { identities: newIdentities}) => {
@@ -734,7 +734,7 @@ function addNewAccount () {
 
         dispatch(actions.hideLoadingIndication())
 
-        forceUpdateMetamaskState(dispatch)
+        forceUpdateGreenbeltState(dispatch)
         return resolve(newAccountAddress)
       })
     })
@@ -755,7 +755,7 @@ function checkHardwareStatus (deviceName, hdPath) {
 
         dispatch(actions.hideLoadingIndication())
 
-        forceUpdateMetamaskState(dispatch)
+        forceUpdateGreenbeltState(dispatch)
         return resolve(unlocked)
       })
     })
@@ -776,7 +776,7 @@ function forgetDevice (deviceName) {
 
         dispatch(actions.hideLoadingIndication())
 
-        forceUpdateMetamaskState(dispatch)
+        forceUpdateGreenbeltState(dispatch)
         return resolve()
       })
     })
@@ -797,7 +797,7 @@ function connectHardware (deviceName, page, hdPath) {
 
         dispatch(actions.hideLoadingIndication())
 
-        forceUpdateMetamaskState(dispatch)
+        forceUpdateGreenbeltState(dispatch)
         return resolve(accounts)
       })
     })
@@ -882,7 +882,7 @@ function signMsg (msgData) {
       log.debug(`actions calling background.signMessage`)
       background.signMessage(msgData, (err, newState) => {
         log.debug('signMessage called back')
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
 
         if (err) {
@@ -891,9 +891,9 @@ function signMsg (msgData) {
           return reject(err)
         }
 
-        dispatch(actions.completedTx(msgData.metamaskId))
+        dispatch(actions.completedTx(msgData.greenbeltId))
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -913,7 +913,7 @@ function signPersonalMsg (msgData) {
       log.debug(`actions calling background.signPersonalMessage`)
       background.signPersonalMessage(msgData, (err, newState) => {
         log.debug('signPersonalMessage called back')
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
 
         if (err) {
@@ -922,9 +922,9 @@ function signPersonalMsg (msgData) {
           return reject(err)
         }
 
-        dispatch(actions.completedTx(msgData.metamaskId))
+        dispatch(actions.completedTx(msgData.greenbeltId))
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -944,7 +944,7 @@ function signTypedMsg (msgData) {
       log.debug(`actions calling background.signTypedMessage`)
       background.signTypedMessage(msgData, (err, newState) => {
         log.debug('signTypedMessage called back')
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
 
         if (err) {
@@ -953,9 +953,9 @@ function signTypedMsg (msgData) {
           return reject(err)
         }
 
-        dispatch(actions.completedTx(msgData.metamaskId))
+        dispatch(actions.completedTx(msgData.greenbeltId))
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -1150,7 +1150,7 @@ function sendTx (txData) {
       }
       dispatch(actions.completedTx(txData.id))
 
-      if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+      if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
         !hasUnconfirmedTransactions(getState())) {
         return global.platform.closeCurrentWindow()
       }
@@ -1190,8 +1190,8 @@ function updateTransaction (txData) {
         resolve(txData)
       })
     })
-    .then(() => updateMetamaskStateFromBackground())
-    .then(newState => dispatch(actions.updateMetamaskState(newState)))
+    .then(() => updateGreenbeltStateFromBackground())
+    .then(newState => dispatch(actions.updateGreenbeltState(newState)))
     .then(() => {
         dispatch(actions.showConfTxPage({ id: txData.id }))
         dispatch(actions.hideLoadingIndication())
@@ -1221,14 +1221,14 @@ function updateAndApproveTx (txData) {
         resolve(txData)
       })
     })
-      .then(() => updateMetamaskStateFromBackground())
-      .then(newState => dispatch(actions.updateMetamaskState(newState)))
+      .then(() => updateGreenbeltStateFromBackground())
+      .then(newState => dispatch(actions.updateGreenbeltState(newState)))
       .then(() => {
         dispatch(actions.clearSend())
         dispatch(actions.completedTx(txData.id))
         dispatch(actions.hideLoadingIndication())
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -1271,7 +1271,7 @@ function cancelMsg (msgData) {
     return new Promise((resolve, reject) => {
       log.debug(`background.cancelMessage`)
       background.cancelMessage(msgData.id, (err, newState) => {
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
 
         if (err) {
@@ -1280,7 +1280,7 @@ function cancelMsg (msgData) {
 
         dispatch(actions.completedTx(msgData.id))
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -1298,7 +1298,7 @@ function cancelPersonalMsg (msgData) {
     return new Promise((resolve, reject) => {
       const id = msgData.id
       background.cancelPersonalMessage(id, (err, newState) => {
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
 
         if (err) {
@@ -1307,7 +1307,7 @@ function cancelPersonalMsg (msgData) {
 
         dispatch(actions.completedTx(id))
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -1325,7 +1325,7 @@ function cancelTypedMsg (msgData) {
     return new Promise((resolve, reject) => {
       const id = msgData.id
       background.cancelTypedMessage(id, (err, newState) => {
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
 
         if (err) {
@@ -1334,7 +1334,7 @@ function cancelTypedMsg (msgData) {
 
         dispatch(actions.completedTx(id))
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -1359,14 +1359,14 @@ function cancelTx (txData) {
         resolve()
       })
     })
-      .then(() => updateMetamaskStateFromBackground())
-      .then(newState => dispatch(actions.updateMetamaskState(newState)))
+      .then(() => updateGreenbeltStateFromBackground())
+      .then(newState => dispatch(actions.updateGreenbeltState(newState)))
       .then(() => {
         dispatch(actions.clearSend())
         dispatch(actions.completedTx(txData.id))
         dispatch(actions.hideLoadingIndication())
 
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION &&
           !hasUnconfirmedTransactions(getState())) {
           return global.platform.closeCurrentWindow()
         }
@@ -1396,8 +1396,8 @@ function cancelTxs (txDataList) {
     }))
 
     await Promise.all(cancellations)
-    const newState = await updateMetamaskStateFromBackground()
-    dispatch(actions.updateMetamaskState(newState))
+    const newState = await updateGreenbeltStateFromBackground()
+    dispatch(actions.updateGreenbeltState(newState))
     dispatch(actions.clearSend())
 
     txIds.forEach((id) => {
@@ -1406,7 +1406,7 @@ function cancelTxs (txDataList) {
 
     dispatch(actions.hideLoadingIndication())
 
-    if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION) {
+    if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION) {
       return global.platform.closeCurrentWindow()
     }
   }
@@ -1448,7 +1448,7 @@ function markPasswordForgotten () {
     return background.markPasswordForgotten(() => {
       dispatch(actions.hideLoadingIndication())
       dispatch(actions.forgotPassword())
-      forceUpdateMetamaskState(dispatch)
+      forceUpdateGreenbeltState(dispatch)
     })
   }
 }
@@ -1461,7 +1461,7 @@ function unMarkPasswordForgotten () {
         resolve()
       })
     })
-      .then(() => forceUpdateMetamaskState(dispatch))
+      .then(() => forceUpdateGreenbeltState(dispatch))
   }
 }
 
@@ -1553,16 +1553,16 @@ function unlockSucceeded (message) {
   }
 }
 
-function unlockMetamask (account) {
+function unlockGreenbelt (account) {
   return {
-    type: actions.UNLOCK_METAMASK,
+    type: actions.UNLOCK_GREENBELT,
     value: account,
   }
 }
 
-function updateMetamaskState (newState) {
+function updateGreenbeltState (newState) {
   return {
-    type: actions.UPDATE_METAMASK_STATE,
+    type: actions.UPDATE_GREENBELT_STATE,
     value: newState,
   }
 }
@@ -1578,7 +1578,7 @@ const backgroundSetLocked = () => {
   })
 }
 
-const updateMetamaskStateFromBackground = () => {
+const updateGreenbeltStateFromBackground = () => {
   log.debug(`background.getState`)
 
   return new Promise((resolve, reject) => {
@@ -1592,26 +1592,26 @@ const updateMetamaskStateFromBackground = () => {
   })
 }
 
-function lockMetamask () {
+function lockGreenbelt () {
   log.debug(`background.setLocked`)
 
   return dispatch => {
     dispatch(actions.showLoadingIndication())
 
     return backgroundSetLocked()
-      .then(() => updateMetamaskStateFromBackground())
+      .then(() => updateGreenbeltStateFromBackground())
       .catch(error => {
         dispatch(actions.displayWarning(error.message))
         return Promise.reject(error)
       })
       .then(newState => {
-        dispatch(actions.updateMetamaskState(newState))
+        dispatch(actions.updateGreenbeltState(newState))
         dispatch(actions.hideLoadingIndication())
-        dispatch({ type: actions.LOCK_METAMASK })
+        dispatch({ type: actions.LOCK_GREENBELT })
       })
       .catch(() => {
         dispatch(actions.hideLoadingIndication())
-        dispatch({ type: actions.LOCK_METAMASK })
+        dispatch({ type: actions.LOCK_GREENBELT })
       })
   }
 }
@@ -1792,14 +1792,14 @@ function removeSuggestedTokens () {
           dispatch(actions.displayWarning(err.message))
         }
         dispatch(actions.clearPendingTokens())
-        if (global.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION) {
+        if (global.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION) {
           return global.platform.closeCurrentWindow()
         }
         resolve(suggestedTokens)
       })
     })
-    .then(() => updateMetamaskStateFromBackground())
-    .then(suggestedTokens => dispatch(actions.updateMetamaskState({...suggestedTokens})))
+    .then(() => updateGreenbeltStateFromBackground())
+    .then(suggestedTokens => dispatch(actions.updateGreenbeltState({...suggestedTokens})))
   }
 }
 
@@ -1892,7 +1892,7 @@ function retryTransaction (txId, gasPrice) {
         resolve(newState)
       })
     })
-      .then(newState => dispatch(actions.updateMetamaskState(newState)))
+      .then(newState => dispatch(actions.updateGreenbeltState(newState)))
       .then(() => newTxId)
   }
 }
@@ -1915,7 +1915,7 @@ function createCancelTransaction (txId, customGasPrice) {
         resolve(newState)
       })
     })
-    .then(newState => dispatch(actions.updateMetamaskState(newState)))
+    .then(newState => dispatch(actions.updateGreenbeltState(newState)))
     .then(() => newTxId)
   }
 }
@@ -1937,7 +1937,7 @@ function createSpeedUpTransaction (txId, customGasPrice) {
         resolve(newState)
       })
     })
-    .then(newState => dispatch(actions.updateMetamaskState(newState)))
+    .then(newState => dispatch(actions.updateGreenbeltState(newState)))
     .then(() => newTx)
   }
 }
@@ -1948,7 +1948,7 @@ function createSpeedUpTransaction (txId, customGasPrice) {
 
 function setProviderType (type) {
   return (dispatch, getState) => {
-    const { type: currentProviderType } = getState().metamask.provider
+    const { type: currentProviderType } = getState().greenbelt.provider
     log.debug(`background.setProviderType`, type)
     background.setProviderType(type, (err, result) => {
       if (err) {
@@ -2547,7 +2547,7 @@ function callBackgroundThenUpdateNoSpinner (method, ...args) {
       if (err) {
         return dispatch(actions.displayWarning(err.message))
       }
-      forceUpdateMetamaskState(dispatch)
+      forceUpdateGreenbeltState(dispatch)
     })
   }
 }
@@ -2560,12 +2560,12 @@ function callBackgroundThenUpdate (method, ...args) {
       if (err) {
         return dispatch(actions.displayWarning(err.message))
       }
-      forceUpdateMetamaskState(dispatch)
+      forceUpdateGreenbeltState(dispatch)
     })
   }
 }
 
-function forceUpdateMetamaskState (dispatch) {
+function forceUpdateGreenbeltState (dispatch) {
   log.debug(`background.getState`)
   return new Promise((resolve, reject) => {
     background.getState((err, newState) => {
@@ -2574,7 +2574,7 @@ function forceUpdateMetamaskState (dispatch) {
         return reject(err)
       }
 
-      dispatch(actions.updateMetamaskState(newState))
+      dispatch(actions.updateGreenbeltState(newState))
       resolve(newState)
     })
   })

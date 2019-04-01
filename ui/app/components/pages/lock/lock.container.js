@@ -2,10 +2,10 @@ import Lock from './lock.component'
 import { compose } from 'recompose'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { lockMetamask } from '../../../actions'
+import { lockGreenbelt } from '../../../actions'
 
 const mapStateToProps = state => {
-  const { metamask: { isUnlocked } } = state
+  const { greenbelt: { isUnlocked } } = state
 
   return {
     isUnlocked,
@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    lockMetamask: () => dispatch(lockMetamask()),
+    lockGreenbelt: () => dispatch(lockGreenbelt()),
   }
 }
 

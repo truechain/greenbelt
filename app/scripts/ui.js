@@ -1,5 +1,5 @@
 const injectCss = require('inject-css')
-const NewMetaMaskUiCss = require('../../ui/css')
+const NewGreenBeltUiCss = require('../../ui/css')
 const startPopup = require('./popup-core')
 const PortStream = require('extension-port-stream')
 const { getEnvironmentType } = require('./lib/util')
@@ -27,14 +27,14 @@ async function start () {
     const state = window.getCleanAppState()
     // remove unnecessary data
     delete state.localeMessages
-    delete state.metamask.recentBlocks
+    delete state.greenbelt.recentBlocks
     // return state to be added to request
     return state
   }
 
   // identify window type (popup, notification)
   const windowType = getEnvironmentType(window.location.href)
-  global.METAMASK_UI_TYPE = windowType
+  global.GREENBELT_UI_TYPE = windowType
   closePopupIfOpen(windowType)
 
   // setup stream to background
@@ -47,14 +47,14 @@ async function start () {
     if (err) return displayCriticalError(err)
 
     const state = store.getState()
-    const { metamask: { completedOnboarding } = {} } = state
+    const { greenbelt: { completedOnboarding } = {} } = state
 
     if (!completedOnboarding && windowType !== ENVIRONMENT_TYPE_FULLSCREEN) {
       global.platform.openExtensionInBrowser()
       return
     }
 
-    injectCss(NewMetaMaskUiCss())
+    injectCss(NewGreenBeltUiCss())
   })
 
 

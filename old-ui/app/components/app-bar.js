@@ -43,7 +43,7 @@ module.exports = class AppBar extends Component {
   }
 
   renderAppBar () {
-    if (window.METAMASK_UI_TYPE === 'notification') {
+    if (window.GREENBELT_UI_TYPE === 'notification') {
       return null
     }
 
@@ -94,7 +94,7 @@ module.exports = class AppBar extends Component {
         h('span.banner__link', {
           onClick () {
             global.platform.openWindow({
-              url: 'https://medium.com/metamask/74dba32cc7f7',
+              url: 'https://medium.com/greenbelt/74dba32cc7f7',
             })
           },
         }, [
@@ -367,7 +367,7 @@ module.exports = class AppBar extends Component {
 
       h(DropdownMenuItem, {
         closeMenu: () => this.setState({ isMainMenuOpen: !isOpen }),
-        onClick: () => { dispatch(actions.lockMetamask()) },
+        onClick: () => { dispatch(actions.lockGreenbelt()) },
       }, 'Log Out'),
 
       h(DropdownMenuItem, {

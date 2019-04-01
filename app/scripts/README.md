@@ -1,4 +1,4 @@
-# Main MetaMask Code
+# Main GreenBelt Code
 
 This folder contains the core-code.
 

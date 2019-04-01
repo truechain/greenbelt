@@ -10,10 +10,10 @@ const log = require('loglevel')
 
 function mapStateToProps (state) {
   return {
-    network: state.metamask.network,
-    tokens: state.metamask.tokens,
+    network: state.greenbelt.network,
+    tokens: state.greenbelt.tokens,
     userAddress: selectors.getSelectedAddress(state),
-    assetImages: state.metamask.assetImages,
+    assetImages: state.greenbelt.assetImages,
   }
 }
 

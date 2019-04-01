@@ -16,8 +16,8 @@ module.exports = connect(mapStateToProps)(ShiftListItem)
 
 function mapStateToProps (state) {
   return {
-    conversionRate: state.metamask.conversionRate,
-    currentCurrency: state.metamask.currentCurrency,
+    conversionRate: state.greenbelt.conversionRate,
+    currentCurrency: state.greenbelt.currentCurrency,
   }
 }
 

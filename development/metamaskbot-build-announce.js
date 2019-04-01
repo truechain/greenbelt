@@ -24,10 +24,10 @@ async function start () {
   const BUILD_LINK_BASE = `https://${CIRCLE_BUILD_NUM}-42009758-gh.circle-artifacts.com/0`
 
   const MASCARA = `${BUILD_LINK_BASE}/builds/mascara/home.html`
-  const CHROME = `${BUILD_LINK_BASE}/builds/metamask-chrome-${VERSION}.zip`
-  const FIREFOX = `${BUILD_LINK_BASE}/builds/metamask-firefox-${VERSION}.zip`
-  const EDGE = `${BUILD_LINK_BASE}/builds/metamask-edge-${VERSION}.zip`
-  const OPERA = `${BUILD_LINK_BASE}/builds/metamask-opera-${VERSION}.zip`
+  const CHROME = `${BUILD_LINK_BASE}/builds/greenbelt-chrome-${VERSION}.zip`
+  const FIREFOX = `${BUILD_LINK_BASE}/builds/greenbelt-firefox-${VERSION}.zip`
+  const EDGE = `${BUILD_LINK_BASE}/builds/greenbelt-edge-${VERSION}.zip`
+  const OPERA = `${BUILD_LINK_BASE}/builds/greenbelt-opera-${VERSION}.zip`
   const WALKTHROUGH = `${BUILD_LINK_BASE}/test-artifacts/screens/walkthrough%20%28en%29.gif`
 
   const commentBody = `
@@ -45,7 +45,7 @@ async function start () {
   `
 
   const JSON_PAYLOAD = JSON.stringify({ body: commentBody })
-  const POST_COMMENT_URI = `https://api.github.com/repos/metamask/metamask-extension/issues/${CIRCLE_PR_NUMBER}/comments`
+  const POST_COMMENT_URI = `https://api.github.com/repos/greenbelt/greenbelt-extension/issues/${CIRCLE_PR_NUMBER}/comments`
   console.log(`Announcement:\n${commentBody}`)
   console.log(`Posting to: ${POST_COMMENT_URI}`)
 
@@ -54,7 +54,7 @@ async function start () {
       uri: POST_COMMENT_URI,
       body: JSON_PAYLOAD,
       headers: {
-        'User-Agent': 'metamaskbot',
+        'User-Agent': 'greenbeltbot',
         'Authorization': `token ${GITHUB_COMMENT_TOKEN}`,
       },
   })

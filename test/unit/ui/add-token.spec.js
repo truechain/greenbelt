@@ -7,7 +7,7 @@ const AddTokenScreen = require('../../../old-ui/app/add-token')
 describe('Add Token Screen', function () {
   let addTokenComponent, store, component
   const mockState = {
-    metamask: {
+    greenbelt: {
       identities: {
         '0x7d3517b0d011698406d6e0aed8453f0be2697926': {
           'address': '0x7d3517b0d011698406d6e0aed8453f0be2697926',
@@ -30,7 +30,7 @@ describe('Add Token Screen', function () {
       assert.equal(state.warning, 'Address is invalid.')
     })
 
-    it('Address is a Metamask Identity', function () {
+    it('Address is a Greenbelt Identity', function () {
       addTokenComponent.setState({
         address: '0x7d3517b0d011698406d6e0aed8453f0be2697926',
       })

@@ -63,9 +63,9 @@ async function captureAllScreens () {
   await driver.findElement(By.css('#app-content > div > div.app-primary.from-right > div > div.flex-row.flex-center.flex-grow > p')).click()
   await delay(300)
 
-  // close metamask homepage and extra home.html
+  // close greenbelt homepage and extra home.html
   tabs = await driver.getAllWindowHandles()
-  // metamask homepage is opened on prod, not dev
+  // greenbelt homepage is opened on prod, not dev
   if (tabs.length > 2) {
     await driver.switchTo().window(tabs[2])
     driver.close()
@@ -142,49 +142,49 @@ async function captureAllScreens () {
 
   await driver.findElement(By.css('.backup-phrase__content-wrapper .first-time-flow__button')).click()
   await delay(300)
-  await captureLanguageScreenShots('metamask post-initialize greeter screen deposit ether')
+  await captureLanguageScreenShots('greenbelt post-initialize greeter screen deposit ether')
 
   await driver.findElement(By.css('.page-container__header-close')).click()
   await delay(300)
-  await captureLanguageScreenShots('metamask account main screen')
+  await captureLanguageScreenShots('greenbelt account main screen')
 
   // account details + export private key
   await driver.findElement(By.css('.wallet-view__name-container > .wallet-view__details-button')).click()
   await delay(300)
-  await captureLanguageScreenShots('metamask account detail screen')
+  await captureLanguageScreenShots('greenbelt account detail screen')
 
   await driver.findElement(By.css('.account-modal__button:nth-of-type(2)')).click()
   await delay(300)
-  await captureLanguageScreenShots('metamask account detail export private key screen - initial')
+  await captureLanguageScreenShots('greenbelt account detail export private key screen - initial')
 
   await driver.findElement(By.css('.private-key-password > input')).sendKeys(password)
   await delay(300)
-  await captureLanguageScreenShots('metamask account detail export private key screen - password entered')
+  await captureLanguageScreenShots('greenbelt account detail export private key screen - password entered')
 
   await driver.findElement(By.css('.btn-primary.btn--large.export-private-key__button')).click()
   await delay(300)
-  await captureLanguageScreenShots('metamask account detail export private key screen - reveal key')
+  await captureLanguageScreenShots('greenbelt account detail export private key screen - reveal key')
 
   await driver.findElement(By.css('.export-private-key__button')).click()
   await delay(300)
-  await captureLanguageScreenShots('metamask account detail export private key screen - done')
+  await captureLanguageScreenShots('greenbelt account detail export private key screen - done')
 
   // get eth from Ganache
   // const viewAddressButton = await driver.findElement(By.css('.wallet-view__address'))
   // await driver.actions({ bridge: true }).move({ origin: viewAddressButton }).perform()
   // console.log('driver.actions', driver.actions({ bridge: true }))
   // await delay(300)
-  // await captureLanguageScreenShots('metamask home - hover copy address')
+  // await captureLanguageScreenShots('greenbelt home - hover copy address')
 
   await driver.findElement(By.css('.wallet-view__address')).click()
   await delay(100)
-  await captureLanguageScreenShots('metamask home - hover copy address')
+  await captureLanguageScreenShots('greenbelt home - hover copy address')
 
   const primaryAddress = clipboardy.readSync()
   await requestEther(primaryAddress)
   // wait for block polling
   await delay(10000)
-  await captureLanguageScreenShots('metamask home - has ether')
+  await captureLanguageScreenShots('greenbelt home - has ether')
 
 }
 
@@ -205,11 +205,11 @@ async function captureLanguageScreenShots (label) {
 }
 
 async function setLocale (code) {
-  await driver.executeScript('window.metamask.updateCurrentLocale(arguments[0])', code)
+  await driver.executeScript('window.greenbelt.updateCurrentLocale(arguments[0])', code)
 }
 
 async function setProviderType (type) {
-  await driver.executeScript('window.metamask.setProviderType(arguments[0])', type)
+  await driver.executeScript('window.greenbelt.setProviderType(arguments[0])', type)
 }
 
 async function cleanScreenShotDir () {

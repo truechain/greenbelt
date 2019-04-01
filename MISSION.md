@@ -1,4 +1,4 @@
-# MetaMask Philosophy
+# GreenBelt Philosophy
 
 ## Mission
 

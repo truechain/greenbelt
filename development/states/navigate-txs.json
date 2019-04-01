@@ -1,11 +1,11 @@
 {
-  "metamask": {
+  "greenbelt": {
     "isInitialized": true,
     "isUnlocked": true,
     "isAccountMenuOpen": false,
     "isMascara": false,
     "isPopup": false,
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "identities": {
       "0x8cf82b5aa41ff2282427be151dd328568684007a": {
         "address": "0x8cf82b5aa41ff2282427be151dd328568684007a",
@@ -28,8 +28,8 @@
         "history": [],
         "id": 2389644572638771,
         "loadingDefaults": false,
-        "metamaskNetworkId": "4",
-        "origin": "MetaMask",
+        "greenbeltNetworkId": "4",
+        "origin": "GreenBelt",
         "status": "unapproved",
         "time": 1538844175144,
         "txParams": {
@@ -49,8 +49,8 @@
         "history": [],
         "id": 2389644572638772,
         "loadingDefaults": false,
-        "metamaskNetworkId": "4",
-        "origin": "MetaMask",
+        "greenbeltNetworkId": "4",
+        "origin": "GreenBelt",
         "status": "unapproved",
         "time": 1538844178492,
         "txParams": {
@@ -77,7 +77,7 @@
         "history": [],
         "id": 2389644572638773,
         "loadingDefaults": false,
-        "metamaskNetworkId": "4",
+        "greenbeltNetworkId": "4",
         "origin": "localhost",
         "status": "unapproved",
         "time": 1538844204724,
@@ -98,7 +98,7 @@
         "history": [],
         "id": 2389644572638774,
         "loadingDefaults": false,
-        "metamaskNetworkId": "4",
+        "greenbeltNetworkId": "4",
         "origin": "remix.ethereum.org",
         "status": "unapproved",
         "time": 1538844223352,
@@ -288,7 +288,7 @@
       "history": [],
       "id": 2389644572638774,
       "loadingDefaults": false,
-      "metamaskNetworkId": "4",
+      "greenbeltNetworkId": "4",
       "origin": "remix.ethereum.org",
       "status": "unapproved",
       "time": 1538844223352,

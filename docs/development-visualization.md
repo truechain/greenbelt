@@ -27,9 +27,9 @@ gource \
   --date-format "%b %d, %Y" \
   --highlight-dirs \
   --user-friction 0.1 \
-  --title "MetaMask Development History" \
+  --title "GreenBelt Development History" \
   --output-ppm-stream - \
   --output-framerate 30 \
-  | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -b 65536K metamask-dev-history.mp4
+  | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -b 65536K greenbelt-dev-history.mp4
 ```
 

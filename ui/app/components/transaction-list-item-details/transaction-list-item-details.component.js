@@ -28,9 +28,9 @@ export default class TransactionListItemDetails extends PureComponent {
 
   handleEtherscanClick = () => {
     const { transactionGroup: { primaryTransaction } } = this.props
-    const { hash, metamaskNetworkId } = primaryTransaction
+    const { hash, greenbeltNetworkId } = primaryTransaction
 
-    const prefix = prefixForNetwork(metamaskNetworkId)
+    const prefix = prefixForNetwork(greenbeltNetworkId)
     const etherscanUrl = `https://${prefix}etherscan.io/tx/${hash}`
 
     global.platform.openWindow({ url: etherscanUrl })

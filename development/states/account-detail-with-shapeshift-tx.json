@@ -1,12 +1,12 @@
 {
-  "metamask": {
+  "greenbelt": {
     "currentCurrency": "USD",
     "conversionRate": 11.06608791,
     "conversionDate": 1470421024,
     "isInitialized": true,
     "isUnlocked": true,
     "currentDomain": "example.com",
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "shapeShiftTxList":[
       {
         "depositAddress": "1L8BJCR6KHkCiVceDqibt7zJscqPpH7pFw",
@@ -48,8 +48,8 @@
           "to": "0x18a3462427bcc9133bb46e88bcbe39cd7ef0e761",
           "value": "0x66c899104aa57038000",
           "origin": "thelongestdomainnameintheworldandthensomeandthensomemoreandmore.com",
-          "metamaskId": 1467921503489592,
-          "metamaskNetworkId": "2"
+          "greenbeltId": 1467921503489592,
+          "greenbeltNetworkId": "2"
         },
         "time": 1467921503489,
         "status": "rejected",
@@ -62,8 +62,8 @@
           "to": "0x18a3462427bcc9133bb46e88bcbe39cd7ef0e761",
           "value": "0x0",
           "origin": "thelongestdomainnameintheworldandthensomeandthensomemoreandmore.com",
-          "metamaskId": 1467923203344608,
-          "metamaskNetworkId": "2"
+          "greenbeltId": 1467923203344608,
+          "greenbeltNetworkId": "2"
         },
         "time": 1467923203344,
         "status": "confirmed",
@@ -77,8 +77,8 @@
           "to": "0x18a3462427bcc9133bb46e88bcbe39cd7ef0e761",
           "value": "0x66c899104aa57038000",
           "origin": "thelongestdomainnameintheworldandthensomeandthensomemoreandmore.com",
-          "metamaskId": 1467921503489592,
-          "metamaskNetworkId": "2"
+          "greenbeltId": 1467921503489592,
+          "greenbeltNetworkId": "2"
         },
         "time": 1467921503489,
         "status": "confirmed",

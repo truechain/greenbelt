@@ -30,9 +30,9 @@ async function createModifiedTestBuild ({ browser, srcPath }) {
   const extPath = path.resolve(`test-builds/${browser}`)
   await fs.ensureDir(extPath)
   await fs.copy(srcPath, extPath)
-  // inject METAMASK_TEST_CONFIG setting default test network
+  // inject GREENBELT_TEST_CONFIG setting default test network
   const config = { NetworkController: { provider: { type: 'localhost' } } }
-  await prependFile(`${extPath}/background.js`, `window.METAMASK_TEST_CONFIG=${JSON.stringify(config)};\n`)
+  await prependFile(`${extPath}/background.js`, `window.GREENBELT_TEST_CONFIG=${JSON.stringify(config)};\n`)
   return { extPath }
 }
 

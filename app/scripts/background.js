@@ -21,11 +21,11 @@ const migrations = require('./migrations/')
 const PortStream = require('extension-port-stream')
 const createStreamSink = require('./lib/createStreamSink')
 const NotificationManager = require('./lib/notification-manager.js')
-const MetamaskController = require('./metamask-controller')
+const GreenbeltController = require('./greenbelt-controller')
 const rawFirstTimeState = require('./first-time-state')
 const setupSentry = require('./lib/setupSentry')
 const reportFailedTxToSentry = require('./lib/reportFailedTxToSentry')
-const setupMetamaskMeshMetrics = require('./lib/setupMetamaskMeshMetrics')
+const setupGreenbeltMeshMetrics = require('./lib/setupGreenbeltMeshMetrics')
 const EdgeEncryptor = require('./edge-encryptor')
 const getFirstPreferredLangCode = require('./lib/get-first-preferred-lang-code')
 const getObjStructure = require('./lib/getObjStructure')
@@ -37,17 +37,17 @@ const {
   ENVIRONMENT_TYPE_FULLSCREEN,
 } = require('./lib/enums')
 
-// METAMASK_TEST_CONFIG is used in e2e tests to set the default network to localhost
-const firstTimeState = Object.assign({}, rawFirstTimeState, global.METAMASK_TEST_CONFIG)
+// GREENBELT_TEST_CONFIG is used in e2e tests to set the default network to localhost
+const firstTimeState = Object.assign({}, rawFirstTimeState, global.GREENBELT_TEST_CONFIG)
 
-const STORAGE_KEY = 'metamask-config'
-const METAMASK_DEBUG = process.env.METAMASK_DEBUG
+const STORAGE_KEY = 'greenbelt-config'
+const GREENBELT_DEBUG = process.env.GREENBELT_DEBUG
 
-log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
+log.setDefaultLevel(process.env.GREENBELT_DEBUG ? 'debug' : 'warn')
 
 const platform = new ExtensionPlatform()
 const notificationManager = new NotificationManager()
-global.METAMASK_NOTIFIER = notificationManager
+global.GREENBELT_NOTIFIER = notificationManager
 
 // setup sentry error reporting
 const release = platform.getVersion()
@@ -61,7 +61,7 @@ const isEdge = !isIE && !!window.StyleMedia
 
 let popupIsOpen = false
 let notificationIsOpen = false
-const openMetamaskTabsIDs = {}
+const openGreenbeltTabsIDs = {}
 
 // state persistence
 const diskStore = new LocalStorageStore({ storageKey: STORAGE_KEY })
@@ -71,8 +71,8 @@ let versionedData
 // initialization flow
 initialize().catch(log.error)
 
-// setup metamask mesh testing container
-setupMetamaskMeshMetrics()
+// setup greenbelt mesh testing container
+setupGreenbeltMeshMetrics()
 
 
 /**
@@ -82,7 +82,7 @@ setupMetamaskMeshMetrics()
  * @property {number} id - An internally unique tx identifier.
  * @property {number} time - Time the tx was first suggested, in unix epoch time (ms).
  * @property {string} status - The current transaction status (unapproved, signed, submitted, dropped, failed, rejected), as defined in `tx-state-manager.js`.
- * @property {string} metamaskNetworkId - The transaction's network ID, used for EIP-155 compliance.
+ * @property {string} greenbeltNetworkId - The transaction's network ID, used for EIP-155 compliance.
  * @property {boolean} loadingDefaults - TODO: Document
  * @property {Object} txParams - The tx params as passed to the network provider.
  * @property {Object[]} history - A history of mutations to this TransactionMeta object.
@@ -97,8 +97,8 @@ setupMetamaskMeshMetrics()
  */
 
 /**
- * The data emitted from the MetaMaskController.store EventEmitter, also used to initialize the MetaMaskController. Available in UI on React state as state.metamask.
- * @typedef MetaMaskState
+ * The data emitted from the GreenBeltController.store EventEmitter, also used to initialize the GreenBeltController. Available in UI on React state as state.greenbelt.
+ * @typedef GreenBeltState
  * @property {boolean} isInitialized - Whether the first vault has been created.
  * @property {boolean} isUnlocked - Whether the vault is currently decrypted and accounts are available for selection.
  * @property {boolean} isAccountMenuOpen - Represents whether the main account selection UI is currently displayed.
@@ -151,7 +151,7 @@ setupMetamaskMeshMetrics()
 
 /**
  * @typedef VersionedData
- * @property {MetaMaskState} data - The data emitted from GreenBelt controller, or used to initialize it.
+ * @property {GreenBeltState} data - The data emitted from GreenBelt controller, or used to initialize it.
  * @property {Number} version - The latest migration version that has been run.
  */
 
@@ -173,7 +173,7 @@ async function initialize () {
 /**
  * Loads any stored data, prioritizing the latest storage strategy.
  * Migrates that data schema in case it was last loaded on an older version.
- * @returns {Promise<MetaMaskState>} Last data emitted from previous instance of GreenBelt.
+ * @returns {Promise<GreenBeltState>} Last data emitted from previous instance of GreenBelt.
  */
 async function loadStateFromPersistence () {
   // migrations
@@ -186,7 +186,7 @@ async function loadStateFromPersistence () {
   // check if somehow state is empty
   // this should never happen but new error reporting suggests that it has
   // for a small number of users
-  // https://github.com/metamask/metamask-extension/issues/3919
+  // https://github.com/greenbelt/greenbelt-extension/issues/3919
   if (versionedData && !versionedData.data) {
     // try to recover from diskStore incase only localStore is bad
     const diskStoreState = diskStore.getState()
@@ -250,7 +250,7 @@ function setupController (initState, initLangCode) {
   // GreenBelt Controller
   //
 
-  const controller = new MetamaskController({
+  const controller = new GreenbeltController({
     // User confirmation callbacks:
     showUnconfirmedMessage: triggerUi,
     unlockAccountMessage: triggerUi,
@@ -293,7 +293,7 @@ function setupController (initState, initLangCode) {
 
   /**
    * Assigns the given state to the versioned object (with metadata), and returns that.
-   * @param {Object} state - The state object as emitted by the MetaMaskController.
+   * @param {Object} state - The state object as emitted by the GreenBeltController.
    * @returns {VersionedData} The state object wrapped in an object that includes a metadata key.
    */
   function versionifyData (state) {
@@ -324,18 +324,18 @@ function setupController (initState, initLangCode) {
   extension.runtime.onConnect.addListener(connectRemote)
   extension.runtime.onConnectExternal.addListener(connectExternal)
 
-  const metamaskInternalProcessHash = {
+  const greenbeltInternalProcessHash = {
     [ENVIRONMENT_TYPE_POPUP]: true,
     [ENVIRONMENT_TYPE_NOTIFICATION]: true,
     [ENVIRONMENT_TYPE_FULLSCREEN]: true,
   }
 
-  const metamaskBlacklistedPorts = [
+  const greenbeltBlacklistedPorts = [
     'trezor-connect',
   ]
 
   const isClientOpenStatus = () => {
-    return popupIsOpen || Boolean(Object.keys(openMetamaskTabsIDs).length) || notificationIsOpen
+    return popupIsOpen || Boolean(Object.keys(openGreenbeltTabsIDs).length) || notificationIsOpen
   }
 
   /**
@@ -352,13 +352,13 @@ function setupController (initState, initLangCode) {
    */
   function connectRemote (remotePort) {
     const processName = remotePort.name
-    const isMetaMaskInternalProcess = metamaskInternalProcessHash[processName]
+    const isGreenBeltInternalProcess = greenbeltInternalProcessHash[processName]
 
-    if (metamaskBlacklistedPorts.includes(remotePort.name)) {
+    if (greenbeltBlacklistedPorts.includes(remotePort.name)) {
       return false
     }
 
-    if (isMetaMaskInternalProcess) {
+    if (isGreenBeltInternalProcess) {
       const portStream = new PortStream(remotePort)
       // communication with popup
       controller.isClientOpen = true
@@ -384,10 +384,10 @@ function setupController (initState, initLangCode) {
 
       if (processName === ENVIRONMENT_TYPE_FULLSCREEN) {
         const tabId = remotePort.sender.tab.id
-        openMetamaskTabsIDs[tabId] = true
+        openGreenbeltTabsIDs[tabId] = true
 
         endOfStream(portStream, () => {
-          delete openMetamaskTabsIDs[tabId]
+          delete openGreenbeltTabsIDs[tabId]
           controller.isClientOpen = isClientOpenStatus()
         })
       }
@@ -445,8 +445,8 @@ function setupController (initState, initLangCode) {
  */
 function triggerUi () {
   extension.tabs.query({ active: true }, tabs => {
-    const currentlyActiveMetamaskTab = Boolean(tabs.find(tab => openMetamaskTabsIDs[tab.id]))
-    if (!popupIsOpen && !currentlyActiveMetamaskTab && !notificationIsOpen) {
+    const currentlyActiveGreenbeltTab = Boolean(tabs.find(tab => openGreenbeltTabsIDs[tab.id]))
+    if (!popupIsOpen && !currentlyActiveGreenbeltTab && !notificationIsOpen) {
       notificationManager.showPopup()
       notificationIsOpen = true
     }
@@ -473,7 +473,7 @@ function openPopup () {
 
 // On first install, open a new tab with GreenBelt
 extension.runtime.onInstalled.addListener(({reason}) => {
-  if ((reason === 'install') && (!METAMASK_DEBUG)) {
+  if ((reason === 'install') && (!GREENBELT_DEBUG)) {
     platform.openExtensionInBrowser()
   }
 })

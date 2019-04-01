@@ -4,8 +4,8 @@ import { compose } from 'recompose'
 import { markNoticeRead, setCompletedOnboarding } from '../../../../actions'
 import Notices from './notices.component'
 
-const mapStateToProps = ({ metamask }) => {
-  const { selectedAddress, nextUnreadNotice, noActiveNotices } = metamask
+const mapStateToProps = ({ greenbelt }) => {
+  const { selectedAddress, nextUnreadNotice, noActiveNotices } = greenbelt
 
   return {
     address: selectedAddress,

@@ -762,13 +762,13 @@
   "message": {
     "message": "訊息"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt 是乙太坊安全身份識別金庫"
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "GreenBelt Seed Words"
   },
-  "metamaskVersion": {
+  "greenbeltVersion": {
     "message": "GreenBelt 版本"
   },
   "min": {

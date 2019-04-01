@@ -8,7 +8,7 @@ export default class InfoTab extends PureComponent {
 
   static propTypes = {
     tab: PropTypes.string,
-    metamask: PropTypes.object,
+    greenbelt: PropTypes.object,
     setCurrentCurrency: PropTypes.func,
     setRpcTarget: PropTypes.func,
     displayWarning: PropTypes.func,
@@ -65,7 +65,7 @@ export default class InfoTab extends PureComponent {
         </div>
         {/* <div className="info-tab__link-item">
           <a
-            href="https://metamask.io/privacy.html"
+            href="https://greenbelt.io/privacy.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -76,7 +76,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://metamask.io/terms.html"
+            href="https://greenbelt.io/terms.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -87,7 +87,7 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__link-item">
           <a
-            href="https://metamask.io/attributions.html"
+            href="https://greenbelt.io/attributions.html"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -99,7 +99,7 @@ export default class InfoTab extends PureComponent {
         <hr className="info-tab__separator" />
         {/* <div className="info-tab__link-item">
           <a
-            href="https://support.metamask.io"
+            href="https://support.greenbelt.io"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -109,21 +109,21 @@ export default class InfoTab extends PureComponent {
           </a>
         </div> */}
         <div className="info-tab__link-item">
-          <span>{ t('visitMetamask_before') }</span>
+          <span>{ t('visitGreenbelt_before') }</span>
           <a
-            href="https://metamask.io/"
+            href="https://greenbelt.io/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span className="info-tab__link-text">
-              { t('visitMetamask') }
+              { t('visitGreenbelt') }
             </span>
           </a>
-          <span>{ t('visitMetamask_after') }</span>
+          <span>{ t('visitGreenbelt_after') }</span>
         </div>
         {/* <div className="info-tab__link-item">
           <a
-            href="mailto:help@metamask.io?subject=Feedback"
+            href="mailto:help@greenbelt.io?subject=Feedback"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -151,7 +151,7 @@ export default class InfoTab extends PureComponent {
             </div>
             <div className="info-tab__item">
               <div className="info-tab__version-header">
-                { t('metamaskVersion') }
+                { t('greenbeltVersion') }
               </div>
               <div className="info-tab__version-number">
                 { this.state.version }

@@ -14,12 +14,12 @@ import { hexToDecimal } from '../helpers/conversions.util'
 import { selectedTokenAddressSelector } from './tokens'
 import txHelper from '../../lib/tx-helper'
 
-export const shapeShiftTxListSelector = state => state.metamask.shapeShiftTxList
-export const unapprovedMsgsSelector = state => state.metamask.unapprovedMsgs
-export const selectedAddressTxListSelector = state => state.metamask.selectedAddressTxList
-export const unapprovedPersonalMsgsSelector = state => state.metamask.unapprovedPersonalMsgs
-export const unapprovedTypedMessagesSelector = state => state.metamask.unapprovedTypedMessages
-export const networkSelector = state => state.metamask.network
+export const shapeShiftTxListSelector = state => state.greenbelt.shapeShiftTxList
+export const unapprovedMsgsSelector = state => state.greenbelt.unapprovedMsgs
+export const selectedAddressTxListSelector = state => state.greenbelt.selectedAddressTxList
+export const unapprovedPersonalMsgsSelector = state => state.greenbelt.unapprovedPersonalMsgs
+export const unapprovedTypedMessagesSelector = state => state.greenbelt.unapprovedTypedMessages
+export const networkSelector = state => state.greenbelt.network
 
 export const unapprovedMessagesSelector = createSelector(
   unapprovedMsgsSelector,

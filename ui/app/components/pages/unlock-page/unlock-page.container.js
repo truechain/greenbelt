@@ -5,14 +5,14 @@ import { getEnvironmentType } from '../../../../../app/scripts/lib/util'
 import { ENVIRONMENT_TYPE_POPUP } from '../../../../../app/scripts/lib/enums'
 import { DEFAULT_ROUTE, RESTORE_VAULT_ROUTE } from '../../../routes'
 import {
-  tryUnlockMetamask,
+  tryUnlockGreenbelt,
   forgotPassword,
   markPasswordForgotten,
 } from '../../../actions'
 import UnlockPage from './unlock-page.component'
 
 const mapStateToProps = state => {
-  const { metamask: { isUnlocked } } = state
+  const { greenbelt: { isUnlocked } } = state
   return {
     isUnlocked,
   }
@@ -21,13 +21,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     forgotPassword: () => dispatch(forgotPassword()),
-    tryUnlockMetamask: password => dispatch(tryUnlockMetamask(password)),
+    tryUnlockGreenbelt: password => dispatch(tryUnlockGreenbelt(password)),
     markPasswordForgotten: () => dispatch(markPasswordForgotten()),
   }
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { markPasswordForgotten, tryUnlockMetamask, ...restDispatchProps } = dispatchProps
+  const { markPasswordForgotten, tryUnlockGreenbelt, ...restDispatchProps } = dispatchProps
   const { history, onSubmit: ownPropsSubmit, ...restOwnProps } = ownProps
 
   const onImport = () => {
@@ -40,7 +40,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   }
 
   const onSubmit = async password => {
-    await tryUnlockMetamask(password)
+    await tryUnlockGreenbelt(password)
     history.push(DEFAULT_ROUTE)
   }
 

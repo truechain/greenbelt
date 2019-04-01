@@ -15,14 +15,14 @@ module.exports = connect(mapStateToProps)(SendTransactionScreen)
 
 function mapStateToProps (state) {
   var result = {
-    address: state.metamask.selectedAddress,
-    accounts: state.metamask.accounts,
-    identities: state.metamask.identities,
+    address: state.greenbelt.selectedAddress,
+    accounts: state.greenbelt.accounts,
+    identities: state.greenbelt.identities,
     warning: state.appState.warning,
-    network: state.metamask.network,
-    addressBook: state.metamask.addressBook,
-    conversionRate: state.metamask.conversionRate,
-    currentCurrency: state.metamask.currentCurrency,
+    network: state.greenbelt.network,
+    addressBook: state.greenbelt.addressBook,
+    conversionRate: state.greenbelt.conversionRate,
+    currentCurrency: state.greenbelt.currentCurrency,
   }
 
   result.error = result.warning && result.warning.split('.')[0]

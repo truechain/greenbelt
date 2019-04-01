@@ -1,5 +1,5 @@
 /**
- * @file      The central metamask controller. Aggregates other controllers and exports an api.
+ * @file      The central greenbelt controller. Aggregates other controllers and exports an api.
  * @copyright Copyright (c) 2018 GreenBelt
  * @license   MIT
  */
@@ -56,7 +56,7 @@ const EthQuery = require('eth-query')
 const ethUtil = require('ethereumjs-util')
 const sigUtil = require('eth-sig-util')
 
-module.exports = class MetamaskController extends EventEmitter {
+module.exports = class GreenbeltController extends EventEmitter {
 
   /**
    * @constructor
@@ -73,7 +73,7 @@ module.exports = class MetamaskController extends EventEmitter {
     this.recordFirstTimeInfo(initState)
 
     // this keeps track of how many "controllerStream" connections are open
-    // the only thing that uses controller connections are open metamask UI instances
+    // the only thing that uses controller connections are open greenbelt UI instances
     this.activeControllerConnections = 0
 
     // platform-specific api
@@ -344,7 +344,7 @@ module.exports = class MetamaskController extends EventEmitter {
 //=============================================================================
 
   /**
-   * The metamask-state of the various controllers, made available to the UI
+   * The greenbelt-state of the various controllers, made available to the UI
    *
    * @returns {Object} status
    */
@@ -540,7 +540,7 @@ module.exports = class MetamaskController extends EventEmitter {
 
       const primaryKeyring = keyringController.getKeyringsByType('HD Key Tree')[0]
       if (!primaryKeyring) {
-        throw new Error('MetamaskController - No HD Key Tree found')
+        throw new Error('GreenbeltController - No HD Key Tree found')
       }
 
       // seek out the first zero balance
@@ -640,7 +640,7 @@ module.exports = class MetamaskController extends EventEmitter {
         keyringName = LedgerBridgeKeyring.type
         break
       default:
-        throw new Error('MetamaskController:getKeyringForDevice - Unknown device')
+        throw new Error('GreenbeltController:getKeyringForDevice - Unknown device')
     }
     let keyring = await this.keyringController.getKeyringsByType(keyringName)[0]
     if (!keyring) {
@@ -744,7 +744,7 @@ module.exports = class MetamaskController extends EventEmitter {
   async addNewAccount () {
     const primaryKeyring = this.keyringController.getKeyringsByType('HD Key Tree')[0]
     if (!primaryKeyring) {
-      throw new Error('MetamaskController - No HD Key Tree found')
+      throw new Error('GreenbeltController - No HD Key Tree found')
     }
     const keyringController = this.keyringController
     const oldAccounts = await keyringController.getAccounts()
@@ -797,7 +797,7 @@ module.exports = class MetamaskController extends EventEmitter {
 
     const primaryKeyring = this.keyringController.getKeyringsByType('HD Key Tree')[0]
     if (!primaryKeyring) {
-      throw new Error('MetamaskController - No HD Key Tree found')
+      throw new Error('GreenbeltController - No HD Key Tree found')
     }
 
     const serialized = await primaryKeyring.serialize()
@@ -805,7 +805,7 @@ module.exports = class MetamaskController extends EventEmitter {
 
     const accounts = await primaryKeyring.getAccounts()
     if (accounts.length < 1) {
-      throw new Error('MetamaskController - No accounts found')
+      throw new Error('GreenbeltController - No accounts found')
     }
 
     try {
@@ -922,11 +922,11 @@ module.exports = class MetamaskController extends EventEmitter {
    * @returns {Promise<Object>} Full state update.
    */
   signMessage (msgParams) {
-    log.info('MetaMaskController - signMessage')
-    const msgId = msgParams.metamaskId
+    log.info('GreenBeltController - signMessage')
+    const msgId = msgParams.greenbeltId
 
     // sets the status op the message to 'approved'
-    // and removes the metamaskId for signing
+    // and removes the greenbeltId for signing
     return this.messageManager.approveMessage(msgParams)
     .then((cleanMsgParams) => {
       // signs the message
@@ -981,10 +981,10 @@ module.exports = class MetamaskController extends EventEmitter {
    * @returns {Promise<Object>} - A full state update.
    */
   signPersonalMessage (msgParams) {
-    log.info('MetaMaskController - signPersonalMessage')
-    const msgId = msgParams.metamaskId
+    log.info('GreenBeltController - signPersonalMessage')
+    const msgId = msgParams.greenbeltId
     // sets the status op the message to 'approved'
-    // and removes the metamaskId for signing
+    // and removes the greenbeltId for signing
     return this.personalMessageManager.approveMessage(msgParams)
     .then((cleanMsgParams) => {
       // signs the message
@@ -1034,8 +1034,8 @@ module.exports = class MetamaskController extends EventEmitter {
    * @returns {Object} Full state update.
    */
   async signTypedMessage (msgParams) {
-    log.info('MetaMaskController - eth_signTypedData')
-    const msgId = msgParams.metamaskId
+    log.info('GreenBeltController - eth_signTypedData')
+    const msgId = msgParams.greenbeltId
     const version = msgParams.version
     try {
       const cleanMsgParams = await this.typedMessageManager.approveMessage(msgParams)
@@ -1061,7 +1061,7 @@ module.exports = class MetamaskController extends EventEmitter {
       this.typedMessageManager.setMsgStatusSigned(msgId, signature)
       return this.getState()
     } catch (error) {
-      log.info('MetaMaskController - eth_signTypedData failed.', error)
+      log.info('GreenBeltController - eth_signTypedData failed.', error)
       this.typedMessageManager.errorMessage(msgId, error)
     }
   }
@@ -1087,7 +1087,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * key management library that we depended on.
    *
    * Described in:
-   * https://medium.com/metamask/metamask-3-migration-guide-914b79533cdd
+   * https://medium.com/greenbelt/greenbelt-3-migration-guide-914b79533cdd
    *
    * @deprecated
    * @param  {} migratorOutput
@@ -1122,7 +1122,7 @@ module.exports = class MetamaskController extends EventEmitter {
    * Imports a hash of accounts to private keys into the vault.
    *
    * Described in:
-   * https://medium.com/metamask/metamask-3-migration-guide-914b79533cdd
+   * https://medium.com/greenbelt/greenbelt-3-migration-guide-914b79533cdd
    *
    * Uses the array's private keys to create a new Simple Key Pair keychain
    * and add it to the keyring controller.
@@ -1330,7 +1330,7 @@ module.exports = class MetamaskController extends EventEmitter {
     engine.push(subscriptionManager.middleware)
     // watch asset
     engine.push(this.preferencesController.requestWatchAsset.bind(this.preferencesController))
-    // forward to metamask primary provider
+    // forward to greenbelt primary provider
     engine.push(createProviderMiddleware({ provider }))
 
     // setup connection

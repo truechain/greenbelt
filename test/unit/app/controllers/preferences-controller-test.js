@@ -361,7 +361,7 @@ describe('preferences controller', function () {
       const asy = {next: () => {}, end: () => {}}
       var stubNext = sandbox.stub(asy, 'next')
       var stubEnd = sandbox.stub(asy, 'end').returns(0)
-      req.method = 'metamask'
+      req.method = 'greenbelt'
       await preferencesController.requestWatchAsset(req, res, asy.next, asy.end)
       sandbox.assert.notCalled(stubEnd)
       sandbox.assert.called(stubNext)
@@ -370,7 +370,7 @@ describe('preferences controller', function () {
       const asy = {next: () => {}, end: () => {}}
       var stubNext = sandbox.stub(asy, 'next')
       var stubEnd = sandbox.stub(asy, 'end').returns(0)
-      req.method = 'metamask_watchAsset'
+      req.method = 'greenbelt_watchAsset'
       req.params.type = 'someasset'
       await preferencesController.requestWatchAsset(req, res, asy.next, asy.end)
       sandbox.assert.called(stubEnd)
@@ -382,7 +382,7 @@ describe('preferences controller', function () {
       sandbox.assert.notCalled(stubNext)
     })
     it('should through error if method is supported but asset type is not', async function () {
-      req.method = 'metamask_watchAsset'
+      req.method = 'greenbelt_watchAsset'
       req.params.type = 'someasset'
       await preferencesController.requestWatchAsset(req, res, asy.next, asy.end)
       sandbox.assert.called(stubEnd)
@@ -392,7 +392,7 @@ describe('preferences controller', function () {
     })
     it('should trigger handle add asset if type supported', async function () {
       const asy = {next: () => {}, end: () => {}}
-      req.method = 'metamask_watchAsset'
+      req.method = 'greenbelt_watchAsset'
       req.params.type = 'ERC20'
       await preferencesController.requestWatchAsset(req, res, asy.next, asy.end)
       sandbox.assert.called(stubHandleWatchAssetERC20)

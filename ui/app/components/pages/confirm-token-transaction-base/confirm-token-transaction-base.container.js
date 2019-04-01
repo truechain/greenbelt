@@ -7,7 +7,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   const { tokenAmount: ownTokenAmount } = ownProps
-  const { confirmTransaction, metamask: { currentCurrency, conversionRate } } = state
+  const { confirmTransaction, greenbelt: { currentCurrency, conversionRate } } = state
   const {
     txData: { txParams: { to: tokenAddress } = {} } = {},
     tokenProps: { tokenSymbol } = {},

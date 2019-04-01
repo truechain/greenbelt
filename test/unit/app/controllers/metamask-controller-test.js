@@ -4,7 +4,7 @@ const clone = require('clone')
 const nock = require('nock')
 const createThoughStream = require('through2').obj
 const blacklistJSON = require('eth-phishing-detect/src/config')
-const MetaMaskController = require('../../../../app/scripts/metamask-controller')
+const GreenBeltController = require('../../../../app/scripts/greenbelt-controller')
 const firstTimeState = require('../../../unit/localhostState')
 const createTxMeta = require('../../../lib/createTxMeta')
 const EthQuery = require('eth-query')
@@ -20,8 +20,8 @@ const TEST_SEED_ALT = 'setup olympic issue mobile velvet surge alcohol burger ho
 const TEST_ADDRESS_ALT = '0xc42edfcc21ed14dda456aa0756c153f7985d8813'
 const CUSTOM_RPC_URL = 'http://localhost:8545'
 
-describe('MetaMaskController', function () {
-  let metamaskController
+describe('GreenBeltController', function () {
+  let greenbeltController
   const sandbox = sinon.createSandbox()
   const noop = () => {}
 
@@ -45,7 +45,7 @@ describe('MetaMaskController', function () {
       .get(/.*/)
       .reply(200)
 
-    metamaskController = new MetaMaskController({
+    greenbeltController = new GreenBeltController({
       showUnapprovedTx: noop,
       showUnconfirmedMessage: noop,
       encryptor: {
@@ -61,10 +61,10 @@ describe('MetaMaskController', function () {
       platform: { showTransactionNotification: () => {} },
     })
     // disable diagnostics
-    metamaskController.diagnostics = null
+    greenbeltController.diagnostics = null
     // add sinon method spies
-    sandbox.spy(metamaskController.keyringController, 'createNewVaultAndKeychain')
-    sandbox.spy(metamaskController.keyringController, 'createNewVaultAndRestore')
+    sandbox.spy(greenbeltController.keyringController, 'createNewVaultAndKeychain')
+    sandbox.spy(greenbeltController.keyringController, 'createNewVaultAndRestore')
   })
 
   afterEach(function () {
@@ -76,16 +76,16 @@ describe('MetaMaskController', function () {
     const password = 'password'
 
     beforeEach(async function () {
-      await metamaskController.createNewVaultAndKeychain(password)
+      await greenbeltController.createNewVaultAndKeychain(password)
     })
 
     it('removes any identities that do not correspond to known accounts.', async function () {
       const fakeAddress = '0xbad0'
-      metamaskController.preferencesController.addAddresses([fakeAddress])
-      await metamaskController.submitPassword(password)
+      greenbeltController.preferencesController.addAddresses([fakeAddress])
+      await greenbeltController.submitPassword(password)
 
-      const identities = Object.keys(metamaskController.preferencesController.store.getState().identities)
-      const addresses = await metamaskController.keyringController.getAccounts()
+      const identities = Object.keys(greenbeltController.preferencesController.store.getState().identities)
+      const addresses = await greenbeltController.keyringController.getAccounts()
 
       identities.forEach((identity) => {
         assert.ok(addresses.includes(identity), `addresses should include all IDs: ${identity}`)
@@ -100,8 +100,8 @@ describe('MetaMaskController', function () {
   describe('#getGasPrice', function () {
 
     it('gives the 50th percentile lowest accepted gas price from recentBlocksController', async function () {
-      const realRecentBlocksController = metamaskController.recentBlocksController
-      metamaskController.recentBlocksController = {
+      const realRecentBlocksController = greenbeltController.recentBlocksController
+      greenbeltController.recentBlocksController = {
         store: {
           getState: () => {
             return {
@@ -116,23 +116,23 @@ describe('MetaMaskController', function () {
         },
       }
 
-      const gasPrice = metamaskController.getGasPrice()
+      const gasPrice = greenbeltController.getGasPrice()
       assert.equal(gasPrice, '0x174876e800', 'accurately estimates 65th percentile accepted gas price')
 
-      metamaskController.recentBlocksController = realRecentBlocksController
+      greenbeltController.recentBlocksController = realRecentBlocksController
     })
   })
 
   describe('#createNewVaultAndKeychain', function () {
     it('can only create new vault on keyringController once', async function () {
-      const selectStub = sandbox.stub(metamaskController, 'selectFirstIdentity')
+      const selectStub = sandbox.stub(greenbeltController, 'selectFirstIdentity')
 
       const password = 'a-fake-password'
 
-      await metamaskController.createNewVaultAndKeychain(password)
-      await metamaskController.createNewVaultAndKeychain(password)
+      await greenbeltController.createNewVaultAndKeychain(password)
+      await greenbeltController.createNewVaultAndKeychain(password)
 
-      assert(metamaskController.keyringController.createNewVaultAndKeychain.calledOnce)
+      assert(greenbeltController.keyringController.createNewVaultAndKeychain.calledOnce)
 
       selectStub.reset()
     })
@@ -141,49 +141,49 @@ describe('MetaMaskController', function () {
   describe('#createNewVaultAndRestore', function () {
     it('should be able to call newVaultAndRestore despite a mistake.', async function () {
       const password = 'what-what-what'
-      sandbox.stub(metamaskController, 'getBalance')
-      metamaskController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
+      sandbox.stub(greenbeltController, 'getBalance')
+      greenbeltController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
 
-      await metamaskController.createNewVaultAndRestore(password, TEST_SEED.slice(0, -1)).catch((e) => null)
-      await metamaskController.createNewVaultAndRestore(password, TEST_SEED)
+      await greenbeltController.createNewVaultAndRestore(password, TEST_SEED.slice(0, -1)).catch((e) => null)
+      await greenbeltController.createNewVaultAndRestore(password, TEST_SEED)
 
-      assert(metamaskController.keyringController.createNewVaultAndRestore.calledTwice)
+      assert(greenbeltController.keyringController.createNewVaultAndRestore.calledTwice)
     })
 
     it('should clear previous identities after vault restoration', async () => {
-      sandbox.stub(metamaskController, 'getBalance')
-      metamaskController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
+      sandbox.stub(greenbeltController, 'getBalance')
+      greenbeltController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
 
-      await metamaskController.createNewVaultAndRestore('foobar1337', TEST_SEED)
-      assert.deepEqual(metamaskController.getState().identities, {
+      await greenbeltController.createNewVaultAndRestore('foobar1337', TEST_SEED)
+      assert.deepEqual(greenbeltController.getState().identities, {
         [TEST_ADDRESS]: { address: TEST_ADDRESS, name: DEFAULT_LABEL },
       })
 
-      await metamaskController.preferencesController.setAccountLabel(TEST_ADDRESS, 'Account Foo')
-      assert.deepEqual(metamaskController.getState().identities, {
+      await greenbeltController.preferencesController.setAccountLabel(TEST_ADDRESS, 'Account Foo')
+      assert.deepEqual(greenbeltController.getState().identities, {
         [TEST_ADDRESS]: { address: TEST_ADDRESS, name: 'Account Foo' },
       })
 
-      await metamaskController.createNewVaultAndRestore('foobar1337', TEST_SEED_ALT)
-      assert.deepEqual(metamaskController.getState().identities, {
+      await greenbeltController.createNewVaultAndRestore('foobar1337', TEST_SEED_ALT)
+      assert.deepEqual(greenbeltController.getState().identities, {
         [TEST_ADDRESS_ALT]: { address: TEST_ADDRESS_ALT, name: DEFAULT_LABEL },
       })
     })
 
     it('should restore any consecutive accounts with balances', async () => {
-      sandbox.stub(metamaskController, 'getBalance')
-      metamaskController.getBalance.withArgs(TEST_ADDRESS).callsFake(() => {
+      sandbox.stub(greenbeltController, 'getBalance')
+      greenbeltController.getBalance.withArgs(TEST_ADDRESS).callsFake(() => {
         return Promise.resolve('0x14ced5122ce0a000')
       })
-      metamaskController.getBalance.withArgs(TEST_ADDRESS_2).callsFake(() => {
+      greenbeltController.getBalance.withArgs(TEST_ADDRESS_2).callsFake(() => {
         return Promise.resolve('0x0')
       })
-      metamaskController.getBalance.withArgs(TEST_ADDRESS_3).callsFake(() => {
+      greenbeltController.getBalance.withArgs(TEST_ADDRESS_3).callsFake(() => {
         return Promise.resolve('0x14ced5122ce0a000')
       })
 
-      await metamaskController.createNewVaultAndRestore('foobar1337', TEST_SEED)
-      assert.deepEqual(metamaskController.getState().identities, {
+      await greenbeltController.createNewVaultAndRestore('foobar1337', TEST_SEED)
+      assert.deepEqual(greenbeltController.getState().identities, {
         [TEST_ADDRESS]: { address: TEST_ADDRESS, name: DEFAULT_LABEL },
         [TEST_ADDRESS_2]: { address: TEST_ADDRESS_2, name: DEFAULT_LABEL_2 },
       })
@@ -196,9 +196,9 @@ describe('MetaMaskController', function () {
       const balance = '0x14ced5122ce0a000'
       accounts[TEST_ADDRESS] = { balance: balance }
 
-      metamaskController.accountTracker.store.putState({ accounts: accounts })
+      greenbeltController.accountTracker.store.putState({ accounts: accounts })
 
-      const gotten = await metamaskController.getBalance(TEST_ADDRESS)
+      const gotten = await greenbeltController.getBalance(TEST_ADDRESS)
 
       assert.equal(balance, gotten)
     })
@@ -211,9 +211,9 @@ describe('MetaMaskController', function () {
         callback(undefined, balance)
       })
 
-      metamaskController.accountTracker.store.putState({ accounts: accounts })
+      greenbeltController.accountTracker.store.putState({ accounts: accounts })
 
-      const gotten = await metamaskController.getBalance(TEST_ADDRESS, ethQuery)
+      const gotten = await greenbeltController.getBalance(TEST_ADDRESS, ethQuery)
 
       assert.equal(balance, gotten)
     })
@@ -223,7 +223,7 @@ describe('MetaMaskController', function () {
     let getApi, state
 
     beforeEach(function () {
-      getApi = metamaskController.getApi()
+      getApi = greenbeltController.getApi()
     })
 
     it('getState', function (done) {
@@ -234,7 +234,7 @@ describe('MetaMaskController', function () {
           state = res
         }
       })
-      assert.deepEqual(state, metamaskController.getState())
+      assert.deepEqual(state, greenbeltController.getState())
       done()
     })
 
@@ -243,12 +243,12 @@ describe('MetaMaskController', function () {
   describe('preferencesController', function () {
 
     it('defaults useBlockie to false', function () {
-      assert.equal(metamaskController.preferencesController.store.getState().useBlockie, false)
+      assert.equal(greenbeltController.preferencesController.store.getState().useBlockie, false)
     })
 
     it('setUseBlockie to true', function () {
-      metamaskController.setUseBlockie(true, noop)
-      assert.equal(metamaskController.preferencesController.store.getState().useBlockie, true)
+      greenbeltController.setUseBlockie(true, noop)
+      assert.equal(greenbeltController.preferencesController.store.getState().useBlockie, true)
     })
 
   })
@@ -268,18 +268,18 @@ describe('MetaMaskController', function () {
           'name': 'Account 2',
         },
       }
-      metamaskController.preferencesController.store.updateState({ identities })
-      metamaskController.selectFirstIdentity()
+      greenbeltController.preferencesController.store.updateState({ identities })
+      greenbeltController.selectFirstIdentity()
     })
 
     it('changes preferences controller select address', function () {
-      const preferenceControllerState = metamaskController.preferencesController.store.getState()
+      const preferenceControllerState = greenbeltController.preferencesController.store.getState()
       assert.equal(preferenceControllerState.selectedAddress, address)
     })
 
-    it('changes metamask controller selected address', function () {
-      const metamaskState = metamaskController.getState()
-      assert.equal(metamaskState.selectedAddress, address)
+    it('changes greenbelt controller selected address', function () {
+      const greenbeltState = greenbeltController.getState()
+      assert.equal(greenbeltState.selectedAddress, address)
     })
   })
 
@@ -287,29 +287,29 @@ describe('MetaMaskController', function () {
 
     it('should throw if it receives an unknown device name', async function () {
       try {
-        await metamaskController.connectHardware('Some random device name', 0, `m/44/0'/0'`)
+        await greenbeltController.connectHardware('Some random device name', 0, `m/44/0'/0'`)
       } catch (e) {
-        assert.equal(e, 'Error: MetamaskController:getKeyringForDevice - Unknown device')
+        assert.equal(e, 'Error: GreenbeltController:getKeyringForDevice - Unknown device')
       }
     })
 
     it('should add the Trezor Hardware keyring', async function () {
-      sinon.spy(metamaskController.keyringController, 'addNewKeyring')
-      await metamaskController.connectHardware('trezor', 0).catch((e) => null)
-      const keyrings = await metamaskController.keyringController.getKeyringsByType(
+      sinon.spy(greenbeltController.keyringController, 'addNewKeyring')
+      await greenbeltController.connectHardware('trezor', 0).catch((e) => null)
+      const keyrings = await greenbeltController.keyringController.getKeyringsByType(
         'Trezor Hardware'
       )
-      assert.equal(metamaskController.keyringController.addNewKeyring.getCall(0).args, 'Trezor Hardware')
+      assert.equal(greenbeltController.keyringController.addNewKeyring.getCall(0).args, 'Trezor Hardware')
       assert.equal(keyrings.length, 1)
     })
 
     it('should add the Ledger Hardware keyring', async function () {
-      sinon.spy(metamaskController.keyringController, 'addNewKeyring')
-      await metamaskController.connectHardware('ledger', 0).catch((e) => null)
-      const keyrings = await metamaskController.keyringController.getKeyringsByType(
+      sinon.spy(greenbeltController.keyringController, 'addNewKeyring')
+      await greenbeltController.connectHardware('ledger', 0).catch((e) => null)
+      const keyrings = await greenbeltController.keyringController.getKeyringsByType(
         'Ledger Hardware'
       )
-      assert.equal(metamaskController.keyringController.addNewKeyring.getCall(0).args, 'Ledger Hardware')
+      assert.equal(greenbeltController.keyringController.addNewKeyring.getCall(0).args, 'Ledger Hardware')
       assert.equal(keyrings.length, 1)
     })
 
@@ -318,15 +318,15 @@ describe('MetaMaskController', function () {
   describe('checkHardwareStatus', function () {
     it('should throw if it receives an unknown device name', async function () {
       try {
-        await metamaskController.checkHardwareStatus('Some random device name', `m/44/0'/0'`)
+        await greenbeltController.checkHardwareStatus('Some random device name', `m/44/0'/0'`)
       } catch (e) {
-        assert.equal(e, 'Error: MetamaskController:getKeyringForDevice - Unknown device')
+        assert.equal(e, 'Error: GreenbeltController:getKeyringForDevice - Unknown device')
       }
     })
 
     it('should be locked by default', async function () {
-      await metamaskController.connectHardware('trezor', 0).catch((e) => null)
-      const status = await metamaskController.checkHardwareStatus('trezor')
+      await greenbeltController.connectHardware('trezor', 0).catch((e) => null)
+      const status = await greenbeltController.checkHardwareStatus('trezor')
       assert.equal(status, false)
     })
   })
@@ -334,16 +334,16 @@ describe('MetaMaskController', function () {
   describe('forgetDevice', function () {
     it('should throw if it receives an unknown device name', async function () {
       try {
-        await metamaskController.forgetDevice('Some random device name')
+        await greenbeltController.forgetDevice('Some random device name')
       } catch (e) {
-        assert.equal(e, 'Error: MetamaskController:getKeyringForDevice - Unknown device')
+        assert.equal(e, 'Error: GreenbeltController:getKeyringForDevice - Unknown device')
       }
     })
 
     it('should wipe all the keyring info', async function () {
-      await metamaskController.connectHardware('trezor', 0).catch((e) => null)
-      await metamaskController.forgetDevice('trezor')
-      const keyrings = await metamaskController.keyringController.getKeyringsByType(
+      await greenbeltController.connectHardware('trezor', 0).catch((e) => null)
+      await greenbeltController.forgetDevice('trezor')
+      const keyrings = await greenbeltController.keyringController.getKeyringsByType(
         'Trezor Hardware'
       )
 
@@ -363,34 +363,34 @@ describe('MetaMaskController', function () {
       windowOpenStub = sinon.stub(window, 'open')
       windowOpenStub.returns(noop)
 
-      addNewAccountStub = sinon.stub(metamaskController.keyringController, 'addNewAccount')
+      addNewAccountStub = sinon.stub(greenbeltController.keyringController, 'addNewAccount')
       addNewAccountStub.returns({})
 
-      getAccountsStub = sinon.stub(metamaskController.keyringController, 'getAccounts')
+      getAccountsStub = sinon.stub(greenbeltController.keyringController, 'getAccounts')
       // Need to return different address to mock the behavior of
       // adding a new account from the keyring
       getAccountsStub.onCall(0).returns(Promise.resolve(['0x1']))
       getAccountsStub.onCall(1).returns(Promise.resolve(['0x2']))
       getAccountsStub.onCall(2).returns(Promise.resolve(['0x3']))
       getAccountsStub.onCall(3).returns(Promise.resolve(['0x4']))
-      sinon.spy(metamaskController.preferencesController, 'setAddresses')
-      sinon.spy(metamaskController.preferencesController, 'setSelectedAddress')
-      sinon.spy(metamaskController.preferencesController, 'setAccountLabel')
-      await metamaskController.connectHardware('trezor', 0, `m/44/0'/0'`).catch((e) => null)
-      await metamaskController.unlockHardwareWalletAccount(accountToUnlock, 'trezor', `m/44/0'/0'`)
+      sinon.spy(greenbeltController.preferencesController, 'setAddresses')
+      sinon.spy(greenbeltController.preferencesController, 'setSelectedAddress')
+      sinon.spy(greenbeltController.preferencesController, 'setAccountLabel')
+      await greenbeltController.connectHardware('trezor', 0, `m/44/0'/0'`).catch((e) => null)
+      await greenbeltController.unlockHardwareWalletAccount(accountToUnlock, 'trezor', `m/44/0'/0'`)
     })
 
     afterEach(function () {
       window.open.restore()
-      metamaskController.keyringController.addNewAccount.restore()
-      metamaskController.keyringController.getAccounts.restore()
-      metamaskController.preferencesController.setAddresses.restore()
-      metamaskController.preferencesController.setSelectedAddress.restore()
-      metamaskController.preferencesController.setAccountLabel.restore()
+      greenbeltController.keyringController.addNewAccount.restore()
+      greenbeltController.keyringController.getAccounts.restore()
+      greenbeltController.preferencesController.setAddresses.restore()
+      greenbeltController.preferencesController.setSelectedAddress.restore()
+      greenbeltController.preferencesController.setAccountLabel.restore()
     })
 
     it('should set unlockedAccount in the keyring', async function () {
-      const keyrings = await metamaskController.keyringController.getKeyringsByType(
+      const keyrings = await greenbeltController.keyringController.getKeyringsByType(
         'Trezor Hardware'
       )
       assert.equal(keyrings[0].unlockedAccount, accountToUnlock)
@@ -398,23 +398,23 @@ describe('MetaMaskController', function () {
 
 
     it('should call keyringController.addNewAccount', async function () {
-      assert(metamaskController.keyringController.addNewAccount.calledOnce)
+      assert(greenbeltController.keyringController.addNewAccount.calledOnce)
     })
 
     it('should call keyringController.getAccounts ', async function () {
-      assert(metamaskController.keyringController.getAccounts.called)
+      assert(greenbeltController.keyringController.getAccounts.called)
     })
 
     it('should call preferencesController.setAddresses', async function () {
-      assert(metamaskController.preferencesController.setAddresses.calledOnce)
+      assert(greenbeltController.preferencesController.setAddresses.calledOnce)
     })
 
     it('should call preferencesController.setSelectedAddress', async function () {
-      assert(metamaskController.preferencesController.setSelectedAddress.calledOnce)
+      assert(greenbeltController.preferencesController.setSelectedAddress.calledOnce)
     })
 
     it('should call preferencesController.setAccountLabel', async function () {
-      assert(metamaskController.preferencesController.setAccountLabel.calledOnce)
+      assert(greenbeltController.preferencesController.setAccountLabel.calledOnce)
     })
 
 
@@ -424,7 +424,7 @@ describe('MetaMaskController', function () {
     let rpcTarget
 
     beforeEach(function () {
-      rpcTarget = metamaskController.setCustomRpc(CUSTOM_RPC_URL)
+      rpcTarget = greenbeltController.setCustomRpc(CUSTOM_RPC_URL)
     })
 
     it('returns custom RPC that when called', async function () {
@@ -432,25 +432,25 @@ describe('MetaMaskController', function () {
     })
 
     it('changes the network controller rpc', function () {
-      const networkControllerState = metamaskController.networkController.store.getState()
+      const networkControllerState = greenbeltController.networkController.store.getState()
       assert.equal(networkControllerState.provider.rpcTarget, CUSTOM_RPC_URL)
     })
   })
 
   describe('#setCurrentCurrency', function () {
-    let defaultMetaMaskCurrency
+    let defaultGreenBeltCurrency
 
     beforeEach(function () {
-      defaultMetaMaskCurrency = metamaskController.currencyController.getCurrentCurrency()
+      defaultGreenBeltCurrency = greenbeltController.currencyController.getCurrentCurrency()
     })
 
     it('defaults to usd', function () {
-      assert.equal(defaultMetaMaskCurrency, 'usd')
+      assert.equal(defaultGreenBeltCurrency, 'usd')
     })
 
     it('sets currency to JPY', function () {
-      metamaskController.setCurrentCurrency('JPY', noop)
-      assert.equal(metamaskController.currencyController.getCurrentCurrency(), 'JPY')
+      greenbeltController.setCurrentCurrency('JPY', noop)
+      assert.equal(greenbeltController.currencyController.getCurrentCurrency(), 'JPY')
     })
   })
 
@@ -464,11 +464,11 @@ describe('MetaMaskController', function () {
 
       depositAddress = '3EevLFfB4H4XMWQwYCgjLie1qCAGpd2WBc'
       depositType = 'ETH'
-      shapeShiftTxList = metamaskController.shapeshiftController.store.getState().shapeShiftTxList
+      shapeShiftTxList = greenbeltController.shapeshiftController.store.getState().shapeShiftTxList
     })
 
     it('creates a shapeshift tx', async function () {
-      metamaskController.createShapeShiftTx(depositAddress, depositType)
+      greenbeltController.createShapeShiftTx(depositAddress, depositType)
       assert.equal(shapeShiftTxList[0].depositAddress, depositAddress)
     })
 
@@ -478,7 +478,7 @@ describe('MetaMaskController', function () {
     let addNewAccount
 
     beforeEach(function () {
-      addNewAccount = metamaskController.addNewAccount()
+      addNewAccount = greenbeltController.addNewAccount()
     })
 
     it('errors when an primary keyring is does not exist', async function () {
@@ -486,7 +486,7 @@ describe('MetaMaskController', function () {
         await addNewAccount
         assert.equal(1 === 0)
       } catch (e) {
-        assert.equal(e.message, 'MetamaskController - No HD Key Tree found')
+        assert.equal(e.message, 'GreenbeltController - No HD Key Tree found')
       }
     })
   })
@@ -496,24 +496,24 @@ describe('MetaMaskController', function () {
 
     it('errors when no keying is provided', async function () {
       try {
-        await metamaskController.verifySeedPhrase()
+        await greenbeltController.verifySeedPhrase()
       } catch (error) {
-        assert.equal(error.message, 'MetamaskController - No HD Key Tree found')
+        assert.equal(error.message, 'GreenbeltController - No HD Key Tree found')
       }
     })
 
     beforeEach(async function () {
-      await metamaskController.createNewVaultAndKeychain('password')
-      seedPhrase = await metamaskController.verifySeedPhrase()
+      await greenbeltController.createNewVaultAndKeychain('password')
+      seedPhrase = await greenbeltController.verifySeedPhrase()
     })
 
     it('#placeSeedWords should match the initially created vault seed', function () {
 
-      metamaskController.placeSeedWords((err, result) => {
+      greenbeltController.placeSeedWords((err, result) => {
         if (err) {
          console.log(err)
         } else {
-          getConfigSeed = metamaskController.configManager.getSeedWords()
+          getConfigSeed = greenbeltController.configManager.getSeedWords()
           assert.equal(result, seedPhrase)
           assert.equal(result, getConfigSeed)
         }
@@ -522,8 +522,8 @@ describe('MetaMaskController', function () {
     })
 
     it('#addNewAccount', async function () {
-      await metamaskController.addNewAccount()
-      const getAccounts = await metamaskController.keyringController.getAccounts()
+      await greenbeltController.addNewAccount()
+      const getAccounts = await greenbeltController.keyringController.getAccounts()
       assert.equal(getAccounts.length, 2)
     })
   })
@@ -531,23 +531,23 @@ describe('MetaMaskController', function () {
   describe('#resetAccount', function () {
 
     beforeEach(function () {
-      const selectedAddressStub = sinon.stub(metamaskController.preferencesController, 'getSelectedAddress')
-      const getNetworkstub = sinon.stub(metamaskController.txController.txStateManager, 'getNetwork')
+      const selectedAddressStub = sinon.stub(greenbeltController.preferencesController, 'getSelectedAddress')
+      const getNetworkstub = sinon.stub(greenbeltController.txController.txStateManager, 'getNetwork')
 
       selectedAddressStub.returns('0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc')
       getNetworkstub.returns(42)
 
-      metamaskController.txController.txStateManager._saveTxList([
-        createTxMeta({ id: 1, status: 'unapproved', metamaskNetworkId: currentNetworkId, txParams: {from: '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc'} }),
-        createTxMeta({ id: 1, status: 'unapproved', metamaskNetworkId: currentNetworkId, txParams: {from: '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc'} }),
-        createTxMeta({ id: 2, status: 'rejected', metamaskNetworkId: 32 }),
-        createTxMeta({ id: 3, status: 'submitted', metamaskNetworkId: currentNetworkId, txParams: {from: '0xB09d8505E1F4EF1CeA089D47094f5DD3464083d4'} }),
+      greenbeltController.txController.txStateManager._saveTxList([
+        createTxMeta({ id: 1, status: 'unapproved', greenbeltNetworkId: currentNetworkId, txParams: {from: '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc'} }),
+        createTxMeta({ id: 1, status: 'unapproved', greenbeltNetworkId: currentNetworkId, txParams: {from: '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc'} }),
+        createTxMeta({ id: 2, status: 'rejected', greenbeltNetworkId: 32 }),
+        createTxMeta({ id: 3, status: 'submitted', greenbeltNetworkId: currentNetworkId, txParams: {from: '0xB09d8505E1F4EF1CeA089D47094f5DD3464083d4'} }),
       ])
     })
 
     it('wipes transactions from only the correct network id and with the selected address', async function () {
-      await metamaskController.resetAccount()
-      assert.equal(metamaskController.txController.txStateManager.getTx(1), undefined)
+      await greenbeltController.resetAccount()
+      assert.equal(greenbeltController.txController.txStateManager.getTx(1), undefined)
     })
   })
 
@@ -556,28 +556,28 @@ describe('MetaMaskController', function () {
     const addressToRemove = '0x1'
 
     beforeEach(async function () {
-      sinon.stub(metamaskController.preferencesController, 'removeAddress')
-      sinon.stub(metamaskController.accountTracker, 'removeAccount')
-      sinon.stub(metamaskController.keyringController, 'removeAccount')
+      sinon.stub(greenbeltController.preferencesController, 'removeAddress')
+      sinon.stub(greenbeltController.accountTracker, 'removeAccount')
+      sinon.stub(greenbeltController.keyringController, 'removeAccount')
 
-      ret = await metamaskController.removeAccount(addressToRemove)
+      ret = await greenbeltController.removeAccount(addressToRemove)
 
     })
 
     afterEach(function () {
-      metamaskController.keyringController.removeAccount.restore()
-      metamaskController.accountTracker.removeAccount.restore()
-      metamaskController.preferencesController.removeAddress.restore()
+      greenbeltController.keyringController.removeAccount.restore()
+      greenbeltController.accountTracker.removeAccount.restore()
+      greenbeltController.preferencesController.removeAddress.restore()
     })
 
     it('should call preferencesController.removeAddress', async function () {
-      assert(metamaskController.preferencesController.removeAddress.calledWith(addressToRemove))
+      assert(greenbeltController.preferencesController.removeAddress.calledWith(addressToRemove))
     })
     it('should call accountTracker.removeAccount', async function () {
-      assert(metamaskController.accountTracker.removeAccount.calledWith([addressToRemove]))
+      assert(greenbeltController.accountTracker.removeAccount.calledWith([addressToRemove]))
     })
     it('should call keyringController.removeAccount', async function () {
-      assert(metamaskController.keyringController.removeAccount.calledWith(addressToRemove))
+      assert(greenbeltController.keyringController.removeAccount.calledWith(addressToRemove))
     })
     it('should return address', async function () {
       assert.equal(ret, '0x1')
@@ -586,14 +586,14 @@ describe('MetaMaskController', function () {
 
   describe('#clearSeedWordCache', function () {
     it('should set seed words to null', function (done) {
-      sandbox.stub(metamaskController.preferencesController, 'setSeedWords')
-      metamaskController.clearSeedWordCache((err) => {
+      sandbox.stub(greenbeltController.preferencesController, 'setSeedWords')
+      greenbeltController.clearSeedWordCache((err) => {
         if (err) {
           done(err)
         }
 
-        assert.ok(metamaskController.preferencesController.setSeedWords.calledOnce)
-        assert.deepEqual(metamaskController.preferencesController.setSeedWords.args, [[null]])
+        assert.ok(greenbeltController.preferencesController.setSeedWords.calledOnce)
+        assert.deepEqual(greenbeltController.preferencesController.setSeedWords.args, [[null]])
         done()
       })
     })
@@ -602,13 +602,13 @@ describe('MetaMaskController', function () {
   describe('#setCurrentLocale', function () {
 
     it('checks the default currentLocale', function () {
-      const preferenceCurrentLocale = metamaskController.preferencesController.store.getState().currentLocale
+      const preferenceCurrentLocale = greenbeltController.preferencesController.store.getState().currentLocale
       assert.equal(preferenceCurrentLocale, undefined)
     })
 
     it('sets current locale in preferences controller', function () {
-      metamaskController.setCurrentLocale('ja', noop)
-      const preferenceCurrentLocale = metamaskController.preferencesController.store.getState().currentLocale
+      greenbeltController.setCurrentLocale('ja', noop)
+      const preferenceCurrentLocale = greenbeltController.preferencesController.store.getState().currentLocale
       assert.equal(preferenceCurrentLocale, 'ja')
     })
 
@@ -616,57 +616,57 @@ describe('MetaMaskController', function () {
 
   describe('#newUnsignedMessage', () => {
 
-    let msgParams, metamaskMsgs, messages, msgId
+    let msgParams, greenbeltMsgs, messages, msgId
 
     const address = '0xc42edfcc21ed14dda456aa0756c153f7985d8813'
     const data = '0x43727970746f6b697474696573'
 
     beforeEach(async () => {
-      sandbox.stub(metamaskController, 'getBalance')
-      metamaskController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
+      sandbox.stub(greenbeltController, 'getBalance')
+      greenbeltController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
 
-      await metamaskController.createNewVaultAndRestore('foobar1337', TEST_SEED_ALT)
+      await greenbeltController.createNewVaultAndRestore('foobar1337', TEST_SEED_ALT)
 
       msgParams = {
         'from': address,
         'data': data,
       }
 
-      const promise = metamaskController.newUnsignedMessage(msgParams)
+      const promise = greenbeltController.newUnsignedMessage(msgParams)
       // handle the promise so it doesn't throw an unhandledRejection
       promise.then(noop).catch(noop)
 
-      metamaskMsgs = metamaskController.messageManager.getUnapprovedMsgs()
-      messages = metamaskController.messageManager.messages
-      msgId = Object.keys(metamaskMsgs)[0]
-      messages[0].msgParams.metamaskId = parseInt(msgId)
+      greenbeltMsgs = greenbeltController.messageManager.getUnapprovedMsgs()
+      messages = greenbeltController.messageManager.messages
+      msgId = Object.keys(greenbeltMsgs)[0]
+      messages[0].msgParams.greenbeltId = parseInt(msgId)
     })
 
     it('persists address from msg params', function () {
-      assert.equal(metamaskMsgs[msgId].msgParams.from, address)
+      assert.equal(greenbeltMsgs[msgId].msgParams.from, address)
     })
 
     it('persists data from msg params', function () {
-      assert.equal(metamaskMsgs[msgId].msgParams.data, data)
+      assert.equal(greenbeltMsgs[msgId].msgParams.data, data)
     })
 
     it('sets the status to unapproved', function () {
-      assert.equal(metamaskMsgs[msgId].status, 'unapproved')
+      assert.equal(greenbeltMsgs[msgId].status, 'unapproved')
     })
 
     it('sets the type to eth_sign', function () {
-      assert.equal(metamaskMsgs[msgId].type, 'eth_sign')
+      assert.equal(greenbeltMsgs[msgId].type, 'eth_sign')
     })
 
     it('rejects the message', function () {
       const msgIdInt = parseInt(msgId)
-      metamaskController.cancelMessage(msgIdInt, noop)
+      greenbeltController.cancelMessage(msgIdInt, noop)
       assert.equal(messages[0].status, 'rejected')
     })
 
     it('errors when signing a message', async function () {
       try {
-        await metamaskController.signMessage(messages[0].msgParams)
+        await greenbeltController.signMessage(messages[0].msgParams)
       } catch (error) {
         assert.equal(error.message, 'message length is invalid')
       }
@@ -680,65 +680,65 @@ describe('MetaMaskController', function () {
         'data': data,
       }
       try {
-        await metamaskController.newUnsignedPersonalMessage(msgParams)
+        await greenbeltController.newUnsignedPersonalMessage(msgParams)
         assert.fail('should have thrown')
       } catch (error) {
-        assert.equal(error.message, 'MetaMask Message Signature: from field is required.')
+        assert.equal(error.message, 'GreenBelt Message Signature: from field is required.')
       }
     })
 
-    let msgParams, metamaskPersonalMsgs, personalMessages, msgId
+    let msgParams, greenbeltPersonalMsgs, personalMessages, msgId
 
     const address = '0xc42edfcc21ed14dda456aa0756c153f7985d8813'
     const data = '0x43727970746f6b697474696573'
 
     beforeEach(async function () {
-      sandbox.stub(metamaskController, 'getBalance')
-      metamaskController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
+      sandbox.stub(greenbeltController, 'getBalance')
+      greenbeltController.getBalance.callsFake(() => { return Promise.resolve('0x0') })
 
-      await metamaskController.createNewVaultAndRestore('foobar1337', TEST_SEED_ALT)
+      await greenbeltController.createNewVaultAndRestore('foobar1337', TEST_SEED_ALT)
 
       msgParams = {
         'from': address,
         'data': data,
       }
 
-      const promise = metamaskController.newUnsignedPersonalMessage(msgParams)
+      const promise = greenbeltController.newUnsignedPersonalMessage(msgParams)
       // handle the promise so it doesn't throw an unhandledRejection
       promise.then(noop).catch(noop)
 
-      metamaskPersonalMsgs = metamaskController.personalMessageManager.getUnapprovedMsgs()
-      personalMessages = metamaskController.personalMessageManager.messages
-      msgId = Object.keys(metamaskPersonalMsgs)[0]
-      personalMessages[0].msgParams.metamaskId = parseInt(msgId)
+      greenbeltPersonalMsgs = greenbeltController.personalMessageManager.getUnapprovedMsgs()
+      personalMessages = greenbeltController.personalMessageManager.messages
+      msgId = Object.keys(greenbeltPersonalMsgs)[0]
+      personalMessages[0].msgParams.greenbeltId = parseInt(msgId)
     })
 
     it('persists address from msg params', function () {
-      assert.equal(metamaskPersonalMsgs[msgId].msgParams.from, address)
+      assert.equal(greenbeltPersonalMsgs[msgId].msgParams.from, address)
     })
 
     it('persists data from msg params', function () {
-      assert.equal(metamaskPersonalMsgs[msgId].msgParams.data, data)
+      assert.equal(greenbeltPersonalMsgs[msgId].msgParams.data, data)
     })
 
     it('sets the status to unapproved', function () {
-      assert.equal(metamaskPersonalMsgs[msgId].status, 'unapproved')
+      assert.equal(greenbeltPersonalMsgs[msgId].status, 'unapproved')
     })
 
     it('sets the type to personal_sign', function () {
-      assert.equal(metamaskPersonalMsgs[msgId].type, 'personal_sign')
+      assert.equal(greenbeltPersonalMsgs[msgId].type, 'personal_sign')
     })
 
     it('rejects the message', function () {
       const msgIdInt = parseInt(msgId)
-      metamaskController.cancelPersonalMessage(msgIdInt, noop)
+      greenbeltController.cancelPersonalMessage(msgIdInt, noop)
       assert.equal(personalMessages[0].status, 'rejected')
     })
 
     it('errors when signing a message', async function () {
-      await metamaskController.signPersonalMessage(personalMessages[0].msgParams)
-      assert.equal(metamaskPersonalMsgs[msgId].status, 'signed')
-      assert.equal(metamaskPersonalMsgs[msgId].rawSig, '0x6a1b65e2b8ed53cf398a769fad24738f9fbe29841fe6854e226953542c4b6a173473cb152b6b1ae5f06d601d45dd699a129b0a8ca84e78b423031db5baa734741b')
+      await greenbeltController.signPersonalMessage(personalMessages[0].msgParams)
+      assert.equal(greenbeltPersonalMsgs[msgId].status, 'signed')
+      assert.equal(greenbeltPersonalMsgs[msgId].rawSig, '0x6a1b65e2b8ed53cf398a769fad24738f9fbe29841fe6854e226953542c4b6a173473cb152b6b1ae5f06d601d45dd699a129b0a8ca84e78b423031db5baa734741b')
     })
   })
 
@@ -752,7 +752,7 @@ describe('MetaMaskController', function () {
     })
 
     it('sets up phishing stream for untrusted communication ', async () => {
-      await metamaskController.blacklistController.updatePhishingList()
+      await greenbeltController.blacklistController.updatePhishingList()
       console.log(blacklistJSON.blacklist.includes(phishingUrl))
 
       const { promise, resolve } = deferredPromise()
@@ -763,7 +763,7 @@ describe('MetaMaskController', function () {
         resolve()
         cb()
       })
-      metamaskController.setupUntrustedCommunication(streamTest, phishingUrl)
+      greenbeltController.setupUntrustedCommunication(streamTest, phishingUrl)
 
       await promise
     })
@@ -783,30 +783,30 @@ describe('MetaMaskController', function () {
         done()
       })
 
-      metamaskController.setupTrustedCommunication(streamTest, 'mycrypto.com')
+      greenbeltController.setupTrustedCommunication(streamTest, 'mycrypto.com')
     })
   })
 
   describe('#markAccountsFound', function () {
     it('adds lost accounts to config manager data', function () {
-      metamaskController.markAccountsFound(noop)
-      const state = metamaskController.getState()
+      greenbeltController.markAccountsFound(noop)
+      const state = greenbeltController.getState()
       assert.deepEqual(state.lostAccounts, [])
     })
   })
 
   describe('#markPasswordForgotten', function () {
     it('adds and sets forgottenPassword to config data to true', function () {
-      metamaskController.markPasswordForgotten(noop)
-      const state = metamaskController.getState()
+      greenbeltController.markPasswordForgotten(noop)
+      const state = greenbeltController.getState()
       assert.equal(state.forgottenPassword, true)
     })
   })
 
   describe('#unMarkPasswordForgotten', function () {
     it('adds and sets forgottenPassword to config data to false', function () {
-      metamaskController.unMarkPasswordForgotten(noop)
-      const state = metamaskController.getState()
+      greenbeltController.unMarkPasswordForgotten(noop)
+      const state = greenbeltController.getState()
       assert.equal(state.forgottenPassword, false)
     })
   })
@@ -815,19 +815,19 @@ describe('MetaMaskController', function () {
     it('should do nothing if there are no keyrings in state', async function () {
       const addAddresses = sinon.fake()
       const syncWithAddresses = sinon.fake()
-      sandbox.replace(metamaskController, 'preferencesController', {
+      sandbox.replace(greenbeltController, 'preferencesController', {
         addAddresses,
       })
-      sandbox.replace(metamaskController, 'accountTracker', {
+      sandbox.replace(greenbeltController, 'accountTracker', {
         syncWithAddresses,
       })
 
-      const oldState = metamaskController.getState()
-      await metamaskController._onKeyringControllerUpdate({keyrings: []})
+      const oldState = greenbeltController.getState()
+      await greenbeltController._onKeyringControllerUpdate({keyrings: []})
 
       assert.ok(addAddresses.notCalled)
       assert.ok(syncWithAddresses.notCalled)
-      assert.deepEqual(metamaskController.getState(), oldState)
+      assert.deepEqual(greenbeltController.getState(), oldState)
     })
 
     it('should update selected address if keyrings was locked', async function () {
@@ -835,17 +835,17 @@ describe('MetaMaskController', function () {
       const getSelectedAddress = sinon.fake.returns('0x42')
       const setSelectedAddress = sinon.fake()
       const syncWithAddresses = sinon.fake()
-      sandbox.replace(metamaskController, 'preferencesController', {
+      sandbox.replace(greenbeltController, 'preferencesController', {
         addAddresses,
         getSelectedAddress,
         setSelectedAddress,
       })
-      sandbox.replace(metamaskController, 'accountTracker', {
+      sandbox.replace(greenbeltController, 'accountTracker', {
         syncWithAddresses,
       })
 
-      const oldState = metamaskController.getState()
-      await metamaskController._onKeyringControllerUpdate({
+      const oldState = greenbeltController.getState()
+      await greenbeltController._onKeyringControllerUpdate({
         isUnlocked: false,
         keyrings: [{
           accounts: ['0x1', '0x2'],
@@ -855,21 +855,21 @@ describe('MetaMaskController', function () {
       assert.deepEqual(addAddresses.args, [[['0x1', '0x2']]])
       assert.deepEqual(syncWithAddresses.args, [[['0x1', '0x2']]])
       assert.deepEqual(setSelectedAddress.args, [['0x1']])
-      assert.deepEqual(metamaskController.getState(), oldState)
+      assert.deepEqual(greenbeltController.getState(), oldState)
     })
 
     it('should NOT update selected address if already unlocked', async function () {
       const addAddresses = sinon.fake()
       const syncWithAddresses = sinon.fake()
-      sandbox.replace(metamaskController, 'preferencesController', {
+      sandbox.replace(greenbeltController, 'preferencesController', {
         addAddresses,
       })
-      sandbox.replace(metamaskController, 'accountTracker', {
+      sandbox.replace(greenbeltController, 'accountTracker', {
         syncWithAddresses,
       })
 
-      const oldState = metamaskController.getState()
-      await metamaskController._onKeyringControllerUpdate({
+      const oldState = greenbeltController.getState()
+      await greenbeltController._onKeyringControllerUpdate({
         isUnlocked: true,
         keyrings: [{
           accounts: ['0x1', '0x2'],
@@ -878,7 +878,7 @@ describe('MetaMaskController', function () {
 
       assert.deepEqual(addAddresses.args, [[['0x1', '0x2']]])
       assert.deepEqual(syncWithAddresses.args, [[['0x1', '0x2']]])
-      assert.deepEqual(metamaskController.getState(), oldState)
+      assert.deepEqual(greenbeltController.getState(), oldState)
     })
   })
 

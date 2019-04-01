@@ -7,19 +7,19 @@ const setupMultiplex = require('../../app/scripts/lib/stream-utils.js').setupMul
 const DbController = require('idb-global')
 
 const SwPlatform = require('../../app/scripts/platforms/sw')
-const MetamaskController = require('../../app/scripts/metamask-controller')
+const GreenbeltController = require('../../app/scripts/greenbelt-controller')
 
 const Migrator = require('../../app/scripts/lib/migrator/')
 const migrations = require('../../app/scripts/migrations/')
 const firstTimeState = require('../../app/scripts/first-time-state')
 
-const STORAGE_KEY = 'metamask-config'
-const METAMASK_DEBUG = process.env.METAMASK_DEBUG
-global.metamaskPopupIsOpen = false
+const STORAGE_KEY = 'greenbelt-config'
+const GREENBELT_DEBUG = process.env.GREENBELT_DEBUG
+global.greenbeltPopupIsOpen = false
 
 const log = require('loglevel')
 global.log = log
-log.setDefaultLevel(METAMASK_DEBUG ? 'debug' : 'warn')
+log.setDefaultLevel(GREENBELT_DEBUG ? 'debug' : 'warn')
 
 global.addEventListener('install', function (event) {
   event.waitUntil(global.skipWaiting())
@@ -66,7 +66,7 @@ async function setupController (initState, client) {
 
   const platform = new SwPlatform()
 
-  const controller = new MetamaskController({
+  const controller = new GreenbeltController({
     // platform specific implementation
     platform,
     // User confirmation callbacks:
@@ -76,13 +76,13 @@ async function setupController (initState, client) {
     // initial state
     initState,
   })
-  global.metamaskController = controller
+  global.greenbeltController = controller
 
   controller.store.subscribe(async (state) => {
     try {
       const versionedData = await versionifyData(state)
       await dbController.put(versionedData)
-    } catch (e) { console.error('METAMASK Error:', e) }
+    } catch (e) { console.error('GREENBELT Error:', e) }
   })
 
   async function versionifyData (state) {
@@ -103,11 +103,11 @@ async function setupController (initState, client) {
   })
 
   function connectRemote (connectionStream, context) {
-    var isMetaMaskInternalProcess = (context === 'popup')
-    if (isMetaMaskInternalProcess) {
+    var isGreenBeltInternalProcess = (context === 'popup')
+    if (isGreenBeltInternalProcess) {
       // communication with popup
       controller.setupTrustedCommunication(connectionStream, 'GreenBelt')
-      global.metamaskPopupIsOpen = true
+      global.greenbeltPopupIsOpen = true
     } else {
       // communication with page
       setupUntrustedCommunication(connectionStream, context)

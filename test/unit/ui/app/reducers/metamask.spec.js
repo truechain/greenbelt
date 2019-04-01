@@ -1,16 +1,16 @@
 import assert from 'assert'
-import reduceMetamask from '../../../../../ui/app/reducers/metamask'
+import reduceGreenbelt from '../../../../../ui/app/reducers/greenbelt'
 import * as actions from '../../../../../ui/app/actions'
 
-describe('MetaMask Reducers', () => {
+describe('GreenBelt Reducers', () => {
 
   it('init state', () => {
-    const initState = reduceMetamask({metamask: {}}, {})
+    const initState = reduceGreenbelt({greenbelt: {}}, {})
     assert(initState)
   })
 
   it('sets revealing seed to true and adds seed words to new state', () => {
-    const seedWordsState = reduceMetamask({}, {
+    const seedWordsState = reduceGreenbelt({}, {
       type: actions.SHOW_NEW_VAULT_SEED,
       value: 'test seed words',
     })
@@ -21,13 +21,13 @@ describe('MetaMask Reducers', () => {
 
   it('shows account page', () => {
     const seedWordsState = {
-      metamask: {
+      greenbelt: {
         seedwords: 'test seed words',
         isRevealing: true,
       },
     }
 
-    const state = reduceMetamask(seedWordsState, {
+    const state = reduceGreenbelt(seedWordsState, {
       type: actions.SHOW_ACCOUNTS_PAGE,
     })
 
@@ -44,7 +44,7 @@ describe('MetaMask Reducers', () => {
       body: 'Body',
     }
 
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SHOW_NOTICE,
       value: notice,
     })
@@ -64,13 +64,13 @@ describe('MetaMask Reducers', () => {
     }
 
     const noticesState = {
-      metamask: {
+      greenbelt: {
         noActiveNotices: false,
         nextUnreadNotice: notice,
       },
     }
 
-    const state = reduceMetamask(noticesState, {
+    const state = reduceGreenbelt(noticesState, {
       type: actions.CLEAR_NOTICES,
     })
 
@@ -78,9 +78,9 @@ describe('MetaMask Reducers', () => {
     assert.equal(state.nextUnreadNotice, null)
   })
 
-  it('unlocks MetaMask', () => {
-    const state = reduceMetamask({}, {
-      type: actions.UNLOCK_METAMASK,
+  it('unlocks GreenBelt', () => {
+    const state = reduceGreenbelt({}, {
+      type: actions.UNLOCK_GREENBELT,
       value: 'test address',
     })
 
@@ -89,23 +89,23 @@ describe('MetaMask Reducers', () => {
     assert.equal(state.selectedAddress, 'test address')
   })
 
-  it('locks MetaMask', () => {
-    const unlockMetaMaskState = {
-      metamask: {
+  it('locks GreenBelt', () => {
+    const unlockGreenBeltState = {
+      greenbelt: {
         isUnlocked: true,
         isInitialzed: false,
         selectedAddress: 'test address',
       },
     }
-    const lockMetaMask = reduceMetamask(unlockMetaMaskState, {
-      type: actions.LOCK_METAMASK,
+    const lockGreenBelt = reduceGreenbelt(unlockGreenBeltState, {
+      type: actions.LOCK_GREENBELT,
     })
 
-    assert.equal(lockMetaMask.isUnlocked, false)
+    assert.equal(lockGreenBelt.isUnlocked, false)
   })
 
   it('sets frequent rpc list', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_RPC_LIST,
       value: 'https://custom.rpc',
     })
@@ -114,7 +114,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('sets rpc target', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_RPC_TARGET,
       value: 'https://custom.rpc',
     })
@@ -123,7 +123,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('sets provider type', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_PROVIDER_TYPE,
       value: 'provider type',
     })
@@ -133,13 +133,13 @@ describe('MetaMask Reducers', () => {
 
   describe('CompletedTx', () => {
     const oldState = {
-      metamask: {
+      greenbelt: {
         unapprovedTxs: {
           1: {
             id: 1,
             time: 1538495996507,
             status: 'unapproved',
-            metamaskNetworkId: 4,
+            greenbeltNetworkId: 4,
             loadingDefaults: false,
             txParams: {
               from: '0xAddress',
@@ -175,7 +175,7 @@ describe('MetaMask Reducers', () => {
 
     it('removes tx from new state if completed in action.', () => {
 
-      const state = reduceMetamask(oldState, {
+      const state = reduceGreenbelt(oldState, {
         type: actions.COMPLETED_TX,
         id: 1,
       })
@@ -185,7 +185,7 @@ describe('MetaMask Reducers', () => {
     })
 
     it('removes msg from new state if completed id in action', () => {
-      const state = reduceMetamask(oldState, {
+      const state = reduceGreenbelt(oldState, {
         type: actions.COMPLETED_TX,
         id: 1,
       })
@@ -196,7 +196,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('shows new vault seed words and sets isRevealingSeedWords to true', () => {
-    const showNewVaultSeedState = reduceMetamask({}, {
+    const showNewVaultSeedState = reduceGreenbelt({}, {
       type: actions.SHOW_NEW_VAULT_SEED,
       value: 'test seed words',
     })
@@ -207,7 +207,7 @@ describe('MetaMask Reducers', () => {
 
   it('shows account detail', () => {
 
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SHOW_ACCOUNT_DETAIL,
       value: 'test address',
     })
@@ -218,7 +218,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('sets select ', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_SELECTED_TOKEN,
       value: 'test token',
     })
@@ -227,7 +227,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('sets account label', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_ACCOUNT_LABEL,
       value: {
         account: 'test account',
@@ -245,7 +245,7 @@ describe('MetaMask Reducers', () => {
       conversionDate: new Date(2018, 9),
     }
 
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_CURRENT_FIAT,
       value,
     })
@@ -262,7 +262,7 @@ describe('MetaMask Reducers', () => {
       'symbol': 'META',
     }
 
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_TOKENS,
       newTokens,
     })
@@ -272,7 +272,7 @@ describe('MetaMask Reducers', () => {
 
   it('updates send gas limit', () => {
 
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_GAS_LIMIT,
       value: '0xGasLimit',
     })
@@ -281,7 +281,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates send gas price', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_GAS_PRICE,
       value: '0xGasPrice',
     })
@@ -290,7 +290,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('toggles account menu ', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.TOGGLE_ACCOUNT_MENU,
     })
 
@@ -298,7 +298,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates gas total', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_GAS_TOTAL,
       value: '0xGasTotal',
     })
@@ -307,7 +307,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates send token balance', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND_TOKEN_BALANCE,
       value: '0xTokenBalance',
     })
@@ -316,7 +316,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates data', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND_HEX_DATA,
       value: '0xData',
     })
@@ -325,7 +325,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates send to', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND_TO,
       value: {
         to: '0xAddress',
@@ -338,7 +338,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('update send from', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND_FROM,
       value: '0xAddress',
     })
@@ -347,7 +347,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('update send amount', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND_AMOUNT,
       value: '0xAmount',
     })
@@ -356,7 +356,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('update send memo', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND_MEMO,
       value: '0xMemo',
     })
@@ -365,7 +365,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates max mode', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_MAX_MODE,
       value: true,
     })
@@ -390,7 +390,7 @@ describe('MetaMask Reducers', () => {
       forceGasMin: '0xGas',
     }
 
-    const sendState = reduceMetamask({}, {
+    const sendState = reduceGreenbelt({}, {
       type: actions.UPDATE_SEND,
       value,
     })
@@ -435,7 +435,7 @@ describe('MetaMask Reducers', () => {
     }
 
 
-    const state = reduceMetamask(sendState, {
+    const state = reduceGreenbelt(sendState, {
       type: actions.CLEAR_SEND,
     })
 
@@ -444,7 +444,7 @@ describe('MetaMask Reducers', () => {
 
   it('updates value of tx by id', () => {
     const oldState = {
-      metamask: {
+      greenbelt: {
         selectedAddressTxList: [
           {
             id: 1,
@@ -454,7 +454,7 @@ describe('MetaMask Reducers', () => {
       },
     }
 
-    const state = reduceMetamask(oldState, {
+    const state = reduceGreenbelt(oldState, {
       type: actions.UPDATE_TRANSACTION_PARAMS,
       id: 1,
       value: 'bar',
@@ -464,7 +464,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates pair for shapeshift', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.PAIR_UPDATE,
       value: {
         marketinfo: {
@@ -477,7 +477,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('upates pair and coin options for shapeshift subview', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SHAPESHIFT_SUBVIEW,
       value: {
         marketinfo: {
@@ -494,7 +494,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('sets blockies', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_USE_BLOCKIE,
       value: true,
     })
@@ -503,7 +503,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates an arbitrary feature flag', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_FEATURE_FLAGS,
       value: {
         foo: true,
@@ -514,7 +514,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('updates network endpoint type', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.UPDATE_NETWORK_ENDPOINT_TYPE,
       value: 'endpoint',
     })
@@ -523,7 +523,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('close welcome screen', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.CLOSE_WELCOME_SCREEN,
     })
 
@@ -531,7 +531,7 @@ describe('MetaMask Reducers', () => {
   })
 
   it('sets current locale', () => {
-    const state = reduceMetamask({}, {
+    const state = reduceGreenbelt({}, {
       type: actions.SET_CURRENT_LOCALE,
       value: 'ge',
     })
@@ -546,7 +546,7 @@ describe('MetaMask Reducers', () => {
       'symbol': 'META',
     }
 
-    const pendingTokensState = reduceMetamask({}, {
+    const pendingTokensState = reduceGreenbelt({}, {
       type: actions.SET_PENDING_TOKENS,
       payload,
     })
@@ -565,7 +565,7 @@ describe('MetaMask Reducers', () => {
       pendingTokens: payload,
     }
 
-    const state = reduceMetamask(pendingTokensState, {
+    const state = reduceGreenbelt(pendingTokensState, {
       type: actions.CLEAR_PENDING_TOKENS,
     })
 

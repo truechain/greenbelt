@@ -593,10 +593,10 @@
   "message": {
     "message": "Wiadomość"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt to bezpieczny portfel dla TrueChain."
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "Słowa Seed GreenBelt"
   },
   "min": {

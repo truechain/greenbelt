@@ -58,7 +58,7 @@ module.exports = class NewUiAnnouncement extends PureComponent {
               },
             }),
             h('a', {
-              href: 'https://medium.com/metamask/74dba32cc7f7',
+              href: 'https://medium.com/greenbelt/74dba32cc7f7',
               onClick ({target}) {
                 const url = target.href
                 global.platform.openWindow({

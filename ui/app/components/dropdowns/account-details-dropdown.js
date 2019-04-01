@@ -17,8 +17,8 @@ module.exports = connect(mapStateToProps, mapDispatchToProps)(AccountDetailsDrop
 function mapStateToProps (state) {
   return {
     selectedIdentity: getSelectedIdentity(state),
-    network: state.metamask.network,
-    keyrings: state.metamask.keyrings,
+    network: state.greenbelt.network,
+    keyrings: state.greenbelt.keyrings,
   }
 }
 

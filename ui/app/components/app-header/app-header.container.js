@@ -6,14 +6,14 @@ import AppHeader from './app-header.component'
 const actions = require('../../actions')
 
 const mapStateToProps = state => {
-  const { appState, metamask } = state
+  const { appState, greenbelt } = state
   const { networkDropdownOpen } = appState
   const {
     network,
     provider,
     selectedAddress,
     isUnlocked,
-  } = metamask
+  } = greenbelt
 
   return {
     networkDropdownOpen,

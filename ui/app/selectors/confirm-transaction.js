@@ -3,11 +3,11 @@ import txHelper from '../../lib/tx-helper'
 import { calcTokenAmount } from '../token-util'
 import { roundExponential } from '../helpers/confirm-transaction/util'
 
-const unapprovedTxsSelector = state => state.metamask.unapprovedTxs
-const unapprovedMsgsSelector = state => state.metamask.unapprovedMsgs
-const unapprovedPersonalMsgsSelector = state => state.metamask.unapprovedPersonalMsgs
-const unapprovedTypedMessagesSelector = state => state.metamask.unapprovedTypedMessages
-const networkSelector = state => state.metamask.network
+const unapprovedTxsSelector = state => state.greenbelt.unapprovedTxs
+const unapprovedMsgsSelector = state => state.greenbelt.unapprovedMsgs
+const unapprovedPersonalMsgsSelector = state => state.greenbelt.unapprovedPersonalMsgs
+const unapprovedTypedMessagesSelector = state => state.greenbelt.unapprovedTypedMessages
+const networkSelector = state => state.greenbelt.network
 
 export const unconfirmedTransactionsListSelector = createSelector(
   unapprovedTxsSelector,
@@ -44,10 +44,10 @@ export const unconfirmedTransactionsHashSelector = createSelector(
     network
   ) => {
     const filteredUnapprovedTxs = Object.keys(unapprovedTxs).reduce((acc, address) => {
-      const { metamaskNetworkId } = unapprovedTxs[address]
+      const { greenbeltNetworkId } = unapprovedTxs[address]
       const transactions = { ...acc }
 
-      if (metamaskNetworkId === network) {
+      if (greenbeltNetworkId === network) {
         transactions[address] = unapprovedTxs[address]
       }
 
@@ -63,9 +63,9 @@ export const unconfirmedTransactionsHashSelector = createSelector(
   }
 )
 
-const unapprovedMsgCountSelector = state => state.metamask.unapprovedMsgCount
-const unapprovedPersonalMsgCountSelector = state => state.metamask.unapprovedPersonalMsgCount
-const unapprovedTypedMessagesCountSelector = state => state.metamask.unapprovedTypedMessagesCount
+const unapprovedMsgCountSelector = state => state.greenbelt.unapprovedMsgCount
+const unapprovedPersonalMsgCountSelector = state => state.greenbelt.unapprovedPersonalMsgCount
+const unapprovedTypedMessagesCountSelector = state => state.greenbelt.unapprovedTypedMessagesCount
 
 export const unconfirmedTransactionsCountSelector = createSelector(
   unapprovedTxsSelector,
@@ -81,8 +81,8 @@ export const unconfirmedTransactionsCountSelector = createSelector(
     network
   ) => {
     const filteredUnapprovedTxIds = Object.keys(unapprovedTxs).filter(txId => {
-      const { metamaskNetworkId } = unapprovedTxs[txId]
-      return metamaskNetworkId === network
+      const { greenbeltNetworkId } = unapprovedTxs[txId]
+      return greenbeltNetworkId === network
     })
 
     return filteredUnapprovedTxIds.length + unapprovedTypedMessagesCount + unapprovedMsgCount +
@@ -91,15 +91,15 @@ export const unconfirmedTransactionsCountSelector = createSelector(
 )
 
 
-export const currentCurrencySelector = state => state.metamask.currentCurrency
-export const conversionRateSelector = state => state.metamask.conversionRate
-export const getNativeCurrency = state => state.metamask.nativeCurrency
+export const currentCurrencySelector = state => state.greenbelt.currentCurrency
+export const conversionRateSelector = state => state.greenbelt.conversionRate
+export const getNativeCurrency = state => state.greenbelt.nativeCurrency
 
 const txDataSelector = state => state.confirmTransaction.txData
 const tokenDataSelector = state => state.confirmTransaction.tokenData
 const tokenPropsSelector = state => state.confirmTransaction.tokenProps
 
-const contractExchangeRatesSelector = state => state.metamask.contractExchangeRates
+const contractExchangeRatesSelector = state => state.greenbelt.contractExchangeRates
 
 const tokenDecimalsSelector = createSelector(
   tokenPropsSelector,

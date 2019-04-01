@@ -188,7 +188,7 @@ class BuyEtherWidget extends Component {
 }
 
 export default connect(
-  ({ metamask: { selectedAddress } }) => ({
+  ({ greenbelt: { selectedAddress } }) => ({
     address: selectedAddress,
   }),
   dispatch => ({

@@ -3,8 +3,8 @@ import AddToken from './add-token.component'
 
 const { setPendingTokens, clearPendingTokens } = require('../../../actions')
 
-const mapStateToProps = ({ metamask }) => {
-  const { identities, tokens, pendingTokens } = metamask
+const mapStateToProps = ({ greenbelt }) => {
+  const { identities, tokens, pendingTokens } = greenbelt
   return {
     identities,
     tokens,

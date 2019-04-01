@@ -4,7 +4,7 @@ const {
   multiplyCurrencies,
 } = require('../../conversion-util')
 const {
-  getMetaMaskAccounts,
+  getGreenBeltAccounts,
 } = require('../../selectors')
 const {
   estimateGasPriceFromRecentBlocks,
@@ -61,8 +61,8 @@ const selectors = {
 module.exports = selectors
 
 function accountsWithSendEtherInfoSelector (state) {
-  const accounts = getMetaMaskAccounts(state)
-  const { identities } = state.metamask
+  const accounts = getGreenBeltAccounts(state)
+  const { identities } = state.greenbelt
 
   const accountsWithSendEtherInfo = Object.entries(accounts).map(([key, account]) => {
     return Object.assign({}, account, identities[key])
@@ -72,7 +72,7 @@ function accountsWithSendEtherInfoSelector (state) {
 }
 
 function getAddressBook (state) {
-  return state.metamask.addressBook
+  return state.greenbelt.addressBook
 }
 
 function getAmountConversionRate (state) {
@@ -82,11 +82,11 @@ function getAmountConversionRate (state) {
 }
 
 function getBlockGasLimit (state) {
-  return state.metamask.currentBlockGasLimit
+  return state.greenbelt.currentBlockGasLimit
 }
 
 function getConversionRate (state) {
-  return state.metamask.conversionRate
+  return state.greenbelt.conversionRate
 }
 
 function getCurrentAccountWithSendEtherInfo (state) {
@@ -97,15 +97,15 @@ function getCurrentAccountWithSendEtherInfo (state) {
 }
 
 function getCurrentCurrency (state) {
-  return state.metamask.currentCurrency
+  return state.greenbelt.currentCurrency
 }
 
 function getNativeCurrency (state) {
-  return state.metamask.nativeCurrency
+  return state.greenbelt.nativeCurrency
 }
 
 function getCurrentNetwork (state) {
-  return state.metamask.network
+  return state.greenbelt.network
 }
 
 function getCurrentViewContext (state) {
@@ -114,19 +114,19 @@ function getCurrentViewContext (state) {
 }
 
 function getForceGasMin (state) {
-  return state.metamask.send.forceGasMin
+  return state.greenbelt.send.forceGasMin
 }
 
 function getGasLimit (state) {
-  return state.metamask.send.gasLimit || '0'
+  return state.greenbelt.send.gasLimit || '0'
 }
 
 function getGasPrice (state) {
-  return state.metamask.send.gasPrice || getFastPriceEstimateInHexWEI(state)
+  return state.greenbelt.send.gasPrice || getFastPriceEstimateInHexWEI(state)
 }
 
 function getGasPriceFromRecentBlocks (state) {
-  return estimateGasPriceFromRecentBlocks(state.metamask.recentBlocks)
+  return estimateGasPriceFromRecentBlocks(state.greenbelt.recentBlocks)
 }
 
 function getGasTotal (state) {
@@ -139,34 +139,34 @@ function getPrimaryCurrency (state) {
 }
 
 function getRecentBlocks (state) {
-  return state.metamask.recentBlocks
+  return state.greenbelt.recentBlocks
 }
 
 function getSelectedAccount (state) {
-  const accounts = getMetaMaskAccounts(state)
+  const accounts = getGreenBeltAccounts(state)
   const selectedAddress = getSelectedAddress(state)
 
   return accounts[selectedAddress]
 }
 
 function getSelectedAddress (state) {
-  const selectedAddress = state.metamask.selectedAddress || Object.keys(getMetaMaskAccounts(state))[0]
+  const selectedAddress = state.greenbelt.selectedAddress || Object.keys(getGreenBeltAccounts(state))[0]
 
   return selectedAddress
 }
 
 function getSelectedIdentity (state) {
   const selectedAddress = getSelectedAddress(state)
-  const identities = state.metamask.identities
+  const identities = state.greenbelt.identities
 
   return identities[selectedAddress]
 }
 
 function getSelectedToken (state) {
-  const tokens = state.metamask.tokens || []
-  const selectedTokenAddress = state.metamask.selectedTokenAddress
+  const tokens = state.greenbelt.tokens || []
+  const selectedTokenAddress = state.greenbelt.selectedTokenAddress
   const selectedToken = tokens.filter(({ address }) => address === selectedTokenAddress)[0]
-  const sendToken = state.metamask.send.token
+  const sendToken = state.greenbelt.send.token
 
   return selectedToken || sendToken || null
 }
@@ -180,7 +180,7 @@ function getSelectedTokenContract (state) {
 }
 
 function getSelectedTokenExchangeRate (state) {
-  const tokenExchangeRates = state.metamask.tokenExchangeRates
+  const tokenExchangeRates = state.greenbelt.tokenExchangeRates
   const selectedToken = getSelectedToken(state) || {}
   const { symbol = '' } = selectedToken
   const pair = `${symbol.toLowerCase()}_eth`
@@ -203,19 +203,19 @@ function getSelectedTokenToFiatRate (state) {
 }
 
 function getSendAmount (state) {
-  return state.metamask.send.amount
+  return state.greenbelt.send.amount
 }
 
 function getSendHexData (state) {
-  return state.metamask.send.data
+  return state.greenbelt.send.data
 }
 
 function getSendHexDataFeatureFlagState (state) {
-  return state.metamask.featureFlags.sendHexData
+  return state.greenbelt.featureFlags.sendHexData
 }
 
 function getSendEditingTransactionId (state) {
-  return state.metamask.send.editingTransactionId
+  return state.greenbelt.send.editingTransactionId
 }
 
 function getSendErrors (state) {
@@ -223,7 +223,7 @@ function getSendErrors (state) {
 }
 
 function getSendFrom (state) {
-  return state.metamask.send.from
+  return state.greenbelt.send.from
 }
 
 function getSendFromBalance (state) {
@@ -236,11 +236,11 @@ function getSendFromObject (state) {
 }
 
 function getSendMaxModeState (state) {
-  return state.metamask.send.maxModeOn
+  return state.greenbelt.send.maxModeOn
 }
 
 function getSendTo (state) {
-  return state.metamask.send.to
+  return state.greenbelt.send.to
 }
 
 function getSendToAccounts (state) {
@@ -256,26 +256,26 @@ function getSendWarnings (state) {
 }
 
 function getTokenBalance (state) {
-  return state.metamask.send.tokenBalance
+  return state.greenbelt.send.tokenBalance
 }
 
 function getTokenExchangeRate (state, tokenSymbol) {
   const pair = `${tokenSymbol.toLowerCase()}_eth`
-  const tokenExchangeRates = state.metamask.tokenExchangeRates
+  const tokenExchangeRates = state.greenbelt.tokenExchangeRates
   const { rate: tokenExchangeRate = 0 } = tokenExchangeRates[pair] || {}
 
   return tokenExchangeRate
 }
 
 function getUnapprovedTxs (state) {
-  return state.metamask.unapprovedTxs
+  return state.greenbelt.unapprovedTxs
 }
 
 function transactionsSelector (state) {
-  const { network, selectedTokenAddress } = state.metamask
-  const unapprovedMsgs = valuesFor(state.metamask.unapprovedMsgs)
-  const shapeShiftTxList = (network === '1') ? state.metamask.shapeShiftTxList : undefined
-  const transactions = state.metamask.selectedAddressTxList || []
+  const { network, selectedTokenAddress } = state.greenbelt
+  const unapprovedMsgs = valuesFor(state.greenbelt.unapprovedMsgs)
+  const shapeShiftTxList = (network === '1') ? state.greenbelt.shapeShiftTxList : undefined
+  const transactions = state.greenbelt.selectedAddressTxList || []
   const txsToRender = !shapeShiftTxList ? transactions.concat(unapprovedMsgs) : transactions.concat(unapprovedMsgs, shapeShiftTxList)
 
   return selectedTokenAddress

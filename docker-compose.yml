@@ -4,8 +4,8 @@ metamascara:
   ports:
     - "9001"
   environment:
-    MASCARA_ORIGIN: "https://wallet.metamask.io"
+    MASCARA_ORIGIN: "https://wallet.greenbelt.io"
     VIRTUAL_PORT: "9001"
-    VIRTUAL_HOST: "wallet.metamask.io"
-    LETSENCRYPT_HOST: "wallet.metamask.io"
-    LETSENCRYPT_EMAIL: "admin@metamask.io"
+    VIRTUAL_HOST: "wallet.greenbelt.io"
+    LETSENCRYPT_HOST: "wallet.greenbelt.io"
+    LETSENCRYPT_EMAIL: "admin@greenbelt.io"

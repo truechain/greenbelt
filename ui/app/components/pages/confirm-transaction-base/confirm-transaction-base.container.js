@@ -18,7 +18,7 @@ import { isBalanceSufficient, calcGasTotal } from '../../send/send.utils'
 import { conversionGreaterThan } from '../../../conversion-util'
 import { MIN_GAS_LIMIT_DEC } from '../../send/send.constants'
 import { checksumAddress, addressSlicer, valuesFor } from '../../../util'
-import { getMetaMaskAccounts, getAdvancedInlineGasShown } from '../../../selectors'
+import { getGreenBeltAccounts, getAdvancedInlineGasShown } from '../../../selectors'
 
 const casedContractMap = Object.keys(contractMap).reduce((acc, base) => {
   return {
@@ -29,7 +29,7 @@ const casedContractMap = Object.keys(contractMap).reduce((acc, base) => {
 
 const mapStateToProps = (state, props) => {
   const { toAddress: propsToAddress } = props
-  const { confirmTransaction, metamask, gas } = state
+  const { confirmTransaction, greenbelt, gas } = state
   const {
     ethTransactionAmount,
     ethTransactionFee,
@@ -54,7 +54,7 @@ const mapStateToProps = (state, props) => {
     gas: gasLimit,
     value: amount,
   } = txParams
-  const accounts = getMetaMaskAccounts(state)
+  const accounts = getGreenBeltAccounts(state)
   const {
     conversionRate,
     identities,
@@ -64,7 +64,7 @@ const mapStateToProps = (state, props) => {
     assetImages,
     network,
     unapprovedTxs,
-  } = metamask
+  } = greenbelt
   const assetImage = assetImages[txParamsToAddress]
 
   const {
@@ -89,7 +89,7 @@ const mapStateToProps = (state, props) => {
   const transactionStatus = transaction ? transaction.status : ''
 
   const currentNetworkUnapprovedTxs = R.filter(
-    ({ metamaskNetworkId }) => metamaskNetworkId === network,
+    ({ greenbeltNetworkId }) => greenbeltNetworkId === network,
     unapprovedTxs,
   )
   const unapprovedTxCount = valuesFor(currentNetworkUnapprovedTxs).length

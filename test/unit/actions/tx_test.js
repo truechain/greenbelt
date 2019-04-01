@@ -17,7 +17,7 @@ describe('tx confirmation screen', function () {
         name: 'confTx',
       },
     },
-    metamask: {
+    greenbelt: {
       unapprovedTxs: {
         [txId]: {
           id: txId,

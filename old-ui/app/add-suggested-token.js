@@ -13,8 +13,8 @@ module.exports = connect(mapStateToProps)(AddSuggestedTokenScreen)
 
 function mapStateToProps (state) {
   return {
-    identities: state.metamask.identities,
-    suggestedTokens: state.metamask.suggestedTokens,
+    identities: state.greenbelt.identities,
+    suggestedTokens: state.greenbelt.suggestedTokens,
   }
 }
 
@@ -64,7 +64,7 @@ AddSuggestedTokenScreen.prototype.render = function () {
             }, [
               h('a', {
                 style: { fontWeight: 'bold', paddingRight: '10px'},
-                href: 'https://support.metamask.io/kb/article/24-what-is-a-token-contract-address',
+                href: 'https://support.greenbelt.io/kb/article/24-what-is-a-token-contract-address',
                 target: '_blank',
               }, [
                 h('span', 'Token Contract Address  '),

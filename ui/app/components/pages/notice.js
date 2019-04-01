@@ -153,8 +153,8 @@ class Notice extends Component {
 }
 
 const mapStateToProps = state => {
-  const { metamask } = state
-  const { noActiveNotices, nextUnreadNotice, lostAccounts } = metamask
+  const { greenbelt } = state
+  const { noActiveNotices, nextUnreadNotice, lostAccounts } = greenbelt
 
   return {
     noActiveNotices,

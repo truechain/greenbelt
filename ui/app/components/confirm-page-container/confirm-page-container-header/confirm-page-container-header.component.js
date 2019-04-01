@@ -19,7 +19,7 @@ export default class ConfirmPageContainer extends Component {
 
   renderTop () {
     const { onEdit, showEdit } = this.props
-    const windowType = window.METAMASK_UI_TYPE
+    const windowType = window.GREENBELT_UI_TYPE
     const isFullScreen = windowType !== ENVIRONMENT_TYPE_NOTIFICATION &&
       windowType !== ENVIRONMENT_TYPE_POPUP
 

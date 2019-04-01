@@ -1,9 +1,9 @@
 {
-  "metamask": {
+  "greenbelt": {
     "isInitialized": false,
     "isUnlocked": false,
     "currentDomain": "example.com",
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "identities": {},
     "unconfTxs": {},
     "accounts": {},

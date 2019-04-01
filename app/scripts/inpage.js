@@ -4,7 +4,7 @@ require('web3/dist/web3.min.js')
 const log = require('loglevel')
 const LocalMessageDuplexStream = require('post-message-stream')
 const setupDappAutoReload = require('./lib/auto-reload.js')
-const MetamaskInpageProvider = require('metamask-inpage-provider')
+const GreenbeltInpageProvider = require('metamask-inpage-provider')
 
 let isEnabled = false
 let warned = false
@@ -14,7 +14,7 @@ let isUnlockedHandle
 
 restoreContextAfterImports()
 
-log.setDefaultLevel(process.env.METAMASK_DEBUG ? 'debug' : 'warn')
+log.setDefaultLevel(process.env.GREENBELT_DEBUG ? 'debug' : 'warn')
 
 console.warn('ATTENTION: In an effort to improve user privacy, GreenBelt ' +
 'stopped exposing user accounts to dapps if "privacy mode" is enabled on ' +
@@ -42,19 +42,19 @@ function onMessage (messageType, handler, remove) {
 //
 
 // setup background connection
-const metamaskStream = new LocalMessageDuplexStream({
+const greenbeltStream = new LocalMessageDuplexStream({
   name: 'tinpage',
   target: 'tcontentscript',
 })
 
 // compose the inpage provider
-const inpageProvider = new MetamaskInpageProvider(metamaskStream)
+const inpageProvider = new GreenbeltInpageProvider(greenbeltStream)
 
 // set a high max listener count to avoid unnecesary warnings
 inpageProvider.setMaxListeners(100)
 
 // set up a listener for when GreenBelt is locked
-onMessage('metamasksetlocked', () => { isEnabled = false })
+onMessage('greenbeltsetlocked', () => { isEnabled = false })
 
 // set up a listener for privacy mode responses
 onMessage('truechainproviderlegacy', ({ data: { selectedAddress } }) => {
@@ -92,8 +92,8 @@ inpageProvider.enable = function ({ force } = {}) {
   })
 }
 
-// add metamask-specific convenience methods
-inpageProvider._metamask = new Proxy({
+// add greenbelt-specific convenience methods
+inpageProvider._greenbelt = new Proxy({
   /**
    * Determines if this domain is currently enabled
    *
@@ -132,13 +132,13 @@ inpageProvider._metamask = new Proxy({
       isUnlockedHandle = ({ data: { isUnlocked } }) => {
         resolve(!!isUnlocked)
       }
-      onMessage('metamaskisunlocked', isUnlockedHandle, true)
-      window.postMessage({ type: 'METAMASK_IS_UNLOCKED' }, '*')
+      onMessage('greenbeltisunlocked', isUnlockedHandle, true)
+      window.postMessage({ type: 'GREENBELT_IS_UNLOCKED' }, '*')
     })
   },
 }, {
   get: function (obj, prop) {
-    !warned && console.warn('Heads up! truechain._metamask exposes methods that have ' +
+    !warned && console.warn('Heads up! truechain._greenbelt exposes methods that have ' +
     'not been standardized yet. This means that these methods may not be implemented ' +
     'in other dapp browsers and may be removed from GreenBelt in the future.')
     warned = true
@@ -176,7 +176,7 @@ detectAccountRequest('sendAsync')
 if (typeof window.web3t !== 'undefined') {
   throw new Error(`GreenBelt detected another web3.
      GreenBelt will not work reliably with another web3 extension.
-     This usually happens if you have two MetaMasks installed,
+     This usually happens if you have two GreenBelts installed,
      or GreenBelt and another web3 extension. Please remove one
      and try again.`)
 }
@@ -197,7 +197,7 @@ global.web3 = new Proxy(web3, {
   get: (_web3, key) => {
     // show warning once on web3 access
     if (!hasBeenWarned && key !== 'currentProvider') {
-      console.warn('GreenBelt: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/GreenBelt/faq/blob/master/detecting_metamask.md#web3-deprecation')
+      console.warn('GreenBelt: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/GreenBelt/faq/blob/master/detecting_greenbelt.md#web3-deprecation')
       hasBeenWarned = true
     }
     // return value normally

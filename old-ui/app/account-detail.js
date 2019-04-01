@@ -19,21 +19,21 @@ module.exports = connect(mapStateToProps)(AccountDetailScreen)
 
 function mapStateToProps (state) {
   return {
-    metamask: state.metamask,
-    identities: state.metamask.identities,
-    accounts: state.metamask.accounts,
-    address: state.metamask.selectedAddress,
+    greenbelt: state.greenbelt,
+    identities: state.greenbelt.identities,
+    accounts: state.greenbelt.accounts,
+    address: state.greenbelt.selectedAddress,
     accountDetail: state.appState.accountDetail,
-    network: state.metamask.network,
-    unapprovedMsgs: valuesFor(state.metamask.unapprovedMsgs),
-    shapeShiftTxList: state.metamask.shapeShiftTxList,
-    transactions: state.metamask.selectedAddressTxList || [],
-    conversionRate: state.metamask.conversionRate,
-    currentCurrency: state.metamask.currentCurrency,
-    currentAccountTab: state.metamask.currentAccountTab,
-    tokens: state.metamask.tokens,
-    suggestedTokens: state.metamask.suggestedTokens,
-    computedBalances: state.metamask.computedBalances,
+    network: state.greenbelt.network,
+    unapprovedMsgs: valuesFor(state.greenbelt.unapprovedMsgs),
+    shapeShiftTxList: state.greenbelt.shapeShiftTxList,
+    transactions: state.greenbelt.selectedAddressTxList || [],
+    conversionRate: state.greenbelt.conversionRate,
+    currentCurrency: state.greenbelt.currentCurrency,
+    currentAccountTab: state.greenbelt.currentAccountTab,
+    tokens: state.greenbelt.tokens,
+    suggestedTokens: state.greenbelt.suggestedTokens,
+    computedBalances: state.greenbelt.computedBalances,
   }
 }
 

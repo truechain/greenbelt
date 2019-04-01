@@ -1,9 +1,9 @@
 const extend = require('xtend')
 const actions = require('../actions')
 
-module.exports = reduceMetamask
+module.exports = reduceGreenbelt
 
-function reduceMetamask (state, action) {
+function reduceGreenbelt (state, action) {
   const localeMessagesState = extend({}, state.localeMessages)
 
   switch (action.type) {

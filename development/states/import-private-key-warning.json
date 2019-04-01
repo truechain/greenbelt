@@ -1,8 +1,8 @@
 {
-  "metamask": {
+  "greenbelt": {
     "isInitialized": true,
     "isUnlocked": true,
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "identities": {
       "0x01208723ba84e15da2e71656544a2963b0c06d40": {
         "address": "0x01208723ba84e15da2e71656544a2963b0c06d40",

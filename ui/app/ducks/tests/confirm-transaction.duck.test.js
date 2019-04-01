@@ -27,21 +27,21 @@ const initialState = {
   fetchingData: false,
 }
 
-const UPDATE_TX_DATA = 'metamask/confirm-transaction/UPDATE_TX_DATA'
-const CLEAR_TX_DATA = 'metamask/confirm-transaction/CLEAR_TX_DATA'
-const UPDATE_TOKEN_DATA = 'metamask/confirm-transaction/UPDATE_TOKEN_DATA'
-const CLEAR_TOKEN_DATA = 'metamask/confirm-transaction/CLEAR_TOKEN_DATA'
-const UPDATE_METHOD_DATA = 'metamask/confirm-transaction/UPDATE_METHOD_DATA'
-const CLEAR_METHOD_DATA = 'metamask/confirm-transaction/CLEAR_METHOD_DATA'
-const UPDATE_TRANSACTION_AMOUNTS = 'metamask/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS'
-const UPDATE_TRANSACTION_FEES = 'metamask/confirm-transaction/UPDATE_TRANSACTION_FEES'
-const UPDATE_TRANSACTION_TOTALS = 'metamask/confirm-transaction/UPDATE_TRANSACTION_TOTALS'
-const UPDATE_TOKEN_PROPS = 'metamask/confirm-transaction/UPDATE_TOKEN_PROPS'
-const UPDATE_NONCE = 'metamask/confirm-transaction/UPDATE_NONCE'
-const UPDATE_TO_SMART_CONTRACT = 'metamask/confirm-transaction/UPDATE_TO_SMART_CONTRACT'
-const FETCH_DATA_START = 'metamask/confirm-transaction/FETCH_DATA_START'
-const FETCH_DATA_END = 'metamask/confirm-transaction/FETCH_DATA_END'
-const CLEAR_CONFIRM_TRANSACTION = 'metamask/confirm-transaction/CLEAR_CONFIRM_TRANSACTION'
+const UPDATE_TX_DATA = 'greenbelt/confirm-transaction/UPDATE_TX_DATA'
+const CLEAR_TX_DATA = 'greenbelt/confirm-transaction/CLEAR_TX_DATA'
+const UPDATE_TOKEN_DATA = 'greenbelt/confirm-transaction/UPDATE_TOKEN_DATA'
+const CLEAR_TOKEN_DATA = 'greenbelt/confirm-transaction/CLEAR_TOKEN_DATA'
+const UPDATE_METHOD_DATA = 'greenbelt/confirm-transaction/UPDATE_METHOD_DATA'
+const CLEAR_METHOD_DATA = 'greenbelt/confirm-transaction/CLEAR_METHOD_DATA'
+const UPDATE_TRANSACTION_AMOUNTS = 'greenbelt/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS'
+const UPDATE_TRANSACTION_FEES = 'greenbelt/confirm-transaction/UPDATE_TRANSACTION_FEES'
+const UPDATE_TRANSACTION_TOTALS = 'greenbelt/confirm-transaction/UPDATE_TRANSACTION_TOTALS'
+const UPDATE_TOKEN_PROPS = 'greenbelt/confirm-transaction/UPDATE_TOKEN_PROPS'
+const UPDATE_NONCE = 'greenbelt/confirm-transaction/UPDATE_NONCE'
+const UPDATE_TO_SMART_CONTRACT = 'greenbelt/confirm-transaction/UPDATE_TO_SMART_CONTRACT'
+const FETCH_DATA_START = 'greenbelt/confirm-transaction/FETCH_DATA_START'
+const FETCH_DATA_END = 'greenbelt/confirm-transaction/FETCH_DATA_END'
+const CLEAR_CONFIRM_TRANSACTION = 'greenbelt/confirm-transaction/CLEAR_CONFIRM_TRANSACTION'
 
 describe('Confirm Transaction Duck', () => {
   describe('State changes', () => {
@@ -509,7 +509,7 @@ describe('Confirm Transaction Duck', () => {
 
     it('updates txData and gas on an existing transaction in confirmTransaction', () => {
       const mockState = {
-        metamask: {
+        greenbelt: {
           conversionRate: 468.58,
           currentCurrency: 'usd',
         },
@@ -536,8 +536,8 @@ describe('Confirm Transaction Duck', () => {
             history: [],
             id: 2603411941761054,
             loadingDefaults: false,
-            metamaskNetworkId: '3',
-            origin: 'faucet.metamask.io',
+            greenbeltNetworkId: '3',
+            origin: 'faucet.greenbelt.io',
             simpleSend: true,
             status: 'unapproved',
             time: 1530838113716,
@@ -549,10 +549,10 @@ describe('Confirm Transaction Duck', () => {
       const mockStore = configureMockStore(middlewares)
       const store = mockStore(mockState)
       const expectedActions = [
-        'metamask/confirm-transaction/UPDATE_TX_DATA',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_FEES',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_TOTALS',
+        'greenbelt/confirm-transaction/UPDATE_TX_DATA',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_FEES',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_TOTALS',
       ]
 
       store.dispatch(actions.updateGasAndCalculate({ gasLimit: '0x2', gasPrice: '0x25' }))
@@ -570,8 +570,8 @@ describe('Confirm Transaction Duck', () => {
         history: [],
         id: 2603411941761054,
         loadingDefaults: false,
-        metamaskNetworkId: '3',
-        origin: 'faucet.metamask.io',
+        greenbeltNetworkId: '3',
+        origin: 'faucet.greenbelt.io',
         simpleSend: true,
         status: 'unapproved',
         time: 1530838113716,
@@ -584,7 +584,7 @@ describe('Confirm Transaction Duck', () => {
         },
       }
       const mockState = {
-        metamask: {
+        greenbelt: {
           conversionRate: 468.58,
           currentCurrency: 'usd',
         },
@@ -617,10 +617,10 @@ describe('Confirm Transaction Duck', () => {
       const mockStore = configureMockStore(middlewares)
       const store = mockStore(mockState)
       const expectedActions = [
-        'metamask/confirm-transaction/UPDATE_TX_DATA',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_FEES',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_TOTALS',
+        'greenbelt/confirm-transaction/UPDATE_TX_DATA',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_FEES',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_TOTALS',
       ]
 
       store.dispatch(actions.updateTxDataAndCalculate(txData))
@@ -632,7 +632,7 @@ describe('Confirm Transaction Duck', () => {
 
     it('updates confirmTransaction transaction', done => {
       const mockState = {
-        metamask: {
+        greenbelt: {
           conversionRate: 468.58,
           currentCurrency: 'usd',
           network: '3',
@@ -644,8 +644,8 @@ describe('Confirm Transaction Duck', () => {
               history: [],
               id: 2603411941761054,
               loadingDefaults: false,
-              metamaskNetworkId: '3',
-              origin: 'faucet.metamask.io',
+              greenbeltNetworkId: '3',
+              origin: 'faucet.greenbelt.io',
               simpleSend: true,
               status: 'unapproved',
               time: 1530838113716,
@@ -666,10 +666,10 @@ describe('Confirm Transaction Duck', () => {
       const mockStore = configureMockStore(middlewares)
       const store = mockStore(mockState)
       const expectedActions = [
-        'metamask/confirm-transaction/UPDATE_TX_DATA',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_FEES',
-        'metamask/confirm-transaction/UPDATE_TRANSACTION_TOTALS',
+        'greenbelt/confirm-transaction/UPDATE_TX_DATA',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_AMOUNTS',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_FEES',
+        'greenbelt/confirm-transaction/UPDATE_TRANSACTION_TOTALS',
       ]
 
       store.dispatch(actions.setTransactionToConfirm(2603411941761054))

@@ -99,7 +99,7 @@ describe('custom-gas selectors', () => {
           },
         ],
         mockState: {
-          metamask: {
+          greenbelt: {
             conversionRate: 255.71,
             currentCurrency: 'usd',
           },
@@ -141,7 +141,7 @@ describe('custom-gas selectors', () => {
           },
         ],
         mockState: {
-          metamask: {
+          greenbelt: {
             conversionRate: 2557.1,
             currentCurrency: 'usd',
             send: {
@@ -197,7 +197,7 @@ describe('custom-gas selectors', () => {
           },
         ],
         mockState: {
-          metamask: {
+          greenbelt: {
             conversionRate: 255.71,
             currentCurrency: 'usd',
             send: {
@@ -239,7 +239,7 @@ describe('custom-gas selectors', () => {
           },
         ],
         mockState: {
-          metamask: {
+          greenbelt: {
             conversionRate: 2557.1,
             currentCurrency: 'usd',
             send: {

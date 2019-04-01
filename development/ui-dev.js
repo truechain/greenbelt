@@ -2,7 +2,7 @@
  *
  * This is a utility module.
  * It initializes a minimalist browserifiable project
- * that contains the Metamask UI, with a mocked state.
+ * that contains the Greenbelt UI, with a mocked state.
  *
  * Includes a state menu for switching between different
  * mocked states, along with query param support,
@@ -34,7 +34,7 @@ let selectedView = queryString.view || 'first time'
 updateQueryParams(selectedView)
 
 // CSS
-const MetaMaskUiCss = require('../ui/css')
+const GreenBeltUiCss = require('../ui/css')
 const injectCss = require('inject-css')
 
 
@@ -57,7 +57,7 @@ const actions = {
   },
 }
 
-var css = MetaMaskUiCss()
+var css = GreenBeltUiCss()
 injectCss(css)
 
 // parse opts

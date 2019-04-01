@@ -1,7 +1,7 @@
 const inherits = require('util').inherits
 const Component = require('react').Component
 const h = require('react-hyperscript')
-const metamaskLogo = require('metamask-logo')
+const greenbeltLogo = require('greenbelt-logo')
 const debounce = require('debounce')
 
 module.exports = Mascot
@@ -9,7 +9,7 @@ module.exports = Mascot
 inherits(Mascot, Component)
 function Mascot () {
   Component.call(this)
-  this.logo = metamaskLogo({
+  this.logo = greenbeltLogo({
     followMouse: true,
     pxNotRatio: true,
     width: 200,
@@ -26,13 +26,13 @@ Mascot.prototype.render = function () {
   // and we dont get that until render
   this.handleAnimationEvents()
 
-  return h('#metamask-mascot-container', {
+  return h('#greenbelt-mascot-container', {
     style: { zIndex: 0 },
   })
 }
 
 Mascot.prototype.componentDidMount = function () {
-  var targetDivId = 'metamask-mascot-container'
+  var targetDivId = 'greenbelt-mascot-container'
   var container = document.getElementById(targetDivId)
   container.appendChild(this.logo.container)
 }

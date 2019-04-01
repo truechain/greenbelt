@@ -770,13 +770,13 @@
   "message": {
     "message": "Sporočilo"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt je varen identitetni sklad za TrueChain."
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "Seed Words"
   },
-  "metamaskVersion": {
+  "greenbeltVersion": {
     "message": "Različica"
   },
   "min": {

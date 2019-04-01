@@ -22,7 +22,7 @@ const {
   switchToWindowWithTitle,
 } = require('./helpers')
 
-describe('MetaMask', function () {
+describe('GreenBelt', function () {
   let extensionId
   let driver
 
@@ -265,7 +265,7 @@ describe('MetaMask', function () {
       windowHandles = await driver.getAllWindowHandles()
 
       extension = windowHandles[0]
-      popup = await switchToWindowWithTitle(driver, 'MetaMask Notification', windowHandles)
+      popup = await switchToWindowWithTitle(driver, 'GreenBelt Notification', windowHandles)
       dapp = windowHandles.find(handle => handle !== extension && handle !== popup)
 
       await delay(regularDelayMs)

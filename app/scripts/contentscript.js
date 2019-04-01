@@ -139,7 +139,7 @@ function listenForProviderRequest () {
           origin: source.location.hostname,
         })
         break
-      case 'METAMASK_IS_UNLOCKED':
+      case 'GREENBELT_IS_UNLOCKED':
         extension.runtime.sendMessage({
           action: 'init-is-unlocked',
         })
@@ -164,11 +164,11 @@ function listenForProviderRequest () {
         window.postMessage({ type: 'ethereumisapproved', isApproved, caching }, '*')
         break
       case 'answer-is-unlocked':
-        window.postMessage({ type: 'metamaskisunlocked', isUnlocked }, '*')
+        window.postMessage({ type: 'greenbeltisunlocked', isUnlocked }, '*')
         break
-      case 'metamask-set-locked':
+      case 'greenbelt-set-locked':
         isEnabled = false
-        window.postMessage({ type: 'metamasksetlocked' }, '*')
+        window.postMessage({ type: 'greenbeltsetlocked' }, '*')
         break
     }
   })
@@ -189,7 +189,7 @@ function checkPrivacyMode () {
  * @param {Error} err Stream connection error
  */
 function logStreamDisconnectWarning (remoteLabel, err) {
-  let warningMsg = `MetamaskContentscript - lost connection to ${remoteLabel}`
+  let warningMsg = `GreenbeltContentscript - lost connection to ${remoteLabel}`
   if (err) warningMsg += '\n' + err.stack
   console.warn(warningMsg)
 }

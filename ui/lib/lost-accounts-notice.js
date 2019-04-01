@@ -17,7 +17,7 @@ These accounts have been marked as "Loose" so they will be easy to recognize in 
 
 For more information, please read [our blog post.][1]
 
-[1]: https://medium.com/metamask/metamask-3-migration-guide-914b79533cdd#.7d8ktj4h3
+[1]: https://medium.com/greenbelt/greenbelt-3-migration-guide-914b79533cdd#.7d8ktj4h3
     `,
   }
 }

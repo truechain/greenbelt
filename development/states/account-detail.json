@@ -1,12 +1,12 @@
 {
-  "metamask": {
+  "greenbelt": {
     "currentCurrency": "USD",
     "conversionRate": 11.06608791,
     "conversionDate": 1470421024,
     "isInitialized": true,
     "isUnlocked": true,
     "currentDomain": "example.com",
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "identities": {
       "0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc": {
         "name": "Wallet 1",

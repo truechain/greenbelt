@@ -3,7 +3,7 @@ import UiMigrationAnnouncement from './ui-migration-annoucement.component'
 import { setCompletedUiMigration } from '../../actions'
 
 const mapStateToProps = (state) => {
-  const shouldShowAnnouncement = !state.metamask.completedUiMigration
+  const shouldShowAnnouncement = !state.greenbelt.completedUiMigration
 
   return {
     shouldShowAnnouncement,

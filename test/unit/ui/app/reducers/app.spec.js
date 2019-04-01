@@ -4,8 +4,8 @@ import * as actions from '../../../../../ui/app/actions'
 
 describe('App State', () => {
 
-  const metamaskState = {
-    metamask: {
+  const greenbeltState = {
+    greenbelt: {
       selectedAddress: '0xAddress',
       identities: {
         '0xAddress': {
@@ -17,13 +17,13 @@ describe('App State', () => {
   }
 
   it('App init state', () => {
-    const initState = reduceApp(metamaskState, {})
+    const initState = reduceApp(greenbeltState, {})
 
     assert(initState)
   })
 
   it('sets networkd dropdown to true', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.NETWORK_DROPDOWN_OPEN,
     })
 
@@ -32,7 +32,7 @@ describe('App State', () => {
 
   it('sets networkd dropdown to false', () => {
     const dropdown = { networkDropdowopen: true }
-    const state = {...metamaskState, ...dropdown}
+    const state = {...greenbeltState, ...dropdown}
     const newState = reduceApp(state, {
       type: actions.NETWORK_DROPDOWN_CLOSE,
     })
@@ -46,7 +46,7 @@ describe('App State', () => {
       'type': 'wallet-view',
       'isOpen': true,
     }
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SIDEBAR_OPEN,
       value,
     })
@@ -56,7 +56,7 @@ describe('App State', () => {
 
   it('closes sidebar', () => {
     const openSidebar = { sidebar: { isOpen: true }}
-    const state = {...metamaskState, ...openSidebar}
+    const state = {...greenbeltState, ...openSidebar}
 
     const newState = reduceApp(state, {
       type: actions.SIDEBAR_CLOSE,
@@ -66,7 +66,7 @@ describe('App State', () => {
   })
 
   it('opens alert', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.ALERT_OPEN,
       value: 'test message',
     })
@@ -77,7 +77,7 @@ describe('App State', () => {
 
   it('closes alert', () => {
     const alert = { alertOpen: true, alertMessage: 'test message' }
-    const state = {...metamaskState, ...alert}
+    const state = {...greenbeltState, ...alert}
     const newState = reduceApp(state, {
       type: actions.ALERT_CLOSE,
     })
@@ -87,7 +87,7 @@ describe('App State', () => {
   })
 
   it('detects qr code data', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.QR_CODE_DETECTED,
       value: 'qr data',
     })
@@ -96,7 +96,7 @@ describe('App State', () => {
   })
 
   it('opens modal', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.MODAL_OPEN,
       payload: {
         name: 'test',
@@ -117,7 +117,7 @@ describe('App State', () => {
       },
     }
 
-    const state = { ...metamaskState, appState: { ...opensModal } }
+    const state = { ...greenbeltState, appState: { ...opensModal } }
     const newState = reduceApp(state, {
       type: actions.MODAL_CLOSE,
     })
@@ -128,7 +128,7 @@ describe('App State', () => {
   })
 
   it('tansitions forwards', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.TRANSITION_FORWARD,
     })
 
@@ -138,7 +138,7 @@ describe('App State', () => {
   it('transition backwards', () => {
     const transitionForwardState = { transitionForward: true }
 
-    const state = { ...metamaskState, ...transitionForwardState }
+    const state = { ...greenbeltState, ...transitionForwardState }
     const newState = reduceApp(state, {
       type: actions.TRANSITION_BACKWARD,
     })
@@ -147,7 +147,7 @@ describe('App State', () => {
   })
 
   it('shows create vault', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_CREATE_VAULT,
     })
 
@@ -157,7 +157,7 @@ describe('App State', () => {
   })
 
   it('shows restore vault', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_RESTORE_VAULT,
     })
 
@@ -167,7 +167,7 @@ describe('App State', () => {
   })
 
   it('sets forgot password', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.FORGOT_PASSWORD,
       value: true,
     })
@@ -176,7 +176,7 @@ describe('App State', () => {
   })
 
   it('shows init menu', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_INIT_MENU,
     })
 
@@ -185,7 +185,7 @@ describe('App State', () => {
   })
 
   it('shows config page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_CONFIG_PAGE,
       value: true,
     })
@@ -196,7 +196,7 @@ describe('App State', () => {
   })
 
   it('shows add token page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_ADD_TOKEN_PAGE,
       value: true,
     })
@@ -207,7 +207,7 @@ describe('App State', () => {
   })
 
   it('shows add suggested token page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_ADD_SUGGESTED_TOKEN_PAGE,
       value: true,
     })
@@ -218,7 +218,7 @@ describe('App State', () => {
   })
 
   it('shows import page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_IMPORT_PAGE,
     })
 
@@ -228,7 +228,7 @@ describe('App State', () => {
   })
 
   it('shows new account page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_NEW_ACCOUNT_PAGE,
       formToSelect: 'context',
     })
@@ -240,7 +240,7 @@ describe('App State', () => {
   })
 
   it('sets new account form', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SET_NEW_ACCOUNT_FORM,
       formToSelect: 'context',
     })
@@ -250,7 +250,7 @@ describe('App State', () => {
   })
 
   it('shows info page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_INFO_PAGE,
     })
 
@@ -260,7 +260,7 @@ describe('App State', () => {
   })
 
   it('creates new vault in progress', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.CREATE_NEW_VAULT_IN_PROGRESS,
     })
 
@@ -271,7 +271,7 @@ describe('App State', () => {
   })
 
   it('shows new vault seed', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_NEW_VAULT_SEED,
       value: 'test seed words',
     })
@@ -283,7 +283,7 @@ describe('App State', () => {
   })
 
   it('shows new account screen', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.NEW_ACCOUNT_SCREEN,
     })
 
@@ -293,7 +293,7 @@ describe('App State', () => {
   })
 
   it('shows send page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_SEND_PAGE,
     })
 
@@ -304,7 +304,7 @@ describe('App State', () => {
   })
 
   it('shows send token page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_SEND_TOKEN_PAGE,
     })
 
@@ -315,7 +315,7 @@ describe('App State', () => {
   })
 
   it('shows new keychain', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_NEW_KEYCHAIN,
     })
 
@@ -324,9 +324,9 @@ describe('App State', () => {
     assert.equal(state.transForward, true)
   })
 
-  it('unlocks Metamask', () => {
-    const state = reduceApp(metamaskState, {
-      type: actions.UNLOCK_METAMASK,
+  it('unlocks Greenbelt', () => {
+    const state = reduceApp(greenbeltState, {
+      type: actions.UNLOCK_GREENBELT,
     })
 
     assert.equal(state.forgottenPassword, null)
@@ -335,9 +335,9 @@ describe('App State', () => {
     assert.equal(state.warning, null)
   })
 
-  it('locks Metamask', () => {
-    const state = reduceApp(metamaskState, {
-      type: actions.LOCK_METAMASK,
+  it('locks Greenbelt', () => {
+    const state = reduceApp(greenbeltState, {
+      type: actions.LOCK_GREENBELT,
     })
 
     assert.equal(state.currentView.name, 'accountDetail')
@@ -347,7 +347,7 @@ describe('App State', () => {
   })
 
   it('goes back to init menu', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.BACK_TO_INIT_MENU,
     })
 
@@ -358,7 +358,7 @@ describe('App State', () => {
   })
 
   it('goes back to unlock view', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.BACK_TO_UNLOCK_VIEW,
     })
 
@@ -369,7 +369,7 @@ describe('App State', () => {
   })
 
   it('reveals seed words', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.REVEAL_SEED_CONFIRMATION,
     })
 
@@ -379,7 +379,7 @@ describe('App State', () => {
   })
 
   it('sets selected account', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SET_SELECTED_ACCOUNT,
       value: 'active address',
     })
@@ -388,7 +388,7 @@ describe('App State', () => {
   })
 
   it('goes home', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.GO_HOME,
     })
 
@@ -402,7 +402,7 @@ describe('App State', () => {
   })
 
   it('shows account detail', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_ACCOUNT_DETAIL,
       value: 'context address',
     })
@@ -417,7 +417,7 @@ describe('App State', () => {
   })
 
   it('goes back to account detail', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.BACK_TO_ACCOUNT_DETAIL,
       value: 'context address',
     })
@@ -432,7 +432,7 @@ describe('App State', () => {
   })
 
   it('shoes account page', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_ACCOUNTS_PAGE,
     })
 
@@ -446,7 +446,7 @@ describe('App State', () => {
   })
 
   it('shows notice', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_NOTICE,
     })
 
@@ -455,7 +455,7 @@ describe('App State', () => {
   })
 
   it('reveals account', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.REVEAL_ACCOUNT,
     })
     assert.equal(state.scrollToBottom, true)
@@ -473,7 +473,7 @@ describe('App State', () => {
       },
     }
     const oldState = {
-      metamask: {...metamaskState.metamask, ...txs},
+      greenbelt: {...greenbeltState.greenbelt, ...txs},
     }
     const state = reduceApp(oldState, {
       type: actions.SHOW_CONF_TX_PAGE,
@@ -502,7 +502,7 @@ describe('App State', () => {
     }
 
     const oldState = {
-      metamask: {...metamaskState, ...msgs},
+      greenbelt: {...greenbeltState, ...msgs},
     }
 
     const state = reduceApp(oldState, {
@@ -530,7 +530,7 @@ describe('App State', () => {
     }
 
     const oldState = {
-      metamask: {...metamaskState, ...txs},
+      greenbelt: {...greenbeltState, ...txs},
     }
 
     const state = reduceApp(oldState, {
@@ -545,7 +545,7 @@ describe('App State', () => {
   })
 
   it('returns to account detail page when no unconf actions completed tx', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.COMPLETED_TX,
     })
 
@@ -560,7 +560,7 @@ describe('App State', () => {
   it('proceeds to change current view context in confTx', () => {
 
     const oldState = {
-      metamask: {metamaskState},
+      greenbelt: {greenbeltState},
       appState: {currentView: {context: 0}},
     }
 
@@ -587,7 +587,7 @@ describe('App State', () => {
 
 
     const oldState = {
-      metamask: {...metamaskState, ...txs},
+      greenbelt: {...greenbeltState, ...txs},
     }
 
     const state = reduceApp(oldState, {
@@ -614,7 +614,7 @@ describe('App State', () => {
 
 
     const oldState = {
-      metamask: {...metamaskState, ...txs},
+      greenbelt: {...greenbeltState, ...txs},
     }
 
     const state = reduceApp(oldState, {
@@ -628,7 +628,7 @@ describe('App State', () => {
   })
 
   it('sets error message in confTx view', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.TRANSACTION_ERROR,
     })
 
@@ -637,7 +637,7 @@ describe('App State', () => {
   })
 
   it('sets default warning when unlock fails', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.UNLOCK_FAILED,
     })
 
@@ -645,7 +645,7 @@ describe('App State', () => {
   })
 
   it('sets default warning when unlock fails', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.UNLOCK_FAILED,
       value: 'errors',
     })
@@ -655,7 +655,7 @@ describe('App State', () => {
 
   it('sets warning to empty string when unlock succeeds', () => {
     const errorState = { warning: 'errors' }
-    const oldState = {...metamaskState, ...errorState}
+    const oldState = {...greenbeltState, ...errorState}
     const state = reduceApp(oldState, {
       type: actions.UNLOCK_SUCCEEDED,
     })
@@ -668,7 +668,7 @@ describe('App State', () => {
       trezor: "m/44'/60'/0'/0",
       ledger: "m/44'/60'/0'",
     }
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SET_HARDWARE_WALLET_DEFAULT_HD_PATH,
       value: {
         device: 'ledger',
@@ -680,7 +680,7 @@ describe('App State', () => {
   })
 
   it('shows loading message', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_LOADING,
       value: 'loading',
     })
@@ -691,7 +691,7 @@ describe('App State', () => {
 
   it('hides loading message', () => {
     const loadingState = { isLoading: true}
-    const oldState = {...metamaskState, ...loadingState}
+    const oldState = {...greenbeltState, ...loadingState}
 
     const state = reduceApp(oldState, {
       type: actions.HIDE_LOADING,
@@ -701,7 +701,7 @@ describe('App State', () => {
   })
 
   it('shows sub loading indicator', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_SUB_LOADING_INDICATION,
     })
 
@@ -709,7 +709,7 @@ describe('App State', () => {
   })
 
   it('hides sub loading indicator', () => {
-    const oldState = {...metamaskState, ...oldState}
+    const oldState = {...greenbeltState, ...oldState}
     const state = reduceApp(oldState, {
       type: actions.HIDE_SUB_LOADING_INDICATION,
     })
@@ -718,7 +718,7 @@ describe('App State', () => {
   })
 
   it('displays warning', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.DISPLAY_WARNING,
       value: 'warning',
     })
@@ -729,7 +729,7 @@ describe('App State', () => {
 
   it('hides warning', () => {
     const displayWarningState = { warning: 'warning'}
-    const oldState = {...metamaskState, ...displayWarningState}
+    const oldState = {...greenbeltState, ...displayWarningState}
     const state = reduceApp(oldState, {
       type: actions.HIDE_WARNING,
     })
@@ -738,7 +738,7 @@ describe('App State', () => {
   })
 
   it('request to display account export', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.REQUEST_ACCOUNT_EXPORT,
     })
 
@@ -754,7 +754,7 @@ describe('App State', () => {
         accountExport: 'progress',
       },
     }
-    const oldState = {...metamaskState, ...requestAccountExportState}
+    const oldState = {...greenbeltState, ...requestAccountExportState}
     const state = reduceApp(oldState, {
       type: actions.EXPORT_ACCOUNT,
     })
@@ -764,7 +764,7 @@ describe('App State', () => {
   })
 
   it('shows private key', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_PRIVATE_KEY,
       value: 'private key',
     })
@@ -776,7 +776,7 @@ describe('App State', () => {
 
   it('shows buy eth view', () => {
 
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.BUY_ETH_VIEW,
       value: '0xAddress',
     })
@@ -792,7 +792,7 @@ describe('App State', () => {
   })
 
   it('shows onboarding subview to buy eth', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.ONBOARDING_BUY_ETH_VIEW,
       value: '0xAddress',
     })
@@ -811,7 +811,7 @@ describe('App State', () => {
         },
       },
     }
-    const oldState = {...metamaskState, ...appState}
+    const oldState = {...greenbeltState, ...appState}
     const state = reduceApp(oldState, {
       type: actions.COINBASE_SUBVIEW,
     })
@@ -852,7 +852,7 @@ describe('App State', () => {
       },
     }
 
-    const oldState = {...metamaskState, ...appState}
+    const oldState = {...greenbeltState, ...appState}
 
     const state = reduceApp(oldState, {
       type: actions.SHAPESHIFT_SUBVIEW,
@@ -903,7 +903,7 @@ describe('App State', () => {
       maxLimit: 0.76617432,
     }
 
-    const oldState = {...metamaskState, ...appState}
+    const oldState = {...greenbeltState, ...appState}
 
     const state = reduceApp(oldState, {
       type: actions.PAIR_UPDATE,
@@ -921,7 +921,7 @@ describe('App State', () => {
   })
 
   it('shows QR', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SHOW_QR,
       value: {
         message: 'message',
@@ -944,7 +944,7 @@ describe('App State', () => {
       },
     }
 
-    const oldState = {...metamaskState, ...appState}
+    const oldState = {...greenbeltState, ...appState}
     const state = reduceApp(oldState, {
       type: actions.SHOW_QR_VIEW,
       value: {
@@ -961,7 +961,7 @@ describe('App State', () => {
   })
 
   it('set mouse user state', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SET_MOUSE_USER_STATE,
       value: true,
     })
@@ -970,7 +970,7 @@ describe('App State', () => {
   })
 
   it('sets gas loading', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.GAS_LOADING_STARTED,
     })
 
@@ -979,7 +979,7 @@ describe('App State', () => {
 
   it('unsets gas loading', () => {
     const gasLoadingState = { gasIsLoading: true }
-    const oldState = {...metamaskState, ...gasLoadingState}
+    const oldState = {...greenbeltState, ...gasLoadingState}
     const state = reduceApp(oldState, {
       type: actions.GAS_LOADING_FINISHED,
     })
@@ -988,7 +988,7 @@ describe('App State', () => {
   })
 
   it('sets network nonce', () => {
-    const state = reduceApp(metamaskState, {
+    const state = reduceApp(greenbeltState, {
       type: actions.SET_NETWORK_NONCE,
       value: '33',
     })

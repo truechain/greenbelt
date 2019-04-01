@@ -51,7 +51,7 @@ class TransactionStateManager extends EventEmitter {
       id: createId(),
       time: (new Date()).getTime(),
       status: 'unapproved',
-      metamaskNetworkId: netId,
+      greenbeltNetworkId: netId,
       loadingDefaults: true,
     }, opts)
   }
@@ -62,7 +62,7 @@ class TransactionStateManager extends EventEmitter {
   getTxList () {
     const network = this.getNetwork()
     const fullTxList = this.getFullTxList()
-    return fullTxList.filter((txMeta) => txMeta.metamaskNetworkId === network)
+    return fullTxList.filter((txMeta) => txMeta.greenbeltNetworkId === network)
   }
 
   /**
@@ -363,7 +363,7 @@ class TransactionStateManager extends EventEmitter {
     @param err {erroObject} - error object
   */
   setTxStatusFailed (txId, err) {
-    const error = !err ? new Error('Internal metamask failure') : err
+    const error = !err ? new Error('Internal greenbelt failure') : err
 
     const txMeta = this.getTx(txId)
     txMeta.err = {
@@ -386,7 +386,7 @@ class TransactionStateManager extends EventEmitter {
     const network = this.getNetwork()
 
     // Filter out the ones from the current account and network
-    const otherAccountTxs = txs.filter((txMeta) => !(txMeta.txParams.from === address && txMeta.metamaskNetworkId === network))
+    const otherAccountTxs = txs.filter((txMeta) => !(txMeta.txParams.from === address && txMeta.greenbeltNetworkId === network))
 
     // Update state
     this._saveTxList(otherAccountTxs)

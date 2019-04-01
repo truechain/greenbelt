@@ -2,7 +2,7 @@
  *
  * This is a utility module.
  * It initializes a minimalist browserifiable project
- * that contains the Metamask UI, with a local background process.
+ * that contains the Greenbelt UI, with a local background process.
  *
  * Includes a state reset button for restoring to initial state.
  *
@@ -20,7 +20,7 @@ const actions = require('../ui/app/actions')
 const states = require('./states')
 const backGroundConnectionModifiers = require('./backGroundConnectionModifiers')
 const Selector = require('./selector')
-const MetamaskController = require('../app/scripts/metamask-controller')
+const GreenbeltController = require('../app/scripts/greenbelt-controller')
 const firstTimeState = require('../app/scripts/first-time-state')
 const ExtensionPlatform = require('../app/scripts/platforms/extension')
 const noop = function () {}
@@ -62,14 +62,14 @@ function updateQueryParams (newView) {
 // CSS
 //
 
-const MetaMaskUiCss = require('../ui/css')
+const GreenBeltUiCss = require('../ui/css')
 const injectCss = require('inject-css')
 
 //
 // GreenBelt Controller
 //
 
-const controller = new MetamaskController({
+const controller = new GreenbeltController({
   // User confirmation callbacks:
   showUnconfirmedMessage: noop,
   unlockAccountMessage: noop,
@@ -78,7 +78,7 @@ const controller = new MetamaskController({
   // initial state
   initState: firstTimeState,
 })
-global.metamaskController = controller
+global.greenbeltController = controller
 global.platform = new ExtensionPlatform()
 
 //
@@ -101,7 +101,7 @@ function modifyBackgroundConnection (backgroundConnectionModifier) {
   actions._setBackgroundConnection(modifiedBackgroundConnection)
 }
 
-var css = MetaMaskUiCss()
+var css = GreenBeltUiCss()
 injectCss(css)
 
 // parse opts

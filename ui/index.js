@@ -7,36 +7,36 @@ const txHelper = require('./lib/tx-helper')
 const { fetchLocale } = require('./i18n-helper')
 const log = require('loglevel')
 
-module.exports = launchMetamaskUi
+module.exports = launchGreenbeltUi
 
-log.setLevel(global.METAMASK_DEBUG ? 'debug' : 'warn')
+log.setLevel(global.GREENBELT_DEBUG ? 'debug' : 'warn')
 
-function launchMetamaskUi (opts, cb) {
+function launchGreenbeltUi (opts, cb) {
   var accountManager = opts.accountManager
   actions._setBackgroundConnection(accountManager)
   // check if we are unlocked first
-  accountManager.getState(function (err, metamaskState) {
+  accountManager.getState(function (err, greenbeltState) {
     if (err) return cb(err)
-    startApp(metamaskState, accountManager, opts)
+    startApp(greenbeltState, accountManager, opts)
       .then((store) => {
         cb(null, store)
       })
   })
 }
 
-async function startApp (metamaskState, accountManager, opts) {
+async function startApp (greenbeltState, accountManager, opts) {
   // parse opts
-  if (!metamaskState.featureFlags) metamaskState.featureFlags = {}
+  if (!greenbeltState.featureFlags) greenbeltState.featureFlags = {}
 
-  const currentLocaleMessages = metamaskState.currentLocale
-    ? await fetchLocale(metamaskState.currentLocale)
+  const currentLocaleMessages = greenbeltState.currentLocale
+    ? await fetchLocale(greenbeltState.currentLocale)
     : {}
   const enLocaleMessages = await fetchLocale('en')
 
   const store = configureStore({
 
-    // metamaskState represents the cross-tab state
-    metamask: metamaskState,
+    // greenbeltState represents the cross-tab state
+    greenbelt: greenbeltState,
 
     // appState represents the current tab's popup state
     appState: {},
@@ -51,7 +51,7 @@ async function startApp (metamaskState, accountManager, opts) {
   })
 
   // if unconfirmed txs, start on txConf page
-  const unapprovedTxsAll = txHelper(metamaskState.unapprovedTxs, metamaskState.unapprovedMsgs, metamaskState.unapprovedPersonalMsgs, metamaskState.unapprovedTypedMessages, metamaskState.network)
+  const unapprovedTxsAll = txHelper(greenbeltState.unapprovedTxs, greenbeltState.unapprovedMsgs, greenbeltState.unapprovedPersonalMsgs, greenbeltState.unapprovedTypedMessages, greenbeltState.network)
   const numberOfUnapprivedTx = unapprovedTxsAll.length
   if (numberOfUnapprivedTx > 0) {
     store.dispatch(actions.showConfTxPage({
@@ -59,12 +59,12 @@ async function startApp (metamaskState, accountManager, opts) {
     }))
   }
 
-  accountManager.on('update', function (metamaskState) {
-    store.dispatch(actions.updateMetamaskState(metamaskState))
+  accountManager.on('update', function (greenbeltState) {
+    store.dispatch(actions.updateGreenbeltState(greenbeltState))
   })
 
-  // global metamask api - used by tooling
-  global.metamask = {
+  // global greenbelt api - used by tooling
+  global.greenbelt = {
     updateCurrentLocale: (code) => {
       store.dispatch(actions.updateCurrentLocale(code))
     },

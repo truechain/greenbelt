@@ -3,7 +3,7 @@ const async = require('async')
 const Dnode = require('dnode')
 const Eth = require('ethjs')
 const EthQuery = require('eth-query')
-const launchMetamaskUi = require('../../ui')
+const launchGreenbeltUi = require('../../ui')
 const StreamProvider = require('web3-stream-provider')
 const {setupMultiplex} = require('./lib/stream-utils.js')
 
@@ -19,7 +19,7 @@ function initializePopup ({ container, connectionStream }, cb) {
   // setup app
   async.waterfall([
     (cb) => connectToAccountManager(connectionStream, cb),
-    (accountManager, cb) => launchMetamaskUi({ container, accountManager }, cb),
+    (accountManager, cb) => launchGreenbeltUi({ container, accountManager }, cb),
   ], cb)
 }
 

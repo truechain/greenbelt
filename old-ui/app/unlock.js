@@ -93,7 +93,7 @@ UnlockScreen.prototype.componentDidMount = function () {
 UnlockScreen.prototype.onSubmit = function (event) {
   const input = document.getElementById('password-box')
   const password = input.value
-  this.props.dispatch(actions.tryUnlockMetamask(password))
+  this.props.dispatch(actions.tryUnlockGreenbelt(password))
 }
 
 UnlockScreen.prototype.onKeyPress = function (event) {
@@ -107,7 +107,7 @@ UnlockScreen.prototype.submitPassword = function (event) {
   var password = element.value
   // reset input
   element.value = ''
-  this.props.dispatch(actions.tryUnlockMetamask(password))
+  this.props.dispatch(actions.tryUnlockGreenbelt(password))
 }
 
 UnlockScreen.prototype.inputChanged = function (event) {

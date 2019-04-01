@@ -59,7 +59,7 @@ AccountImportSubview.prototype.render = function () {
           },
           onClick: () => {
             global.platform.openWindow({
-              url: 'https://metamask.zendesk.com/hc/en-us/articles/360015289592-What-Are-Loose-Accounts-',
+              url: 'https://greenbelt.zendesk.com/hc/en-us/articles/360015289592-What-Are-Loose-Accounts-',
             })
           },
         }, 'here.'),

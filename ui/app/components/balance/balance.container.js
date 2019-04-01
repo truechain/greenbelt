@@ -5,13 +5,13 @@ import {
   getAssetImages,
   conversionRateSelector,
   getCurrentCurrency,
-  getMetaMaskAccounts,
+  getGreenBeltAccounts,
 } from '../../selectors'
 
 const mapStateToProps = state => {
-  const accounts = getMetaMaskAccounts(state)
-  const network = state.metamask.network
-  const selectedAddress = state.metamask.selectedAddress || Object.keys(accounts)[0]
+  const accounts = getGreenBeltAccounts(state)
+  const network = state.greenbelt.network
+  const selectedAddress = state.greenbelt.selectedAddress || Object.keys(accounts)[0]
   const account = accounts[selectedAddress]
 
   return {

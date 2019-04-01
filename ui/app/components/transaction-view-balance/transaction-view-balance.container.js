@@ -7,15 +7,15 @@ import {
   getSelectedAddress,
   getNativeCurrency,
   getSelectedTokenAssetImage,
-  getMetaMaskAccounts,
+  getGreenBeltAccounts,
   isBalanceCached,
 } from '../../selectors'
 import { showModal } from '../../actions'
 
 const mapStateToProps = state => {
   const selectedAddress = getSelectedAddress(state)
-  const { metamask: { network } } = state
-  const accounts = getMetaMaskAccounts(state)
+  const { greenbelt: { network } } = state
+  const accounts = getGreenBeltAccounts(state)
   const account = accounts[selectedAddress]
   const { balance } = account
 

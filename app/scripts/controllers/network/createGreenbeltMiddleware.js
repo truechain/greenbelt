@@ -3,9 +3,9 @@ const createScaffoldMiddleware = require('json-rpc-engine/src/createScaffoldMidd
 const createAsyncMiddleware = require('json-rpc-engine/src/createAsyncMiddleware')
 const createWalletSubprovider = require('eth-json-rpc-middleware/wallet')
 
-module.exports = createMetamaskMiddleware
+module.exports = createGreenbeltMiddleware
 
-function createMetamaskMiddleware ({
+function createGreenbeltMiddleware ({
   version,
   getAccounts,
   processTransaction,
@@ -15,7 +15,7 @@ function createMetamaskMiddleware ({
   processPersonalMessage,
   getPendingNonce,
 }) {
-  const metamaskMiddleware = mergeMiddleware([
+  const greenbeltMiddleware = mergeMiddleware([
     createScaffoldMiddleware({
       // staticSubprovider
       eth_syncing: false,
@@ -31,7 +31,7 @@ function createMetamaskMiddleware ({
     }),
     createPendingNonceMiddleware({ getPendingNonce }),
   ])
-  return metamaskMiddleware
+  return greenbeltMiddleware
 }
 
 function createPendingNonceMiddleware ({ getPendingNonce }) {

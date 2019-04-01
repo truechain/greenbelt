@@ -19,7 +19,7 @@ const {
   verboseReportOnFailure,
 } = require('./helpers')
 
-describe('MetaMask', function () {
+describe('GreenBelt', function () {
   let extensionId
   let driver
 
@@ -53,7 +53,7 @@ describe('MetaMask', function () {
       }
     }
     // Depending on the state of the application built into the above directory (extPath) and the value of
-    // METAMASK_DEBUG we will see different post-install behaviour and possibly some extra windows. Here we
+    // GREENBELT_DEBUG we will see different post-install behaviour and possibly some extra windows. Here we
     // are closing any extraneous windows to reset us to a single window before continuing.
     const [tab1] = await driver.getAllWindowHandles()
     await closeAllWindowHandlesExcept(driver, [tab1])
@@ -265,7 +265,7 @@ describe('MetaMask', function () {
     })
   })
 
-  describe('Send ETH from inside MetaMask', () => {
+  describe('Send ETH from inside GreenBelt', () => {
     it('starts to send a transaction', async function () {
       const sendButton = await findElement(driver, By.xpath(`//button[contains(text(), 'Send')]`))
       await sendButton.click()

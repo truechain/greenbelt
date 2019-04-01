@@ -50,34 +50,34 @@ function mapStateToProps (state) {
     seedWords,
     featureFlags,
     providerRequests,
-  } = state.metamask
+  } = state.greenbelt
   const selected = address || Object.keys(accounts)[0]
 
   return {
     // state from plugin
     isLoading: state.appState.isLoading,
     loadingMessage: state.appState.loadingMessage,
-    noActiveNotices: state.metamask.noActiveNotices,
-    isInitialized: state.metamask.isInitialized,
-    isUnlocked: state.metamask.isUnlocked,
+    noActiveNotices: state.greenbelt.noActiveNotices,
+    isInitialized: state.greenbelt.isInitialized,
+    isUnlocked: state.greenbelt.isUnlocked,
     currentView: state.appState.currentView,
-    selectedAddress: state.metamask.selectedAddress,
+    selectedAddress: state.greenbelt.selectedAddress,
     transForward: state.appState.transForward,
-    isMascara: state.metamask.isMascara,
+    isMascara: state.greenbelt.isMascara,
     isOnboarding: Boolean(!noActiveNotices || seedWords || !isInitialized),
-    seedWords: state.metamask.seedWords,
-    unapprovedTxs: state.metamask.unapprovedTxs,
-    unapprovedMsgs: state.metamask.unapprovedMsgs,
+    seedWords: state.greenbelt.seedWords,
+    unapprovedTxs: state.greenbelt.unapprovedTxs,
+    unapprovedMsgs: state.greenbelt.unapprovedMsgs,
     menuOpen: state.appState.menuOpen,
-    network: state.metamask.network,
-    provider: state.metamask.provider,
+    network: state.greenbelt.network,
+    provider: state.greenbelt.provider,
     forgottenPassword: state.appState.forgottenPassword,
-    nextUnreadNotice: state.metamask.nextUnreadNotice,
-    lostAccounts: state.metamask.lostAccounts,
-    frequentRpcListDetail: state.metamask.frequentRpcListDetail || [],
+    nextUnreadNotice: state.greenbelt.nextUnreadNotice,
+    lostAccounts: state.greenbelt.lostAccounts,
+    frequentRpcListDetail: state.greenbelt.frequentRpcListDetail || [],
     featureFlags,
     providerRequests,
-    suggestedTokens: state.metamask.suggestedTokens,
+    suggestedTokens: state.greenbelt.suggestedTokens,
 
     // state needed to get account dropdown temporarily rendering from app bar
     identities,
@@ -282,7 +282,7 @@ App.prototype.renderPrimary = function () {
   }
 }
 
-App.prototype.toggleMetamaskActive = function () {
+App.prototype.toggleGreenbeltActive = function () {
   if (!this.props.isUnlocked) {
     // currently inactive: redirect to password box
     var passwordBox = document.querySelector('input[type=password]')
@@ -290,7 +290,7 @@ App.prototype.toggleMetamaskActive = function () {
     passwordBox.focus()
   } else {
     // currently active: deactivate
-    this.props.dispatch(actions.lockMetamask(false))
+    this.props.dispatch(actions.lockGreenbelt(false))
   }
 }
 App.prototype.getNetworkName = function () {

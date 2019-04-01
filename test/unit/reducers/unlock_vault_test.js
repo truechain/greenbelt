@@ -7,7 +7,7 @@ var sinon = require('sinon')
 var actions = require(path.join(__dirname, '..', '..', '..', 'ui', 'app', 'actions.js'))
 var reducers = require(path.join(__dirname, '..', '..', '..', 'ui', 'app', 'reducers.js'))
 
-describe('#unlockMetamask(selectedAccount)', function () {
+describe('#unlockGreenbelt(selectedAccount)', function () {
   beforeEach(function () {
     // sinon allows stubbing methods that are easily verified
     this.sinon = sinon.createSandbox()
@@ -28,7 +28,7 @@ describe('#unlockMetamask(selectedAccount)', function () {
         },
       }
 
-      const resultState = reducers(initialState, actions.unlockMetamask(account))
+      const resultState = reducers(initialState, actions.unlockGreenbelt(account))
       assert.equal(resultState.appState.warning, null, 'warning nullified')
     })
   })

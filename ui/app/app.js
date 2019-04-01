@@ -5,7 +5,7 @@ import { Route, Switch, withRouter, matchPath } from 'react-router-dom'
 import { compose } from 'recompose'
 import actions from './actions'
 import log from 'loglevel'
-import { getMetaMaskAccounts, getNetworkIdentifier } from './selectors'
+import { getGreenBeltAccounts, getNetworkIdentifier } from './selectors'
 
 // init
 import FirstTimeFlow from './components/pages/first-time-flow'
@@ -129,11 +129,11 @@ class App extends Component {
       return true
     }
 
-    if (window.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION) {
+    if (window.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_NOTIFICATION) {
       return true
     }
 
-    if (window.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_POPUP) {
+    if (window.GREENBELT_UI_TYPE === ENVIRONMENT_TYPE_POPUP) {
       return this.onConfirmPage() || this.hasProviderRequests()
     }
   }
@@ -210,7 +210,7 @@ class App extends Component {
     )
   }
 
-  toggleMetamaskActive () {
+  toggleGreenbeltActive () {
     if (!this.props.isUnlocked) {
       // currently inactive: redirect to password box
       var passwordBox = document.querySelector('input[type=password]')
@@ -218,7 +218,7 @@ class App extends Component {
       passwordBox.focus()
     } else {
       // currently active: deactivate
-      this.props.dispatch(actions.lockMetamask(false))
+      this.props.dispatch(actions.lockGreenbelt(false))
     }
   }
 
@@ -301,7 +301,7 @@ App.propTypes = {
 }
 
 function mapStateToProps (state) {
-  const { appState, metamask } = state
+  const { appState, greenbelt } = state
   const {
     networkDropdownOpen,
     sidebar,
@@ -311,7 +311,7 @@ function mapStateToProps (state) {
     loadingMessage,
   } = appState
 
-  const accounts = getMetaMaskAccounts(state)
+  const accounts = getGreenBeltAccounts(state)
 
   const {
     identities,
@@ -327,7 +327,7 @@ function mapStateToProps (state) {
     unapprovedPersonalMsgCount,
     unapprovedTypedMessagesCount,
     providerRequests,
-  } = metamask
+  } = greenbelt
   const selected = address || Object.keys(accounts)[0]
 
   return {
@@ -340,33 +340,33 @@ function mapStateToProps (state) {
     loadingMessage,
     noActiveNotices,
     isInitialized,
-    isUnlocked: state.metamask.isUnlocked,
-    selectedAddress: state.metamask.selectedAddress,
+    isUnlocked: state.greenbelt.isUnlocked,
+    selectedAddress: state.greenbelt.selectedAddress,
     currentView: state.appState.currentView,
     activeAddress: state.appState.activeAddress,
     transForward: state.appState.transForward,
-    isMascara: state.metamask.isMascara,
+    isMascara: state.greenbelt.isMascara,
     isOnboarding: Boolean(!noActiveNotices || seedWords || !isInitialized),
-    isPopup: state.metamask.isPopup,
-    seedWords: state.metamask.seedWords,
+    isPopup: state.greenbelt.isPopup,
+    seedWords: state.greenbelt.seedWords,
     submittedPendingTransactions: submittedPendingTransactionsSelector(state),
     unapprovedTxs,
-    unapprovedMsgs: state.metamask.unapprovedMsgs,
+    unapprovedMsgs: state.greenbelt.unapprovedMsgs,
     unapprovedMsgCount,
     unapprovedPersonalMsgCount,
     unapprovedTypedMessagesCount,
     menuOpen: state.appState.menuOpen,
-    network: state.metamask.network,
-    provider: state.metamask.provider,
+    network: state.greenbelt.network,
+    provider: state.greenbelt.provider,
     forgottenPassword: state.appState.forgottenPassword,
     nextUnreadNotice,
     lostAccounts,
-    frequentRpcListDetail: state.metamask.frequentRpcListDetail || [],
-    currentCurrency: state.metamask.currentCurrency,
+    frequentRpcListDetail: state.greenbelt.frequentRpcListDetail || [],
+    currentCurrency: state.greenbelt.currentCurrency,
     isMouseUser: state.appState.isMouseUser,
-    isRevealingSeedWords: state.metamask.isRevealingSeedWords,
+    isRevealingSeedWords: state.greenbelt.isRevealingSeedWords,
     Qr: state.appState.Qr,
-    welcomeScreenSeen: state.metamask.welcomeScreenSeen,
+    welcomeScreenSeen: state.greenbelt.welcomeScreenSeen,
     providerId: getNetworkIdentifier(state),
 
     // state needed to get account dropdown temporarily rendering from app bar

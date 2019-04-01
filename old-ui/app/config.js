@@ -14,7 +14,7 @@ module.exports = connect(mapStateToProps)(ConfigScreen)
 
 function mapStateToProps (state) {
   return {
-    metamask: state.metamask,
+    greenbelt: state.greenbelt,
     warning: state.appState.warning,
   }
 }
@@ -26,7 +26,7 @@ function ConfigScreen () {
 
 ConfigScreen.prototype.render = function () {
   var state = this.props
-  var metamaskState = state.metamask
+  var greenbeltState = state.greenbelt
   var warning = state.warning
 
   return (
@@ -66,7 +66,7 @@ ConfigScreen.prototype.render = function () {
           },
         }, [
 
-          currentProviderDisplay(metamaskState),
+          currentProviderDisplay(greenbeltState),
 
           h('div', { style: {display: 'block'} }, [
             h('input#new_rpc', {
@@ -166,7 +166,7 @@ ConfigScreen.prototype.render = function () {
 
           h('hr.horizontal-line'),
 
-          currentConversionInformation(metamaskState, state),
+          currentConversionInformation(greenbeltState, state),
 
           h('hr.horizontal-line'),
 
@@ -235,7 +235,7 @@ ConfigScreen.prototype.render = function () {
                 fontFamily: 'Montserrat Light',
                 fontSize: '13px',
               },
-            }, metamaskState.featureFlags.privacyMode ?
+            }, greenbeltState.featureFlags.privacyMode ?
               'Websites will be able to view your account information.' :
               'Websites must request access to view your account information.'
             ),
@@ -246,9 +246,9 @@ ConfigScreen.prototype.render = function () {
               },
               onClick (event) {
                 event.preventDefault()
-                state.dispatch(actions.setFeatureFlag('privacyMode', !metamaskState.featureFlags.privacyMode))
+                state.dispatch(actions.setFeatureFlag('privacyMode', !greenbeltState.featureFlags.privacyMode))
               },
-            }, metamaskState.featureFlags.privacyMode ?
+            }, greenbeltState.featureFlags.privacyMode ?
               'Disable privacy mode' :
               'Enable privacy mode'
             ),
@@ -288,7 +288,7 @@ ConfigScreen.prototype.render = function () {
             }, [
               'Resetting is for developer use only. ',
               h('a', {
-                href: 'https://metamask.zendesk.com/hc/en-us/articles/360015489231-Resetting-an-Account-Old-UI-',
+                href: 'https://greenbelt.zendesk.com/hc/en-us/articles/360015489231-Resetting-an-Account-Old-UI-',
                 target: '_blank',
               }, 'Read more.'),
             ]),
@@ -324,9 +324,9 @@ function rpcValidation (newRpc, chainid, ticker = 'TRUE', nickname = '', state) 
   }
 }
 
-function currentConversionInformation (metamaskState, state) {
-  var currentCurrency = metamaskState.currentCurrency
-  var conversionDate = metamaskState.conversionDate
+function currentConversionInformation (greenbeltState, state) {
+  var currentCurrency = greenbeltState.currentCurrency
+  var conversionDate = greenbeltState.conversionDate
   return h('div', [
     h('span', {style: { fontWeight: 'bold', paddingRight: '10px'}}, 'Current Conversion'),
     h('span', {style: { fontWeight: 'bold', paddingRight: '10px', fontSize: '13px'}}, `Updated ${Date(conversionDate)}`),
@@ -345,8 +345,8 @@ function currentConversionInformation (metamaskState, state) {
   ])
 }
 
-function currentProviderDisplay (metamaskState) {
-  var provider = metamaskState.provider
+function currentProviderDisplay (greenbeltState) {
+  var provider = greenbeltState.provider
   var title, value
 
   switch (provider.type) {
@@ -358,7 +358,7 @@ function currentProviderDisplay (metamaskState) {
 
     default:
       title = 'Current RPC'
-      value = metamaskState.provider.rpcTarget
+      value = greenbeltState.provider.rpcTarget
   }
 
   return h('div', [

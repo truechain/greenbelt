@@ -8,7 +8,7 @@ var reducers = require(path.join(__dirname, '..', '..', '..', 'ui', 'app', 'redu
 
 describe('config view actions', function () {
   var initialState = {
-    metamask: {
+    greenbelt: {
       rpcTarget: 'foo',
       frequentRpcList: [],
     },
@@ -28,15 +28,15 @@ describe('config view actions', function () {
   })
 
   describe('SET_RPC_TARGET', function () {
-    it('sets the state.metamask.rpcTarget property of the state to the action.value', function () {
+    it('sets the state.greenbelt.rpcTarget property of the state to the action.value', function () {
       const action = {
         type: actions.SET_RPC_TARGET,
         value: 'foo',
       }
 
       var result = reducers(initialState, action)
-      assert.equal(result.metamask.provider.type, 'rpc')
-      assert.equal(result.metamask.provider.rpcTarget, 'foo')
+      assert.equal(result.greenbelt.provider.type, 'rpc')
+      assert.equal(result.greenbelt.provider.rpcTarget, 'foo')
     })
   })
 })

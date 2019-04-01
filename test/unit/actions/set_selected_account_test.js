@@ -27,9 +27,9 @@ describe('SET_SELECTED_ACCOUNT', function () {
 })
 
 describe('SHOW_ACCOUNT_DETAIL', function () {
-  it('updates metamask state', function () {
+  it('updates greenbelt state', function () {
     var initialState = {
-      metamask: {
+      greenbelt: {
         selectedAddress: 'foo',
       },
     }
@@ -42,6 +42,6 @@ describe('SHOW_ACCOUNT_DETAIL', function () {
     freeze(action)
 
     var resultingState = reducers(initialState, action)
-    assert.equal(resultingState.metamask.selectedAddress, action.value)
+    assert.equal(resultingState.greenbelt.selectedAddress, action.value)
   })
 })

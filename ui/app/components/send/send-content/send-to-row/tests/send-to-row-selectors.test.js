@@ -48,7 +48,7 @@ describe('send-to-row selectors', () => {
   describe('getTokens()', () => {
     it('should return empty array if no tokens in state', () => {
       const state = {
-        metamask: {
+        greenbelt: {
           tokens: [],
         },
       }

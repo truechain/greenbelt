@@ -225,7 +225,7 @@ function getRenderableBasicEstimateData (state, gasLimit) {
   if (getBasicGasEstimateLoadingStatus(state)) {
     return []
   }
-  const conversionRate = state.metamask.conversionRate
+  const conversionRate = state.greenbelt.conversionRate
   const currentCurrency = getCurrentCurrency(state)
   const {
     gas: {
@@ -269,8 +269,8 @@ function getRenderableEstimateDataForSmallButtonsFromGWEI (state) {
   if (getBasicGasEstimateLoadingStatus(state)) {
     return []
   }
-  const gasLimit = state.metamask.send.gasLimit || getCustomGasLimit(state) || '0x5208'
-  const conversionRate = state.metamask.conversionRate
+  const gasLimit = state.greenbelt.send.gasLimit || getCustomGasLimit(state) || '0x5208'
+  const conversionRate = state.greenbelt.conversionRate
   const currentCurrency = getCurrentCurrency(state)
   const {
     gas: {

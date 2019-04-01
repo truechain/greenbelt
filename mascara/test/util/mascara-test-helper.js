@@ -1,6 +1,6 @@
 const EventEmitter = require('events')
 const IDB = require('idb-global')
-const KEY = 'metamask-test-config'
+const KEY = 'greenbelt-test-config'
 module.exports = class Helper extends EventEmitter {
 
   tryToCleanContext () {

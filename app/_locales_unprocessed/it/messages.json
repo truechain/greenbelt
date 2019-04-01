@@ -767,13 +767,13 @@
   "message": {
     "message": "Messaggio"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt è una cassaforte sicura per identità su TrueChain."
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "Parole Seed di GreenBelt"
   },
-  "metamaskVersion": {
+  "greenbeltVersion": {
     "message": "versione di GreenBelt"
   },
   "min": {

@@ -229,7 +229,7 @@ function calcCustomGasLimit (customGasLimitInHex) {
 }
 
 function getTxParams (state, transactionId) {
-  const { confirmTransaction: { txData }, metamask: { send } } = state
+  const { confirmTransaction: { txData }, greenbelt: { send } } = state
   const pendingTransactions = submittedPendingTransactionsSelector(state)
   const pendingTransaction = pendingTransactions.find(({ id }) => id === transactionId)
   const { txParams: pendingTxParams } = pendingTransaction || {}

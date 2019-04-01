@@ -17,7 +17,7 @@ describe('UserPreferencedCurrencyDisplay container', () => {
   describe('mapStateToProps()', () => {
     it('should return the correct props', () => {
       const mockState = {
-        metamask: {
+        greenbelt: {
           nativeCurrency: 'ETH',
           preferences: {
             useNativeCurrencyAsPrimaryCurrency: true,

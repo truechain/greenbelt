@@ -17,7 +17,7 @@ const provider = createTestProviderTools({ scaffold: {}}).provider
 
 const enLocale = require('../../../../app/_locales/en/messages.json')
 const actions = require('../../../../ui/app/actions')
-const MetaMaskController = require('../../../../app/scripts/metamask-controller')
+const GreenBeltController = require('../../../../app/scripts/greenbelt-controller')
 
 const firstTimeState = require('../../../unit/localhostState')
 const devState = require('../../../data/2-state.json')
@@ -29,7 +29,7 @@ describe('Actions', () => {
 
   const noop = () => {}
 
-  let background, metamaskController
+  let background, greenbeltController
 
   const TEST_SEED = 'debris dizzy just program just float decrease vacant alarm reduce speak stadium'
   const password = 'a-fake-password'
@@ -38,7 +38,7 @@ describe('Actions', () => {
   beforeEach(async () => {
 
 
-    metamaskController = new MetaMaskController({
+    greenbeltController = new GreenBeltController({
       provider,
       keyringController: new KeyringController({}),
       showUnapprovedTx: noop,
@@ -55,18 +55,18 @@ describe('Actions', () => {
       initState: clone(firstTimeState),
     })
 
-    await metamaskController.createNewVaultAndRestore(password, TEST_SEED)
+    await greenbeltController.createNewVaultAndRestore(password, TEST_SEED)
 
-    await metamaskController.importAccountWithStrategy('Private Key', [ importPrivkey ])
+    await greenbeltController.importAccountWithStrategy('Private Key', [ importPrivkey ])
 
-    background = metamaskController.getApi()
+    background = greenbeltController.getApi()
 
     actions._setBackgroundConnection(background)
 
     global.ethQuery = new EthQuery(provider)
   })
 
-  describe('#tryUnlockMetamask', () => {
+  describe('#tryUnlockGreenbelt', () => {
 
     let submitPasswordSpy, verifySeedPhraseSpy
 
@@ -82,7 +82,7 @@ describe('Actions', () => {
       submitPasswordSpy = sinon.spy(background, 'submitPassword')
       verifySeedPhraseSpy = sinon.spy(background, 'verifySeedPhrase')
 
-      return store.dispatch(actions.tryUnlockMetamask())
+      return store.dispatch(actions.tryUnlockGreenbelt())
         .then(() => {
           assert(submitPasswordSpy.calledOnce)
           assert(verifySeedPhraseSpy.calledOnce)
@@ -107,7 +107,7 @@ describe('Actions', () => {
         callback(new Error('error in submitPassword'))
       })
 
-      return store.dispatch(actions.tryUnlockMetamask('test'))
+      return store.dispatch(actions.tryUnlockGreenbelt('test'))
         .catch(() => {
           assert.deepEqual(store.getActions(), expectedActions)
         })
@@ -123,7 +123,7 @@ describe('Actions', () => {
         callback(new Error('error'))
       })
 
-      return store.dispatch(actions.tryUnlockMetamask('test'))
+      return store.dispatch(actions.tryUnlockGreenbelt('test'))
         .catch(() => {
           const actions = store.getActions()
           const warning = actions.filter(action => action.type === 'DISPLAY_WARNING')
@@ -631,7 +631,7 @@ describe('Actions', () => {
     })
 
     it('', () => {
-      const store = mockStore({ metamask: devState })
+      const store = mockStore({ greenbelt: devState })
 
       addNewAccountSpy = sinon.spy(background, 'addNewAccount')
 
@@ -679,7 +679,7 @@ describe('Actions', () => {
 
   describe('#signMsg', () => {
 
-    let signMessageSpy, metamaskMsgs, msgId, messages
+    let signMessageSpy, greenbeltMsgs, msgId, messages
 
     const msgParams = {
       from: '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc',
@@ -687,11 +687,11 @@ describe('Actions', () => {
     }
 
     beforeEach(() => {
-      metamaskController.newUnsignedMessage(msgParams, noop)
-      metamaskMsgs = metamaskController.messageManager.getUnapprovedMsgs()
-      messages = metamaskController.messageManager.messages
-      msgId = Object.keys(metamaskMsgs)[0]
-      messages[0].msgParams.metamaskId = parseInt(msgId)
+      greenbeltController.newUnsignedMessage(msgParams, noop)
+      greenbeltMsgs = greenbeltController.messageManager.getUnapprovedMsgs()
+      messages = greenbeltController.messageManager.messages
+      msgId = Object.keys(greenbeltMsgs)[0]
+      messages[0].msgParams.greenbeltId = parseInt(msgId)
     })
 
     afterEach(() => {
@@ -714,7 +714,7 @@ describe('Actions', () => {
       const store = mockStore()
       const expectedActions = [
         { type: 'SHOW_LOADING_INDICATION', value: undefined },
-        { type: 'UPDATE_METAMASK_STATE', value: undefined },
+        { type: 'UPDATE_GREENBELT_STATE', value: undefined },
         { type: 'HIDE_LOADING_INDICATION' },
         { type: 'DISPLAY_WARNING', value: 'error' },
       ]
@@ -734,7 +734,7 @@ describe('Actions', () => {
 
   describe('#signPersonalMsg', () => {
 
-    let signPersonalMessageSpy, metamaskMsgs, msgId, personalMessages
+    let signPersonalMessageSpy, greenbeltMsgs, msgId, personalMessages
 
     const msgParams = {
       from: '0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc',
@@ -742,11 +742,11 @@ describe('Actions', () => {
     }
 
     beforeEach(() => {
-      metamaskController.newUnsignedPersonalMessage(msgParams, noop)
-      metamaskMsgs = metamaskController.personalMessageManager.getUnapprovedMsgs()
-      personalMessages = metamaskController.personalMessageManager.messages
-      msgId = Object.keys(metamaskMsgs)[0]
-      personalMessages[0].msgParams.metamaskId = parseInt(msgId)
+      greenbeltController.newUnsignedPersonalMessage(msgParams, noop)
+      greenbeltMsgs = greenbeltController.personalMessageManager.getUnapprovedMsgs()
+      personalMessages = greenbeltController.personalMessageManager.messages
+      msgId = Object.keys(greenbeltMsgs)[0]
+      personalMessages[0].msgParams.greenbeltId = parseInt(msgId)
     })
 
     afterEach(() => {
@@ -769,7 +769,7 @@ describe('Actions', () => {
       const store = mockStore()
       const expectedActions = [
         { type: 'SHOW_LOADING_INDICATION', value: undefined },
-        { type: 'UPDATE_METAMASK_STATE', value: undefined },
+        { type: 'UPDATE_GREENBELT_STATE', value: undefined },
         { type: 'HIDE_LOADING_INDICATION' },
         { type: 'DISPLAY_WARNING', value: 'error' },
       ]
@@ -841,7 +841,7 @@ describe('Actions', () => {
     })
   })
 
-  describe('#lockMetamask', () => {
+  describe('#lockGreenbelt', () => {
     let backgroundSetLockedSpy
 
     afterEach(() => {
@@ -853,7 +853,7 @@ describe('Actions', () => {
 
       backgroundSetLockedSpy = sinon.spy(background, 'setLocked')
 
-      return store.dispatch(actions.lockMetamask())
+      return store.dispatch(actions.lockGreenbelt())
         .then(() => {
           assert(backgroundSetLockedSpy.calledOnce)
         })
@@ -866,14 +866,14 @@ describe('Actions', () => {
         { type: 'SHOW_LOADING_INDICATION', value: undefined },
         { type: 'DISPLAY_WARNING', value: 'error' },
         { type: 'HIDE_LOADING_INDICATION' },
-        { type: 'LOCK_METAMASK' },
+        { type: 'LOCK_GREENBELT' },
     ]
       backgroundSetLockedSpy = sinon.stub(background, 'setLocked')
       backgroundSetLockedSpy.callsFake(callback => {
         callback(new Error('error'))
       })
 
-      return store.dispatch(actions.lockMetamask())
+      return store.dispatch(actions.lockGreenbelt())
         .then(() => {
           assert.deepEqual(store.getActions(), expectedActions)
         })
@@ -892,7 +892,7 @@ describe('Actions', () => {
     })
 
     it('calls setSelectedAddress in background', () => {
-      const store = mockStore({ metamask: devState })
+      const store = mockStore({ greenbelt: devState })
 
       store.dispatch(actions.setSelectedAddress('0x0dcd5d886577d5081b0c52e242ef29e70be3e7bc'))
       assert(setSelectedAddressSpy.calledOnce)
@@ -1082,7 +1082,7 @@ describe('Actions', () => {
     let store
 
     beforeEach(() => {
-      store = mockStore({ metamask: { provider: {} } })
+      store = mockStore({ greenbelt: { provider: {} } })
       setProviderTypeSpy = sinon.stub(background, 'setProviderType')
     })
 

@@ -1,8 +1,8 @@
 {
-  "metamask": {
+  "greenbelt": {
     "isInitialized": true,
     "isUnlocked": true,
-    "rpcTarget": "https://rawtestrpc.metamask.io/",
+    "rpcTarget": "https://rawtestrpc.greenbelt.io/",
     "identities": {
       "0x0abdd95cafcabec9b3e99dcd09fc4b441037cb80": {
         "name": "Wallet 1",

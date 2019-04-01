@@ -5,24 +5,24 @@ import {
   toggleAccountMenu,
   showAccountDetail,
   hideSidebar,
-  lockMetamask,
+  lockGreenbelt,
   hideWarning,
   showConfigPage,
   showInfoPage,
   showModal,
 } from '../../actions'
-import { getMetaMaskAccounts } from '../../selectors'
+import { getGreenBeltAccounts } from '../../selectors'
 import AccountMenu from './account-menu.component'
 
 function mapStateToProps (state) {
-  const { metamask: { selectedAddress, isAccountMenuOpen, keyrings, identities } } = state
+  const { greenbelt: { selectedAddress, isAccountMenuOpen, keyrings, identities } } = state
 
   return {
     selectedAddress,
     isAccountMenuOpen,
     keyrings,
     identities,
-    accounts: getMetaMaskAccounts(state),
+    accounts: getGreenBeltAccounts(state),
   }
 }
 
@@ -34,8 +34,8 @@ function mapDispatchToProps (dispatch) {
       dispatch(hideSidebar())
       dispatch(toggleAccountMenu())
     },
-    lockMetamask: () => {
-      dispatch(lockMetamask())
+    lockGreenbelt: () => {
+      dispatch(lockGreenbelt())
       dispatch(hideWarning())
       dispatch(hideSidebar())
       dispatch(toggleAccountMenu())

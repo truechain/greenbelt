@@ -12,7 +12,7 @@ const R = require('ramda')
 const SignatureRequest = require('./components/signature-request')
 const Loading = require('./components/loading-screen')
 const { DEFAULT_ROUTE } = require('./routes')
-const { getMetaMaskAccounts } = require('./selectors')
+const { getGreenBeltAccounts } = require('./selectors')
 
 module.exports = compose(
   withRouter,
@@ -20,34 +20,34 @@ module.exports = compose(
 )(ConfirmTxScreen)
 
 function mapStateToProps (state) {
-  const { metamask } = state
+  const { greenbelt } = state
   const {
     unapprovedMsgCount,
     unapprovedPersonalMsgCount,
     unapprovedTypedMessagesCount,
-  } = metamask
+  } = greenbelt
 
   return {
-    identities: state.metamask.identities,
-    accounts: getMetaMaskAccounts(state),
-    selectedAddress: state.metamask.selectedAddress,
-    unapprovedTxs: state.metamask.unapprovedTxs,
-    unapprovedMsgs: state.metamask.unapprovedMsgs,
-    unapprovedPersonalMsgs: state.metamask.unapprovedPersonalMsgs,
-    unapprovedTypedMessages: state.metamask.unapprovedTypedMessages,
+    identities: state.greenbelt.identities,
+    accounts: getGreenBeltAccounts(state),
+    selectedAddress: state.greenbelt.selectedAddress,
+    unapprovedTxs: state.greenbelt.unapprovedTxs,
+    unapprovedMsgs: state.greenbelt.unapprovedMsgs,
+    unapprovedPersonalMsgs: state.greenbelt.unapprovedPersonalMsgs,
+    unapprovedTypedMessages: state.greenbelt.unapprovedTypedMessages,
     index: state.appState.currentView.context,
     warning: state.appState.warning,
-    network: state.metamask.network,
-    provider: state.metamask.provider,
-    conversionRate: state.metamask.conversionRate,
-    currentCurrency: state.metamask.currentCurrency,
-    blockGasLimit: state.metamask.currentBlockGasLimit,
-    computedBalances: state.metamask.computedBalances,
+    network: state.greenbelt.network,
+    provider: state.greenbelt.provider,
+    conversionRate: state.greenbelt.conversionRate,
+    currentCurrency: state.greenbelt.currentCurrency,
+    blockGasLimit: state.greenbelt.currentBlockGasLimit,
+    computedBalances: state.greenbelt.computedBalances,
     unapprovedMsgCount,
     unapprovedPersonalMsgCount,
     unapprovedTypedMessagesCount,
-    send: state.metamask.send,
-    selectedAddressTxList: state.metamask.selectedAddressTxList,
+    send: state.greenbelt.send,
+    selectedAddressTxList: state.greenbelt.selectedAddressTxList,
   }
 }
 
@@ -179,7 +179,7 @@ ConfirmTxScreen.prototype.render = function () {
 ConfirmTxScreen.prototype.signMessage = function (msgData, event) {
   log.info('conf-tx.js: signing message')
   var params = msgData.msgParams
-  params.metamaskId = msgData.id
+  params.greenbeltId = msgData.id
   this.stopPropagation(event)
   return this.props.dispatch(actions.signMsg(params))
 }
@@ -193,7 +193,7 @@ ConfirmTxScreen.prototype.stopPropagation = function (event) {
 ConfirmTxScreen.prototype.signPersonalMessage = function (msgData, event) {
   log.info('conf-tx.js: signing personal message')
   var params = msgData.msgParams
-  params.metamaskId = msgData.id
+  params.greenbeltId = msgData.id
   this.stopPropagation(event)
   return this.props.dispatch(actions.signPersonalMsg(params))
 }
@@ -201,7 +201,7 @@ ConfirmTxScreen.prototype.signPersonalMessage = function (msgData, event) {
 ConfirmTxScreen.prototype.signTypedMessage = function (msgData, event) {
   log.info('conf-tx.js: signing typed message')
   var params = msgData.msgParams
-  params.metamaskId = msgData.id
+  params.greenbeltId = msgData.id
   this.stopPropagation(event)
   return this.props.dispatch(actions.signTypedMsg(params))
 }

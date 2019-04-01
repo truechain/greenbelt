@@ -510,7 +510,7 @@ function generateBundler (opts, performBundle) {
 
   // inject variables into bundle
   bundler.transform(envify({
-    METAMASK_DEBUG: opts.devMode,
+    GREENBELT_DEBUG: opts.devMode,
     NODE_ENV: opts.devMode ? 'development' : 'production',
   }), {
     global: true,
@@ -594,7 +594,7 @@ function bundleTask (opts) {
       buildStream = buildStream
       .pipe(uglify({
         mangle: {
-          reserved: [ 'MetamaskInpageProvider' ],
+          reserved: [ 'GreenbeltInpageProvider' ],
         },
       }))
     }

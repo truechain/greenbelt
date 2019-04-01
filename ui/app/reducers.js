@@ -5,14 +5,14 @@ const copyToClipboard = require('copy-to-clipboard')
 //
 // Sub-Reducers take in the complete state and return their sub-state
 //
-const reduceMetamask = require('./reducers/metamask')
+const reduceGreenbelt = require('./reducers/greenbelt')
 const reduceApp = require('./reducers/app')
 const reduceLocale = require('./reducers/locale')
 const reduceSend = require('./ducks/send.duck').default
 import reduceConfirmTransaction from './ducks/confirm-transaction.duck'
 import reduceGas from './ducks/gas.duck'
 
-window.METAMASK_CACHED_LOG_STATE = null
+window.GREENBELT_CACHED_LOG_STATE = null
 
 module.exports = rootReducer
 
@@ -28,7 +28,7 @@ function rootReducer (state, action) {
   // GreenBelt
   //
 
-  state.metamask = reduceMetamask(state, action)
+  state.greenbelt = reduceGreenbelt(state, action)
 
   //
   // AppState
@@ -52,17 +52,17 @@ function rootReducer (state, action) {
 
   state.gas = reduceGas(state, action)
 
-  window.METAMASK_CACHED_LOG_STATE = state
+  window.GREENBELT_CACHED_LOG_STATE = state
   return state
 }
 
 window.getCleanAppState = function () {
-  const state = clone(window.METAMASK_CACHED_LOG_STATE)
+  const state = clone(window.GREENBELT_CACHED_LOG_STATE)
   // append additional information
   state.version = global.platform.getVersion()
   state.browser = window.navigator.userAgent
   // ensure seedWords are not included
-  if (state.metamask) delete state.metamask.seedWords
+  if (state.greenbelt) delete state.greenbelt.seedWords
   if (state.appState.currentView) delete state.appState.currentView.seedWords
   return state
 }

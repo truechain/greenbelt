@@ -21,8 +21,8 @@ let OKEX_ROW_TEXT
 
 function mapStateToProps (state) {
   return {
-    network: state.metamask.network,
-    address: state.metamask.selectedAddress,
+    network: state.greenbelt.network,
+    address: state.greenbelt.selectedAddress,
   }
 }
 

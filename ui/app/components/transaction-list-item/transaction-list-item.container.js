@@ -16,7 +16,7 @@ import {
 } from '../../ducks/gas.duck'
 
 const mapStateToProps = state => {
-  const { metamask: { knownMethodData } } = state
+  const { greenbelt: { knownMethodData } } = state
   return {
     knownMethodData,
   }

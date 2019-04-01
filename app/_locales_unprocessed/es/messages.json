@@ -524,7 +524,7 @@
   "message": {
     "message": "Mensaje"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt es una identidad segura en TrueChain"
   },
   "min": {
@@ -1146,10 +1146,10 @@
   "menu": {
     "message": "Menú"
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "Palabras semilla de GreenBelt"
   },
-  "metamaskVersion": {
+  "greenbeltVersion": {
     "message": "Versión de GreenBelt"
   },
   "missingYourTokens": {
