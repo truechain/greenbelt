@@ -605,6 +605,9 @@
   "greenbeltSeedWords": {
     "message": "GreenBelt助记词"
   },
+  "greenbeltVersion": {
+    "message": "GreenBelt版本"
+  },
   "min": {
     "message": "最小"
   },

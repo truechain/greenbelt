@@ -47,7 +47,7 @@ class DetectTokensController {
       }
       tokensToDetect.forEach((tokenAddress, index) => {
         const balance = result[index]
-        if (!balance.isZero()) {
+        if (balance && !balance.isZero()) {
           this._preferences.addToken(tokenAddress, contracts[tokenAddress].symbol, contracts[tokenAddress].decimals)
         }
       })
@@ -65,7 +65,7 @@ class DetectTokensController {
     const ethContract = this.web3.eth.contract(ERC20_ABI).at(contractAddress)
     ethContract.balanceOf(this.selectedAddress, (error, result) => {
       if (!error) {
-        if (!result.isZero()) {
+        if (result && !result.isZero()) {
           this._preferences.addToken(contractAddress, contracts[contractAddress].symbol, contracts[contractAddress].decimals)
         }
       } else {

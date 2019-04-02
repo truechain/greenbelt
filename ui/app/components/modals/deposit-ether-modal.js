@@ -32,7 +32,7 @@ function mapDispatchToProps (dispatch) {
       dispatch(actions.buyEth({ network: '1', address, amount: 0 }))
     },
     toOkex: (address) => {
-      dispatch(actions.buyEth({ network: '18928', address, amount: 0 }))
+      dispatch(actions.buyEth({ network: '19330', address, amount: 0 }))
     },
     hideModal: () => {
       dispatch(actions.hideModal())

@@ -788,13 +788,13 @@
   "message": {
     "message": "Message"
   },
-  "metamaskDescription": {
+  "greenbeltDescription": {
     "message": "GreenBelt is a secure identity vault for TrueChain."
   },
-  "metamaskSeedWords": {
+  "greenbeltSeedWords": {
     "message": "GreenBelt Seed Words"
   },
-  "metamaskVersion": {
+  "greenbeltVersion": {
     "message": "GreenBelt Version"
   },
   "min": {
@@ -1549,13 +1549,13 @@
   "visitStellar": {
     "message": "Stellar - Smart Contract tool"
   },
-  "visitMetamask_before": {
+  "visitGreenbelt_before": {
     "message": "Based on "
   },
-  "visitMetamask": {
+  "visitGreenbelt": {
     "message": "MateMask"
   },
-  "visitMetamask_after": {
+  "visitGreenbelt_after": {
     "message": " development"
   },
   "walletSeed": {

@@ -48,7 +48,7 @@ function getRegistrarForChainId (chainId) {
     // case 1:
     //   return '0x314159265dd8dbb310642f98f50c066173c1259b'
     // truechain
-    case 18928:
+    case 19330:
       return '0x314159265dd8dbb310642f98f50c066173c1259b'
   }
 }

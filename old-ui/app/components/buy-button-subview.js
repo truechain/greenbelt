@@ -142,7 +142,7 @@ BuyButtonSubview.prototype.primarySubview = function () {
     case '3':
     case '4':
     case '42':
-    case '18928':
+    case '19330':
       const networkName = getNetworkDisplayName(network)
       const label = `${networkName} Test Faucet`
       return (
