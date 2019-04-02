@@ -21,8 +21,14 @@ class InfuraController {
   // Responsible for retrieving the status of Infura's nodes. Can return either
   // ok, degraded, or down.
   async checkInfuraNetworkStatus () {
-    const response = await fetch('https://api.infura.io/v1/status/greenbelt')
-    const parsedResponse = await response.json()
+    // const response = await fetch('https://api.infura.io/v1/status/metamask')
+    // const parsedResponse = await response.json()
+    const parsedResponse = {
+      mainnet: 'ok',
+      ropsten: 'ok',
+      kovan: 'ok',
+      rinkeby: 'ok',
+    }
     this.store.updateState({
       infuraNetworkStatus: parsedResponse,
     })
