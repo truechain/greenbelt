@@ -181,7 +181,9 @@ async function loadStateFromPersistence () {
 
   // read from disk
   // first from preferred, async API:
-  versionedData = migrator.generateInitialState(firstTimeState)
+  versionedData = (await localStore.get()) ||
+                  diskStore.getState() ||
+                  migrator.generateInitialState(firstTimeState)
 
   // check if somehow state is empty
   // this should never happen but new error reporting suggests that it has
