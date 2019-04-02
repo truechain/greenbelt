@@ -1,5 +1,5 @@
 const extension = require('extensionizer')
-const {createExplorerLink: explorerLink} = require('etherscan-link')
+// const {createExplorerLink: explorerLink} = require('etherscan-link')
 
 class ExtensionPlatform {
 
@@ -78,11 +78,14 @@ class ExtensionPlatform {
 
     this._subscribeToNotificationClicked()
 
-    const url = explorerLink(txMeta.hash, parseInt(txMeta.greenbeltNetworkId))
+    let url = ''
+    if (Number(txMeta.greenbeltNetworkId) === 19330) {
+      url = `https://www.truescan.net/tx/${txMeta.hash}`
+    }
     const nonce = parseInt(txMeta.txParams.nonce, 16)
 
     const title = 'Confirmed transaction'
-    const message = `Transaction ${nonce} confirmed! View on EtherScan`
+    const message = `Transaction ${nonce} confirmed!${url ? ' View on TrueScan' : ''}`
     this._showNotification(title, message, url)
   }
 
