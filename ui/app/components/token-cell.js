@@ -155,8 +155,8 @@ function navigateTo (url) {
 }
 
 function etherscanLinkFor (tokenAddress, address, network) {
-  const prefix = prefixForNetwork(network)
-  return `https://${prefix}etherscan.io/token/${tokenAddress}?a=${address}`
+  // const prefix = prefixForNetwork(network)
+  return `https://www.truescan.net/address/${tokenAddress}?a=${address}`
 }
 
 function tokenFactoryFor (tokenAddress) {

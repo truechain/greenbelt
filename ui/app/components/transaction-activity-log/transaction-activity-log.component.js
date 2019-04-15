@@ -25,11 +25,12 @@ export default class TransactionActivityLog extends PureComponent {
   }
 
   handleActivityClick = hash => {
-    const { primaryTransaction } = this.props
-    const { greenbeltNetworkId } = primaryTransaction
+    // no need
+    // const { primaryTransaction } = this.props
+    // const { greenbeltNetworkId } = primaryTransaction
 
-    const prefix = prefixForNetwork(greenbeltNetworkId)
-    const etherscanUrl = `https://${prefix}etherscan.io/tx/${hash}`
+    // const prefix = prefixForNetwork(greenbeltNetworkId)
+    const etherscanUrl = `https://www.truescan.net/tx/${hash}`
 
     global.platform.openWindow({ url: etherscanUrl })
   }
