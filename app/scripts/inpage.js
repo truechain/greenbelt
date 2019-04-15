@@ -16,11 +16,11 @@ restoreContextAfterImports()
 
 log.setDefaultLevel(process.env.GREENBELT_DEBUG ? 'debug' : 'warn')
 
-console.warn('ATTENTION: In an effort to improve user privacy, GreenBelt ' +
-'stopped exposing user accounts to dapps if "privacy mode" is enabled on ' +
-'November 2nd, 2018. Dapps should now call provider.enable() in order to view and use ' +
-'accounts. Please see https://bit.ly/2QQHXvF for complete information and up-to-date ' +
-'example code.')
+// console.warn('ATTENTION: In an effort to improve user privacy, GreenBelt ' +
+// 'stopped exposing user accounts to dapps if "privacy mode" is enabled on ' +
+// 'November 2nd, 2018. Dapps should now call provider.enable() in order to view and use ' +
+// 'accounts. Please see https://bit.ly/2QQHXvF for complete information and up-to-date ' +
+// 'example code.')
 
 /**
  * Adds a postMessage listener for a specific message type
