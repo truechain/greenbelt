@@ -28,6 +28,7 @@ const NoticeController = require('./notice-controller')
 const ShapeShiftController = require('./controllers/shapeshift')
 const AddressBookController = require('./controllers/address-book')
 const InfuraController = require('./controllers/infura')
+const OriginController = require('./controllers/origin')
 const BlacklistController = require('./controllers/blacklist')
 const CachedBalancesController = require('./controllers/cached-balances')
 const RecentBlocksController = require('./controllers/recent-blocks')
@@ -107,7 +108,11 @@ module.exports = class GreenbeltController extends EventEmitter {
     this.infuraController = new InfuraController({
       initState: initState.InfuraController,
     })
-    this.infuraController.scheduleInfuraNetworkCheck()
+    // this.infuraController.scheduleInfuraNetworkCheck()
+
+    // origin controller
+    this.originController = new OriginController()
+    this.originController.scheduleTrustedOriginCheck()
 
     this.blacklistController = new BlacklistController()
     this.blacklistController.scheduleUpdates()
@@ -249,6 +254,7 @@ module.exports = class GreenbeltController extends EventEmitter {
       ShapeShiftController: this.shapeshiftController.store,
       NetworkController: this.networkController.store,
       InfuraController: this.infuraController.store,
+      OriginController: this.originController.store,
       CachedBalancesController: this.cachedBalancesController.store,
     })
 
@@ -270,6 +276,7 @@ module.exports = class GreenbeltController extends EventEmitter {
       NoticeController: this.noticeController.memStore,
       ShapeshiftController: this.shapeshiftController.store,
       InfuraController: this.infuraController.store,
+      OriginController: this.originController.store,
       ProviderApprovalController: this.providerApprovalController.store,
     })
     this.memStore.subscribe(this.sendUpdate.bind(this))

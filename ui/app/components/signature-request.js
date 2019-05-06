@@ -184,8 +184,10 @@ SignatureRequest.prototype.renderBody = function () {
   let rows
   let notice = this.context.t('youSign') + ':'
 
-  const { txData } = this.props
-  const { type, msgParams: { data, version } } = txData
+  const { txData, trustedOriginList } = this.props
+  const { type, msgParams: { data, version, origin } } = txData
+
+  const trusted = trustedOriginList.includes(origin)
 
   if (type === 'personal_sign') {
     rows = [{ name: this.context.t('message'), value: this.msgHexToText(data) }]
@@ -193,14 +195,16 @@ SignatureRequest.prototype.renderBody = function () {
     rows = data
   } else if (type === 'eth_sign') {
     rows = [{ name: this.context.t('message'), value: data }]
-    notice = [this.context.t('signNotice'),
-      h('span.request-signature__help-link', {
-        onClick: () => {
-          global.platform.openWindow({
-            url: 'https://greenbelt.zendesk.com/hc/en-us/articles/360015488751',
-          })
-        },
-    }, this.context.t('learnMore'))]
+    notice = [
+      this.context.t(trusted ? 'signNoticeTrusted' : 'signNotice'),
+    //   h('span.request-signature__help-link', {
+    //     onClick: () => {
+    //       global.platform.openWindow({
+    //         url: 'https://greenbelt.zendesk.com/hc/en-us/articles/360015488751',
+    //       })
+    //     },
+    // }, this.context.t('learnMore'))
+    ]
   }
 
   return h('div.request-signature__body', {}, [
@@ -211,8 +215,8 @@ SignatureRequest.prototype.renderBody = function () {
 
     h('div.request-signature__notice', {
       className: classnames({
-        'request-signature__notice': type === 'personal_sign' || type === 'eth_signTypedData',
-        'request-signature__warning': type === 'eth_sign',
+        'request-signature__notice': trusted || type === 'personal_sign' || type === 'eth_signTypedData',
+        'request-signature__warning': type === 'eth_sign' && !trusted,
       }),
     }, [notice]),
 

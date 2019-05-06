@@ -25,6 +25,7 @@ function mapStateToProps (state) {
     unapprovedMsgCount,
     unapprovedPersonalMsgCount,
     unapprovedTypedMessagesCount,
+    trustedOriginList,
   } = greenbelt
 
   return {
@@ -48,6 +49,7 @@ function mapStateToProps (state) {
     unapprovedTypedMessagesCount,
     send: state.greenbelt.send,
     selectedAddressTxList: state.greenbelt.selectedAddressTxList,
+    trustedOriginList,
   }
 }
 
@@ -148,6 +150,7 @@ ConfirmTxScreen.prototype.render = function () {
     currentCurrency,
     conversionRate,
     blockGasLimit,
+    trustedOriginList,
   } = props
 
   var txData = this.getTxData() || {}
@@ -165,6 +168,7 @@ ConfirmTxScreen.prototype.render = function () {
       conversionRate,
       currentCurrency,
       blockGasLimit,
+      trustedOriginList,
       // Actions
       signMessage: this.signMessage.bind(this, txData),
       signPersonalMessage: this.signPersonalMessage.bind(this, txData),

@@ -979,7 +979,10 @@
     "message": "签署消息"
   },
   "signNotice": {
-    "message": "签署此消息可能会产生危险的副作用。 \n只从你完全信任的网站上签名。 这种危险的方法将在未来的版本中被移除。"
+    "message": "签署此消息可能会产生危险的副作用。请只从你完全信任的网站上签名。"
+  },
+  "signNoticeTrusted": {
+    "message": "可信任的网站"
   },
   "sigRequest": {
     "message": "请求签名"
