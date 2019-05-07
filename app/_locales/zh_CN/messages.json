@@ -45,7 +45,7 @@
     "message": "$1 希望链接你的账户"
   },
   "providerRequestInfo": {
-    "message": "下面列出的域正在尝试请求访问TrueChain API，以便它可以与以太坊区块链进行交互。在批准TrueChain访问之前，请务必仔细检查您是否在正确的站点上。"
+    "message": "下面列出的域正在尝试请求访问TrueChain API，以便它可以与TrueChain区块链进行交互。在批准TrueChain访问之前，请务必仔细检查您是否在正确的站点上。"
   },
   "accept": {
     "message": "接受"
@@ -585,7 +585,7 @@
     "message": "助记词只有小写字符"
   },
   "mainnet": {
-    "message": "以太坊主网络"
+    "message": "TrueChain主网络"
   },
   "truechain": {
     "message": "TrueChain 网络"
@@ -842,7 +842,7 @@
     "message": "链接"
   },
   "connectingToMainnet": {
-    "message": "正在连接到以太坊主网"
+    "message": "正在连接到TrueChain主网"
   },
   "connectingToRopsten": {
     "message": "正在连接到Ropsten测试网络"
@@ -934,13 +934,13 @@
     "message": "发送 代币"
   },
   "onlySendToEtherAddress": {
-    "message": "只发送 TRUE 给一个以太坊地址"
+    "message": "只发送 TRUE 给一个TrueChain地址"
   },
   "searchTokens": {
     "message": "搜索代币"
   },
   "sendTokensAnywhere": {
-    "message": "将代币发送给拥有以太坊地址的任何人"
+    "message": "将代币发送给拥有TrueChain地址的任何人"
   },
   "settings": {
     "message": "设置"
