@@ -21,6 +21,7 @@ export default class Identicon extends PureComponent {
     diameter: PropTypes.number,
     image: PropTypes.string,
     useBlockie: PropTypes.bool,
+    network: PropTypes.string,
   }
 
   static defaultProps = {
@@ -70,7 +71,7 @@ export default class Identicon extends PureComponent {
   }
 
   render () {
-    const { className, address, image, diameter, useBlockie } = this.props
+    const { className, address, image, diameter, useBlockie, network } = this.props
 
     if (image) {
       return this.renderImage()
@@ -91,7 +92,7 @@ export default class Identicon extends PureComponent {
     return (
       <img
         className={classnames('balance-icon', className)}
-        src="./images/true_logo.svg"
+        src={Number(network) === 18928 ? './images/true-test.png' : './images/true.png'}
         style={getStyles(diameter)}
       />
     )
