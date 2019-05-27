@@ -8,7 +8,7 @@ const actions = require('../../../../actions')
 const FileInput = require('react-simple-file-input').default
 const { DEFAULT_ROUTE } = require('../../../../routes')
 const { getGreenBeltAccounts } = require('../../../../selectors')
-const HELP_LINK = 'https://support.greenbelt.io/kb/article/7-importing-accounts'
+// const HELP_LINK = 'https://support.greenbelt.io/kb/article/7-importing-accounts'
 import Button from '../../../button'
 
 class JsonImportSubview extends Component {
@@ -28,13 +28,14 @@ class JsonImportSubview extends Component {
       h('div.new-account-import-form__json', [
 
         h('p', this.context.t('usedByClients')),
-        h('a.warning', {
-          href: HELP_LINK,
-          target: '_blank',
-        }, this.context.t('fileImportFail')),
+        // h('a.warning', {
+        //   href: HELP_LINK,
+        //   target: '_blank',
+        // }, this.context.t('fileImportFail')),
 
         h(FileInput, {
           readAs: 'text',
+          accept: '.json',
           onLoad: this.onLoad.bind(this),
           style: {
             margin: '20px 0px 12px 34%',
