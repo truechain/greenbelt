@@ -63,15 +63,16 @@ module.exports = {
   isEthNetwork,
 }
 
-function isEthNetwork (netId) {
+function isEthNetwork (_) {
   // if (!netId || netId === '1' || netId === '3' || netId === '4' || netId === '42' || netId === '5777') {
   //   return true
   // }
-  if (!netId || netId === '19330') {
-    return true
-  }
+  // if (!netId || netId === '19330') {
+  //   return true
+  // }
 
-  return false
+  // return false
+  return true
 }
 
 function valuesFor (obj) {

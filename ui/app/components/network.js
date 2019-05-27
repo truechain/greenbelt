@@ -38,6 +38,9 @@ Network.prototype.render = function () {
   if (providerName === 'truechain') {
     hoverText = context.t('truechain')
     iconName = 'truechain-network'
+  } else if (providerName === 'truetest') {
+    hoverText = context.t('truetest')
+    iconName = 'truetest-network'
   } else {
     hoverText = providerId
     iconName = 'private-network'
@@ -66,6 +69,16 @@ Network.prototype.render = function () {
                 loading: networkNumber === 'loading',
               }),
               h('.network-name', context.t('truechain')),
+              h('i.fa.fa-chevron-down.fa-lg.network-caret'),
+            ])
+          case 'truetest-network':
+            return h('.network-indicator', [
+              h(NetworkDropdownIcon, {
+                backgroundColor: '#08718e', // $blue-lagoon
+                nonSelectBackgroundColor: '#1993b6',
+                loading: networkNumber === 'loading',
+              }),
+              h('.network-name', context.t('truetest')),
               h('i.fa.fa-chevron-down.fa-lg.network-caret'),
             ])
           default:

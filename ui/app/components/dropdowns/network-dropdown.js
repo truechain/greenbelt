@@ -140,6 +140,28 @@ NetworkDropdown.prototype.render = function () {
     h(
       DropdownMenuItem,
       {
+        key: 'test',
+        closeMenu: () => this.props.hideNetworkDropdown(),
+        onClick: () => props.setProviderType('truetest'),
+        style: { ...dropdownMenuItemStyle, borderColor: '#08718e' },
+      },
+      [
+        providerType === 'truetest' ? h('i.fa.fa-check') : h('.network-check__transparent', '✓'),
+        h(NetworkDropdownIcon, {
+          backgroundColor: '#2da5ba', // $java
+          isSelected: providerType === 'truetest',
+        }),
+        h('span.network-name-item', {
+          style: {
+            color: providerType === 'truetest' ? '#ffffff' : '#9b9b9b',
+          },
+        }, this.context.t('truetest')),
+      ]
+    ),
+
+    h(
+      DropdownMenuItem,
+      {
         key: 'default',
         closeMenu: () => this.props.hideNetworkDropdown(),
         onClick: () => props.setProviderType('localhost'),

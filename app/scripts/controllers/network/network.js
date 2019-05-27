@@ -16,9 +16,10 @@ const networks = { networkList: {} }
 
 const {
   TRUECHAIN,
+  TRUETEST,
   LOCALHOST,
 } = require('./enums')
-const INFURA_PROVIDER_TYPES = []
+const INFURA_PROVIDER_TYPES = [TRUECHAIN, TRUETEST]
 
 const env = process.env.GREENBELT_ENV
 const GREENBELT_DEBUG = process.env.GREENBELT_DEBUG
@@ -130,7 +131,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   async setProviderType (type) {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(type === TRUECHAIN || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
+    assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
     const providerConfig = { type }
     this.providerConfig = providerConfig
   }
@@ -161,7 +162,7 @@ module.exports = class NetworkController extends EventEmitter {
   _configureProvider (opts) {
     const { type, rpcTarget, chainId, ticker, nickname } = opts
     // infura type-based endpoints
-    const isInfura = INFURA_PROVIDER_TYPES.includes(type)
+    const isInfura = false
     if (isInfura) {
       this._configureInfuraProvider(opts)
     // other type-based rpc endpoints
@@ -169,7 +170,9 @@ module.exports = class NetworkController extends EventEmitter {
       this._configureLocalhostProvider()
     // url-based rpc endpoints
     } else if (type === TRUECHAIN) {
-      this._configureStandardProvider({ rpcUrl: 'https://api.truescan.net/rpc', chainId: 19330, ticker, nickname: 'True' })
+      this._configureStandardProvider({ rpcUrl: 'https://rpc.truescan.net', chainId: 19330, ticker, nickname: 'True' })
+    } else if (type === TRUETEST) {
+      this._configureStandardProvider({ rpcUrl: 'https://rpc.truescan.net/testnet', chainId: 18928, ticker, nickname: 'Test' })
     } else if (type === 'rpc') {
       this._configureStandardProvider({ rpcUrl: rpcTarget, chainId, ticker, nickname })
     } else {

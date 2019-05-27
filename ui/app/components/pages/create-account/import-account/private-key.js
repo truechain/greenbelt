@@ -96,7 +96,11 @@ PrivateKeyImportView.prototype.createKeyringOnEnter = function (event) {
 
 PrivateKeyImportView.prototype.createNewKeychain = function () {
   const input = document.getElementById('private-key-box')
-  const privateKey = input.value
+  let privateKey = input.value
+
+  // preprocessing to accommodate more input
+  privateKey = '0x' + privateKey.replace(/0x/, '').padStart(64, '0')
+
   const { importNewAccount, history, displayWarning, setSelectedAddress, firstAddress } = this.props
 
   importNewAccount('Private Key', [ privateKey ])

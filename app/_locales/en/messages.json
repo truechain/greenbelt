@@ -779,6 +779,9 @@
   "truechain": {
     "message": "TrueChain"
   },
+  "truetest": {
+    "message": "TrueTest"
+  },
   "memorizePhrase": {
     "message": "Memorize this phrase."
   },

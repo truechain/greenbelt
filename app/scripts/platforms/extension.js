@@ -81,6 +81,8 @@ class ExtensionPlatform {
     let url = ''
     if (Number(txMeta.greenbeltNetworkId) === 19330) {
       url = `https://www.truescan.net/tx/${txMeta.hash}`
+    } else if (Number(txMeta.greenbeltNetworkId) === 18928) {
+      url = `https://test.truescan.net/tx/${txMeta.hash}`
     }
     const nonce = parseInt(txMeta.txParams.nonce, 16)
 

@@ -5,7 +5,7 @@ import { getEthConversionFromWeiHex, getValueFromWeiHex } from '../../helpers/co
 import { formatDate } from '../../util'
 import TransactionActivityLogIcon from './transaction-activity-log-icon'
 import { CONFIRMED_STATUS } from './transaction-activity-log.constants'
-import prefixForNetwork from '../../../lib/etherscan-prefix-for-network'
+import truescanUrlForNetwork from '../../../lib/truescan-url-for-network'
 
 export default class TransactionActivityLog extends PureComponent {
   static contextTypes = {
@@ -25,12 +25,11 @@ export default class TransactionActivityLog extends PureComponent {
   }
 
   handleActivityClick = hash => {
-    // no need
-    // const { primaryTransaction } = this.props
-    // const { greenbeltNetworkId } = primaryTransaction
+    const { primaryTransaction } = this.props
+    const { greenbeltNetworkId } = primaryTransaction
 
-    // const prefix = prefixForNetwork(greenbeltNetworkId)
-    const etherscanUrl = `https://www.truescan.net/tx/${hash}`
+    const url = truescanUrlForNetwork(greenbeltNetworkId)
+    const etherscanUrl = `${url}/tx/${hash}`
 
     global.platform.openWindow({ url: etherscanUrl })
   }

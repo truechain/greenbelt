@@ -590,6 +590,9 @@
   "truechain": {
     "message": "TrueChain 网络"
   },
+  "truetest": {
+    "message": "TrueTest 网络"
+  },
   "memorizePhrase": {
     "message": "记住这个短语。"
   },

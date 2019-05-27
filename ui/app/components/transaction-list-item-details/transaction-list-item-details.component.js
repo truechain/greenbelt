@@ -7,7 +7,7 @@ import TransactionActivityLog from '../transaction-activity-log'
 import TransactionBreakdown from '../transaction-breakdown'
 import Button from '../button'
 import Tooltip from '../tooltip'
-import prefixForNetwork from '../../../lib/etherscan-prefix-for-network'
+import truescanUrlForNetwork from '../../../lib/truescan-url-for-network'
 
 export default class TransactionListItemDetails extends PureComponent {
   static contextTypes = {
@@ -27,11 +27,11 @@ export default class TransactionListItemDetails extends PureComponent {
   }
 
   handleEtherscanClick = () => {
-    // const { transactionGroup: { primaryTransaction } } = this.props
-    // const { hash, greenbeltNetworkId } = primaryTransaction
+    const { transactionGroup: { primaryTransaction } } = this.props
+    const { hash, greenbeltNetworkId } = primaryTransaction
 
-    // const prefix = prefixForNetwork(greenbeltNetworkId)
-    const etherscanUrl = `https://www.truescan.net/tx/${hash}`
+    const url = truescanUrlForNetwork(greenbeltNetworkId)
+    const etherscanUrl = `${url}/tx/${hash}`
 
     global.platform.openWindow({ url: etherscanUrl })
   }
