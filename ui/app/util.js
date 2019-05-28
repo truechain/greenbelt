@@ -8,7 +8,7 @@ const GWEI_FACTOR = new ethUtil.BN(1e9)
 const MIN_GAS_PRICE_BN = MIN_GAS_PRICE_GWEI_BN.mul(GWEI_FACTOR)
 
 // formatData :: ( date: <Unix Timestamp> ) -> String
-function formatDate (date, format = 'M/d/y \'at\' T') {
+function formatDate (date, format = 'M/d/y \'at\' TT') {
   return DateTime.fromMillis(date).toFormat(format)
 }
 
